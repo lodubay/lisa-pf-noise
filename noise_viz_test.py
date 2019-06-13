@@ -7,15 +7,25 @@ import scipy.stats
 import os
 import glob
 
-# Input: a 3D array of PSDs from different points in the MCMC for a single run
-def psd_summarize(run, channel, alpha=(0.5, 0.9)):
+def psd_summarize(run_data, channel, alpha=0.9):
+    # Parameters:
+    #  run: a 3D array of all PSDs for a single run
+    #  channel: int from 1-6, the channel index we're interested in
+    #  alpha: percent credible interval
+    # Returns:
+    #  summary_psd: a 2D array with the mean PSD function and credible intervals
+    #  | frequency | mean | mean - CI | mean + CI |
     summary_psd = []
-    # For each row, find the median and credible interval across the chain
-    for j in range(run.shape[1]):
-        median = np.median(run[:,j,channel])
-        #for interval in invervals:
-            
-        
+    # For each row, find the mean and credible interval across the chain
+    for j in range(run_data.shape[1]):
+        mean, var, std = stats.mvsdist(run_data[:,j,channel])
+        summary_psd.append(np.array([
+            run_data[:,j,0], 
+            mean.mean(), 
+            mean.interval(alpha)[0], 
+            mean.interval(alpha)[1]
+        ]))
+    return summary_psd
 
 # The index of the channel we're interested in
 channel = 1
@@ -42,10 +52,6 @@ for i in range(len(psd_files)):
 run_data = np.array(run_data)
 combined = np.concatenate(run_data)
 median = np.median(run_data[:,:,channel+2], axis=0)
-
-# Individual histogram
-plt.hist(run_data[:,2,channel+2], bins=20, density=True)
-plt.show()
 
 # Set up figure
 print('Initializing figure...')
