@@ -51,7 +51,7 @@ all_data = np.ma.masked_equal(np.array(all_data), 2)
 print('Initializing figure...')
 fig1 = plt.figure(1)
 ax = fig1.add_subplot(111)
- Axes limits
+# Axes limits
 all_freq = all_data[:,:,:,0].flatten()
 all_channel = all_data[:,:,:,channel].flatten()
 ax.set_xlim(np.min(all_freq), np.max(all_freq))
