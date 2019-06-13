@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-#import matplotlib.animation as animation
 from mpl_toolkits.mplot3d import Axes3D # Registers the 3D projection
 import corner
 import numpy as np
@@ -39,3 +38,6 @@ for run_dir in run_dirs:
 # Replace trailing 2s with empty cells
 all_data = np.ma.masked_equal(np.concatenate(all_data), 2)
 print(all_data)
+
+corner.corner(all_data)
+plt.show()
