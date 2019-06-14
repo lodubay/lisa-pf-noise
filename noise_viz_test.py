@@ -1,9 +1,6 @@
 print('Importing libraries...')
 import matplotlib.pyplot as plt
-import scipy.stats as stats
-import corner
 import numpy as np
-#import scipy.stats
 from pymc3.stats import hpd
 import os
 import glob
