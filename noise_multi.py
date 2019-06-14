@@ -7,7 +7,7 @@ import glob
 # Pull PSD files from target run
 print('Importing data...')
 run = 1159724317
-run_directory = 'run_k_' + str(run)
+run_directory = 'data/run_k/run_k_' + str(run)
 os.chdir(run_directory)
 # Grab the files with a single-digit index first to sort them correctly
 # Assumes file name format 'psd.dat.#' and 'psd.dat.##'

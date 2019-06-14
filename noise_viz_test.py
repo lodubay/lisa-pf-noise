@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 #import matplotlib.animation as animation
 from mpl_toolkits.mplot3d import Axes3D # Registers the 3D projection
+import scipy.stats as stats
 import corner
 import numpy as np
 import scipy.stats
@@ -19,13 +20,16 @@ def psd_summarize(run_data, channel, alpha=0.9):
     # For each row, find the mean and credible interval across the chain
     for j in range(run_data.shape[1]):
         mean, var, std = stats.mvsdist(run_data[:,j,channel])
+        #print(run_data[:,j,0])
         summary_psd.append(np.array([
-            run_data[:,j,0], 
+            run_data[0,j,0], 
             mean.mean(), 
-            mean.interval(alpha)[0], 
-            mean.interval(alpha)[1]
+            #mean.interval(alpha)[0], 
+            #mean.interval(alpha)[1]
+            mean.interval(alpha)[0] - std.mean(),
+            mean.interval(alpha)[1] + std.mean()
         ]))
-    return summary_psd
+    return np.array(summary_psd)
 
 # The index of the channel we're interested in
 channel = 1
@@ -44,21 +48,32 @@ for i in range(len(psd_files)):
     if psd_data[-1,-1] == 2.0:
         psd_data = np.delete(psd_data, -1, 0)
     rows = psd_data.shape[0] # Number of rows in the psd.dat file
-    time_col = np.full((rows, 1), 1159724317) # GPS time column
-    chain_index = np.full((rows, 1), i) # Chain index column
-    psd_data = np.hstack((time_col, chain_index, psd_data))
+    #time_col = np.full((rows, 1), 1159724317) # GPS time column
+    #chain_index = np.full((rows, 1), i) # Chain index column
+    #psd_data = np.hstack((time_col, chain_index, psd_data))
     run_data.append(psd_data)
-# 2D array: GPS time | chain index | frequency | channel 1 | channel 2 | ...
+# 3D array
 run_data = np.array(run_data)
-combined = np.concatenate(run_data)
-median = np.median(run_data[:,:,channel+2], axis=0)
+#print(run_data)
+summary = psd_summarize(run_data, channel, alpha=0.1)
+print(summary)
 
 # Set up figure
 print('Initializing figure...')
 fig = plt.figure(1)
 ax = fig.add_subplot(111)
-plt.scatter(combined[:-1,2], combined[:-1,channel+2], marker='.')
-plt.xscale('log')
-ax.set_xlim(1e-3, np.max(combined[:-1,2]))
-ax.set_ylim(np.min(combined[:-1,channel+2]), np.max(combined[:-1,channel+2]))
-#plt.show()
+#print(summary)
+plt.fill_between(summary[:,0], summary[:,2], summary[:,3], color='orange')
+plt.plot(summary[:,0], summary[:,1])
+#plt.xscale('log')
+#ax.set_xlim(1e-3, np.max(combined[:-1,2]))
+#ax.set_ylim(np.min(combined[:-1,channel+2]), np.max(combined[:-1,channel+2]))
+plt.show()
+
+fig2 = plt.figure(2)
+ax = fig2.add_subplot(111)
+plt.hist(run_data[:,0,channel])
+ax.axvline(summary[0,1], color='r')
+ax.axvline(summary[0,2], color='g')
+ax.axvline(summary[0,3], color='g')
+plt.show()
