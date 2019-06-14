@@ -16,7 +16,6 @@ def import_run(run_dir):
     run_data = run_data[:,np.min(run_data!=2., axis=(0,2))]
     return run_data # A 3D array
     
-
 def summarize_psd(run_data, channel, alpha=0.9):
     # Parameters:
     #  run: a 3D array of all PSDs for a single run
@@ -56,12 +55,13 @@ for run_dir in run_dirs:
     times.append(time)
     print('\tImporting ' + str(time) + '...')
     run_data = import_run(run_dir)
-    # Create 2D summary array and append to running list
+    # Create 2D summary array for the desired channel and append to running list
     summaries.append(summarize_psd(run_data, channel, alpha=0.9))
 
 # Turn into 3D array
 summaries = np.array(summaries)
 times = np.array(times)
 
+# From here on, we just care about the medians. Will figure out CIs later.
+# Get differences from reference PSD
 ref_psd = get_reference_psd(summaries, channel)
-print(ref_psd)
