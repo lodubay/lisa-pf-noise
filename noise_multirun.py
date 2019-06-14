@@ -10,13 +10,13 @@ import glob
 channel = 1
 # Run directories
 top_dir = os.getcwd()
-run_dirs = sorted(glob.glob('run_k_*/'))[0:4] # only a few for testing purposes
+run_dirs = sorted(glob.glob('data/run_k/run_k_*/'))[0:1] # only a few for testing purposes
 
 # Pull PSD files from target run
 all_data = []
 times = []
 for run_dir in run_dirs:
-	run = int(run_dir[6:-1])
+	run = int(run_dir[-11:-1])
 	times.append(run)
 	print('Importing ' + str(run) + '...')
 	os.chdir(top_dir + '/' + run_dir)
