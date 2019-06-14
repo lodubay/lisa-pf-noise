@@ -1,9 +1,9 @@
+print('Importing libraries...')
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D # Registers the 3D projection
 import scipy.stats as stats
 import corner
 import numpy as np
-import scipy.stats
+#import scipy.stats
 from pymc3.stats import hpd
 import os
 import glob
@@ -22,10 +22,13 @@ def psd_summarize(run_data, channel, alpha=0.9):
     # Medians column
     medians = np.array([np.median(chan_data, axis=0)]).T
     # Credible intervals columns
+    # Uses the highest posterior density (HPD), or minimum width Bayesian CI
+    # pymc3 uses alpha to mean Type I error probability, so adjust
     credible_intervals = hpd(chan_data, alpha=1-alpha)
     summary_psd = np.hstack((frequencies, medians, credible_intervals))
     return summary_psd
 
+print('Importing data files...')
 # The index of the channel we're interested in
 channel = 1
 # Run directories
@@ -49,9 +52,8 @@ for i in range(len(psd_files)):
     run_data.append(psd_data)
 # 3D array
 run_data = np.array(run_data)
-#print(run_data)
+print('Creating summary PSD...')
 summary = psd_summarize(run_data, channel, alpha=0.9)
-print(summary)
 
 # Set up figure
 print('Initializing figure...')
