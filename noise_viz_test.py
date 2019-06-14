@@ -1,10 +1,10 @@
 import matplotlib.pyplot as plt
-#import matplotlib.animation as animation
 from mpl_toolkits.mplot3d import Axes3D # Registers the 3D projection
 import scipy.stats as stats
 import corner
 import numpy as np
 import scipy.stats
+from pymc3.stats import hpd
 import os
 import glob
 
@@ -16,20 +16,30 @@ def psd_summarize(run_data, channel, alpha=0.9):
     # Returns:
     #  summary_psd: a 2D array with the mean PSD function and credible intervals
     #  | frequency | mean | mean - CI | mean + CI |
+    frequencies = run_data[0,:,0:1]
+    # Create 2D array with columns frequency and rows chain
+    chan_data = run_data[:,:,channel]
+    # Medians column
+    medians = np.array([np.median(chan_data, axis=0)]).T
+    # Credible intervals columns
+    credible_intervals = hpd(chan_data, alpha=1-alpha)
+    summary2 = np.hstack((frequencies, medians, credible_intervals))
     summary_psd = []
     # For each row, find the mean and credible interval across the chain
     for j in range(run_data.shape[1]):
-        mean, var, std = stats.mvsdist(run_data[:,j,channel])
+        #mean, var, std = stats.mvsdist(run_data[:,j,channel])
+        freq_data = run_data[:,j,channel]
+        # The pymc3 alpha represents probability of a Type I error
+        credible_interval = hpd(freq_data, alpha=1-alpha)
         #print(run_data[:,j,0])
         summary_psd.append(np.array([
             run_data[0,j,0], 
-            mean.mean(), 
-            #mean.interval(alpha)[0], 
-            #mean.interval(alpha)[1]
-            mean.interval(alpha)[0] - std.mean(),
-            mean.interval(alpha)[1] + std.mean()
+            np.median(freq_data),
+            credible_interval[0],
+            credible_interval[1]
         ]))
-    return np.array(summary_psd)
+    return summary2
+    #return np.array(summary_psd)
 
 # The index of the channel we're interested in
 channel = 1
@@ -55,7 +65,7 @@ for i in range(len(psd_files)):
 # 3D array
 run_data = np.array(run_data)
 #print(run_data)
-summary = psd_summarize(run_data, channel, alpha=0.1)
+summary = psd_summarize(run_data, channel, alpha=0.9)
 print(summary)
 
 # Set up figure
