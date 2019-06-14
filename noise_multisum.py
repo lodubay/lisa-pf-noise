@@ -25,6 +25,9 @@ def psd_summarize(run_data, channel, alpha=0.9):
     summary_psd = np.hstack((frequencies, medians, credible_intervals))
     return summary_psd
 
+def get_reference_psd(summary_psds, channel):
+    return summary_psds[0][channel]
+
 print('Importing data files:')
 # The index of the channel we're interested in
 channel = 1
@@ -55,3 +58,5 @@ for run_dir in run_dirs:
 # Turn into 3D array
 summaries = np.array(summaries)
 times = np.array(times)
+
+ref_psd = get_reference_psd(summaries, channel)
