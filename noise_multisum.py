@@ -5,7 +5,19 @@ from pymc3.stats import hpd
 import os
 import glob
 
-def psd_summarize(run_data, channel, alpha=0.9):
+def import_run(run_dir):
+    # Grab the files with a single-digit index first to sort them correctly
+    # Assumes file name format 'psd.dat.#' and 'psd.dat.##'
+    psd_files = sorted(glob.glob(run_dir + 'psd.dat.[0-9]'))
+    psd_files += sorted(glob.glob(run_dir + 'psd.dat.[0-9][0-9]'))
+    # Import PSD files into 3D array
+    run_data = np.array([np.loadtxt(psd_file) for psd_file in psd_files])
+    # Strip rows of 2s
+    run_data = run_data[:,np.min(run_data!=2., axis=(0,2))]
+    return run_data # A 3D array
+    
+
+def summarize_psd(run_data, channel, alpha=0.9):
     # Parameters:
     #  run: a 3D array of all PSDs for a single run
     #  channel: int from 1-6, the channel index we're interested in
@@ -26,7 +38,7 @@ def psd_summarize(run_data, channel, alpha=0.9):
     return summary_psd
 
 def get_reference_psd(summary_psds, channel):
-    return summary_psds[0][channel]
+    return summary_psds[0][:,channel]
 
 print('Importing data files:')
 # The index of the channel we're interested in
@@ -43,20 +55,13 @@ for run_dir in run_dirs:
     time = int(run_dir[-11:-1]) # 10-digit GPS time
     times.append(time)
     print('\tImporting ' + str(time) + '...')
-    os.chdir(top_dir + '/' + run_dir)
-    # Grab the files with a single-digit index first to sort them correctly
-    # Assumes file name format 'psd.dat.#' and 'psd.dat.##'
-    psd_files = sorted(glob.glob('psd.dat.[0-9]'))
-    psd_files += sorted(glob.glob('psd.dat.[0-9][0-9]'))
-    # Import PSD files into 3D array
-    run_data = np.array([np.loadtxt(psd_file) for psd_file in psd_files])
-    # Strip rows of 2s
-    run_data = run_data[:,np.min(run_data!=2., axis=(0,2))]
+    run_data = import_run(run_dir)
     # Create 2D summary array and append to running list
-    summaries.append(psd_summarize(run_data, channel, alpha=0.9))
+    summaries.append(summarize_psd(run_data, channel, alpha=0.9))
 
 # Turn into 3D array
 summaries = np.array(summaries)
 times = np.array(times)
 
 ref_psd = get_reference_psd(summaries, channel)
+print(ref_psd)
