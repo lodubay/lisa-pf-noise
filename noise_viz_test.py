@@ -23,23 +23,8 @@ def psd_summarize(run_data, channel, alpha=0.9):
     medians = np.array([np.median(chan_data, axis=0)]).T
     # Credible intervals columns
     credible_intervals = hpd(chan_data, alpha=1-alpha)
-    summary2 = np.hstack((frequencies, medians, credible_intervals))
-    summary_psd = []
-    # For each row, find the mean and credible interval across the chain
-    for j in range(run_data.shape[1]):
-        #mean, var, std = stats.mvsdist(run_data[:,j,channel])
-        freq_data = run_data[:,j,channel]
-        # The pymc3 alpha represents probability of a Type I error
-        credible_interval = hpd(freq_data, alpha=1-alpha)
-        #print(run_data[:,j,0])
-        summary_psd.append(np.array([
-            run_data[0,j,0], 
-            np.median(freq_data),
-            credible_interval[0],
-            credible_interval[1]
-        ]))
-    return summary2
-    #return np.array(summary_psd)
+    summary_psd = np.hstack((frequencies, medians, credible_intervals))
+    return summary_psd
 
 # The index of the channel we're interested in
 channel = 1
@@ -78,12 +63,4 @@ plt.plot(summary[:,0], summary[:,1])
 #plt.xscale('log')
 #ax.set_xlim(1e-3, np.max(combined[:-1,2]))
 #ax.set_ylim(np.min(combined[:-1,channel+2]), np.max(combined[:-1,channel+2]))
-plt.show()
-
-fig2 = plt.figure(2)
-ax = fig2.add_subplot(111)
-plt.hist(run_data[:,0,channel])
-ax.axvline(summary[0,1], color='r')
-ax.axvline(summary[0,2], color='g')
-ax.axvline(summary[0,3], color='g')
 plt.show()
