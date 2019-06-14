@@ -40,13 +40,42 @@ def get_reference_psd(summary_psds, channel):
     # Returns a single column
     return summary_psds[0][:,channel:channel+1]
 
+def plot_time_colormap(ax, psd_differences, cmap=None, vlims=None):
+    # Parameters:
+    #  psd_differences: 2D array of differences to reference PSD
+    #  cmap: color map
+    #  vlims: tuple, color scale limits
+    if vlims:
+        vmin = vlims[0]
+        vmin = vlims[1]
+    else:
+        colorscale = np.max((
+            np.abs(np.min(psd_differences)), 
+            np.max(psd_differences)
+        ))
+        vmin = -colorscale
+        vmax = colorscale
+    im = ax.imshow(
+        psd_differences,
+        cmap=cmap,
+        aspect='auto',
+        origin='lower',
+        vmin=vmin,
+        vmax=vmin,
+        extent=[min(times), max(times), 0., 1.]
+    )
+    ax.set_xlabel('GPS time since 1,159,000,000 s')
+    ax.set_ylabel('Frequency (Hz)')
+    cbar = plt.colorbar(im, ax=ax)
+    cbar.set_label('Fractional difference from reference PSD', rotation=270)
+
 print('Importing data files:')
 # The index of the channel we're interested in
 channel = 1
 # Current directory
 top_dir = os.getcwd()
 # List of the run directories. Only using a few for testing purposes
-run_dirs = sorted(glob.glob('data/run_k/run_k_*/'))[0:4] 
+run_dirs = sorted(glob.glob('data/run_k/run_k_*/'))
 
 # Pull PSD files from target run
 summaries = [] # List of summary PSDs, one for each run
@@ -72,16 +101,25 @@ times = np.array(times)
 # Get differences from reference PSD
 ref_psd = get_reference_psd(summaries, channel)
 channel_intensity = summaries[:,:,channel].T
-difs = (channel_intensity - ref_psd) / channel_intensity
-colorscale = np.max((np.abs(np.min(difs)), np.max(difs)))
 
-plt.imshow(difs,
-        cmap='coolwarm',
-        aspect='auto',
-        origin='lower',
-        vmin=-colorscale,
-        vmax=colorscale,
-        extent=[min(times), max(times), 0., 1.]
+fig = plt.figure()
+ax1 = fig.add_subplot(221)
+ax1.title.set_text('(PSD(t) - ref) / PSD')
+plot_time_colormap(ax1, (channel_intensity - ref_psd) / channel_intensity,
+    cmap='coolwarm'
 )
-plt.colorbar()
+
+ax2 = fig.add_subplot(222)
+ax2.title.set_text('(PSD(t) - ref) / ref')
+plot_time_colormap(ax2, (channel_intensity - ref_psd) / ref_psd,
+    cmap='coolwarm',
+#    vlims=(-3,3)
+)
+
+ax3 = fig.add_subplot(223)
+ax3.title.set_text('PSD(t) / ref')
+plot_time_colormap(ax3, channel_intensity / ref_psd,
+    cmap='coolwarm',
+#    vlims=(-3,3)
+)
 plt.show()
