@@ -37,7 +37,8 @@ def summarize_psd(run_data, channel, alpha=0.9):
     return summary_psd
 
 def get_reference_psd(summary_psds, channel):
-    return summary_psds[0][:,channel]
+    # Returns a single column
+    return summary_psds[0][:,channel:channel+1]
 
 print('Importing data files:')
 # The index of the channel we're interested in
@@ -56,8 +57,13 @@ for run_dir in run_dirs:
     print('\tImporting ' + str(time) + '...')
     run_data = import_run(run_dir)
     # Create 2D summary array for the desired channel and append to running list
-    summaries.append(summarize_psd(run_data, channel, alpha=0.9))
+    summary_psd = summarize_psd(run_data, channel, alpha=0.9)
+    summaries.append(summary_psd)
 
+print('Plotting...')
+# Make all arrays the same length
+rows = min([summary.shape[0] for summary in summaries])
+summaries = [summary[:rows] for summary in summaries]
 # Turn into 3D array
 summaries = np.array(summaries)
 times = np.array(times)
@@ -65,3 +71,17 @@ times = np.array(times)
 # From here on, we just care about the medians. Will figure out CIs later.
 # Get differences from reference PSD
 ref_psd = get_reference_psd(summaries, channel)
+channel_intensity = summaries[:,:,channel].T
+difs = (channel_intensity - ref_psd) / channel_intensity
+colorscale = np.max((np.abs(np.min(difs)), np.max(difs)))
+
+plt.imshow(difs,
+        cmap='coolwarm',
+        aspect='auto',
+        origin='lower',
+        vmin=-colorscale,
+        vmax=colorscale,
+        extent=[min(times), max(times), 0., 1.]
+)
+plt.colorbar()
+plt.show()
