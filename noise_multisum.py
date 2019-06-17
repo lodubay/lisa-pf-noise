@@ -1,5 +1,6 @@
 print('Importing libraries...')
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 import numpy as np
 from pymc3.stats import hpd
 import os
@@ -109,21 +110,33 @@ channel_intensity = summaries[:,:,1].T
 
 print('Plotting...')
 fig, axs = plt.subplots(2, 2)
+# Color map
+cmap = cm.get_cmap('coolwarm')
+cmap.set_under(color='k')
+cmap.set_over(color='w')
+# Subplots
 axs[0, 0].title.set_text('(PSD(t) - ref) / PSD')
 plot_time_colormap(fig, axs[0, 0], 
     (channel_intensity - ref_psd) / channel_intensity,
-    cmap='coolwarm'
+    cmap=cmap
 )
 
 axs[0, 1].title.set_text('(PSD(t) - ref) / ref')
 plot_time_colormap(fig, axs[0, 1], (channel_intensity - ref_psd) / ref_psd,
-    cmap='coolwarm',
-#    vlims=(-3,3)
+    cmap=cmap,
+    vlims=(-3,3)
 )
 
 axs[1, 0].title.set_text('PSD(t) / ref')
 plot_time_colormap(fig, axs[1, 0], channel_intensity / ref_psd,
-    cmap='coolwarm',
+    cmap=cmap,
+    vlims=(0,2)
+)
+
+axs[1, 1].title.set_text('|PSD(t) - ref| / ref')
+plot_time_colormap(fig, axs[1, 1], 
+    np.abs(channel_intensity - ref_psd) / ref_psd,
+    cmap=cmap,
     vlims=(0,2)
 )
 plt.show()
