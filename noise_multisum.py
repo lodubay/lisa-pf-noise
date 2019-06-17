@@ -50,12 +50,17 @@ def plot_time_colormap(fig, ax, psd_differences, cmap=None, vlims=None):
     #  psd_differences: 2D array of differences to reference PSD
     #  cmap: color map
     #  vlims: tuple, color scale limits
-    if not vlims:
+    cbar_label = 'Fractional difference from reference PSD'
+    if vlims:
+        cbar_label += ' (manual scale)'
+    else:
+        # Automatically set color scale so 0 is neutral
         colorscale = np.max((
             np.abs(np.min(psd_differences)), 
             np.max(psd_differences)
         ))
         vlims = (-colorscale, colorscale)
+        cbar_label += ' (auto scale)'
     im = ax.imshow(
         psd_differences,
         cmap=cmap,
@@ -68,7 +73,7 @@ def plot_time_colormap(fig, ax, psd_differences, cmap=None, vlims=None):
     ax.set_xlabel('GPS time since 1,159,000,000 s')
     ax.set_ylabel('Frequency (Hz)')
     cbar = fig.colorbar(im, ax=ax)
-    cbar.set_label('Fractional difference from reference PSD', rotation=270)
+    cbar.set_label(cbar_label, rotation=270)
 
 print('Importing data files:')
 # The index of the channel we're interested in
