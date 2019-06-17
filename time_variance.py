@@ -6,6 +6,9 @@ from pymc3.stats import hpd
 import os
 import glob
 
+# TODO: set make auto-scaling color bar that excludes extreme values
+# TODO: try different reference psds
+
 def import_time(time_dir):
     # Grab the files with a single-digit index first to sort them correctly
     # Assumes file name format 'psd.dat.#' and 'psd.dat.##'
@@ -112,6 +115,7 @@ channel_intensity = summaries[:,:,1].T
 
 print('Plotting...')
 fig, axs = plt.subplots(2, 2)
+fig.suptitle('Channel ' + str(channel))
 # Color map
 cmap = cm.get_cmap('coolwarm')
 cmap.set_under(color='w')
