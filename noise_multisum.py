@@ -84,7 +84,7 @@ top_dir = os.getcwd()
 run = 'run_k'
 run_dir = os.path.join(top_dir, 'data', run)
 # List of the run directories. Only using a few for testing purposes
-time_dirs = sorted(glob.glob(os.path.join(run_dir, '*')))[0:4]
+time_dirs = sorted(glob.glob(os.path.join(run_dir, '*')))
 
 # Pull PSD files from target run
 summaries = [] # List of summary PSDs, one for each run
