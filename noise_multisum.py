@@ -5,68 +5,69 @@ from pymc3.stats import hpd
 import os
 import glob
 
-def import_run(run_dir):
+def import_time(time_dir):
     # Grab the files with a single-digit index first to sort them correctly
     # Assumes file name format 'psd.dat.#' and 'psd.dat.##'
-    psd_files = sorted(glob.glob(run_dir + 'psd.dat.[0-9]'))
-    psd_files += sorted(glob.glob(run_dir + 'psd.dat.[0-9][0-9]'))
+    # Returns a 3D array, formatted (PSD index, frequency, channel)
+    #  first column is the frequency
+    psd_files = sorted(glob.glob(time_dir + 'psd.dat.[0-9]'))
+    psd_files += sorted(glob.glob(time_dir + 'psd.dat.[0-9][0-9]'))
     # Import PSD files into 3D array
-    run_data = np.array([np.loadtxt(psd_file) for psd_file in psd_files])
+    time_data = np.array([np.loadtxt(psd_file) for psd_file in psd_files])
     # Strip rows of 2s
-    run_data = run_data[:,np.min(run_data!=2., axis=(0,2))]
-    return run_data # A 3D array
+    time_data = time_data[:,np.min(time_data!=2., axis=(0,2))]
+    return time_data
     
-def summarize_psd(run_data, channel, alpha=0.9):
+def summarize_psd(time_data, channel, alpha=0.9):
     # Parameters:
-    #  run: a 3D array of all PSDs for a single run
+    #  run: a 3D array of all PSDs for a single time
     #  channel: int from 1-6, the channel index we're interested in
     #  alpha: percent credible interval
     # Returns:
     #  summary_psd: a 2D array with the mean PSD function and credible intervals
-    #  | frequency | mean | mean - CI | mean + CI |
-    frequencies = run_data[0,:,0:1]
-    # Create 2D array with columns frequency and rows chain
-    chan_data = run_data[:,:,channel]
+    #  | frequency | median | mean - CI | mean + CI |
+    # Frequencies column
+    frequencies = time_data[0,:,0:1]
+    # Create 2D array with format (frequency, chain index)
+    chan_data = time_data[:,:,channel]
     # Medians column
     medians = np.array([np.median(chan_data, axis=0)]).T
     # Credible intervals columns
     # Uses the highest posterior density (HPD), or minimum width Bayesian CI
     # pymc3 uses alpha to mean Type I error probability, so adjust
     credible_intervals = hpd(chan_data, alpha=1-alpha)
-    summary_psd = np.hstack((frequencies, medians, credible_intervals))
-    return summary_psd
+    return np.hstack((frequencies, medians, credible_intervals))
 
-def get_reference_psd(summary_psds, channel):
-    # Returns a single column
-    return summary_psds[0][:,channel:channel+1]
+def get_reference_psd(summary_psds):
+    # Parameters:
+    #  summary_psds: 3D array, format (time, frequency, stats), for one channel
+    #  channel: the channel index we're interested in
+    # Returns a single column, median only
+    return summary_psds[0,:,1:2]
 
-def plot_time_colormap(ax, psd_differences, cmap=None, vlims=None):
+def plot_time_colormap(fig, ax, psd_differences, cmap=None, vlims=None):
     # Parameters:
     #  psd_differences: 2D array of differences to reference PSD
     #  cmap: color map
     #  vlims: tuple, color scale limits
-    if vlims:
-        vmin = vlims[0]
-        vmin = vlims[1]
-    else:
+    if not vlims:
         colorscale = np.max((
             np.abs(np.min(psd_differences)), 
             np.max(psd_differences)
         ))
-        vmin = -colorscale
-        vmax = colorscale
+        vlims = (-colorscale, colorscale)
     im = ax.imshow(
         psd_differences,
         cmap=cmap,
         aspect='auto',
         origin='lower',
-        vmin=vmin,
-        vmax=vmin,
+        vmin=vlims[0],
+        vmax=vlims[1],
         extent=[min(times), max(times), 0., 1.]
     )
     ax.set_xlabel('GPS time since 1,159,000,000 s')
     ax.set_ylabel('Frequency (Hz)')
-    cbar = plt.colorbar(im, ax=ax)
+    cbar = fig.colorbar(im, ax=ax)
     cbar.set_label('Fractional difference from reference PSD', rotation=270)
 
 print('Importing data files:')
@@ -75,51 +76,49 @@ channel = 1
 # Current directory
 top_dir = os.getcwd()
 # List of the run directories. Only using a few for testing purposes
-run_dirs = sorted(glob.glob('data/run_k/run_k_*/'))
+time_dirs = sorted(glob.glob('data/run_k/run_k_*/'))[0:4]
 
 # Pull PSD files from target run
 summaries = [] # List of summary PSDs, one for each run
 times = [] # List of GPS times corresponding to each run
-for run_dir in run_dirs:
-    time = int(run_dir[-11:-1]) # 10-digit GPS time
+for time_dir in time_dirs:
+    time = int(time_dir[-11:-1]) # 10-digit GPS time
     times.append(time)
     print('\tImporting ' + str(time) + '...')
-    run_data = import_run(run_dir)
+    time_data = import_time(time_dir)
     # Create 2D summary array for the desired channel and append to running list
-    summary_psd = summarize_psd(run_data, channel, alpha=0.9)
+    summary_psd = summarize_psd(time_data, channel, alpha=0.9)
     summaries.append(summary_psd)
 
-print('Plotting...')
+print('Adjusting arrays...')
 # Make all arrays the same length
 rows = min([summary.shape[0] for summary in summaries])
 summaries = [summary[:rows] for summary in summaries]
 # Turn into 3D array
 summaries = np.array(summaries)
 times = np.array(times)
-
 # From here on, we just care about the medians. Will figure out CIs later.
 # Get differences from reference PSD
-ref_psd = get_reference_psd(summaries, channel)
-channel_intensity = summaries[:,:,channel].T
+ref_psd = get_reference_psd(summaries)
+channel_intensity = summaries[:,:,1].T
 
-fig = plt.figure()
-ax1 = fig.add_subplot(221)
-ax1.title.set_text('(PSD(t) - ref) / PSD')
-plot_time_colormap(ax1, (channel_intensity - ref_psd) / channel_intensity,
+print('Plotting...')
+fig, axs = plt.subplots(2, 2)
+axs[0, 0].title.set_text('(PSD(t) - ref) / PSD')
+plot_time_colormap(fig, axs[0, 0], 
+    (channel_intensity - ref_psd) / channel_intensity,
     cmap='coolwarm'
 )
 
-ax2 = fig.add_subplot(222)
-ax2.title.set_text('(PSD(t) - ref) / ref')
-plot_time_colormap(ax2, (channel_intensity - ref_psd) / ref_psd,
+axs[0, 1].title.set_text('(PSD(t) - ref) / ref')
+plot_time_colormap(fig, axs[0, 1], (channel_intensity - ref_psd) / ref_psd,
     cmap='coolwarm',
 #    vlims=(-3,3)
 )
 
-ax3 = fig.add_subplot(223)
-ax3.title.set_text('PSD(t) / ref')
-plot_time_colormap(ax3, channel_intensity / ref_psd,
+axs[1, 0].title.set_text('PSD(t) / ref')
+plot_time_colormap(fig, axs[1, 0], channel_intensity / ref_psd,
     cmap='coolwarm',
-#    vlims=(-3,3)
+    vlims=(0,2)
 )
 plt.show()
