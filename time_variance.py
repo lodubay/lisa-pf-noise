@@ -7,7 +7,8 @@ import os
 import glob
 
 # TODO set make auto-scaling color bar that excludes extreme values
-# TODO make plots of time and frequency slices
+# TODO combine slices into one function
+# TODO look into lambdas for slice function
 
 def import_time(time_dir):
     # Grab the files with a single-digit index first to sort them correctly
@@ -42,33 +43,24 @@ def summarize_psd(time_data, channel, alpha=0.9):
     credible_intervals = hpd(chan_data, alpha=1-alpha)
     return np.hstack((frequencies, medians, credible_intervals))
 
-def get_reference_psd(summary_psds, t_index):
+def plot_colormap(fig, ax, psd, 
+        cmap=None, vlims=None, logfreq=True):
     # Parameters:
-    #  summary_psds: 3D array, format (time, frequency, stats), for one channel
-    #  channel: the channel index we're interested in
-    # Returns a single column, median only
-    return np.median(summary_psds[:,:,1:2], axis=0)
-#    return summary_psds[t_index,:,1:2]
-
-def plot_time_colormap(fig, ax, psd_differences, 
-        cmap=None, vlims=None, log=False):
-    # Parameters:
-    #  psd_differences: 2D array of differences to reference PSD
+    #  fig, ax: the figure and axes of the plot
+    #  psd: 2D array with shape (frequency, time)
     #  cmap: color map
     #  vlims: tuple, color scale limits
+    #  logfreq: if true, scales the y axis logarithmically
     cbar_label = 'Fractional difference from reference PSD'
     if vlims:
         cbar_label += ' (manual scale)'
     else:
         # Automatically set color scale so 0 is neutral
-        colorscale = np.max((
-            np.abs(np.min(psd_differences)), 
-            np.max(psd_differences)
-        ))
+        colorscale = np.max((np.abs(np.min(psd)), np.max(psd)))
         vlims = (-colorscale, colorscale)
         cbar_label += ' (auto scale)'
     im = ax.imshow(
-        psd_differences,
+        psd,
         cmap=cmap,
         aspect='auto',
         origin='lower',
@@ -76,17 +68,59 @@ def plot_time_colormap(fig, ax, psd_differences,
         vmax=vlims[1],
         extent=[min(delta_t_days), max(delta_t_days), 0., 1.]
     )
-    if log==True:
+    if logfreq:
         ax.set_yscale('log')
         ax.set_ylim(bottom=1e-3, top=1.)
     ax.set_xlabel('Time elapsed (days)')
     ax.set_ylabel('Frequency (Hz)')
     cbar = fig.colorbar(im, ax=ax)
-    cbar.set_label(cbar_label, rotation=270)
+    cbar.set_label(cbar_label, labelpad=15, rotation=270)
+    
+def plot_freq_slice(fig, ax, freq, times, summaries):
+    # Plots time vs PSD at a specific frequency
+    # Parameters:
+    #  fig, ax: the figure and axes of the plot
+    #  freq: the frequency along which to slice
+    #  summaries: 3D array, shape (time, frequency, stats)
+    #   with stats arranged | frequency | median | median - CI | median + CI |
+    freqs = summaries[0,:,0]
+    # Get the index of the nearest frequency to the one requested
+    freq_index = int(freq / (np.max(freqs) - np.min(freqs)) * freqs.shape[0])
+    ax.fill_between(times,
+        summaries[:,freq_index,2],
+        summaries[:,freq_index,3], 
+        alpha=0.5)
+    ax.plot(times, summaries[:,freq_index,1])
+    ax.set_xlabel('Time elapsed (days)')
+    ax.set_ylabel('PSD')
+    ax.title.set_text('PSD at ' + str(freq) + ' Hz')
+    
+def plot_time_slice(fig, ax, time, times, summaries, logfreq=True):
+    # Plots frequency vs PSD at a specific time
+    # Parameters:
+    #  fig, ax: the figure and axes of the plot
+    #  time: the time along which to slice
+    #  times: array of times for which data exists
+    #  summaries: 3D array, shape (time, frequency, stats)
+    #   with stats arranged | frequency | median | median - CI | median + CI |
+    # Get the index of the nearest time to the one requested
+    time_index = int(time / np.max(times) * times.shape[0])
+    ax.fill_between(summaries[time_index,:,0], 
+        summaries[time_index,:,2], 
+        summaries[time_index,:,3], 
+        alpha=0.5)
+    ax.plot(summaries[time_index,:,0], summaries[time_index,:,1])
+    ax.set_xlabel('Frequency (Hz)')
+    if logfreq:
+        ax.set_xscale('log')
+    ax.set_ylabel('PSD')
+    ax.title.set_text('PSD at ' + str(time) + ' days')
 
 # The index of the channel we're interested in
-channel = 2
+channel = 1
 channels = ['freq', 'x', 'y', 'z', 'vx', 'vy', 'vz']
+# Credible intervals
+cred = 0.9
 # Directories
 top_dir = os.getcwd()
 run = 'run_k'
@@ -123,30 +157,53 @@ else:
     print('Writing to PSD summaries file...')
     np.save(summary_file, summaries)
     
-# From here on, we just care about the medians. Will figure out CIs later.
 # Get differences from reference PSD
-ref_psd = get_reference_psd(summaries, 0)
+median_psd = np.median(summaries[:,:,1:2], axis=0)
+t0_psd = summaries[0,:,1:2]
+ref_psd = median_psd
 channel_intensity = summaries[:,:,1].T
 
 print('Plotting...')
-fig, axs = plt.subplots(1, 2)
+fig, axs = plt.subplots(1, 3)
 fig.suptitle('Channel ' + channels[channel] + ' - median comparison')
 # Color map
 cmap = cm.get_cmap('coolwarm')
 cmap.set_under(color='b')
 cmap.set_over(color='r')
 # Subplots
-axs[0].title.set_text('PSD(t) / PSD_median')
-plot_time_colormap(fig, axs[0], channel_intensity / ref_psd,
+axs[0].title.set_text('PSD(t) - PSD_median')
+plot_colormap(fig, axs[0], channel_intensity - median_psd,
+    cmap=cmap,
+    vlims=(-5e-16,5e-16),
+    logfreq=True
+)
+axs[1].title.set_text('PSD(t) / PSD_median')
+plot_colormap(fig, axs[1], channel_intensity / median_psd,
     cmap=cmap,
     vlims=(0,2),
-    log=True
+    logfreq=True
 )
-axs[1].title.set_text('|PSD(t) - PSD_median| / PSD_median')
-plot_time_colormap(fig, axs[1], 
-    np.abs(channel_intensity - ref_psd) / ref_psd,
-    cmap='Greys',
+axs[2].title.set_text('|PSD(t) - PSD_median| / PSD_median')
+plot_colormap(fig, axs[2], 
+    np.abs(channel_intensity - median_psd) / median_psd,
+    cmap='PuRd',
     vlims=(0,1),
-    log=True
+    logfreq=True
 )
 plt.show()
+
+# Frequency slice
+fig, axs = plt.subplots(1,2)
+fig.suptitle('PSDs at different frequencies over time with ' + 
+    str(100 * cred) + '% credible intervals')
+plot_freq_slice(fig, axs[0], 0.32, delta_t_days, summaries)
+plot_freq_slice(fig, axs[1], 0.5, delta_t_days, summaries)
+#plt.show()
+
+# Time slice
+fig, axs = plt.subplots(1, 2)
+fig.suptitle('PSD at multiple times with ' + 
+    str(int(100 * cred)) + '% credible intervals')
+plot_time_slice(fig, axs[0], 0, delta_t_days, summaries)
+plot_time_slice(fig, axs[1], 0.7, delta_t_days, summaries)
+#plt.show()
