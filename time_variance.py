@@ -6,10 +6,11 @@ from pymc3.stats import hpd
 import os
 import glob
 
-# TODO: set make auto-scaling color bar that excludes extreme values
-# TODO: try different reference psds
-# TODO: separate summarizing and plotting phases so I can try different plots 
-#  without re-generating the summary every time
+# TODO plot frequency on log scale
+# TODO set make auto-scaling color bar that excludes extreme values
+# TODO try different reference psds
+# TODO make plots of time and frequency slices
+# TODO convert time into days
 
 def import_time(time_dir):
     # Grab the files with a single-digit index first to sort them correctly
@@ -44,12 +45,12 @@ def summarize_psd(time_data, channel, alpha=0.9):
     credible_intervals = hpd(chan_data, alpha=1-alpha)
     return np.hstack((frequencies, medians, credible_intervals))
 
-def get_reference_psd(summary_psds):
+def get_reference_psd(summary_psds, t_index):
     # Parameters:
     #  summary_psds: 3D array, format (time, frequency, stats), for one channel
     #  channel: the channel index we're interested in
     # Returns a single column, median only
-    return summary_psds[0,:,1:2]
+    return summary_psds[t_index,:,1:2]
 
 def plot_time_colormap(fig, ax, psd_differences, cmap=None, vlims=None):
     # Parameters:
@@ -74,74 +75,74 @@ def plot_time_colormap(fig, ax, psd_differences, cmap=None, vlims=None):
         origin='lower',
         vmin=vlims[0],
         vmax=vlims[1],
-        extent=[min(times), max(times), 0., 1.]
+        extent=[min(delta_t_days), max(delta_t_days), 0., 1.]
     )
-    ax.set_xlabel('GPS time since 1,159,000,000 s')
+    ax.set_xlabel('Time elapsed (days)')
     ax.set_ylabel('Frequency (Hz)')
     cbar = fig.colorbar(im, ax=ax)
     cbar.set_label(cbar_label, rotation=270)
 
-print('Importing data files:')
 # The index of the channel we're interested in
 channel = 1
-# Current directory
+channels = ['freq', 'x', 'y', 'z', 'vx', 'vy', 'vz']
+# Directories
 top_dir = os.getcwd()
 run = 'run_k'
 run_dir = os.path.join(top_dir, 'data', run)
-# List of the run directories. Only using a few for testing purposes
-time_dirs = sorted(glob.glob(os.path.join(run_dir, '*')))
+summary_file = os.path.join(run_dir, 'summary.' + channels[channel] + '.npy')
+# Get a list of the time directories
+time_dirs = sorted(glob.glob(os.path.join(run_dir, run + '*')))
+# Array of run times
+times = np.array([int(time_dir[-10:]) for time_dir in time_dirs])
+delta_t_days = (times - times[0]) / (60 * 60 * 24)
 
-# Pull PSD files from target run
-summaries = [] # List of summary PSDs, one for each run
-times = [] # List of GPS times corresponding to each run
-for time_dir in time_dirs:
-    time = int(time_dir[-10:]) # 10-digit GPS time
-    times.append(time)
-    print('\tImporting ' + str(time) + '...')
-    time_data = import_time(time_dir)
-    # Create 2D summary array for the desired channel and append to running list
-    summary_psd = summarize_psd(time_data, channel, alpha=0.9)
-    summaries.append(summary_psd)
-
-print('Adjusting arrays...')
-# Make all arrays the same length
-rows = min([summary.shape[0] for summary in summaries])
-summaries = [summary[:rows] for summary in summaries]
-# Turn into 3D array
-summaries = np.array(summaries)
-times = np.array(times)
+print('Looking for PSD summaries file...')
+# If a summary file already exists, load it
+if summary_file in glob.glob(os.path.join(run_dir, '*')):
+    print('PSD summaries file found. Importing...')
+    summaries = np.load(summary_file)
+else:
+    print('No PSD summaries file found. Importing data files:')
+    # Pull PSD files from target run
+    summaries = [] # List of summary PSDs, one for each run
+    for time_dir in time_dirs:
+        time = int(time_dir[-10:]) # 10-digit GPS time
+        print('\tImporting ' + str(time) + '...')
+        time_data = import_time(time_dir)
+        # Create 2D summary array for the desired channel and append to running list
+        summary_psd = summarize_psd(time_data, channel, alpha=0.9)
+        summaries.append(summary_psd)
+    print('Adjusting arrays...')
+    # Make all arrays the same length
+    rows = min([summary.shape[0] for summary in summaries])
+    summaries = [summary[:rows] for summary in summaries]
+    # Turn into 3D array
+    summaries = np.array(summaries)
+    print('Writing to PSD summaries file...')
+    np.save(summary_file, summaries)
+    
 # From here on, we just care about the medians. Will figure out CIs later.
 # Get differences from reference PSD
-ref_psd = get_reference_psd(summaries)
+ref_psd = get_reference_psd(summaries, 0)
 channel_intensity = summaries[:,:,1].T
 
 print('Plotting...')
-fig, axs = plt.subplots(2, 2)
-fig.suptitle('Channel ' + str(channel))
+fig, axs = plt.subplots(1, 2)
+fig.suptitle('Channel ' + channels[channel])
 # Color map
 cmap = cm.get_cmap('coolwarm')
-cmap.set_under(color='w')
-cmap.set_over(color='k')
+cmap.set_under(color='b')
+cmap.set_over(color='r')
 # Subplots
-axs[0, 0].title.set_text('(PSD(t) - ref) / PSD')
-plot_time_colormap(fig, axs[0, 0], 
-    (channel_intensity - ref_psd) / channel_intensity,
-    cmap=cmap
-)
-axs[0, 1].title.set_text('(PSD(t) - ref) / ref')
-plot_time_colormap(fig, axs[0, 1], (channel_intensity - ref_psd) / ref_psd,
-    cmap=cmap,
-    vlims=(-3,3)
-)
-axs[1, 0].title.set_text('PSD(t) / ref')
-plot_time_colormap(fig, axs[1, 0], channel_intensity / ref_psd,
+axs[0].title.set_text('PSD(t) / PSD(t_ref)')
+plot_time_colormap(fig, axs[0], channel_intensity / ref_psd,
     cmap=cmap,
     vlims=(0,2)
 )
-axs[1, 1].title.set_text('|PSD(t) - ref| / ref')
-plot_time_colormap(fig, axs[1, 1], 
+axs[1].title.set_text('|PSD(t) - PSD(t_ref)| / PSD(t_ref)')
+plot_time_colormap(fig, axs[1], 
     np.abs(channel_intensity - ref_psd) / ref_psd,
-    cmap=cmap,
-    vlims=(0,2)
+    cmap='Greys',
+    vlims=(0,1)
 )
 plt.show()
