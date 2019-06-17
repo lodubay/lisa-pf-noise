@@ -6,11 +6,8 @@ from pymc3.stats import hpd
 import os
 import glob
 
-# TODO plot frequency on log scale
 # TODO set make auto-scaling color bar that excludes extreme values
-# TODO try different reference psds
 # TODO make plots of time and frequency slices
-# TODO convert time into days
 
 def import_time(time_dir):
     # Grab the files with a single-digit index first to sort them correctly
@@ -50,9 +47,11 @@ def get_reference_psd(summary_psds, t_index):
     #  summary_psds: 3D array, format (time, frequency, stats), for one channel
     #  channel: the channel index we're interested in
     # Returns a single column, median only
-    return summary_psds[t_index,:,1:2]
+    return np.median(summary_psds[:,:,1:2], axis=0)
+#    return summary_psds[t_index,:,1:2]
 
-def plot_time_colormap(fig, ax, psd_differences, cmap=None, vlims=None):
+def plot_time_colormap(fig, ax, psd_differences, 
+        cmap=None, vlims=None, log=False):
     # Parameters:
     #  psd_differences: 2D array of differences to reference PSD
     #  cmap: color map
@@ -77,13 +76,16 @@ def plot_time_colormap(fig, ax, psd_differences, cmap=None, vlims=None):
         vmax=vlims[1],
         extent=[min(delta_t_days), max(delta_t_days), 0., 1.]
     )
+    if log==True:
+        ax.set_yscale('log')
+        ax.set_ylim(bottom=1e-3, top=1.)
     ax.set_xlabel('Time elapsed (days)')
     ax.set_ylabel('Frequency (Hz)')
     cbar = fig.colorbar(im, ax=ax)
     cbar.set_label(cbar_label, rotation=270)
 
 # The index of the channel we're interested in
-channel = 1
+channel = 2
 channels = ['freq', 'x', 'y', 'z', 'vx', 'vy', 'vz']
 # Directories
 top_dir = os.getcwd()
@@ -128,21 +130,23 @@ channel_intensity = summaries[:,:,1].T
 
 print('Plotting...')
 fig, axs = plt.subplots(1, 2)
-fig.suptitle('Channel ' + channels[channel])
+fig.suptitle('Channel ' + channels[channel] + ' - median comparison')
 # Color map
 cmap = cm.get_cmap('coolwarm')
 cmap.set_under(color='b')
 cmap.set_over(color='r')
 # Subplots
-axs[0].title.set_text('PSD(t) / PSD(t_ref)')
+axs[0].title.set_text('PSD(t) / PSD_median')
 plot_time_colormap(fig, axs[0], channel_intensity / ref_psd,
     cmap=cmap,
-    vlims=(0,2)
+    vlims=(0,2),
+    log=True
 )
-axs[1].title.set_text('|PSD(t) - PSD(t_ref)| / PSD(t_ref)')
+axs[1].title.set_text('|PSD(t) - PSD_median| / PSD_median')
 plot_time_colormap(fig, axs[1], 
     np.abs(channel_intensity - ref_psd) / ref_psd,
     cmap='Greys',
-    vlims=(0,1)
+    vlims=(0,1),
+    log=True
 )
 plt.show()
