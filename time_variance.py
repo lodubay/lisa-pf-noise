@@ -8,6 +8,8 @@ import glob
 
 # TODO: set make auto-scaling color bar that excludes extreme values
 # TODO: try different reference psds
+# TODO: separate summarizing and plotting phases so I can try different plots 
+#  without re-generating the summary every time
 
 def import_time(time_dir):
     # Grab the files with a single-digit index first to sort them correctly
