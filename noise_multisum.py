@@ -114,8 +114,8 @@ print('Plotting...')
 fig, axs = plt.subplots(2, 2)
 # Color map
 cmap = cm.get_cmap('coolwarm')
-cmap.set_under(color='k')
-cmap.set_over(color='w')
+cmap.set_under(color='w')
+cmap.set_over(color='k')
 # Subplots
 axs[0, 0].title.set_text('(PSD(t) - ref) / PSD')
 plot_time_colormap(fig, axs[0, 0], 
