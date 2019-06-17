@@ -11,8 +11,8 @@ def import_time(time_dir):
     # Assumes file name format 'psd.dat.#' and 'psd.dat.##'
     # Returns a 3D array, formatted (PSD index, frequency, channel)
     #  first column is the frequency
-    psd_files = sorted(glob.glob(time_dir + 'psd.dat.[0-9]'))
-    psd_files += sorted(glob.glob(time_dir + 'psd.dat.[0-9][0-9]'))
+    psd_files = sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9]')))
+    psd_files += sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9][0-9]')))
     # Import PSD files into 3D array
     time_data = np.array([np.loadtxt(psd_file) for psd_file in psd_files])
     # Strip rows of 2s
@@ -81,14 +81,16 @@ print('Importing data files:')
 channel = 1
 # Current directory
 top_dir = os.getcwd()
+run = 'run_k'
+run_dir = os.path.join(top_dir, 'data', run)
 # List of the run directories. Only using a few for testing purposes
-time_dirs = sorted(glob.glob('data/run_k/run_k_*/'))
+time_dirs = sorted(glob.glob(os.path.join(run_dir, '*')))[0:4]
 
 # Pull PSD files from target run
 summaries = [] # List of summary PSDs, one for each run
 times = [] # List of GPS times corresponding to each run
 for time_dir in time_dirs:
-    time = int(time_dir[-11:-1]) # 10-digit GPS time
+    time = int(time_dir[-10:]) # 10-digit GPS time
     times.append(time)
     print('\tImporting ' + str(time) + '...')
     time_data = import_time(time_dir)
