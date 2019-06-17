@@ -82,7 +82,7 @@ channel = 1
 # Current directory
 top_dir = os.getcwd()
 # List of the run directories. Only using a few for testing purposes
-time_dirs = sorted(glob.glob('data/run_k/run_k_*/'))[0:4]
+time_dirs = sorted(glob.glob('data/run_k/run_k_*/'))
 
 # Pull PSD files from target run
 summaries = [] # List of summary PSDs, one for each run
@@ -120,19 +120,16 @@ plot_time_colormap(fig, axs[0, 0],
     (channel_intensity - ref_psd) / channel_intensity,
     cmap=cmap
 )
-
 axs[0, 1].title.set_text('(PSD(t) - ref) / ref')
 plot_time_colormap(fig, axs[0, 1], (channel_intensity - ref_psd) / ref_psd,
     cmap=cmap,
     vlims=(-3,3)
 )
-
 axs[1, 0].title.set_text('PSD(t) / ref')
 plot_time_colormap(fig, axs[1, 0], channel_intensity / ref_psd,
     cmap=cmap,
     vlims=(0,2)
 )
-
 axs[1, 1].title.set_text('|PSD(t) - ref| / ref')
 plot_time_colormap(fig, axs[1, 1], 
     np.abs(channel_intensity - ref_psd) / ref_psd,
