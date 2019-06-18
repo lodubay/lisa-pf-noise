@@ -170,7 +170,8 @@ def plot_freq_slice(fig, ax, freq, times, summaries, cred, ylim=None):
     ax.set_ylabel('PSD')
     ax.title.set_text('PSD at ' + str(freq) + ' Hz')
     
-def plot_time_slice(fig, ax, time, times, summaries, cred, logfreq=True, ylim=None):
+def plot_time_slice(fig, ax, time, times, summaries, cred, 
+        logfreq=True, ylim=None, logpsd=False):
     # Plots frequency vs PSD at a specific time
     # Parameters:
     #  fig, ax: the figure and axes of the plot
@@ -196,6 +197,8 @@ def plot_time_slice(fig, ax, time, times, summaries, cred, logfreq=True, ylim=No
         ax.set_xscale('log')
     if ylim:
         ax.set_ylim(ylim)
+    if logpsd:
+        ax.set_yscale('log')
     ax.set_ylabel('PSD')
     ax.title.set_text('PSD at ' + str(time) + ' days')
 
@@ -229,31 +232,19 @@ else:
     
 # Get differences from reference PSD
 median_psd = np.median(summaries[:,:,1:2], axis=0)
-t0_psd = summaries[0,:,1:2]
-ref_psd = median_psd
 channel_intensity = summaries[:,:,1].T
 
 print('Plotting...')
 fig, axs = plt.subplots(1, 2)
 fig.suptitle('Channel ' + channels[channel] + ' - median comparison')
-# Color map
-cmap = cm.get_cmap('coolwarm')
-cmap.set_under(color='b')
-cmap.set_over(color='r')
-shifted_cmap = shiftedColorMap(cmap, midpoint=0.2, name='shifted coolwarm')
 # Subplots
-#axs[0].title.set_text('PSD(t) - PSD_median')
-#plot_colormap(fig, axs[0], channel_intensity - median_psd,
-#    cmap=cmap,
-#    vlims=(-5e-16,5e-16),
-#    logfreq=True
-#)
-axs[0].title.set_text('PSD(t) / PSD_median')
-plot_colormap(fig, axs[0], channel_intensity / median_psd,
-    cmap=cmap,
-    vlims=(0.5,2),
+axs[0].title.set_text('PSD(t) - PSD_median')
+plot_colormap(fig, axs[0], channel_intensity - median_psd,
+    cmap=cm.get_cmap('coolwarm'),
+    vlims=(-4e-16,4e-16),
     logfreq=True,
-    neutral=1.0
+    neutral=0.0,
+    cbar_label='Absolute difference from reference PSD'
 )
 axs[1].title.set_text('|PSD(t) - PSD_median| / PSD_median')
 plot_colormap(fig, axs[1], 
@@ -270,18 +261,18 @@ cred = 0.9
 fig, axs = plt.subplots(2,2)
 fig.suptitle('Channel ' + channels[channel]
     + ' - PSDs at selected frequencies')
-plot_freq_slice(fig, axs[0,0], 0.05, delta_t_days, summaries, cred, ylim=(0, 5e-16))
-plot_freq_slice(fig, axs[0,1], 0.32, delta_t_days, summaries, cred)
-plot_freq_slice(fig, axs[1,0], 0.50, delta_t_days, summaries, cred, ylim=(0, 5e-16))
-plot_freq_slice(fig, axs[1,1], 0.68, delta_t_days, summaries, cred)
+plot_freq_slice(fig, axs[0,0], 0.01, delta_t_days, summaries, cred, ylim=(0,1e-14))
+plot_freq_slice(fig, axs[0,1], 0.10, delta_t_days, summaries, cred, ylim=(1e-15,1e-14))
+plot_freq_slice(fig, axs[1,0], 0.50, delta_t_days, summaries, cred, ylim=(3e-13,5e-13))
+plot_freq_slice(fig, axs[1,1], 0.99, delta_t_days, summaries, cred)
 #plt.show()
 
 # Time slice
 fig, axs = plt.subplots(1,1)
 fig.suptitle('Channel ' + channels[channel] + ' - PSDs at selected times')
-plot_time_slice(fig, axs, 0.65, delta_t_days, summaries, cred)
-#plot_time_slice(fig, axs, 1.00, delta_t_days, summaries, cred)
-plot_time_slice(fig, axs, 1.35, delta_t_days, summaries, cred)
-#plot_time_slice(fig, axs, 1.70, delta_t_days, summaries, cred)
+plot_time_slice(fig, axs, 0.30, delta_t_days, summaries, cred, logpsd=True)
+plot_time_slice(fig, axs, 0.62, delta_t_days, summaries, cred)
+plot_time_slice(fig, axs, 1.78, delta_t_days, summaries, cred)
+plot_time_slice(fig, axs, 1.90, delta_t_days, summaries, cred)
 axs.title.set_text('')
-#plt.show()
+plt.show()
