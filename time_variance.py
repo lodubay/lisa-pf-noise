@@ -8,20 +8,26 @@ import glob
 # TODO set make auto-scaling color bar that excludes extreme values
 # TODO look into lambdas for slice function
 
+def get_times(run):
+    # Get a list of the time directories
+    time_dirs = sorted(glob.glob(os.path.join('data', run, run + '*')))
+    # Array of run times
+    return np.array([int(time_dir[-10:]) for time_dir in time_dirs])
+
 def import_time(time_dir):
     # Grab the files with a single-digit index first to sort them correctly
     # Assumes file name format 'psd.dat.#' and 'psd.dat.##'
     # Returns a 3D array, formatted (PSD index, frequency, channel)
     #  first column is the frequency
-    psd_files = sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9]')))
-    psd_files += sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9][0-9]')))
+    print('\tImporting ' + time_dir[-11:-1] + '...')
+    psd_files = sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9]'))) + \
+        sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9][0-9]')))
     # Import PSD files into 3D array
     time_data = np.array([np.loadtxt(psd_file) for psd_file in psd_files])
     # Strip rows of 2s
-    time_data = time_data[:,np.min(time_data!=2., axis=(0,2))]
-    return time_data
+    return time_data[:,np.min(time_data!=2., axis=(0,2))]
     
-def summarize_psd(time_data, channel, alpha=0.9,):
+def summarize_psd(time_data, channel, alpha):
     # Parameters:
     #  run: a 3D array of all PSDs for a single time
     #  channel: int from 1-6, the channel index we're interested in
@@ -40,6 +46,19 @@ def summarize_psd(time_data, channel, alpha=0.9,):
     # pymc3 uses alpha to mean Type I error probability, so adjust
     credible_intervals = [hpd(chan_data, alpha=1-a) for a in alpha]
     return np.hstack((frequencies, medians) + tuple(credible_intervals))
+    
+def summarize_run(run, channel, alpha):
+    # Get a list of the time directories
+    time_dirs = sorted(glob.glob(os.path.join('data', run, run + '*/')))
+    # Pull PSD files from target run
+    print('Importing ' + run + '...')
+    # List of summary PSDs (each a 2D array), one for each time
+    # Takes a long time
+    summaries = [summarize_psd(import_time(d),channel,alpha) for d in time_dirs]
+    print('Adjusting arrays...')
+    # Make all arrays the same length and turn into 3D array
+    rows = min([summary.shape[0] for summary in summaries])
+    return np.array([summary[:rows] for summary in summaries])
 
 def plot_colormap(fig, ax, psd, 
         cmap=None, vlims=None, logfreq=True):
@@ -130,7 +149,7 @@ def plot_time_slice(fig, ax, time, times, summaries, cred, logfreq=True, ylim=No
     ax.title.set_text('PSD at ' + str(time) + ' days')
 
 # The index of the channel we're interested in
-channel = 2
+channel = 1
 channels = ['freq', 'x', 'y', 'z', 'vx', 'vy', 'vz']
 # Credible intervals
 alpha = (0.5, 0.9)
@@ -153,21 +172,7 @@ if summary_file in glob.glob(os.path.join(run_dir, '*')):
 else:
     print('No PSD summaries file found. Importing data files:')
     from pymc3.stats import hpd
-    # Pull PSD files from target run
-    summaries = [] # List of summary PSDs, one for each run
-    for time_dir in time_dirs:
-        time = int(time_dir[-10:]) # 10-digit GPS time
-        print('\tImporting ' + str(time) + '...')
-        time_data = import_time(time_dir)
-        # Create 2D summary array for the desired channel and append to running list
-        summary_psd = summarize_psd(time_data, channel, alpha=alpha)
-        summaries.append(summary_psd)
-    print('Adjusting arrays...')
-    # Make all arrays the same length
-    rows = min([summary.shape[0] for summary in summaries])
-    summaries = [summary[:rows] for summary in summaries]
-    # Turn into 3D array
-    summaries = np.array(summaries)
+    summaries = summarize_run(run, channel, alpha)
     print('Writing to PSD summaries file...')
     np.save(summary_file, summaries)
     
