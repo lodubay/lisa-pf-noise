@@ -211,7 +211,8 @@ alpha = (0.5, 0.9)
 top_dir = os.getcwd()
 run = 'run_k'
 run_dir = os.path.join(top_dir, 'data', run)
-summary_file = os.path.join(run_dir, 'summary.' + channels[channel] + '.npy')
+summary_dir = os.path.join(top_dir, 'summaries', run)
+summary_file = os.path.join(summary_dir, 'summary.' + channels[channel] + '.npy')
 # Get a list of the time directories
 time_dirs = sorted(glob.glob(os.path.join(run_dir, run + '*')))
 # Array of run times
@@ -220,7 +221,7 @@ delta_t_days = (times - times[0]) / (60 * 60 * 24)
 
 print('Looking for PSD summaries file...')
 # If a summary file already exists, load it
-if summary_file in glob.glob(os.path.join(run_dir, '*')):
+if summary_file in glob.glob(os.path.join(summary_dir, '*')):
     print('PSD summaries file found. Importing...')
     summaries = np.load(summary_file)
 else:
