@@ -254,7 +254,7 @@ plot_colormap(fig, axs[1],
     vlims=(0,1),
     logfreq=True
 )
-plt.show()
+#plt.show()
 
 cred = 0.9
 
@@ -272,8 +272,8 @@ plot_freq_slice(fig, axs[1,1], 0.99, delta_t_days, summaries, cred)
 fig, axs = plt.subplots(1,1)
 fig.suptitle('Channel ' + channels[channel] + ' - PSDs at selected times')
 plot_time_slice(fig, axs, 0.65, delta_t_days, summaries, cred, logpsd=True)
-plot_time_slice(fig, axs, 1.00, delta_t_days, summaries, cred)
+#plot_time_slice(fig, axs, 1.00, delta_t_days, summaries, cred)
 plot_time_slice(fig, axs, 1.35, delta_t_days, summaries, cred)
-plot_time_slice(fig, axs, 1.70, delta_t_days, summaries, cred)
+#plot_time_slice(fig, axs, 1.70, delta_t_days, summaries, cred)
 axs.title.set_text('')
 plt.show()
