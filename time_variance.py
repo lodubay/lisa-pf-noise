@@ -1,6 +1,7 @@
 print('Importing libraries...')
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
+import matplotlib.colors
 import numpy as np
 import os
 import glob
@@ -59,25 +60,75 @@ def summarize_run(run, channel, alpha):
     # Make all arrays the same length and turn into 3D array
     rows = min([summary.shape[0] for summary in summaries])
     return np.array([summary[:rows] for summary in summaries])
+    
+def shiftedColorMap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
+    '''
+    Function to offset the "center" of a colormap. Useful for
+    data with a negative min and positive max and you want the
+    middle of the colormap's dynamic range to be at zero.
 
-def plot_colormap(fig, ax, psd, 
-        cmap=None, vlims=None, logfreq=True):
-    # Parameters:
-    #  fig, ax: the figure and axes of the plot
-    #  psd: 2D array with shape (frequency, time)
-    #  cmap: color map
-    #  vlims: tuple, color scale limits
-    #  logfreq: if true, scales the y axis logarithmically
-    cbar_label = 'Fractional difference from reference PSD'
-    if vlims:
-        cbar_label += ' (manual scale)'
-    elif np.min(psd) > 0:
-        vlims = (0, np.max(psd))
-    else:
-        # Automatically set color scale so 0 is neutral
-        colorscale = np.max((np.abs(np.min(psd)), np.max(psd)))
-        vlims = (-colorscale, colorscale)
-        cbar_label += ' (auto scale)'
+    Input
+    -----
+      cmap : The matplotlib colormap to be altered
+      start : Offset from lowest point in the colormap's range.
+          Defaults to 0.0 (no lower offset). Should be between
+          0.0 and `midpoint`.
+      midpoint : The new center of the colormap. Defaults to 
+          0.5 (no shift). Should be between 0.0 and 1.0. In
+          general, this should be  1 - vmax / (vmax + abs(vmin))
+          For example if your data range from -15.0 to +5.0 and
+          you want the center of the colormap at 0.0, `midpoint`
+          should be set to  1 - 5/(5 + 15)) or 0.75
+      stop : Offset from highest point in the colormap's range.
+          Defaults to 1.0 (no upper offset). Should be between
+          `midpoint` and 1.0.
+    '''
+    cdict = {
+        'red': [],
+        'green': [],
+        'blue': [],
+        'alpha': []
+    }
+    # regular index to compute the colors
+    reg_index = np.linspace(start, stop, 257)
+    # shifted index to match the data
+    shift_index = np.hstack([
+        np.linspace(0.0, midpoint, 128, endpoint=False), 
+        np.linspace(midpoint, 1.0, 129, endpoint=True)
+    ])
+    for ri, si in zip(reg_index, shift_index):
+        r, g, b, a = cmap(ri)
+        cdict['red'].append((si, r, r))
+        cdict['green'].append((si, g, g))
+        cdict['blue'].append((si, b, b))
+        cdict['alpha'].append((si, a, a))
+    newcmap = matplotlib.colors.LinearSegmentedColormap(name, cdict)
+    plt.register_cmap(cmap=newcmap)
+    return newcmap
+
+def plot_colormap(fig, ax, psd, cmap, vlims,
+        logfreq=True, cbar_label=None, neutral=None):
+    '''
+    Function to plot the colormap of a PSD with frequency on the y-axis and
+    time on the x-axis.
+    
+    Input
+    -----
+      fig, ax : The figure and axes of the plot
+      psd : The PSD, a 2D array with shape (frequency, time)
+      cmap : The unaltered color map to use
+      vlims : A tuple of the color scale limits
+      logfreq : If true, scales the y-axis logarithmically
+      cbar_label : Color bar label
+      neutral : Value that should be represented by a "neutral" color
+    '''
+    if not cbar_label: cbar_label = 'Fractional difference from reference PSD'
+    if neutral:
+        cmap = shiftedColorMap(
+            cmap, 
+            midpoint=(neutral-vlims[0])/(vlims[1]-vlims[0]), 
+            name='shifted colormap'
+        )
     im = ax.imshow(
         psd,
         cmap=cmap,
@@ -138,7 +189,7 @@ def plot_time_slice(fig, ax, time, times, summaries, cred, logfreq=True, ylim=No
         alpha=0.5,
         label=str(int(100 * cred))+'% credible interval')
     ax.plot(summaries[time_index,:,0], summaries[time_index,:,1], 
-        label='Median PSD')
+        label='Median PSD at ' + str(time) + ' days')
     ax.legend()
     ax.set_xlabel('Frequency (Hz)')
     if logfreq:
@@ -183,30 +234,32 @@ ref_psd = median_psd
 channel_intensity = summaries[:,:,1].T
 
 print('Plotting...')
-fig, axs = plt.subplots(1, 3)
+fig, axs = plt.subplots(1, 2)
 fig.suptitle('Channel ' + channels[channel] + ' - median comparison')
 # Color map
 cmap = cm.get_cmap('coolwarm')
 cmap.set_under(color='b')
 cmap.set_over(color='r')
+shifted_cmap = shiftedColorMap(cmap, midpoint=0.2, name='shifted coolwarm')
 # Subplots
-axs[0].title.set_text('PSD(t) - PSD_median')
-plot_colormap(fig, axs[0], channel_intensity - median_psd,
+#axs[0].title.set_text('PSD(t) - PSD_median')
+#plot_colormap(fig, axs[0], channel_intensity - median_psd,
+#    cmap=cmap,
+#    vlims=(-5e-16,5e-16),
+#    logfreq=True
+#)
+axs[0].title.set_text('PSD(t) / PSD_median')
+plot_colormap(fig, axs[0], channel_intensity / median_psd,
     cmap=cmap,
-    vlims=(-1e-14,1e-14),
-    logfreq=True
+    vlims=(0.5,2),
+    logfreq=True,
+    neutral=1.0
 )
-axs[1].title.set_text('PSD(t) / PSD_median')
-plot_colormap(fig, axs[1], channel_intensity / median_psd,
-    cmap=cmap,
-    vlims=(-3,5),
-    logfreq=True
-)
-axs[2].title.set_text('|PSD(t) - PSD_median| / PSD_median')
-plot_colormap(fig, axs[2], 
+axs[1].title.set_text('|PSD(t) - PSD_median| / PSD_median')
+plot_colormap(fig, axs[1], 
     np.abs(channel_intensity - median_psd) / median_psd,
     cmap='PuRd',
-    vlims=(0,2.5),
+    vlims=(0,1),
     logfreq=True
 )
 plt.show()
@@ -214,17 +267,21 @@ plt.show()
 cred = 0.9
 
 # Frequency slice
-fig, axs = plt.subplots(1,2)
-fig.suptitle('PSDs at different frequencies over time with ' + 
-    str(int(100 * cred)) + '% credible intervals')
-plot_freq_slice(fig, axs[0], 0.01, delta_t_days, summaries, cred, ylim=(0, 1e-14))
-plot_freq_slice(fig, axs[1], 0.75, delta_t_days, summaries, cred)
-plt.show()
+fig, axs = plt.subplots(2,2)
+fig.suptitle('Channel ' + channels[channel]
+    + ' - PSDs at selected frequencies')
+plot_freq_slice(fig, axs[0,0], 0.05, delta_t_days, summaries, cred, ylim=(0, 5e-16))
+plot_freq_slice(fig, axs[0,1], 0.32, delta_t_days, summaries, cred)
+plot_freq_slice(fig, axs[1,0], 0.50, delta_t_days, summaries, cred, ylim=(0, 5e-16))
+plot_freq_slice(fig, axs[1,1], 0.68, delta_t_days, summaries, cred)
+#plt.show()
 
 # Time slice
-fig, axs = plt.subplots(1, 2)
-fig.suptitle('PSD at multiple times with ' + 
-    str(int(100 * cred)) + '% credible intervals')
-plot_time_slice(fig, axs[0], 0.14, delta_t_days, summaries, cred, ylim=(0, 1e-15))
-plot_time_slice(fig, axs[1], 1.8, delta_t_days, summaries, cred, ylim=(0, 1e-14))
-plt.show()
+fig, axs = plt.subplots(1,1)
+fig.suptitle('Channel ' + channels[channel] + ' - PSDs at selected times')
+plot_time_slice(fig, axs, 0.65, delta_t_days, summaries, cred)
+#plot_time_slice(fig, axs, 1.00, delta_t_days, summaries, cred)
+plot_time_slice(fig, axs, 1.35, delta_t_days, summaries, cred)
+#plot_time_slice(fig, axs, 1.70, delta_t_days, summaries, cred)
+axs.title.set_text('')
+#plt.show()
