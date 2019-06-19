@@ -5,69 +5,8 @@ import matplotlib.colors
 import numpy as np
 import os
 import glob
-from astropy.time import Time
-
-# TODO set make auto-scaling color bar that excludes extreme values
-# TODO look into lambdas for slice function
-
-def get_times(run):
-    # Get a list of the time directories
-    time_dirs = sorted(glob.glob(os.path.join('data', run, run + '*')))
-    # Array of run times
-    return np.array([int(time_dir[-10:]) for time_dir in time_dirs])
-    
-def get_days_elapsed(gps_times):
-    return (gps_times - gps_times[0]) / (60 * 60 * 24)
-    
-def get_iso_date(gps_int):
-    gps_time = Time(gps_int, format='gps')
-    return Time(gps_time, format='iso')
-
-def import_time(time_dir):
-    # Grab the files with a single-digit index first to sort them correctly
-    # Assumes file name format 'psd.dat.#' and 'psd.dat.##'
-    # Returns a 3D array, formatted (PSD index, frequency, channel)
-    #  first column is the frequency
-    print('\tImporting ' + time_dir[-11:-1] + '...')
-    psd_files = sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9]'))) + \
-        sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9][0-9]')))
-    # Import PSD files into 3D array
-    time_data = np.array([np.loadtxt(psd_file) for psd_file in psd_files])
-    # Strip rows of 2s
-    return time_data[:,np.min(time_data!=2., axis=(0,2))]
-    
-def summarize_psd(time_data, channel):
-    # Parameters:
-    #  run: a 3D array of all PSDs for a single time
-    #  channel: int from 1-6, the channel index we're interested in
-    # Returns:
-    #  summary_psd: a 2D array with the mean PSD function and credible intervals
-    #  | frequency | median | mean - CI1 | mean + CI1 | mean - CI2 | ...
-    # Frequencies column
-    frequencies = time_data[0,:,0:1]
-    # Create 2D array with format (frequency, chain index)
-    chan_data = time_data[:,:,channel]
-    # Medians column
-    medians = np.array([np.median(chan_data, axis=0)]).T
-    # Credible intervals columns
-    # Uses the highest posterior density (HPD), or minimum width Bayesian CI
-    # pymc3 uses alpha to mean Type I error probability, so adjust
-    alpha = (0.5, 0.9)
-    credible_intervals = [hpd(chan_data, alpha=1-a) for a in alpha]
-    return np.hstack((frequencies, medians) + tuple(credible_intervals))
-    
-def summarize_run(run, channel):
-    # Get a list of the time directories
-    time_dirs = sorted(glob.glob(os.path.join('data', run, run + '*/')))
-    # Pull PSD files from target run
-    print('Importing ' + run + '...')
-    # List of summary PSDs (each a 2D array), one for each time
-    # Takes a long time
-    summaries = [summarize_psd(import_time(d),channel) for d in time_dirs]
-    print('Adjusting arrays...')
-    # Make all arrays the same length and turn into 3D array
-    rows = min([summary.shape[0] for summary in summaries])
-    return np.array([summary[:rows] for summary in summaries])
+import summarize_run
+import time_functions as tf
     
 def shiftedColorMap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     '''
@@ -145,15 +84,15 @@ def plot_colormap(fig, ax, psd, gps_times, cmap, vlims,
         vmin=vlims[0],
         vmax=vlims[1],
         extent=[
-            get_days_elapsed(gps_times)[0], 
-            get_days_elapsed(gps_times)[-1], 
+            tf.get_days_elapsed(gps_times)[0], 
+            tf.get_days_elapsed(gps_times)[-1], 
             0., 1.
         ]
     )
     if logfreq:
         ax.set_yscale('log')
         ax.set_ylim(bottom=1e-3, top=1.)
-    ax.set_xlabel('Days elapsed since ' + str(get_iso_date(gps_times[0])) + ' UTC')
+    ax.set_xlabel('Days elapsed since ' + str(tf.get_iso_date(gps_times[0])) + ' UTC')
     ax.set_ylabel('Frequency (Hz)')
     cbar = fig.colorbar(im, ax=ax)
     cbar.set_label(cbar_label, labelpad=15, rotation=270)
@@ -168,7 +107,8 @@ def plot_freq_slice(fig, ax, freq, gps_times, summaries, color, ylim=None):
     freqs = summaries[0,:,0]
     # Get the index of the nearest frequency to the one requested
     freq_index = int(freq / (np.max(freqs) - np.min(freqs)) * freqs.shape[0])
-    days_elapsed = get_days_elapsed(gps_times)
+    freq = np.round(freqs[freq_index], decimals=4)
+    days_elapsed = tf.get_days_elapsed(gps_times)
     ax.fill_between(days_elapsed,
         summaries[:,freq_index,2],
         summaries[:,freq_index,3], 
@@ -184,7 +124,7 @@ def plot_freq_slice(fig, ax, freq, gps_times, summaries, color, ylim=None):
     ax.plot(days_elapsed, summaries[:,freq_index,1], 
         label='Median PSD at ' + str(freq) + ' Hz', color=color)
     ax.legend()
-    ax.set_xlabel('Days elapsed since ' + str(get_iso_date(gps_times[0])) + ' UTC')
+    ax.set_xlabel('Days elapsed since ' + str(tf.get_iso_date(gps_times[0])) + ' UTC')
     if ylim:
         ax.set_ylim(ylim)
     ax.set_ylabel('PSD')
@@ -202,8 +142,9 @@ def plot_time_slice(fig, ax, day, gps_times, summaries, color,
     #  logfreq: whether to plot frequency on a log scale
     #  ylim: optional y axis limits, tuple
     # Get the index of the nearest time to the one requested
-    days_elapsed = get_days_elapsed(gps_times)
+    days_elapsed = tf.get_days_elapsed(gps_times)
     time_index = int(day / np.max(days_elapsed) * days_elapsed.shape[0])
+    day = np.round(days_elapsed[time_index], decimals=2)
     ax.fill_between(summaries[time_index,:,0], 
         summaries[time_index,:,2], 
         summaries[time_index,:,3],
@@ -228,47 +169,39 @@ def plot_time_slice(fig, ax, day, gps_times, summaries, color,
     if logpsd:
         ax.set_yscale('log')
     ax.set_ylabel('PSD')
-    ax.title.set_text('PSD at ' + str(get_iso_date(gps_times[time_index])) + ' UTC')
+    ax.title.set_text('PSD at ' + str(tf.get_iso_date(gps_times[time_index])) + ' UTC')
 
-# The index of the channel we're interested in
-channel = 2
-channels = ['freq', 'x', 'y', 'z', 'vx', 'vy', 'vz']
-# Directories
-top_dir = os.getcwd()
+# Parameters
+channel = 6
+cols = ['freq', 'a_x', 'a_y', 'a_z', 'theta_x', 'theta_y', 'theta_z']
 run = 'run_k'
-run_dir = os.path.join(top_dir, 'data', run)
-summary_dir = os.path.join(top_dir, 'summaries', run)
-summary_file = os.path.join(summary_dir, 'summary.' + channels[channel] + '.npy')
-# Get a list of the time directories
-time_dirs = sorted(glob.glob(os.path.join(run_dir, run + '*')))
-# Array of run times
-times = np.array([int(time_dir[-10:]) for time_dir in time_dirs])
-delta_t_days = (times - times[0]) / (60 * 60 * 24)
 
-print('Looking for PSD summaries file...')
-# If a summary file already exists, load it
-if summary_file in glob.glob(os.path.join(summary_dir, '*')):
-    print('PSD summaries file found. Importing...')
-    summaries = np.load(summary_file)
-else:
-    print('No PSD summaries file found. Importing data files:')
-    from pymc3.stats import hpd
-    summaries = summarize_run(run, channel)
-    print('Writing to PSD summaries file...')
-    np.save(summary_file, summaries)
+# Directory and time array stuff
+summary_dir = os.path.join('summaries', run)
+summary_file = os.path.join(summary_dir, 'summary.' + cols[channel] + '.npy')
+times = tf.get_gps_times(run)
+delta_t_days = tf.get_days_elapsed(times)
+
+# If a summary file doesn't exist, generate it
+if not summary_file in glob.glob(os.path.join(summary_dir, '*')):
+    print('No PSD summaries file found. Importing data files...')
+    summarize_run.save_summary(run, channel, cols[channel])
+print('PSD summaries file found. Importing...')
+summaries = np.load(summary_file)
     
 # Get differences from reference PSD
 median_psd = np.median(summaries[:,:,1:2], axis=0)
 channel_intensity = summaries[:,:,1].T
 
+# Plot colormaps
 print('Plotting...')
 fig, axs = plt.subplots(1, 2)
-fig.suptitle('Channel ' + channels[channel] + ' - median comparison')
+fig.suptitle('Channel ' + cols[channel] + ' - median comparison')
 # Subplots
 axs[0].title.set_text('PSD(t) - PSD_median')
 plot_colormap(fig, axs[0], channel_intensity - median_psd, times,
     cmap=cm.get_cmap('coolwarm'),
-    vlims=(-1e-13,1e-13),
+    vlims=(-2e-15,2e-15),
     logfreq=True,
     neutral=0.0,
     cbar_label='Absolute difference from reference PSD'
@@ -278,30 +211,28 @@ plot_colormap(fig, axs[1],
     np.abs(channel_intensity - median_psd) / median_psd,
     times,
     cmap='PuRd',
-    vlims=(0,3),
+    vlims=(0,0.5),
     logfreq=True
 )
-plt.show()
-
-cred = 0.9
+#plt.show()
 
 # Frequency slice
 fig, axs = plt.subplots(2,2)
-fig.suptitle('Channel ' + channels[channel]
+fig.suptitle('Channel ' + cols[channel]
     + ' - PSDs at selected frequencies')
-plot_freq_slice(fig, axs[0,0], 0.01, times, summaries, 'b', ylim=(0,1e-14))
-plot_freq_slice(fig, axs[0,1], 0.10, times, summaries, 'b', ylim=(1e-15, 1e-14))
-plot_freq_slice(fig, axs[1,0], 0.50, times, summaries, 'b', ylim=(2e-13,5e-13))
-plot_freq_slice(fig, axs[1,1], 0.99, times, summaries, 'b')
+plot_freq_slice(fig, axs[0,0], 0.01, times, summaries, 'b', ylim=(0e-15,3.5e-15))
+plot_freq_slice(fig, axs[0,1], 0.10, times, summaries, 'b', ylim=(1e-15, 4.5e-15))
+plot_freq_slice(fig, axs[1,0], 0.32, times, summaries, 'b', ylim=(0,2e-14))
+plot_freq_slice(fig, axs[1,1], 0.50, times, summaries, 'b', ylim=(0,2e-14))
 #plt.show()
 
 # Time slice
 fig, axs = plt.subplots(1,1)
-fig.suptitle('Channel ' + channels[channel] + ' - PSDs at selected times since '
-    + str(get_iso_date(times[0])) + ' UTC')
-plot_time_slice(fig, axs, 0.30, times, summaries, 'b', logpsd=True)
-plot_time_slice(fig, axs, 0.62, times, summaries, 'g')
-plot_time_slice(fig, axs, 1.78, times, summaries, 'orange')
-plot_time_slice(fig, axs, 1.90, times, summaries, 'r')
+fig.suptitle('Channel ' + cols[channel] + ' - PSDs at selected times since '
+    + str(tf.get_iso_date(times[0])) + ' UTC')
+plot_time_slice(fig, axs, 0.32, times, summaries, 'b', logpsd=True)
+plot_time_slice(fig, axs, 0.50, times, summaries, 'g')
+plot_time_slice(fig, axs, 1.50, times, summaries, 'orange')
+plot_time_slice(fig, axs, 2.50, times, summaries, 'r')
 axs.title.set_text('')
-#plt.show()
+plt.show()
