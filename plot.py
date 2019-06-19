@@ -107,6 +107,7 @@ def plot_freq_slice(fig, ax, freq, gps_times, summaries, color, ylim=None):
     freqs = summaries[0,:,0]
     # Get the index of the nearest frequency to the one requested
     freq_index = int(freq / (np.max(freqs) - np.min(freqs)) * freqs.shape[0])
+    freq = np.round(freqs[freq_index], decimals=4)
     days_elapsed = tf.get_days_elapsed(gps_times)
     ax.fill_between(days_elapsed,
         summaries[:,freq_index,2],
@@ -212,17 +213,17 @@ plot_colormap(fig, axs[1],
     vlims=(0,2),
     logfreq=True
 )
-plt.show()
+#plt.show()
 
 # Frequency slice
 fig, axs = plt.subplots(2,2)
 fig.suptitle('Channel ' + cols[channel]
     + ' - PSDs at selected frequencies')
-plot_freq_slice(fig, axs[0,0], 0.01, times, summaries, 'b', ylim=(0,1e-14))
-plot_freq_slice(fig, axs[0,1], 0.10, times, summaries, 'b', ylim=(1e-15, 1e-14))
-plot_freq_slice(fig, axs[1,0], 0.50, times, summaries, 'b', ylim=(2e-13,5e-13))
-plot_freq_slice(fig, axs[1,1], 0.99, times, summaries, 'b')
-#plt.show()
+plot_freq_slice(fig, axs[0,0], 0.001, times, summaries, 'b', ylim=(0, 3e-14))
+plot_freq_slice(fig, axs[0,1], 0.01, times, summaries, 'b', ylim=(0, 3e-14))
+plot_freq_slice(fig, axs[1,0], 0.10, times, summaries, 'b')
+plot_freq_slice(fig, axs[1,1], 0.30, times, summaries, 'b')
+plt.show()
 
 # Time slice
 fig, axs = plt.subplots(1,1)
