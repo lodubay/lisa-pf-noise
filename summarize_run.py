@@ -3,19 +3,7 @@ from pymc3.stats import hpd
 import numpy as np
 import os
 import glob
-
-def get_times(run):
-    # Get a list of the time directories
-    time_dirs = sorted(glob.glob(os.path.join('data', run, run + '*')))
-    # Array of run times
-    return np.array([int(time_dir[-10:]) for time_dir in time_dirs])
-    
-def get_days_elapsed(gps_times):
-    return (gps_times - gps_times[0]) / (60 * 60 * 24)
-    
-def get_iso_date(gps_int):
-    gps_time = Time(gps_int, format='gps')
-    return Time(gps_time, format='iso')
+import time_functions
 
 def import_time(time_dir):
     # Grab the files with a single-digit index first to sort them correctly
@@ -33,7 +21,7 @@ def import_time(time_dir):
 def summarize_psd(time_data, channel):
     '''
     Returns a 2D array with the median and credible intervals for one time.
-    The columns are | frequency | median | 50% C.I. low | 50% C.I. high | 
+    The columns are | frequency | median PSD | 50% C.I. low | 50% C.I. high | 
     90% C.I. low | 90% C.I. high |. Credible intervals are calculated using
     pymc3's highest posterior density (HPD) function, where alpha is the 
     desired probability of type I error (so, 1 - C.I.).
@@ -51,21 +39,30 @@ def summarize_psd(time_data, channel):
     ))
     
 def summarize_run(run, channel):
-    # Directory stuff
-    top_dir = os.getcwd()
-    time_dirs = sorted(glob.glob(os.path.join(top_dir, 'data', run, run+'*/')))
+    '''
+    Returns a 3D array of PSD summaries across multiple times from one run
+    folder. The first index represents time, the second frequency and the third
+    columns (see summarize_psd).
     
-    # Time arrays
-    gps_times = np.array([int(time_dir[-11:-1]) for time_dir in time_dirs])
-    delta_t_days = (gps_times - gps_times[0]) / (60 * 60 * 24)
+    Note that actual times are not included in the final output. These need to
+    be generated using time_functions.py.
+    
+    Input
+    -----
+      run : string, name of the run directory
+      channel : int, index of the channel of interest
+    '''
+    # Get list of time directories within run directory
+    time_dirs = time_functions.get_time_dirs(run)
     
     # Pull PSD files from target run
     print('Importing ' + run + '...')
     # List of summary PSDs (each a 2D array), one for each time
     # Takes a long time
     summaries = [summarize_psd(import_time(d), channel) for d in time_dirs]
-    print('Adjusting arrays...')
+    
     # Make all arrays the same length and turn into 3D array
+    print('Adjusting arrays...')
     min_rows = min([summary.shape[0] for summary in summaries])
     return np.array([summary[:min_rows] for summary in summaries])
     
@@ -87,7 +84,7 @@ def save_summary(run, channel):
     # Save summary file
     print('Writing to PSD summaries file...')
     np.save(
-        os.path.join(os.getcwd(),'summaries',run,'summary.'+cols[channel]+'.npy'),
+        os.path.join('summaries', run, 'summary.' + cols[channel] + '.npy'),
         summaries
     )
     
