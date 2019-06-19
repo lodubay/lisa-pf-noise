@@ -170,8 +170,8 @@ def plot_time_slice(fig, ax, day, gps_times, summaries, color,
     ax.title.set_text('PSD at ' + str(tf.get_iso_date(gps_times[time_index])) + ' UTC')
 
 # Parameters
-channel = 1
-cols = ['freq', 'x', 'y', 'z', 'vx', 'vy', 'vz']
+channel = 3
+cols = ['freq', 'a_x', 'a_y', 'a_z', 'theta_x', 'theta_y', 'theta_z']
 run = 'run_k'
 
 # Directory and time array stuff
@@ -199,7 +199,7 @@ fig.suptitle('Channel ' + cols[channel] + ' - median comparison')
 axs[0].title.set_text('PSD(t) - PSD_median')
 plot_colormap(fig, axs[0], channel_intensity - median_psd, times,
     cmap=cm.get_cmap('coolwarm'),
-    vlims=(-4e-16,4e-16),
+    vlims=(-5e-15,5e-15),
     logfreq=True,
     neutral=0.0,
     cbar_label='Absolute difference from reference PSD'
@@ -209,7 +209,7 @@ plot_colormap(fig, axs[1],
     np.abs(channel_intensity - median_psd) / median_psd,
     times,
     cmap='PuRd',
-    vlims=(0,1),
+    vlims=(0,2),
     logfreq=True
 )
 plt.show()
