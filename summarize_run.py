@@ -6,11 +6,15 @@ import glob
 import time_functions
 
 def import_time(time_dir):
-    # Grab the files with a single-digit index first to sort them correctly
-    # Assumes file name format 'psd.dat.#' and 'psd.dat.##'
-    # Returns a 3D array, formatted (PSD index, frequency, channel)
-    #  first column is the frequency
+    '''
+    Import and combine all psd.dat files in a single time directory. Assumes
+    file name format 'psd.dat.#' and 'psd.dat.##'. Returns a 3D array with
+    the first index representing the PSD index, the second representing
+    frequency, and the third representing data channel. The first item in
+    every row is the frequency corresponding to that row.
+    '''
     print('\tImporting ' + time_dir[-11:-1] + '...')
+    # Sort so that (for example) psd.dat.2 is sorted after psd.dat.19
     psd_files = sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9]'))) + \
         sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9][0-9]')))
     # Import PSD files into 3D array
@@ -87,5 +91,4 @@ def save_summary(run, channel):
         os.path.join('summaries', run, 'summary.' + cols[channel] + '.npy'),
         summaries
     )
-    
 
