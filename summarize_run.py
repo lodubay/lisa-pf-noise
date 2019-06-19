@@ -31,24 +31,24 @@ def import_time(time_dir):
     return time_data[:,np.min(time_data!=2., axis=(0,2))]
     
 def summarize_psd(time_data, channel):
-    # Parameters:
-    #  run: a 3D array of all PSDs for a single time
-    #  channel: int from 1-6, the channel index we're interested in
-    # Returns:
-    #  summary_psd: a 2D array with the mean PSD function and credible intervals
-    #  | frequency | median | mean - CI1 | mean + CI1 | mean - CI2 | ...
-    # Frequencies column
-    frequencies = time_data[0,:,0:1]
-    # Create 2D array with format (frequency, chain index)
-    chan_data = time_data[:,:,channel]
-    # Medians column
-    medians = np.array([np.median(chan_data, axis=0)]).T
-    # Credible intervals columns
-    # Uses the highest posterior density (HPD), or minimum width Bayesian CI
-    # pymc3 uses alpha to mean Type I error probability, so adjust
-    alpha = (0.5, 0.9)
-    credible_intervals = [hpd(chan_data, alpha=1-a) for a in alpha]
-    return np.hstack((frequencies, medians) + tuple(credible_intervals))
+    '''
+    Returns a 2D array with the median and credible intervals for one time.
+    The columns are | frequency | median | 50% C.I. low | 50% C.I. high | 
+    90% C.I. low | 90% C.I. high |. Credible intervals are calculated using
+    pymc3's highest posterior density (HPD) function, where alpha is the 
+    desired probability of type I error (so, 1 - C.I.).
+    
+    Input
+    -----
+      time_data: a 3D array of all PSDs for a single time
+      channel: int, index of the channel of index
+    '''
+    return np.hstack((
+        time_data[0,:,0:1], # frequencies
+        np.array([np.median(time_data[:,:,channel], axis=0)]).T, # medians
+        hpd(chan_data, alpha=0.5), # 50% credible interval
+        hpd(chan_data, alpha=0.1)  # 90% credible interval
+    ))
     
 def summarize_run(run, channel):
     # Directory stuff
@@ -76,18 +76,18 @@ def save_summary(run, channel):
     Input
     -----
       run : string, name of the run directory
-      channel : string, name of the channel of interest
+      channel : int, index of the channel of interest
     '''
     # Column headers
     cols = ['freq', 'x', 'y', 'z', 'vx', 'vy', 'vz']
     
     # Summarize run
-    summaries = summarize_run(run, cols.index(channel))
+    summaries = summarize_run(run, channel)
     
     # Save summary file
     print('Writing to PSD summaries file...')
     np.save(
-        os.path.join(os.getcwd(),'summaries',run,'summary.'+channel+'.npy'),
+        os.path.join(os.getcwd(),'summaries',run,'summary.'+cols[channel]+'.npy'),
         summaries
     )
     
