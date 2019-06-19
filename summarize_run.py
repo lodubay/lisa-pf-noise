@@ -1,24 +1,27 @@
 print('Importing dependencies...')
 from pymc3.stats import hpd
 import numpy as np
+import pandas as pd
 import os
 import glob
 import time_functions
-
-def import_time(time_dir):
+    
+def import_time_pd(time_dir):
     '''
     Import and combine all psd.dat files in a single time directory. Assumes
     file name format 'psd.dat.#' and 'psd.dat.##'. Returns a 3D array with
     the first index representing the PSD index, the second representing
     frequency, and the third representing data channel. The first item in
     every row is the frequency corresponding to that row.
+    
+    Uses pandas to import since it's much faster, then converts to numpy.
     '''
     print('\tImporting ' + time_dir[-11:-1] + '...')
     # Sort so that (for example) psd.dat.2 is sorted after psd.dat.19
     psd_files = sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9]'))) + \
         sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9][0-9]')))
     # Import PSD files into 3D array
-    time_data = np.array([np.loadtxt(psd_file) for psd_file in psd_files])
+    time_data = np.array([pd.read_csv(psd, sep=' ').to_numpy() for psd in psd_files])
     # Strip rows of 2s
     return time_data[:,np.min(time_data!=2., axis=(0,2))]
     
@@ -32,12 +35,13 @@ def summarize_psd(time_data, channel):
     
     Input
     -----
-      time_data: a 3D array of all PSDs for a single time
-      channel: int, index of the channel of index
+      time_data : a 3D array of all PSDs for a single time
+      channel : int, index of the channel of index
     '''
+    chan_data = time_data[:,:,channel] # 2D array with just one channel
     return np.hstack((
         time_data[0,:,0:1], # frequencies
-        np.array([np.median(time_data[:,:,channel], axis=0)]).T, # medians
+        np.array([np.median(chan_data, axis=0)]).T, # medians
         hpd(chan_data, alpha=0.5), # 50% credible interval
         hpd(chan_data, alpha=0.1)  # 90% credible interval
     ))
@@ -63,14 +67,14 @@ def summarize_run(run, channel):
     print('Importing ' + run + '...')
     # List of summary PSDs (each a 2D array), one for each time
     # Takes a long time
-    summaries = [summarize_psd(import_time(d), channel) for d in time_dirs]
+    summaries = [summarize_psd(import_time_pd(d), channel) for d in time_dirs]
     
     # Make all arrays the same length and turn into 3D array
     print('Adjusting arrays...')
     min_rows = min([summary.shape[0] for summary in summaries])
     return np.array([summary[:min_rows] for summary in summaries])
     
-def save_summary(run, channel):
+def save_summary(run, channel, cols=['freq', 'x', 'y', 'z', 'vx', 'vy', 'vz']):
     '''
     Calls summarize_run() and writes output to binary .npy file
     
@@ -78,14 +82,9 @@ def save_summary(run, channel):
     -----
       run : string, name of the run directory
       channel : int, index of the channel of interest
+      cols : column headers, usually frequency followed by channel names
     '''
-    # Column headers
-    cols = ['freq', 'x', 'y', 'z', 'vx', 'vy', 'vz']
-    
-    # Summarize run
     summaries = summarize_run(run, channel)
-    
-    # Save summary file
     print('Writing to PSD summaries file...')
     np.save(
         os.path.join('summaries', run, 'summary.' + cols[channel] + '.npy'),

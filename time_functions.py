@@ -3,7 +3,7 @@ import os
 import glob
 from astropy.time import Time
 
-def get_time_dirs(run)
+def get_time_dirs(run):
     '''
     Returns a list of paths to all time directories in the desired run,
     relative to the current working directory (usually that of the script).
