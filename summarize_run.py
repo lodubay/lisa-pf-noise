@@ -5,6 +5,8 @@ import pandas as pd
 import os
 import glob
 import time_functions
+
+# TODO make everything run with pandas?
     
 def import_time_pd(time_dir):
     '''
@@ -74,7 +76,7 @@ def summarize_run(run, channel):
     min_rows = min([summary.shape[0] for summary in summaries])
     return np.array([summary[:min_rows] for summary in summaries])
     
-def save_summary(run, channel, cols=['freq', 'x', 'y', 'z', 'vx', 'vy', 'vz']):
+def save_summary(run, channel, ch_name):
     '''
     Calls summarize_run() and writes output to binary .npy file
     
@@ -82,12 +84,12 @@ def save_summary(run, channel, cols=['freq', 'x', 'y', 'z', 'vx', 'vy', 'vz']):
     -----
       run : string, name of the run directory
       channel : int, index of the channel of interest
-      cols : column headers, usually frequency followed by channel names
+      ch_name : string, name of the channel of interest
     '''
     summaries = summarize_run(run, channel)
     print('Writing to PSD summaries file...')
     np.save(
-        os.path.join('summaries', run, 'summary.' + cols[channel] + '.npy'),
+        os.path.join('summaries', run, 'summary.' + ch_name + '.npy'),
         summaries
     )
 
