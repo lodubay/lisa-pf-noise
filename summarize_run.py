@@ -46,9 +46,9 @@ def summarize_psd(time_data, channel):
       channel : int, index of the channel of index
     '''
     cols = ['Median', 'Low 50% CI', 'High 50% CI', 'Low 90% CI', 'High 90% CI']
-    #return pd.DataFrame({
-    #    'Median'    : time_data.median(axis=1),
-    #    'Low 50% CI': time_data.
+    return pd.DataFrame({
+        'Median'    : time_data.median(axis=1),
+        'Low 50% CI': time_data.
     chan_data = time_data[:,:,channel] # 2D array with just one channel
     return np.hstack((
         time_data[0,:,0:1], # frequencies
