@@ -97,7 +97,7 @@ def plot_colormap(fig, ax, psd, gps_times, cmap, vlims,
     cbar = fig.colorbar(im, ax=ax)
     cbar.set_label(cbar_label, labelpad=15, rotation=270)
     
-def plot_freq_slice(fig, ax, freq, gps_times, summaries, color, ylim=None):
+def plot_freq_slice(fig, ax, freq, gps_times, summaries, color='b', ylim=None):
     # Plots time vs PSD at a specific frequency
     # Parameters:
     #  fig, ax: the figure and axes of the plot
@@ -143,8 +143,13 @@ def plot_time_slice(fig, ax, day, gps_times, summaries, color,
     #  ylim: optional y axis limits, tuple
     # Get the index of the nearest time to the one requested
     days_elapsed = tf.get_days_elapsed(gps_times)
-    time_index = int(day / np.max(days_elapsed) * days_elapsed.shape[0])
+    #print(days_elapsed)
+    #print(days_elapsed.shape[0])
+    #time_index = int(day / np.max(days_elapsed) * days_elapsed.shape[0])
+    time_index = np.argmin(np.abs(days_elapsed - day))
+    #print(days_elapsed[time_index])
     day = np.round(days_elapsed[time_index], decimals=2)
+    #print(day)
     ax.fill_between(summaries[time_index,:,0], 
         summaries[time_index,:,2], 
         summaries[time_index,:,3],
@@ -172,9 +177,9 @@ def plot_time_slice(fig, ax, day, gps_times, summaries, color,
     ax.title.set_text('PSD at ' + str(tf.get_iso_date(gps_times[time_index])) + ' UTC')
 
 # Parameters
-channel = 6
+channel = 1
 cols = ['freq', 'a_x', 'a_y', 'a_z', 'theta_x', 'theta_y', 'theta_z']
-run = 'run_k'
+run = 'run_b'
 
 # Directory and time array stuff
 summary_dir = os.path.join('summaries', run)
@@ -201,7 +206,7 @@ fig.suptitle('Channel ' + cols[channel] + ' - median comparison')
 axs[0].title.set_text('PSD(t) - PSD_median')
 plot_colormap(fig, axs[0], channel_intensity - median_psd, times,
     cmap=cm.get_cmap('coolwarm'),
-    vlims=(-2e-15,2e-15),
+    vlims=(-2e-16,2e-16),
     logfreq=True,
     neutral=0.0,
     cbar_label='Absolute difference from reference PSD'
@@ -211,28 +216,30 @@ plot_colormap(fig, axs[1],
     np.abs(channel_intensity - median_psd) / median_psd,
     times,
     cmap='PuRd',
-    vlims=(0,0.5),
+    vlims=(0,1),
     logfreq=True
 )
 #plt.show()
 
 # Frequency slice
-fig, axs = plt.subplots(2,2)
+fig, axs = plt.subplots(2,3)
 fig.suptitle('Channel ' + cols[channel]
     + ' - PSDs at selected frequencies')
-plot_freq_slice(fig, axs[0,0], 0.01, times, summaries, 'b', ylim=(0e-15,3.5e-15))
-plot_freq_slice(fig, axs[0,1], 0.10, times, summaries, 'b', ylim=(1e-15, 4.5e-15))
-plot_freq_slice(fig, axs[1,0], 0.32, times, summaries, 'b', ylim=(0,2e-14))
-plot_freq_slice(fig, axs[1,1], 0.50, times, summaries, 'b', ylim=(0,2e-14))
+plot_freq_slice(fig, axs[0,0], 1e-3, times, summaries, ylim=(0, 1e-15))
+plot_freq_slice(fig, axs[0,1], 3e-3, times, summaries, ylim=(0, 1e-15))
+plot_freq_slice(fig, axs[0,2], 5e-3, times, summaries, ylim=(0, 1e-15))
+plot_freq_slice(fig, axs[1,0], 1e-2, times, summaries, ylim=(0, 1e-15))
+plot_freq_slice(fig, axs[1,1], 3e-2, times, summaries, ylim=(0, 1e-15))
+plot_freq_slice(fig, axs[1,2], 5e-2, times, summaries, ylim=(0, 1e-15))
 #plt.show()
 
 # Time slice
 fig, axs = plt.subplots(1,1)
 fig.suptitle('Channel ' + cols[channel] + ' - PSDs at selected times since '
     + str(tf.get_iso_date(times[0])) + ' UTC')
-plot_time_slice(fig, axs, 0.32, times, summaries, 'b', logpsd=True)
-plot_time_slice(fig, axs, 0.50, times, summaries, 'g')
-plot_time_slice(fig, axs, 1.50, times, summaries, 'orange')
-plot_time_slice(fig, axs, 2.50, times, summaries, 'r')
+plot_time_slice(fig, axs, 0, times, summaries, 'b', logpsd=True)
+plot_time_slice(fig, axs, 2, times, summaries, 'g')
+plot_time_slice(fig, axs, 4, times, summaries, 'orange')
+plot_time_slice(fig, axs, 6, times, summaries, 'r')
 axs.title.set_text('')
 plt.show()
