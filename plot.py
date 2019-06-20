@@ -182,6 +182,9 @@ summary_file = os.path.join(summary_dir, 'summary.' + cols[channel] + '.npy')
 times = tf.get_gps_times(run)
 delta_t_days = tf.get_days_elapsed(times)
 
+# Test
+summarize_run.import_channel('data/run_k/run_k_1159724317/', 'a_x')
+
 # If a summary file doesn't exist, generate it
 if not summary_file in glob.glob(os.path.join(summary_dir, '*')):
     print('No PSD summaries file found. Importing data files...')
@@ -235,4 +238,4 @@ plot_time_slice(fig, axs, 0.50, times, summaries, 'g')
 plot_time_slice(fig, axs, 1.50, times, summaries, 'orange')
 plot_time_slice(fig, axs, 2.50, times, summaries, 'r')
 axs.title.set_text('')
-plt.show()
+#plt.show()

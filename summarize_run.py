@@ -8,24 +8,29 @@ import time_functions
 
 # TODO make everything run with pandas?
     
-def import_time_pd(time_dir):
+def import_channel(time_dir, channel):
     '''
-    Import and combine all psd.dat files in a single time directory. Assumes
-    file name format 'psd.dat.#' and 'psd.dat.##'. Returns a 3D array with
-    the first index representing the PSD index, the second representing
-    frequency, and the third representing data channel. The first item in
-    every row is the frequency corresponding to that row.
-    
-    Uses pandas to import since it's much faster, then converts to numpy.
+    Import and combine all psd.dat files in a single time directory 
+    for one channel. Assumes file name format 'psd.dat.#' and 'psd.dat.##'.
+    Returns a DataFrame with frequency increasing down the rows and 
+    chain index increasing across the columns.
     '''
     print('\tImporting ' + time_dir[-11:-1] + '...')
+    # Column names
+    cols = ['Frequency', 'a_x', 'a_y', 'a_z', 'theta_x', 'theta_y', 'theta_z']
     # Sort so that (for example) psd.dat.2 is sorted after psd.dat.19
     psd_files = sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9]'))) + \
         sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9][0-9]')))
-    # Import PSD files into 3D array
-    time_data = np.array([pd.read_csv(psd, sep=' ').to_numpy() for psd in psd_files])
+    # Import PSD files into DataFrame
+    time_data = pd.concat(
+        [ pd.read_csv(
+            psd, sep=' ', usecols=range(len(cols)), names=cols, index_col=0
+        )[channel] for psd in psd_files ],
+        axis=1,
+        ignore_index=True
+    )
     # Strip rows of 2s
-    return time_data[:,np.min(time_data!=2., axis=(0,2))]
+    return time_data[time_data.iloc[:,0] < 2]
     
 def summarize_psd(time_data, channel):
     '''
@@ -40,6 +45,10 @@ def summarize_psd(time_data, channel):
       time_data : a 3D array of all PSDs for a single time
       channel : int, index of the channel of index
     '''
+    cols = ['Median', 'Low 50% CI', 'High 50% CI', 'Low 90% CI', 'High 90% CI']
+    #return pd.DataFrame({
+    #    'Median'    : time_data.median(axis=1),
+    #    'Low 50% CI': time_data.
     chan_data = time_data[:,:,channel] # 2D array with just one channel
     return np.hstack((
         time_data[0,:,0:1], # frequencies
