@@ -172,7 +172,7 @@ def plot_time_slice(fig, ax, day, gps_times, summaries, color,
     ax.title.set_text('PSD at ' + str(tf.get_iso_date(gps_times[time_index])) + ' UTC')
 
 # Parameters
-channel = 6
+channel = 1
 cols = ['freq', 'a_x', 'a_y', 'a_z', 'theta_x', 'theta_y', 'theta_z']
 run = 'run_k'
 
@@ -181,9 +181,6 @@ summary_dir = os.path.join('summaries', run)
 summary_file = os.path.join(summary_dir, 'summary.' + cols[channel] + '.npy')
 times = tf.get_gps_times(run)
 delta_t_days = tf.get_days_elapsed(times)
-
-# Test
-summarize_run.import_channel('data/run_k/run_k_1159724317/', 'a_x')
 
 # If a summary file doesn't exist, generate it
 if not summary_file in glob.glob(os.path.join(summary_dir, '*')):

@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import os
 import glob
-import time_functions
+import time_functions as tf
 
 # TODO make everything run with pandas?
     
@@ -32,7 +32,7 @@ def import_channel(time_dir, channel):
     # Strip rows of 2s
     return time_data[time_data.iloc[:,0] < 2]
     
-def summarize_psd(time_data, channel):
+def summarize_psd(time_data):
     '''
     Returns a 2D array with the median and credible intervals for one time.
     The columns are | frequency | median PSD | 50% C.I. low | 50% C.I. high | 
@@ -42,20 +42,23 @@ def summarize_psd(time_data, channel):
     
     Input
     -----
-      time_data : a 3D array of all PSDs for a single time
+      time_data : a DataFrame of all PSDs for a single time
       channel : int, index of the channel of index
     '''
-    cols = ['Median', 'Low 50% CI', 'High 50% CI', 'Low 90% CI', 'High 90% CI']
-    return pd.DataFrame({
-        'Median'    : time_data.median(axis=1),
-        'Low 50% CI': time_data.
-    chan_data = time_data[:,:,channel] # 2D array with just one channel
-    return np.hstack((
-        time_data[0,:,0:1], # frequencies
-        np.array([np.median(chan_data, axis=0)]).T, # medians
-        hpd(chan_data, alpha=0.5), # 50% credible interval
-        hpd(chan_data, alpha=0.1)  # 90% credible interval
-    ))
+    freqs = time_data.index
+    time_data_np = time_data.to_numpy()
+    hpd_50 = hpd(time_data_np, alpha=0.5)
+    hpd_90 = hpd(time_data_np, alpha=0.1)
+    print(time_data.median(axis=1))
+    df = pd.DataFrame({
+        'Median'     : time_data.median(axis=1),
+        'Low 50% CI' : pd.Series(hpd_50[:,0], index=freqs),
+        'High 50% CI': hpd.Series(pd_50[:,1],
+        'Low 90% CI' : hpd_90[:,0],
+        'High 50% CI': hpd_90[:,1]
+    }, index=time_data.index)
+    print(df)
+    return df
     
 def summarize_run(run, channel):
     '''
@@ -72,13 +75,13 @@ def summarize_run(run, channel):
       channel : int, index of the channel of interest
     '''
     # Get list of time directories within run directory
-    time_dirs = time_functions.get_time_dirs(run)
+    time_dirs = tf.get_time_dirs(run)
     
     # Pull PSD files from target run
     print('Importing ' + run + '...')
     # List of summary PSDs (each a 2D array), one for each time
     # Takes a long time
-    summaries = [summarize_psd(import_time_pd(d), channel) for d in time_dirs]
+    summaries = [summarize_psd(import_channel(d, channel)) for d in time_dirs]
     
     # Make all arrays the same length and turn into 3D array
     print('Adjusting arrays...')
@@ -95,7 +98,7 @@ def save_summary(run, channel, ch_name):
       channel : int, index of the channel of interest
       ch_name : string, name of the channel of interest
     '''
-    summaries = summarize_run(run, channel)
+    summaries = summarize_run(run, ch_name)
     print('Writing to PSD summaries file...')
     np.save(
         os.path.join('summaries', run, 'summary.' + ch_name + '.npy'),
