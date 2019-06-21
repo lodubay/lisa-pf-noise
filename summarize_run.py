@@ -92,4 +92,13 @@ def save_summary(run, channel, ch_name):
         os.path.join('summaries', run, 'summary.' + ch_name + '.npy'),
         summaries
     )
+    
+def save_all_summaries(run, ch_names):
+    for i in range(1,7):
+        summaries = summarize_run(run, i)
+        print('Writing to PSD summaries file...')
+        np.save(
+            os.path.join('summaries', run, 'summary.' + ch_names[i] + '.npy'),
+            summaries
+        )
 

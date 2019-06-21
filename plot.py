@@ -177,9 +177,9 @@ def plot_time_slice(fig, ax, day, gps_times, summaries, color,
     ax.title.set_text('PSD at ' + str(tf.get_iso_date(gps_times[time_index])) + ' UTC')
 
 # Parameters
-channel = 1
+channel = 6
 cols = ['freq', 'a_x', 'a_y', 'a_z', 'theta_x', 'theta_y', 'theta_z']
-run = 'run_b'
+run = os.path.join('drs', 'run_q')
 
 # Directory and time array stuff
 summary_dir = os.path.join('summaries', run)
@@ -242,4 +242,4 @@ plot_time_slice(fig, axs, 2, times, summaries, 'g')
 plot_time_slice(fig, axs, 4, times, summaries, 'orange')
 plot_time_slice(fig, axs, 6, times, summaries, 'r')
 axs.title.set_text('')
-plt.show()
+#plt.show()

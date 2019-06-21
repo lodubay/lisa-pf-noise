@@ -8,7 +8,7 @@ def get_time_dirs(run):
     Returns a list of paths to all time directories in the desired run,
     relative to the current working directory (usually that of the script).
     '''
-    return sorted(glob.glob(os.path.join('data', run, run + '*/')))
+    return sorted(glob.glob(os.path.join('data', run, '*/')))
 
 def get_gps_times(run):
     '''
