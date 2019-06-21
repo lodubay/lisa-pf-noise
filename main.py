@@ -1,53 +1,51 @@
 print('Importing libraries...')
-import time
+import time_functions as tf
 import psd
 import plot
+import seaborn as sns
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import pandas as pd
 
 # Parameters
-channel = 1
-cols = ['freq', 'a_x', 'a_y', 'a_z', 'theta_x', 'theta_y', 'theta_z']
+channel = 'a_x'
 run = 'run_k'
 
-# Directory and time array stuff
-summary_dir = os.path.join('summaries', run)
-summary_file = os.path.join(summary_dir, 'summary.' + cols[channel] + '.pkl')
-times = time.get_gps_times(run)
-delta_t_days = time.get_days_elapsed(times)
+# Import / generate summary PSD DataFrame
+try:
+    print('PSD summaries file found. Importing...')
+    df = psd.load_summary(run, channel)
+except FileNotFoundError:
+    print('No PSD summaries file found. Importing ' + run + ' data files...')
+    df = psd.save_summary(run, channel)
 
-# If a summary file doesn't exist, generate it
-if not summary_file in glob.glob(os.path.join(summary_dir, '*')):
-    print('No PSD summaries file found. Importing data files...')
-    psd.save_summary(run, cols[channel])
-print('PSD summaries file found. Importing...')
-summaries = psd.load_summary(run, cols[channel])
-    
+# Directory and time array stuff
+times = tf.get_gps_times(run)
+delta_t_days = tf.get_days_elapsed(times)
+
 # Get differences from reference PSD
-median = psd.get_median_psd(summaries)
-unstacked = psd.unstack_median(summaries)
+median = psd.get_median_psd(df)
+# Unstack psd, removing all columns except the median
+unstacked = psd.unstack_median(df)
 
 # Plot colormaps
 print('Plotting...')
-#sns.heatmap(unstacked.sub(median, axis=0))
 fig, axs = plt.subplots(1, 2)
-fig.suptitle('Channel ' + cols[channel] + ' - median comparison')
+fig.suptitle('Channel ' + channel + ' - median comparison')
 # Subplots
 axs[0].title.set_text('PSD(t) - PSD_median')
-plot_colormap(fig, axs[0], 
+plot.plot_colormap(fig, axs[0], 
     unstacked.sub(median, axis=0), 
-    times,
     cmap=cm.get_cmap('coolwarm'),
-    vlims=(-2e-15,2e-15),
-    logfreq=True,
-    neutral=0.0,
+    vlims=(-4e-16,4e-16),
+    center=0.0,
     cbar_label='Absolute difference from reference PSD'
 )
 axs[1].title.set_text('|PSD(t) - PSD_median| / PSD_median')
-plot_colormap(fig, axs[1], 
+plot.plot_colormap(fig, axs[1], 
     abs(unstacked.sub(median, axis=0)).div(median, axis=0),
-    times,
     cmap='PuRd',
-    vlims=(0,0.5),
-    logfreq=True
+    vlims=(0,1)
 )
 plt.show()
 

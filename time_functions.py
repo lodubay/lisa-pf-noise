@@ -22,7 +22,7 @@ def get_days_elapsed(gps_times):
     '''
     Converts list of gps times to days elapsed from the first time in the list.
     '''
-    return [(t - gps_times[0]) / (60*60*24) for t in gps_times]
+    return [(int(t) - int(gps_times[0])) / (60*60*24) for t in gps_times]
     
 def get_iso_date(gps_int):
     '''

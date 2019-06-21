@@ -2,9 +2,10 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.colors
 import numpy as np
-import time
+import pandas as pd
+import time_functions as tf
     
-def shiftedColorMap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
+def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     '''
     Function to offset the "center" of a colormap. Useful for
     data with a negative min and positive max and you want the
@@ -49,8 +50,7 @@ def shiftedColorMap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     plt.register_cmap(cmap=newcmap)
     return newcmap
 
-def plot_colormap(fig, ax, psd, gps_times, cmap, vlims, 
-        logfreq=True, cbar_label=None, neutral=None):
+def plot_colormap(fig, ax, psd, cmap, vlims, cbar_label=None, center=None):
     '''
     Function to plot the colormap of a PSD with frequency on the y-axis and
     time on the x-axis.
@@ -61,15 +61,18 @@ def plot_colormap(fig, ax, psd, gps_times, cmap, vlims,
       psd : The PSD, a 2D array with shape (frequency, time)
       cmap : The unaltered color map to use
       vlims : A tuple of the color scale limits
-      logfreq : If true, scales the y-axis logarithmically
       cbar_label : Color bar label
-      neutral : Value that should be represented by a "neutral" color
+      center : The center value of a diverging colormap
     '''
+    # Get start date in UTC
+    start_date = tf.get_iso_date(int(psd.columns[0]))
+    # Change columns from GPS time to days elapsed from start of run
+    psd.columns = pd.Series(tf.get_days_elapsed(psd.columns), name='TIME')
     if not cbar_label: cbar_label = 'Fractional difference from reference PSD'
-    if neutral:
-        cmap = shiftedColorMap(
+    if center:
+        cmap = shifted_cmap(
             cmap, 
-            midpoint=(neutral-vlims[0])/(vlims[1]-vlims[0]), 
+            midpoint=(center-vlims[0])/(vlims[1]-vlims[0]), 
             name='shifted colormap'
         )
     im = ax.imshow(
@@ -80,15 +83,14 @@ def plot_colormap(fig, ax, psd, gps_times, cmap, vlims,
         vmin=vlims[0],
         vmax=vlims[1],
         extent=[
-            time.get_days_elapsed(gps_times)[0], 
-            time.get_days_elapsed(gps_times)[-1], 
+            psd.columns[0],
+            psd.columns[-1],
             0., 1.
         ]
     )
-    if logfreq:
-        ax.set_yscale('log')
-        ax.set_ylim(bottom=1e-3, top=1.)
-    ax.set_xlabel('Days elapsed since ' + str(time.get_iso_date(gps_times[0])) + ' UTC')
+    ax.set_yscale('log')
+    ax.set_ylim(bottom=1e-3, top=1.)
+    ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
     ax.set_ylabel('Frequency (Hz)')
     cbar = fig.colorbar(im, ax=ax)
     cbar.set_label(cbar_label, labelpad=15, rotation=270)
@@ -104,7 +106,7 @@ def plot_freq_slice(fig, ax, freq, gps_times, summaries, color, ylim=None):
     # Get the index of the nearest frequency to the one requested
     freq_index = int(freq / (np.max(freqs) - np.min(freqs)) * freqs.shape[0])
     freq = np.round(freqs[freq_index], decimals=4)
-    days_elapsed = time.get_days_elapsed(gps_times)
+    days_elapsed = tf.get_days_elapsed(gps_times)
     ax.fill_between(days_elapsed,
         summaries[:,freq_index,2],
         summaries[:,freq_index,3], 
@@ -120,7 +122,7 @@ def plot_freq_slice(fig, ax, freq, gps_times, summaries, color, ylim=None):
     ax.plot(days_elapsed, summaries[:,freq_index,1], 
         label='Median PSD at ' + str(freq) + ' Hz', color=color)
     ax.legend()
-    ax.set_xlabel('Days elapsed since ' + str(time.get_iso_date(gps_times[0])) + ' UTC')
+    ax.set_xlabel('Days elapsed since ' + str(tf.get_iso_date(gps_times[0])) + ' UTC')
     if ylim:
         ax.set_ylim(ylim)
     ax.set_ylabel('PSD')
@@ -138,7 +140,7 @@ def plot_time_slice(fig, ax, day, gps_times, summaries, color,
     #  logfreq: whether to plot frequency on a log scale
     #  ylim: optional y axis limits, tuple
     # Get the index of the nearest time to the one requested
-    days_elapsed = time.get_days_elapsed(gps_times)
+    days_elapsed = tf.get_days_elapsed(gps_times)
     time_index = int(day / np.max(days_elapsed) * days_elapsed.shape[0])
     day = np.round(days_elapsed[time_index], decimals=2)
     ax.fill_between(summaries[time_index,:,0], 
@@ -165,5 +167,5 @@ def plot_time_slice(fig, ax, day, gps_times, summaries, color,
     if logpsd:
         ax.set_yscale('log')
     ax.set_ylabel('PSD')
-    ax.title.set_text('PSD at ' + str(time.get_iso_date(gps_times[time_index])) + ' UTC')
+    ax.title.set_text('PSD at ' + str(tf.get_iso_date(gps_times[time_index])) + ' UTC')
 
