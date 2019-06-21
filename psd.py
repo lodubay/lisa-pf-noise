@@ -1,10 +1,9 @@
-print('Importing dependencies...')
 from pymc3.stats import hpd
 import numpy as np
 import pandas as pd
 import os
 import glob
-import time
+import time_functions as tf
     
 def import_channel(time_dir, channel):
     '''
@@ -72,7 +71,7 @@ def summarize_run(run, channel):
       channel : string, channel header
     '''
     # Get list of time directories within run directory
-    time_dirs = time.get_time_dirs(run)
+    time_dirs = tf.get_time_dirs(run)
     
     # Pull PSD files from target run
     print('Importing ' + run + '...')
@@ -85,7 +84,7 @@ def summarize_run(run, channel):
     
 def save_summary(run, ch_name):
     '''
-    Calls summarize_run() and writes output to a pickle file
+    Calls summarize_run() writes output to a pickle file, and returns output.
     
     Input
     -----
