@@ -106,8 +106,18 @@ def load_summary(run, ch_name):
 def get_time_slice(summary, gps_time):
     return summary.xs(gps_time)
 
-def get_freq_slice(summary, freq):
-    return summary.xs(freq, level='FREQ')
+def get_freq_slice(summary, approx_freq):
+    '''
+    Takes an approximate input frequency and returns a DataFrame sliced
+    along the closest possible frequency. Returns a tuple of the DataFrame
+    and the exact frequency.
+    '''
+    gps_times = list(summary.index.get_level_values(0))
+    freqs = list(summary.xs(gps_times[0]).index)
+    freq_index = int(approx_freq / (max(freqs) - min(freqs)) * len(freqs))
+    freq = freqs[freq_index]
+
+    return summary.xs(freq, level='FREQ'), freq
 
 def unstack_median(summary):
     '''

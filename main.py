@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import pandas as pd
 
+# TODO figure out what those white lines are
+
 # Parameters
 channel = 'a_x'
 run = 'run_k'
@@ -18,10 +20,6 @@ try:
 except FileNotFoundError:
     print('No PSD summaries file found. Importing ' + run + ' data files...')
     df = psd.save_summary(run, channel)
-
-# Directory and time array stuff
-times = tf.get_gps_times(run)
-delta_t_days = tf.get_days_elapsed(times)
 
 # Get differences from reference PSD
 median = psd.get_median_psd(df)
@@ -47,17 +45,16 @@ plot.plot_colormap(fig, axs[1],
     cmap='PuRd',
     vlims=(0,1)
 )
-plt.show()
-
-# Frequency slice
-fig, axs = plt.subplots(2,2)
-fig.suptitle('Channel ' + cols[channel]
-    + ' - PSDs at selected frequencies')
-plot_freq_slice(fig, axs[0,0], 0.01, times, summaries, 'b', ylim=(0e-15,3.5e-15))
-plot_freq_slice(fig, axs[0,1], 0.10, times, summaries, 'b', ylim=(1e-15, 4.5e-15))
-plot_freq_slice(fig, axs[1,0], 0.32, times, summaries, 'b', ylim=(0,2e-14))
-plot_freq_slice(fig, axs[1,1], 0.50, times, summaries, 'b', ylim=(0,2e-14))
 #plt.show()
+
+# Frequency slices
+fig, axs = plt.subplots(2,2)
+fig.suptitle(run + '; channel ' + channel + '; PSDs at selected frequencies')
+plot.plot_freq_slice(fig, axs[0,0], 0.01, df, ylim=(0e-15,3.5e-15))
+plot.plot_freq_slice(fig, axs[0,1], 0.10, df, ylim=(1e-15, 4.5e-15))
+plot.plot_freq_slice(fig, axs[1,0], 0.32, df, ylim=(0,2e-14))
+plot.plot_freq_slice(fig, axs[1,1], 0.50, df, ylim=(0,2e-14))
+plt.show()
 
 # Time slice
 fig, axs = plt.subplots(1,1)
