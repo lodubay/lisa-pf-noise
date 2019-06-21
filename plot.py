@@ -4,6 +4,7 @@ import matplotlib.colors
 import numpy as np
 import pandas as pd
 import time_functions as tf
+import psd
     
 def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     '''
@@ -58,7 +59,7 @@ def plot_colormap(fig, ax, psd, cmap, vlims, cbar_label=None, center=None):
     Input
     -----
       fig, ax : The figure and axes of the plot
-      psd : The PSD, a 2D array with shape (frequency, time)
+      psd : The PSD, an unstacked DataFrame
       cmap : The unaltered color map to use
       vlims : A tuple of the color scale limits
       cbar_label : Color bar label
@@ -95,38 +96,36 @@ def plot_colormap(fig, ax, psd, cmap, vlims, cbar_label=None, center=None):
     cbar = fig.colorbar(im, ax=ax)
     cbar.set_label(cbar_label, labelpad=15, rotation=270)
     
-def plot_freq_slice(fig, ax, freq, gps_times, summaries, color, ylim=None):
+def plot_freq_slice(fig, ax, freq, summary, color='b', ylim=None):
     # Plots time vs PSD at a specific frequency
     # Parameters:
     #  fig, ax: the figure and axes of the plot
     #  freq: the frequency along which to slice
     #  summaries: 3D array, shape (time, frequency, stats)
     #   with stats arranged | frequency | median | median - CI | median + CI |
-    freqs = summaries[0,:,0]
     # Get the index of the nearest frequency to the one requested
-    freq_index = int(freq / (np.max(freqs) - np.min(freqs)) * freqs.shape[0])
-    freq = np.round(freqs[freq_index], decimals=4)
-    days_elapsed = tf.get_days_elapsed(gps_times)
+    days_elapsed = tf.get_days_elapsed(summary.index.get_level_values(0))
+    fslice, freq = psd.get_freq_slice(summary, freq)
+    freq_str = str(np.round(freq, decimals=4))
     ax.fill_between(days_elapsed,
-        summaries[:,freq_index,2],
-        summaries[:,freq_index,3], 
+        fslice['CI_50_LO'],
+        fslice['CI_50_HI'], 
         color=color,
         alpha=0.5,
-        label='50% credible interval at ' + str(freq) + ' Hz')
+        label='50% credible interval')
     ax.fill_between(days_elapsed,
-        summaries[:,freq_index,4],
-        summaries[:,freq_index,5],
+        fslice['CI_90_LO'],
+        fslice['CI_90_HI'],
         color=color,
         alpha=0.2,
-        label='90% credible interval at ' + str(freq) + ' Hz')
-    ax.plot(days_elapsed, summaries[:,freq_index,1], 
-        label='Median PSD at ' + str(freq) + ' Hz', color=color)
+        label='90% credible interval')
+    ax.plot(days_elapsed, summary['MEDIAN'], label='Median PSD', color=color)
     ax.legend()
     ax.set_xlabel('Days elapsed since ' + str(tf.get_iso_date(gps_times[0])) + ' UTC')
     if ylim:
         ax.set_ylim(ylim)
     ax.set_ylabel('PSD')
-    ax.title.set_text('PSD at ' + str(freq) + ' Hz')
+    ax.title.set_text('PSD at ' + freq_str + ' Hz')
     
 def plot_time_slice(fig, ax, day, gps_times, summaries, color, 
         logfreq=True, ylim=None, logpsd=False):
