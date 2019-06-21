@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import os
 import glob
-import time_functions as tf
+import time
     
 def import_channel(time_dir, channel):
     '''
@@ -72,7 +72,7 @@ def summarize_run(run, channel):
       channel : string, channel header
     '''
     # Get list of time directories within run directory
-    time_dirs = tf.get_time_dirs(run)
+    time_dirs = time.get_time_dirs(run)
     
     # Pull PSD files from target run
     print('Importing ' + run + '...')
