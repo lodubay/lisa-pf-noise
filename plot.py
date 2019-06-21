@@ -2,7 +2,9 @@ print('Importing libraries...')
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.colors
+import seaborn as sns
 import numpy as np
+import pandas as pd
 import os
 import glob
 import summarize_run
@@ -178,28 +180,31 @@ run = 'run_k'
 
 # Directory and time array stuff
 summary_dir = os.path.join('summaries', run)
-summary_file = os.path.join(summary_dir, 'summary.' + cols[channel] + '.npy')
+summary_file = os.path.join(summary_dir, 'summary.' + cols[channel] + '.pkl')
 times = tf.get_gps_times(run)
 delta_t_days = tf.get_days_elapsed(times)
 
 # If a summary file doesn't exist, generate it
 if not summary_file in glob.glob(os.path.join(summary_dir, '*')):
     print('No PSD summaries file found. Importing data files...')
-    summarize_run.save_summary(run, channel, cols[channel])
+    summarize_run.save_summary(run, cols[channel])
 print('PSD summaries file found. Importing...')
-summaries = np.load(summary_file)
+summaries = summarize_run.load_summary(run, cols[channel])
     
 # Get differences from reference PSD
-median_psd = np.median(summaries[:,:,1:2], axis=0)
-channel_intensity = summaries[:,:,1].T
+median = summarize_run.get_median_psd(summaries)
+unstacked = summarize_run.unstack_median(summaries)
 
 # Plot colormaps
 print('Plotting...')
+#sns.heatmap(unstacked.sub(median, axis=0))
 fig, axs = plt.subplots(1, 2)
 fig.suptitle('Channel ' + cols[channel] + ' - median comparison')
 # Subplots
 axs[0].title.set_text('PSD(t) - PSD_median')
-plot_colormap(fig, axs[0], channel_intensity - median_psd, times,
+plot_colormap(fig, axs[0], 
+    unstacked.sub(median, axis=0), 
+    times,
     cmap=cm.get_cmap('coolwarm'),
     vlims=(-2e-15,2e-15),
     logfreq=True,
@@ -208,13 +213,13 @@ plot_colormap(fig, axs[0], channel_intensity - median_psd, times,
 )
 axs[1].title.set_text('|PSD(t) - PSD_median| / PSD_median')
 plot_colormap(fig, axs[1], 
-    np.abs(channel_intensity - median_psd) / median_psd,
+    abs(unstacked.sub(median, axis=0)).div(median, axis=0),
     times,
     cmap='PuRd',
     vlims=(0,0.5),
     logfreq=True
 )
-#plt.show()
+plt.show()
 
 # Frequency slice
 fig, axs = plt.subplots(2,2)
