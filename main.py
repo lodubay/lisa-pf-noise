@@ -62,12 +62,13 @@ plot.plot_freq_slice(fig, axs[1,1], 0.50, df, ylim=(0,2e-14))
 plt.show()
 
 # Time slice
-fig, axs = plt.subplots(1,1)
-fig.suptitle('Channel ' + cols[channel] + ' - PSDs at selected times since '
-    + str(time.get_iso_date(times[0])) + ' UTC')
-plot_time_slice(fig, axs, 0.32, times, summaries, 'b', logpsd=True)
-plot_time_slice(fig, axs, 0.50, times, summaries, 'g')
-plot_time_slice(fig, axs, 1.50, times, summaries, 'orange')
-plot_time_slice(fig, axs, 2.50, times, summaries, 'r')
-axs.title.set_text('')
+# Doesn't work right now
+#fig, axs = plt.subplots(1,1)
+#fig.suptitle('Channel ' + cols[channel] + ' - PSDs at selected times since '
+#    + str(time.get_iso_date(times[0])) + ' UTC')
+#plot_time_slice(fig, axs, 0.32, times, summaries, 'b', logpsd=True)
+#plot_time_slice(fig, axs, 0.50, times, summaries, 'g')
+#plot_time_slice(fig, axs, 1.50, times, summaries, 'orange')
+#plot_time_slice(fig, axs, 2.50, times, summaries, 'r')
+#axs.title.set_text('')
 #plt.show()
