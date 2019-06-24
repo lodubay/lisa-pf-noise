@@ -99,6 +99,10 @@ def save_summary(run, ch_name):
         os.path.join('summaries', run, 'summary.' + ch_name + '.pkl')
     )
     return summaries
+    
+def save_all_channels(run, channels):
+    for channel in channels:
+        save_summary(run, channel)
 
 def load_summary(run, ch_name):
     return pd.read_pickle(
