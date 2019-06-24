@@ -6,8 +6,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import pandas as pd
-
-# TODO figure out what those white lines are
+import numpy as np
 
 # Parameters
 channel = 'a_x'
@@ -20,6 +19,12 @@ try:
 except FileNotFoundError:
     print('No PSD summaries file found. Importing ' + run + ' data files...')
     df = psd.save_summary(run, channel)
+
+# Round frequencies to deal with floating point issues
+df.index = [
+    df.index.get_level_values('TIME'),
+    np.around(df.index.get_level_values('FREQ'), 5)
+]
 
 # Get differences from reference PSD
 median = psd.get_median_psd(df)
@@ -45,7 +50,7 @@ plot.plot_colormap(fig, axs[1],
     cmap='PuRd',
     vlims=(0,1)
 )
-#plt.show()
+plt.show()
 
 # Frequency slices
 fig, axs = plt.subplots(2,2)

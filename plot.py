@@ -104,9 +104,10 @@ def plot_freq_slice(fig, ax, freq, summary, color='b', ylim=None):
     #  summaries: 3D array, shape (time, frequency, stats)
     #   with stats arranged | frequency | median | median - CI | median + CI |
     # Get the index of the nearest frequency to the one requested
-    days_elapsed = tf.get_days_elapsed(summary.index.get_level_values(0))
-    fslice, freq = psd.get_freq_slice(summary, freq)
-    freq_str = str(np.round(freq, decimals=4))
+    freq = psd.get_exact_freq(summary, freq)
+    fslice = psd.get_freq_slice(summary, freq)
+    days_elapsed = tf.get_days_elapsed(fslice.index)
+    start_date = tf.get_iso_date(int(fslice.index[0]))
     ax.fill_between(days_elapsed,
         fslice['CI_50_LO'],
         fslice['CI_50_HI'], 
@@ -119,13 +120,13 @@ def plot_freq_slice(fig, ax, freq, summary, color='b', ylim=None):
         color=color,
         alpha=0.2,
         label='90% credible interval')
-    ax.plot(days_elapsed, summary['MEDIAN'], label='Median PSD', color=color)
+    ax.plot(days_elapsed, fslice['MEDIAN'], label='Median PSD', color=color)
     ax.legend()
-    ax.set_xlabel('Days elapsed since ' + str(tf.get_iso_date(gps_times[0])) + ' UTC')
+    ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
     if ylim:
         ax.set_ylim(ylim)
     ax.set_ylabel('PSD')
-    ax.title.set_text('PSD at ' + freq_str + ' Hz')
+    ax.title.set_text('PSD at ' + str(np.round(freq, decimals=4)) + ' Hz')
     
 def plot_time_slice(fig, ax, day, gps_times, summaries, color, 
         logfreq=True, ylim=None, logpsd=False):

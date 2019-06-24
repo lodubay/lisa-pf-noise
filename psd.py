@@ -72,12 +72,14 @@ def summarize_run(run, channel):
     '''
     # Get list of time directories within run directory
     time_dirs = tf.get_time_dirs(run)
+    # For testing purposes
     
     # Pull PSD files from target run
     print('Importing ' + run + '...')
     # Concatenate DataFrames of all times; takes a while
     summaries = pd.concat([
-        summarize_psd(import_channel(d, channel), d[-11:-1]) for d in time_dirs
+        summarize_psd(import_channel(d, channel), int(d[-11:-1])) 
+        for d in time_dirs
     ])
     # Set TIME and FREQ columns as indices
     return summaries.set_index(['TIME', summaries.index])
@@ -106,18 +108,21 @@ def load_summary(run, ch_name):
 def get_time_slice(summary, gps_time):
     return summary.xs(gps_time)
 
-def get_freq_slice(summary, approx_freq):
+def get_exact_freq(summary, approx_freq):
     '''
-    Takes an approximate input frequency and returns a DataFrame sliced
-    along the closest possible frequency. Returns a tuple of the DataFrame
-    and the exact frequency.
+    Takes an approximate input frequency and returns the closest measured
+    frequency in the data.
     '''
     gps_times = list(summary.index.get_level_values(0))
     freqs = list(summary.xs(gps_times[0]).index)
     freq_index = int(approx_freq / (max(freqs) - min(freqs)) * len(freqs))
-    freq = freqs[freq_index]
+    return freqs[freq_index]
 
-    return summary.xs(freq, level='FREQ'), freq
+def get_freq_slice(summary, freq):
+    '''
+    Returns a DataFrame sliced along the input frequency. 
+    '''
+    return summary.xs(freq, level='FREQ')
 
 def unstack_median(summary):
     '''
