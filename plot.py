@@ -51,7 +51,7 @@ def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     plt.register_cmap(cmap=newcmap)
     return newcmap
 
-def plot_colormap(fig, ax, psd, cmap, vlims, cbar_label=None, center=None):
+def colormap(fig, ax, psd, cmap, vlims, cbar_label=None, center=None):
     '''
     Function to plot the colormap of a PSD with frequency on the y-axis and
     time on the x-axis.
@@ -96,7 +96,7 @@ def plot_colormap(fig, ax, psd, cmap, vlims, cbar_label=None, center=None):
     cbar = fig.colorbar(im, ax=ax)
     cbar.set_label(cbar_label, labelpad=15, rotation=270)
     
-def plot_freq_slice(fig, ax, freq, summary, color='b', ylim=None):
+def freq_slice(fig, ax, freq, summary, color='b', ylim=None):
     '''
     Plots time vs PSD at a specific frequency.
 
@@ -105,6 +105,8 @@ def plot_freq_slice(fig, ax, freq, summary, color='b', ylim=None):
       fig, ax : the figure and axes of the plot
       freq : the approximate frequency along which to slice
       summary : the summary DataFrame
+      color : the color of the plot, optional
+      ylim : tuple of y axis bounds, optional
     '''
     # Get the index of the nearest frequency to the one requested
     freq = psd.get_exact_freq(summary, freq)
@@ -132,51 +134,49 @@ def plot_freq_slice(fig, ax, freq, summary, color='b', ylim=None):
     ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
     if ylim: ax.set_ylim(ylim)
     ax.set_ylabel('PSD')
-    ax.title.set_text(str(np.round(freq, decimals=4)*1000) + ' mHz')
+    ax.title.set_text(str(freq*1000) + ' mHz')
     
-# Definitely doesn't work
-def plot_time_slice(fig, ax, day, gps_times, summaries, color, 
-        logfreq=True, ylim=None, logpsd=False):
-    # Plots frequency vs PSD at a specific time
-    # Parameters:
-    #  fig, ax: the figure and axes of the plot
-    #  time: the time along which to slice
-    #  times: array of times for which data exists
-    #  summaries: 3D array, shape (time, frequency, stats)
-    #   with stats arranged | frequency | median | median - CI | median + CI |
-    #  logfreq: whether to plot frequency on a log scale
-    #  ylim: optional y axis limits, tuple
+def time_slice(fig, ax, time, summary, color='b', ylim=None, logpsd=False):
+    '''
+    Plots frequency vs PSD at a specific time.
+
+    Input
+    -----
+      fig, ax : the figure and axes of the plot
+      time : the approximate time (run begins at 0) along which to slice
+      summary : the summary DataFrame
+      color : the color of the plot, optional
+      ylim : tuple of y axis bounds, optional
+      lobpsd : if true, plots psd on a log scale
+    '''
     # Get the index of the nearest time to the one requested
-    days_elapsed = tf.get_days_elapsed(gps_times)
-    #print(days_elapsed)
-    #print(days_elapsed.shape[0])
-    #time_index = int(day / np.max(days_elapsed) * days_elapsed.shape[0])
-    time_index = np.argmin(np.abs(days_elapsed - day))
-    #print(days_elapsed[time_index])
-    day = np.round(days_elapsed[time_index], decimals=2)
-    #print(day)
-    ax.fill_between(summaries[time_index,:,0], 
-        summaries[time_index,:,2], 
-        summaries[time_index,:,3],
+    gps_time, day = tf.get_exact_time(summary, time)
+    day = str(np.round(day, 2))
+    # Get time slice
+    tslice = psd.get_time_slice(summary, gps_time)
+    # Plot 50% credible interval
+    ax.fill_between(tslice.index, 
+        tslice['CI_50_LO'], 
+        tslice['CI_50_HI'],
         color=color, 
         alpha=0.5,
-        label='50% credible interval at ' + str(day) + ' days')
-    ax.fill_between(summaries[time_index,:,0], 
-        summaries[time_index,:,4], 
-        summaries[time_index,:,5],
+        label='50% credible interval at T+' + str(day) + ' days')
+    # Plot 90% credible interval
+    ax.fill_between(tslice.index, 
+        tslice['CI_90_LO'], 
+        tslice['CI_90_HI'],
         color=color, 
         alpha=0.1,
-        label='90% credible interval at ' + str(day) + ' days')
-    ax.plot(summaries[time_index,:,0], summaries[time_index,:,1], 
+        label='90% credible interval at T+' + str(day) + ' days')
+    # Plot median
+    ax.plot(tslice.index, tslice['MEDIAN'], 
         label='Median PSD at T+' + str(day) + ' days', 
         color=color)
     ax.legend()
     ax.set_xlabel('Frequency (Hz)')
-    if logfreq:
-        ax.set_xscale('log')
-    if ylim:
-        ax.set_ylim(ylim)
-    if logpsd:
-        ax.set_yscale('log')
+    ax.set_xscale('log')
+    if ylim: ax.set_ylim(ylim)
+    if logpsd: ax.set_yscale('log')
     ax.set_ylabel('PSD')
-    ax.title.set_text('PSD at ' + str(tf.get_iso_date(gps_times[time_index])) + ' UTC')
+    ax.title.set_text('PSD at ' + str(tf.get_iso_date(gps_time)) + ' UTC')
+

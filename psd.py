@@ -97,9 +97,6 @@ def save_summary(run, summary_file):
     summaries.to_pickle(summary_file)
     return summaries
 
-def load_summary(run):
-    return pd.read_pickle(os.path.join('summaries', run, 'summary.pkl'))
-
 def get_time_slice(summary, gps_time):
     return summary.xs(gps_time)
 

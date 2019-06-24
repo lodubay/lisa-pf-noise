@@ -31,7 +31,7 @@ def get_iso_date(gps_int):
     gps_time = Time(gps_int, format='gps')
     return Time(gps_time, format='iso')
 
-def approx_time(run, approx_day):
+def get_exact_time(summary, approx_day):
     '''
     Converts an approximate days elapsed to gps time. Returns tuple of
     gps time and exact days elapsed.
@@ -41,7 +41,7 @@ def approx_time(run, approx_day):
       run : name of the run
       approx_day : approximate number of days from start of run
     '''
-    gps_times = get_gps_times(run)
+    gps_times = list(summary.index.get_level_values(0))
     days_elapsed = get_days_elapsed(gps_times)
     time_index = int(approx_day / max(days_elapsed) * len(days_elapsed))
     return gps_times[time_index], days_elapsed[time_index]
