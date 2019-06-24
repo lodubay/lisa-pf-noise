@@ -97,34 +97,41 @@ def plot_colormap(fig, ax, psd, cmap, vlims, cbar_label=None, center=None):
     cbar.set_label(cbar_label, labelpad=15, rotation=270)
     
 def plot_freq_slice(fig, ax, freq, summary, color='b', ylim=None):
-    # Plots time vs PSD at a specific frequency
-    # Parameters:
-    #  fig, ax: the figure and axes of the plot
-    #  freq: the frequency along which to slice
-    #  summaries: 3D array, shape (time, frequency, stats)
-    #   with stats arranged | frequency | median | median - CI | median + CI |
+    '''
+    Plots time vs PSD at a specific frequency.
+
+    Input
+    -----
+      fig, ax : the figure and axes of the plot
+      freq : the approximate frequency along which to slice
+      summary : the summary DataFrame
+    '''
     # Get the index of the nearest frequency to the one requested
     freq = psd.get_exact_freq(summary, freq)
+    # Slice along that frequency
     fslice = psd.get_freq_slice(summary, freq)
+    # Date stuff
     days_elapsed = tf.get_days_elapsed(fslice.index)
     start_date = tf.get_iso_date(int(fslice.index[0]))
+    # Plot 50% credible interval
     ax.fill_between(days_elapsed,
         fslice['CI_50_LO'],
         fslice['CI_50_HI'], 
         color=color,
         alpha=0.5,
         label='50% credible interval')
+    # Plot 90% credible interval
     ax.fill_between(days_elapsed,
         fslice['CI_90_LO'],
         fslice['CI_90_HI'],
         color=color,
         alpha=0.2,
         label='90% credible interval')
+    # Plot median
     ax.plot(days_elapsed, fslice['MEDIAN'], label='Median PSD', color=color)
     ax.legend()
     ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
-    if ylim:
-        ax.set_ylim(ylim)
+    if ylim: ax.set_ylim(ylim)
     ax.set_ylabel('PSD')
     ax.title.set_text('PSD at ' + str(np.round(freq, decimals=4)) + ' Hz')
     
