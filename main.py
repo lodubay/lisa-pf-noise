@@ -7,8 +7,9 @@ import matplotlib.cm as cm
 import pandas as pd
 import os
 
-# Run name
+# Parameters
 run = os.path.join('ltp', 'run_c')
+channel = 'a_x'
 
 # Import / generate summary PSD DataFrame
 try:
@@ -19,7 +20,6 @@ except FileNotFoundError:
     df = psd.save_summary(run)
 
 # Channel-specific things
-channel = 'a_x'
 df = df.loc[channel]
 # Get differences from reference PSD
 median = psd.get_median_psd(df)

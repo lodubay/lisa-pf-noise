@@ -76,7 +76,7 @@ def summarize_psd(time_dir):
         'CI_90_HI'  : pd.Series(hpd_90[:,1], index=midx),
     }, index=midx)
     
-def save_summary(run):
+def save_summary(run, summary_file):
     '''
     Returns a multi-index DataFrame of PSD summaries across multiple times 
     from one run folder. The first index represents channel, the second GPS time
@@ -93,7 +93,6 @@ def save_summary(run):
     # Concatenate DataFrames of all times; takes a while
     summaries = pd.concat([summarize_psd(d) for d in time_dirs])
     # Output to file
-    summary_file = os.path.join('summaries', run, 'summary.pkl')
     print('Writing to ' + summary_file + '...')
     summaries.to_pickle(summary_file)
     return summaries
