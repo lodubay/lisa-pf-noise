@@ -129,11 +129,10 @@ def plot_freq_slice(fig, ax, freq, summary, color='b', ylim=None):
         label='90% credible interval')
     # Plot median
     ax.plot(days_elapsed, fslice['MEDIAN'], label='Median PSD', color=color)
-    ax.legend()
     ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
     if ylim: ax.set_ylim(ylim)
     ax.set_ylabel('PSD')
-    ax.title.set_text('PSD at ' + str(np.round(freq, decimals=4)) + ' Hz')
+    ax.title.set_text(str(np.round(freq, decimals=4)*1000) + ' mHz')
     
 # Definitely doesn't work
 def plot_time_slice(fig, ax, day, gps_times, summaries, color, 
@@ -181,4 +180,3 @@ def plot_time_slice(fig, ax, day, gps_times, summaries, color,
         ax.set_yscale('log')
     ax.set_ylabel('PSD')
     ax.title.set_text('PSD at ' + str(tf.get_iso_date(gps_times[time_index])) + ' UTC')
-

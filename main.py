@@ -34,7 +34,7 @@ unstacked = psd.unstack_median(df)
 # Plot colormaps
 print('Plotting...')
 fig, axs = plt.subplots(1, 2)
-fig.suptitle('Channel ' + channel + ' - median comparison')
+fig.suptitle(run + ' channel ' + channel + ' colormap')
 # Subplots
 axs[0].title.set_text('PSD(t) - PSD_median')
 plot.plot_colormap(fig, axs[0], 
@@ -53,12 +53,18 @@ plot.plot_colormap(fig, axs[1],
 plt.show()
 
 # Frequency slices
-fig, axs = plt.subplots(2,2)
-fig.suptitle(run + '; channel ' + channel + '; PSDs at selected frequencies')
-plot.plot_freq_slice(fig, axs[0,0], 0.01, df, ylim=(0e-15,3.5e-15))
-plot.plot_freq_slice(fig, axs[0,1], 0.10, df, ylim=(1e-15, 4.5e-15))
-plot.plot_freq_slice(fig, axs[1,0], 0.32, df, ylim=(0,2e-14))
-plot.plot_freq_slice(fig, axs[1,1], 0.50, df, ylim=(0,2e-14))
+fig, axs = plt.subplots(2,3)
+fig.suptitle(run + ' channel ' + channel + ' PSDs at selected frequencies')
+# Subplots
+plot.plot_freq_slice(fig, axs[0,0], 1e-3, df)
+plot.plot_freq_slice(fig, axs[0,1], 3e-3, df)
+plot.plot_freq_slice(fig, axs[0,2], 5e-3, df)
+plot.plot_freq_slice(fig, axs[1,0], 1e-2, df)
+plot.plot_freq_slice(fig, axs[1,1], 3e-2, df)
+plot.plot_freq_slice(fig, axs[1,2], 5e-2, df)
+# Legend
+handles, labels = axs[1,2].get_legend_handles_labels()
+fig.legend(handles, labels)
 plt.show()
 
 # Time slice
