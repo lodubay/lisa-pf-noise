@@ -6,7 +6,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import pandas as pd
-import numpy as np
 
 # Parameters
 channel = 'a_x'
@@ -19,12 +18,6 @@ try:
 except FileNotFoundError:
     print('No PSD summaries file found. Importing ' + run + ' data files...')
     df = psd.save_summary(run, channel)
-
-# Round frequencies to deal with floating point issues
-df.index = [
-    df.index.get_level_values('TIME'),
-    np.around(df.index.get_level_values('FREQ'), 5)
-]
 
 # Get differences from reference PSD
 median = psd.get_median_psd(df)

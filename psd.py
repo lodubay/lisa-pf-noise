@@ -31,6 +31,8 @@ def import_channel(time_dir, channel):
         axis=1,
         ignore_index=True
     )
+    # Round frequency index to deal with floating point accuracy
+    time_data.index = np.around(time_data.index.get_level_values('FREQ'), 5)
     # Strip rows of 2s
     return time_data[time_data.iloc[:,0] < 2]
     
