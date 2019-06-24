@@ -2,23 +2,25 @@ print('Importing libraries...')
 import time_functions as tf
 import psd
 import plot
-import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import pandas as pd
+import os
 
-# Parameters
-channel = 'a_x'
-run = 'run_k'
+# Run name
+run = os.path.join('ltp', 'run_c')
 
 # Import / generate summary PSD DataFrame
 try:
     print('PSD summaries file found. Importing...')
-    df = psd.load_summary(run, channel)
+    df = psd.load_summary(run)
 except FileNotFoundError:
     print('No PSD summaries file found. Importing ' + run + ' data files...')
-    df = psd.save_summary(run, channel)
+    df = psd.save_summary(run)
 
+# Channel-specific things
+channel = 'a_x'
+df = df.loc[channel]
 # Get differences from reference PSD
 median = psd.get_median_psd(df)
 # Unstack psd, removing all columns except the median
