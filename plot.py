@@ -135,6 +135,7 @@ def plot_freq_slice(fig, ax, freq, summary, color='b', ylim=None):
     ax.set_ylabel('PSD')
     ax.title.set_text('PSD at ' + str(np.round(freq, decimals=4)) + ' Hz')
     
+# Definitely doesn't work
 def plot_time_slice(fig, ax, day, gps_times, summaries, color, 
         logfreq=True, ylim=None, logpsd=False):
     # Plots frequency vs PSD at a specific time
