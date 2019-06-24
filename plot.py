@@ -149,8 +149,13 @@ def plot_time_slice(fig, ax, day, gps_times, summaries, color,
     #  ylim: optional y axis limits, tuple
     # Get the index of the nearest time to the one requested
     days_elapsed = tf.get_days_elapsed(gps_times)
-    time_index = int(day / np.max(days_elapsed) * days_elapsed.shape[0])
+    #print(days_elapsed)
+    #print(days_elapsed.shape[0])
+    #time_index = int(day / np.max(days_elapsed) * days_elapsed.shape[0])
+    time_index = np.argmin(np.abs(days_elapsed - day))
+    #print(days_elapsed[time_index])
     day = np.round(days_elapsed[time_index], decimals=2)
+    #print(day)
     ax.fill_between(summaries[time_index,:,0], 
         summaries[time_index,:,2], 
         summaries[time_index,:,3],
