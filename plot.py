@@ -1,14 +1,12 @@
-print('Importing libraries...')
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.colors
 import numpy as np
-import os
-import glob
-import summarize_run
+import pandas as pd
 import time_functions as tf
+import psd
     
-def shiftedColorMap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
+def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     '''
     Function to offset the "center" of a colormap. Useful for
     data with a negative min and positive max and you want the
@@ -53,8 +51,7 @@ def shiftedColorMap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     plt.register_cmap(cmap=newcmap)
     return newcmap
 
-def plot_colormap(fig, ax, psd, gps_times, cmap, vlims, 
-        logfreq=True, cbar_label=None, neutral=None):
+def plot_colormap(fig, ax, psd, cmap, vlims, cbar_label=None, center=None):
     '''
     Function to plot the colormap of a PSD with frequency on the y-axis and
     time on the x-axis.
@@ -62,18 +59,21 @@ def plot_colormap(fig, ax, psd, gps_times, cmap, vlims,
     Input
     -----
       fig, ax : The figure and axes of the plot
-      psd : The PSD, a 2D array with shape (frequency, time)
+      psd : The PSD, an unstacked DataFrame
       cmap : The unaltered color map to use
       vlims : A tuple of the color scale limits
-      logfreq : If true, scales the y-axis logarithmically
       cbar_label : Color bar label
-      neutral : Value that should be represented by a "neutral" color
+      center : The center value of a diverging colormap
     '''
+    # Get start date in UTC
+    start_date = tf.get_iso_date(int(psd.columns[0]))
+    # Change columns from GPS time to days elapsed from start of run
+    psd.columns = pd.Series(tf.get_days_elapsed(psd.columns), name='TIME')
     if not cbar_label: cbar_label = 'Fractional difference from reference PSD'
-    if neutral:
-        cmap = shiftedColorMap(
+    if center:
+        cmap = shifted_cmap(
             cmap, 
-            midpoint=(neutral-vlims[0])/(vlims[1]-vlims[0]), 
+            midpoint=(center-vlims[0])/(vlims[1]-vlims[0]), 
             name='shifted colormap'
         )
     im = ax.imshow(
@@ -84,49 +84,57 @@ def plot_colormap(fig, ax, psd, gps_times, cmap, vlims,
         vmin=vlims[0],
         vmax=vlims[1],
         extent=[
-            tf.get_days_elapsed(gps_times)[0], 
-            tf.get_days_elapsed(gps_times)[-1], 
+            psd.columns[0],
+            psd.columns[-1],
             0., 1.
         ]
     )
-    if logfreq:
-        ax.set_yscale('log')
-        ax.set_ylim(bottom=1e-3, top=1.)
-    ax.set_xlabel('Days elapsed since ' + str(tf.get_iso_date(gps_times[0])) + ' UTC')
+    ax.set_yscale('log')
+    ax.set_ylim(bottom=1e-3, top=1.)
+    ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
     ax.set_ylabel('Frequency (Hz)')
     cbar = fig.colorbar(im, ax=ax)
     cbar.set_label(cbar_label, labelpad=15, rotation=270)
     
-def plot_freq_slice(fig, ax, freq, gps_times, summaries, color='b', ylim=None):
-    # Plots time vs PSD at a specific frequency
-    # Parameters:
-    #  fig, ax: the figure and axes of the plot
-    #  freq: the frequency along which to slice
-    #  summaries: 3D array, shape (time, frequency, stats)
-    #   with stats arranged | frequency | median | median - CI | median + CI |
-    freqs = summaries[0,:,0]
+def plot_freq_slice(fig, ax, freq, summary, color='b', ylim=None):
+    '''
+    Plots time vs PSD at a specific frequency.
+
+    Input
+    -----
+      fig, ax : the figure and axes of the plot
+      freq : the approximate frequency along which to slice
+      summary : the summary DataFrame
+    '''
     # Get the index of the nearest frequency to the one requested
-    freq_index = int(freq / (np.max(freqs) - np.min(freqs)) * freqs.shape[0])
-    freq = np.round(freqs[freq_index], decimals=4)*1000
-    days_elapsed = tf.get_days_elapsed(gps_times)
+    freq = psd.get_exact_freq(summary, freq)
+    # Slice along that frequency
+    fslice = psd.get_freq_slice(summary, freq)
+    # Date stuff
+    days_elapsed = tf.get_days_elapsed(fslice.index)
+    start_date = tf.get_iso_date(int(fslice.index[0]))
+    # Plot 50% credible interval
     ax.fill_between(days_elapsed,
-        summaries[:,freq_index,2],
-        summaries[:,freq_index,3], 
+        fslice['CI_50_LO'],
+        fslice['CI_50_HI'], 
         color=color,
         alpha=0.5,
         label='50% credible interval')
+    # Plot 90% credible interval
     ax.fill_between(days_elapsed,
-        summaries[:,freq_index,4],
-        summaries[:,freq_index,5],
+        fslice['CI_90_LO'],
+        fslice['CI_90_HI'],
         color=color,
         alpha=0.2,
         label='90% credible interval')
-    ax.plot(days_elapsed, summaries[:,freq_index,1], 
-        label='Median PSD', color=color)
-    if ylim:
-        ax.set_ylim(ylim)
-    ax.title.set_text(str(freq) + ' mHz')
+    # Plot median
+    ax.plot(days_elapsed, fslice['MEDIAN'], label='Median PSD', color=color)
+    ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
+    if ylim: ax.set_ylim(ylim)
+    ax.set_ylabel('PSD')
+    ax.title.set_text(str(np.round(freq, decimals=4)*1000) + ' mHz')
     
+# Definitely doesn't work
 def plot_time_slice(fig, ax, day, gps_times, summaries, color, 
         logfreq=True, ylim=None, logpsd=False):
     # Plots frequency vs PSD at a specific time
@@ -172,77 +180,3 @@ def plot_time_slice(fig, ax, day, gps_times, summaries, color,
         ax.set_yscale('log')
     ax.set_ylabel('PSD')
     ax.title.set_text('PSD at ' + str(tf.get_iso_date(gps_times[time_index])) + ' UTC')
-
-# Parameters
-channel = 6
-cols = ['freq', 'a_x', 'a_y', 'a_z', 'theta_x', 'theta_y', 'theta_z']
-run = os.path.join('ltp', 'run_b2')
-
-# Directory and time array stuff
-summary_dir = os.path.join('summaries', run)
-summary_file = os.path.join(summary_dir, 'summary.' + cols[channel] + '.npy')
-times = tf.get_gps_times(run)
-delta_t_days = tf.get_days_elapsed(times)
-
-# If a summary file doesn't exist, generate it
-if not summary_file in glob.glob(os.path.join(summary_dir, '*')):
-    print('No PSD summaries file found. Importing data files...')
-    summarize_run.save_summary(run, channel, cols[channel])
-print('PSD summaries file found. Importing...')
-summaries = np.load(summary_file)
-    
-# Get differences from reference PSD
-median_psd = np.median(summaries[:,:,1:2], axis=0)
-channel_intensity = summaries[:,:,1].T
-
-# Plot colormaps
-print('Plotting...')
-fig, axs = plt.subplots(1, 2)
-fig.suptitle(run + ' channel ' + cols[channel] + ' colormap')
-# Subplots
-axs[0].title.set_text('PSD(t) - PSD_median')
-plot_colormap(fig, axs[0], channel_intensity - median_psd, times,
-    cmap=cm.get_cmap('coolwarm'),
-    vlims=(-2e-15,2e-15),
-    logfreq=True,
-    neutral=0.0,
-    cbar_label='Absolute difference from reference PSD'
-)
-axs[1].title.set_text('|PSD(t) - PSD_median| / PSD_median')
-plot_colormap(fig, axs[1], 
-    np.abs(channel_intensity - median_psd) / median_psd,
-    times,
-    cmap='PuRd',
-    vlims=(0,1),
-    logfreq=True
-)
-#plt.show()
-
-# Frequency slice
-fig, axs = plt.subplots(2,3)
-fig.suptitle(run + ' ; channel ' + cols[channel]
-    + ' ; PSDs at selected frequencies')
-axs[1,1].set_xlabel('Days elapsed since ' 
-    + str(tf.get_iso_date(times[0])) + ' UTC')
-axs[0,0].set_ylabel('PSD')
-axs[1,0].set_ylabel('PSD')
-plot_freq_slice(fig, axs[0,0], 1e-3, times, summaries)
-plot_freq_slice(fig, axs[0,1], 3e-3, times, summaries)
-plot_freq_slice(fig, axs[0,2], 5e-3, times, summaries)
-plot_freq_slice(fig, axs[1,0], 1e-2, times, summaries)
-plot_freq_slice(fig, axs[1,1], 3e-2, times, summaries)
-plot_freq_slice(fig, axs[1,2], 5e-2, times, summaries)
-handles, labels = axs[1,2].get_legend_handles_labels()
-fig.legend(handles, labels)
-plt.show()
-
-# Time slice
-fig, axs = plt.subplots(1,1)
-fig.suptitle(run + ' channel ' + cols[channel] + ' PSDs at selected times since '
-    + str(tf.get_iso_date(times[0])) + ' UTC')
-plot_time_slice(fig, axs, 0, times, summaries, 'b', logpsd=True)
-plot_time_slice(fig, axs, 2, times, summaries, 'g')
-plot_time_slice(fig, axs, 4, times, summaries, 'orange')
-plot_time_slice(fig, axs, 6, times, summaries, 'r')
-axs.title.set_text('')
-#plt.show()
