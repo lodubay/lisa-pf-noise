@@ -154,7 +154,7 @@ def freq_slice(fig, ax, freq, summary, color='b', ylim=None):
         med = fslice['MEDIAN'].median()
         hi = fslice['CI_90_HI'].median() - med
         lo = med - fslice['CI_90_LO'].median()
-        ax.set_ylim((max(med - 5 * lo, 0), med + 5 * hi))
+        ax.set_ylim((max(med - 6 * lo, 0), med + 6 * hi))
     # Axis labels
     ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
     ax.set_ylabel('PSD')
