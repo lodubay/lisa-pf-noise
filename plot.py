@@ -51,7 +51,7 @@ def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     plt.register_cmap(cmap=newcmap)
     return newcmap
 
-def colormap(fig, ax, psd, cmap, vlims, cbar_label=None, center=None):
+def colormap(fig, ax, psd, cmap, vlims=None, cbar_label=None, center=None):
     '''
     Function to plot the colormap of a PSD with frequency on the y-axis and
     time on the x-axis.
@@ -69,13 +69,19 @@ def colormap(fig, ax, psd, cmap, vlims, cbar_label=None, center=None):
     start_date = tf.get_iso_date(int(psd.columns[0]))
     # Change columns from GPS time to days elapsed from start of run
     psd.columns = pd.Series(tf.get_days_elapsed(psd.columns), name='TIME')
-    if not cbar_label: cbar_label = 'Fractional difference from reference PSD'
+    # Auto colormap scale
+    if not vlims:
+        med = psd.median(axis=1).median()
+        std = psd.std(axis=1).median()
+        vlims = (med - 2 * std, med + 2 * std)
+    # Shift colormap to place 0 in the center if needed
     if center:
         cmap = shifted_cmap(
             cmap, 
             midpoint=(center-vlims[0])/(vlims[1]-vlims[0]), 
             name='shifted colormap'
         )
+    # Plot colormap
     im = ax.imshow(
         psd,
         cmap=cmap,
@@ -83,17 +89,17 @@ def colormap(fig, ax, psd, cmap, vlims, cbar_label=None, center=None):
         origin='lower',
         vmin=vlims[0],
         vmax=vlims[1],
-        extent=[
-            psd.columns[0],
-            psd.columns[-1],
-            0., 1.
-        ]
+        extent=[psd.columns[0], psd.columns[-1], 0., 1.]
     )
+    # Vertical scale
     ax.set_yscale('log')
     ax.set_ylim(bottom=1e-3, top=1.)
+    # Axis labels
     ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
     ax.set_ylabel('Frequency (Hz)')
+    # Add and label colorbar
     cbar = fig.colorbar(im, ax=ax)
+    if not cbar_label: cbar_label = 'Fractional difference from reference PSD'
     cbar.set_label(cbar_label, labelpad=15, rotation=270)
 
 def all_psds(fig, ax, time_dir, channel, xlim=None, ylim=None):
@@ -152,9 +158,10 @@ def freq_slice(fig, ax, freq, summary, color='b', ylim=None):
         ax.set_ylim(ylim)
     else:
         med = fslice['MEDIAN'].median()
-        hi = fslice['CI_90_HI'].median() - med
-        lo = med - fslice['CI_90_LO'].median()
-        ax.set_ylim((max(med - 6 * lo, 0), med + 6 * hi))
+        std = fslice['MEDIAN'].std()
+        hi = (fslice['CI_90_HI'].quantile(0.9) - med)
+        lo = (med - fslice['CI_90_LO'].quantile(0.1))
+        ax.set_ylim((max(med - 3 * lo, 0), med + 3 * hi))
     # Axis labels
     ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
     ax.set_ylabel('PSD')

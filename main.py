@@ -9,7 +9,7 @@ import os
 
 # Parameters
 run = 'ltp/run_b2'
-channel = 'a_x'
+channel = 'a_y'
 
 # Summary file locations
 summary_dir = os.path.join('summaries', run)
@@ -39,7 +39,7 @@ axs[0].title.set_text('PSD(t) - PSD_median')
 plot.colormap(fig, axs[0], 
     unstacked.sub(median, axis=0), 
     cmap=cm.get_cmap('coolwarm'),
-    vlims=(-2e-16, 2e-16),
+#    vlims=(-2e-16, 2e-16),
     center=0.0,
     cbar_label='Absolute difference from reference PSD'
 )
