@@ -6,10 +6,15 @@ import sys
 import time_functions as tf
 import itertools
 
-run = os.path.join('run_k')
+run = os.path.join('ltp', 'run_b2')
 evidence_threshold = 0.5
 
 def gen_evidence_df(run, evidence_threshold):
+    '''
+    Returns a DataFrame with times as rows and channels as columns. A cell is
+    marked True if that time and column showed sufficient evidence for a
+    line, determined by the evidence threshold
+    '''
     time_dirs = tf.get_time_dirs(run)
     gps_times = tf.get_gps_times(run)
     
@@ -39,8 +44,15 @@ def gen_evidence_df(run, evidence_threshold):
     df.to_csv(os.path.join('linechain', run, 'evidence.dat'), sep=' ')
 
 def get_lined(evidence_file):
+    '''
+    Returns a list of times and channels from the given evidence file 
+    with evidence for the existence of lines. Formatted as <time>_<channel #>
+    '''
     df = pd.read_csv(evidence_file, sep=' ', index_col=0)
+    return [str(t) + '_' + str(c) for t, c 
+        in list(itertools.product(df.index, df.columns)) if df.loc[t,c]
+    ]
 
-gen_evidence_df(run, evidence_threshold)
-get_lined(os.path.join('linechain', run, 'evidence.dat'))
+#gen_evidence_df(run, evidence_threshold)
+print(get_lined(os.path.join('linechain', run, 'evidence.dat')))
 

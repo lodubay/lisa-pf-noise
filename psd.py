@@ -54,6 +54,7 @@ def summarize_psd(time_dir):
     Credible intervals are calculated using
     pymc3's highest posterior density (HPD) function, where alpha is the 
     desired probability of type I error (so, 1 - C.I.).
+    Uses the same MultiIndex as import_time().
     
     Input
     -----

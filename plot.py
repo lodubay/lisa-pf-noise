@@ -135,7 +135,7 @@ def freq_slice(fig, ax, freq, summary, color='b', ylim=None):
     if ylim: ax.set_ylim(ylim)
     ax.set_ylabel('PSD')
     ax.title.set_text(str(freq*1000) + ' mHz')
-    
+
 def time_slice(fig, ax, time, summary, color='b', ylim=None, logpsd=False):
     '''
     Plots frequency vs PSD at a specific time.
@@ -151,7 +151,7 @@ def time_slice(fig, ax, time, summary, color='b', ylim=None, logpsd=False):
     '''
     # Get the index of the nearest time to the one requested
     gps_time, day = tf.get_exact_time(summary, time)
-    day = str(np.round(day, 2))
+    day = str(np.round(day, 4))
     # Get time slice
     tslice = psd.get_time_slice(summary, gps_time)
     # Plot 50% credible interval

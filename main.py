@@ -9,7 +9,7 @@ import os
 
 # Parameters
 run = 'ltp/run_b2'
-channel = 'theta_z'
+channel = 'a_x'
 
 # Summary file locations
 summary_dir = os.path.join('summaries', run)
@@ -69,9 +69,9 @@ fig.legend(handles, labels)
 # Time slice
 fig, axs = plt.subplots(1,1)
 fig.suptitle(run + ' channel ' + channel + ' PSDs at selected times')
-plot.time_slice(fig, axs, 0.32, df, 'b', logpsd=True)
-plot.time_slice(fig, axs, 0.50, df, 'g')
-plot.time_slice(fig, axs, 0.85, df, 'orange')
+plot.time_slice(fig, axs, tf.gps2day(run, 1143963964), df, 'b', logpsd=True)
+#plot.time_slice(fig, axs, 0.50, df, 'g')
+#plot.time_slice(fig, axs, 0.85, df, 'orange')
 #plot.time_slice(fig, axs, 2.50, df, 'r')
 axs.title.set_text('')
 plt.show()

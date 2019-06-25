@@ -1,5 +1,6 @@
 import os
 import glob
+import numpy as np
 from astropy.time import Time
 
 def get_time_dirs(run):
@@ -22,7 +23,7 @@ def get_days_elapsed(gps_times):
     '''
     Converts list of gps times to days elapsed from the first time in the list.
     '''
-    return [(int(t) - int(gps_times[0])) / (60*60*24) for t in gps_times]
+    return [(t - gps_times[0]) / (60*60*24) for t in gps_times]
     
 def get_iso_date(gps_int):
     '''
@@ -41,7 +42,14 @@ def get_exact_time(summary, approx_day):
       run : name of the run
       approx_day : approximate number of days from start of run
     '''
-    gps_times = list(summary.index.get_level_values(0))
+    gps_times = list(summary.index.get_level_values(0).unique())
     days_elapsed = get_days_elapsed(gps_times)
-    time_index = int(approx_day / max(days_elapsed) * len(days_elapsed))
+    time_index = round(approx_day / max(days_elapsed) * len(days_elapsed))
     return gps_times[time_index], days_elapsed[time_index]
+
+def gps2day(run, gps_time):
+    '''
+    Takes an exact gps time and returns the number of days from the start of run
+    '''
+    gps_times = get_gps_times(run)
+    return (gps_time - gps_times[0]) / (60*60*24)
