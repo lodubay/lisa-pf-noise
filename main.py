@@ -74,4 +74,10 @@ plot.time_slice(fig, axs, tf.gps2day(run, 1143963964), df, 'b', logpsd=True)
 #plot.time_slice(fig, axs, 0.85, df, 'orange')
 #plot.time_slice(fig, axs, 2.50, df, 'r')
 axs.title.set_text('')
+#plt.show()
+
+fig, ax = plt.subplots(1, 1)
+time_dir = 'data/ltp/run_b2/run_b_1143963964/'
+channel = 'a_x'
+plot.all_psds(fig, ax, time_dir, channel, xlim=(1e-3, 1), ylim=(1e-17, 2e-15))
 plt.show()

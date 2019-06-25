@@ -95,6 +95,22 @@ def colormap(fig, ax, psd, cmap, vlims, cbar_label=None, center=None):
     ax.set_ylabel('Frequency (Hz)')
     cbar = fig.colorbar(im, ax=ax)
     cbar.set_label(cbar_label, labelpad=15, rotation=270)
+
+def all_psds(fig, ax, time_dir, channel, xlim=None, ylim=None):
+    '''
+    Plots all PSD samples in a single time directory for one channel
+    '''
+    df = psd.import_time(time_dir).loc[channel]
+    summary = psd.summarize_psd(time_dir).loc[channel]
+    freqs = df.index.get_level_values('FREQ')
+    for i in range(100):
+        ax.scatter(freqs, df[i], marker='.', color='b')
+    if xlim: ax.set_xlim(xlim)
+    else: ax.set_xlim(auto=True)
+    if ylim: ax.set_ylim(ylim)
+    else: ax.set_ylim(auto=True)
+    ax.set_xscale('log')
+    ax.set_yscale('log')
     
 def freq_slice(fig, ax, freq, summary, color='b', ylim=None):
     '''
