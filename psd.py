@@ -4,7 +4,7 @@ import pandas as pd
 import os
 import glob
 import time_functions as tf
-    
+
 def import_time(time_dir):
     '''
     Import and combine all psd.dat files in a single time directory 
@@ -47,7 +47,7 @@ def import_time(time_dir):
     time_data = pd.concat(time_data, axis=1, ignore_index=True)
     # Strip rows of 2s
     return time_data[time_data.iloc[:,0] < 2]
-    
+
 def summarize_psd(time_dir):
     '''
     Returns a DataFrame with the median and credible intervals for one time.
@@ -75,7 +75,7 @@ def summarize_psd(time_dir):
         'CI_90_LO'  : pd.Series(hpd_90[:,0], index=midx),
         'CI_90_HI'  : pd.Series(hpd_90[:,1], index=midx),
     }, index=midx)
-    
+
 def save_summary(run, summary_file):
     '''
     Returns a multi-index DataFrame of PSD summaries across multiple times 
