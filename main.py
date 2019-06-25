@@ -9,7 +9,7 @@ import os
 
 # Parameters
 run = 'ltp/run_b2'
-channel = 'a_y'
+channel = 'theta_x'
 
 # Summary file locations
 summary_dir = os.path.join('summaries', run)
@@ -23,33 +23,8 @@ except FileNotFoundError:
     print('No PSD summaries file found. Importing ' + run + ' data files...')
     df = pd.save_summary(run, summary_file)
 
-# Channel-specific things
-df = df.loc[channel]
-# Get differences from reference PSD
-median = psd.get_median_psd(df)
-# Unstack psd, removing all columns except the median
-unstacked = psd.unstack_median(df)
-
-# Plot colormaps
 print('Plotting...')
-fig, axs = plt.subplots(1, 2, figsize=(14, 6))
-fig.suptitle(run + ' channel ' + channel + ' colormap')
-# Subplots
-axs[0].title.set_text('PSD(t) - PSD_median')
-plot.colormap(fig, axs[0], 
-    unstacked.sub(median, axis=0), 
-    cmap=cm.get_cmap('coolwarm'),
-#    vlims=(-2e-16, 2e-16),
-    center=0.0,
-    cbar_label='Absolute difference from reference PSD'
-)
-axs[1].title.set_text('|PSD(t) - PSD_median| / PSD_median')
-plot.colormap(fig, axs[1], 
-    abs(unstacked.sub(median, axis=0)).div(median, axis=0),
-    cmap='PuRd',
-    vlims=(0,1)
-)
-#plt.show()
+plot.save_colormaps(run, channel, df, os.path.join('plots', run, channel + '_colormap.png'))
 
 # Frequency slices
 fig, axs = plt.subplots(2, 3, figsize=(16, 9))

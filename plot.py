@@ -102,6 +102,34 @@ def colormap(fig, ax, psd, cmap, vlims=None, cbar_label=None, center=None):
     if not cbar_label: cbar_label = 'Fractional difference from reference PSD'
     cbar.set_label(cbar_label, labelpad=15, rotation=270)
 
+def save_colormaps(run, channel, summary, plot_file, show=True):
+    df = summary.loc[channel]
+    # Get differences from reference PSD
+    median = psd.get_median_psd(df)
+    # Unstack psd, removing all columns except the median
+    unstacked = psd.unstack_median(df)
+    # Plot colormaps
+    fig, axs = plt.subplots(1, 2, figsize=(14, 6))
+    fig.suptitle(run + ' channel ' + channel + ' colormap')
+    # Subplots
+    axs[0].title.set_text('PSD(t) - PSD_median')
+    colormap(fig, axs[0], 
+        unstacked.sub(median, axis=0), 
+        cmap=cm.get_cmap('coolwarm'),
+        center=0.0,
+        cbar_label='Absolute difference from reference PSD'
+    )
+    axs[1].title.set_text('|PSD(t) - PSD_median| / PSD_median')
+    colormap(fig, axs[1], 
+        abs(unstacked.sub(median, axis=0)).div(median, axis=0),
+        cmap='PuRd',
+        vlims=(0,1)
+    )
+    print('Saving color plot for ' + run + ' channel ' + channel + '...')
+    plt.savefig(plot_file)
+    if show: plt.show()
+    
+
 def all_psds(fig, ax, time_dir, channel, xlim=None, ylim=None):
     '''
     Plots all PSD samples in a single time directory for one channel
@@ -159,9 +187,9 @@ def freq_slice(fig, ax, freq, summary, color='b', ylim=None):
     else:
         med = fslice['MEDIAN'].median()
         std = fslice['MEDIAN'].std()
-        hi = (fslice['CI_90_HI'].quantile(0.9) - med)
-        lo = (med - fslice['CI_90_LO'].quantile(0.1))
-        ax.set_ylim((max(med - 3 * lo, 0), med + 3 * hi))
+        hi = (fslice['CI_90_HI'].quantile(0.95) - med)
+        lo = (med - fslice['CI_90_LO'].quantile(0.05))
+        ax.set_ylim((max(med - 2 * lo, 0), med + 2 * hi))
     # Axis labels
     ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
     ax.set_ylabel('PSD')
