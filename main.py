@@ -8,7 +8,7 @@ import pandas as pd
 import os
 
 # Parameters
-run = 'drs/run_q'
+run = 'ltp/run_b2'
 channel = 'theta_z'
 
 # Summary file locations
@@ -39,7 +39,7 @@ axs[0].title.set_text('PSD(t) - PSD_median')
 plot.colormap(fig, axs[0], 
     unstacked.sub(median, axis=0), 
     cmap=cm.get_cmap('coolwarm'),
-    vlims=(-4e-16,4e-16),
+    vlims=(-2e-15, 2e-15),
     center=0.0,
     cbar_label='Absolute difference from reference PSD'
 )
@@ -55,12 +55,12 @@ plot.colormap(fig, axs[1],
 fig, axs = plt.subplots(2,3)
 fig.suptitle(run + ' channel ' + channel + ' PSDs at selected frequencies')
 # Subplots
-plot.freq_slice(fig, axs[0,0], 1e-3, df, ylim=(0, 1.2e-15))
-plot.freq_slice(fig, axs[0,1], 3e-3, df)
-plot.freq_slice(fig, axs[0,2], 5e-3, df)
-plot.freq_slice(fig, axs[1,0], 1e-2, df)
-plot.freq_slice(fig, axs[1,1], 3e-2, df)
-plot.freq_slice(fig, axs[1,2], 5e-2, df)
+plot.freq_slice(fig, axs[0,0], 1e-3, df, ylim=(0, 2e-15))
+plot.freq_slice(fig, axs[0,1], 3e-3, df, ylim=(0, 2e-15))
+plot.freq_slice(fig, axs[0,2], 5e-3, df, ylim=(0, 2e-15))
+plot.freq_slice(fig, axs[1,0], 1e-2, df, ylim=(0, 2e-15))
+plot.freq_slice(fig, axs[1,1], 3e-2, df, ylim=(0, 2e-15))
+plot.freq_slice(fig, axs[1,2], 5e-2, df, ylim=(0, 2e-15))
 # Legend
 handles, labels = axs[1,2].get_legend_handles_labels()
 fig.legend(handles, labels)
@@ -68,11 +68,10 @@ fig.legend(handles, labels)
 
 # Time slice
 fig, axs = plt.subplots(1,1)
-#fig.suptitle('Channel ' + cols[channel] + ' - PSDs at selected times since '
-#    + str(time.get_iso_date(times[0])) + ' UTC')
+fig.suptitle(run + ' channel ' + channel + ' PSDs at selected times')
 plot.time_slice(fig, axs, 0.32, df, 'b', logpsd=True)
 plot.time_slice(fig, axs, 0.50, df, 'g')
-#plot.time_slice(fig, axs, 1.50, df, 'orange')
+plot.time_slice(fig, axs, 0.85, df, 'orange')
 #plot.time_slice(fig, axs, 2.50, df, 'r')
 axs.title.set_text('')
 plt.show()
