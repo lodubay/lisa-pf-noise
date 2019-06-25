@@ -55,12 +55,12 @@ plot.colormap(fig, axs[1],
 fig, axs = plt.subplots(2, 3, figsize=(16, 9))
 fig.suptitle(run + ' channel ' + channel + ' PSDs at selected frequencies')
 # Subplots
-plot.freq_slice(fig, axs[0,0], 1e-3, df, ylim=(0, 2e-15))
-plot.freq_slice(fig, axs[0,1], 3e-3, df, ylim=(0, 2e-15))
-plot.freq_slice(fig, axs[0,2], 5e-3, df, ylim=(0, 2e-15))
-plot.freq_slice(fig, axs[1,0], 1e-2, df, ylim=(0, 2e-15))
-plot.freq_slice(fig, axs[1,1], 3e-2, df, ylim=(0, 2e-15))
-plot.freq_slice(fig, axs[1,2], 5e-2, df, ylim=(0, 2e-15))
+plot.freq_slice(fig, axs[0,0], 1e-3, df)
+plot.freq_slice(fig, axs[0,1], 3e-3, df)
+plot.freq_slice(fig, axs[0,2], 5e-3, df)
+plot.freq_slice(fig, axs[1,0], 1e-2, df)
+plot.freq_slice(fig, axs[1,1], 3e-2, df)
+plot.freq_slice(fig, axs[1,2], 5e-2, df)
 # Legend
 handles, labels = axs[1,2].get_legend_handles_labels()
 fig.legend(handles, labels)

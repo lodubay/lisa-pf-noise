@@ -147,8 +147,16 @@ def freq_slice(fig, ax, freq, summary, color='b', ylim=None):
         label='90% credible interval')
     # Plot median
     ax.plot(days_elapsed, fslice['MEDIAN'], label='Median PSD', color=color)
+    # Vertical scale
+    if ylim: 
+        ax.set_ylim(ylim)
+    else:
+        med = fslice['MEDIAN'].median()
+        hi = fslice['CI_90_HI'].median() - med
+        lo = med - fslice['CI_90_LO'].median()
+        ax.set_ylim((max(med - 5 * lo, 0), med + 5 * hi))
+    # Axis labels
     ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
-    if ylim: ax.set_ylim(ylim)
     ax.set_ylabel('PSD')
     ax.title.set_text(str(np.around(freq*1000, 3)) + ' mHz')
 
