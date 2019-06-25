@@ -9,7 +9,7 @@ import os
 
 # Parameters
 run = 'ltp/run_b2'
-channel = 'theta_y'
+channel = 'a_x'
 
 # Summary file locations
 summary_dir = os.path.join('summaries', run)
@@ -32,14 +32,14 @@ unstacked = psd.unstack_median(df)
 
 # Plot colormaps
 print('Plotting...')
-fig, axs = plt.subplots(1, 2)
+fig, axs = plt.subplots(1, 2, figsize=(14, 6))
 fig.suptitle(run + ' channel ' + channel + ' colormap')
 # Subplots
 axs[0].title.set_text('PSD(t) - PSD_median')
 plot.colormap(fig, axs[0], 
     unstacked.sub(median, axis=0), 
     cmap=cm.get_cmap('coolwarm'),
-    vlims=(-2e-15, 2e-15),
+    vlims=(-2e-16, 2e-16),
     center=0.0,
     cbar_label='Absolute difference from reference PSD'
 )
@@ -52,7 +52,7 @@ plot.colormap(fig, axs[1],
 #plt.show()
 
 # Frequency slices
-fig, axs = plt.subplots(2,3)
+fig, axs = plt.subplots(2, 3, figsize=(16, 9))
 fig.suptitle(run + ' channel ' + channel + ' PSDs at selected frequencies')
 # Subplots
 plot.freq_slice(fig, axs[0,0], 1e-3, df, ylim=(0, 2e-15))
@@ -64,14 +64,14 @@ plot.freq_slice(fig, axs[1,2], 5e-2, df, ylim=(0, 2e-15))
 # Legend
 handles, labels = axs[1,2].get_legend_handles_labels()
 fig.legend(handles, labels)
-#plt.show()
+plt.show()
 
 # Time slice
 fig, axs = plt.subplots(1,1)
 fig.suptitle(run + ' channel ' + channel + ' PSDs at selected times')
-plot.time_slice(fig, axs, tf.gps2day(run, 1143967241), df, 'b', logpsd=True)
+plot.time_slice(fig, axs, tf.gps2day(run, 1143963964), df, 'b', logpsd=True)
 #plot.time_slice(fig, axs, 0.50, df, 'g')
 #plot.time_slice(fig, axs, 0.85, df, 'orange')
 #plot.time_slice(fig, axs, 2.50, df, 'r')
 axs.title.set_text('')
-plt.show()
+#plt.show()

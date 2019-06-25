@@ -150,7 +150,7 @@ def freq_slice(fig, ax, freq, summary, color='b', ylim=None):
     ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
     if ylim: ax.set_ylim(ylim)
     ax.set_ylabel('PSD')
-    ax.title.set_text(str(freq*1000) + ' mHz')
+    ax.title.set_text(str(np.around(freq*1000, 3)) + ' mHz')
 
 def time_slice(fig, ax, time, summary, color='b', ylim=None, logpsd=False):
     '''
