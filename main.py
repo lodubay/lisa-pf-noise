@@ -8,12 +8,10 @@ import matplotlib.cm as cm
 import pandas as pd
 import os
 
-# TODO move fslice and tslice plotting to plot.py
-
 # Parameters
 run = 'ltp/run_b2'
-channel = 'theta_y'
-chan_idx = 4
+channel = 'theta_z'
+chan_idx = 5
 
 # Summary file locations
 summary_dir = os.path.join('summaries', run)
@@ -31,12 +29,12 @@ print('Plotting...')
 plot.save_colormaps(run, channel, df, os.path.join('plots', run, channel + '_colormap.png'), show=False)
 
 # Frequency slices
-plot.save_freq_slices(run, channel, df, os.path.join('plots', run, channel + '_fslices.png'), show=True)
+plot.save_freq_slices(run, channel, df, os.path.join('plots', run, channel + '_fslices.png'), show=False)
 
 # Time slice
 times = lc.get_lines(run, chan_idx)
 print('Plotting times...')
 plot.save_time_slices(run, channel, df, 
-    times[:7], os.path.join('plots', run, channel + '_tslices.png'),
-    time_format='gps', exact=True, show=True
+    times[:min(8, len(times)+1)], os.path.join('plots', run, channel + '_tslices.png'),
+    time_format='gps', exact=True, show=True, logpsd=True
 )

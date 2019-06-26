@@ -258,7 +258,7 @@ def save_freq_slices(run, channel, summary, plot_file, show=True,
     else: plt.close()
 
 def save_time_slices(run, channel, summary, times, plot_file, show=True,
-        time_format='gps', exact=True):
+        time_format='gps', exact=True, logpsd=False):
     # Convert given times to gps if necessary
     if time_format == 'day':
         times = [tf.day2gps(run, t) for t in times]
@@ -274,7 +274,7 @@ def save_time_slices(run, channel, summary, times, plot_file, show=True,
     # Subplots
     for i, time in enumerate(times):
         ax = fig.add_subplot(nrows, ncols, i+1)
-        time_slice(fig, ax, times[i], df)
+        time_slice(fig, ax, times[i], df, logpsd=logpsd)
         # Vertical axis label on first plot in each row
         if i % ncols == 0:
             ax.set_ylabel('PSD')
