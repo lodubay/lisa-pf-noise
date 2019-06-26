@@ -3,15 +3,13 @@ import time_functions as tf
 import psd
 import plot
 import linechain as lc
-import matplotlib.pyplot as plt
-import matplotlib.cm as cm
 import pandas as pd
+import numpy as np
 import os
 
 # Parameters
-run = 'ltp_run_b2'
-channel = 'theta_z'
-chan_idx = 5
+run = 'ltp_run_c'
+#channel = 0
 lc_threshold = 0.5
 
 # File locations
@@ -25,26 +23,30 @@ if not os.path.exists(plot_dir): os.makedirs(plot_dir)
 
 # Import / generate summary PSD DataFrame
 try:
-    print('PSD summaries file found. Importing...')
     df = pd.read_pickle(summary_file)
+    print('Imported PSD summaries file.')
 except FileNotFoundError:
     print('No PSD summaries file found. Generating...')
     df = psd.save_summary(run, summary_file)
 
-print('Plotting...')
-# Colormap
-cmap_file = os.path.join(plot_dir, 'colormap' + chan_idx + '.png')
-plot.save_colormaps(run, channel, df, cmap_file, show=True)
+for channel in range(6):
+    print('Plotting channel ' + str(channel) + '...')
+    # Colormap
+    cmap_file = os.path.join(plot_dir, 'colormap' + str(channel) + '.png')
+    plot.save_colormaps(run, channel, df, cmap_file, show=False)
 
-# Frequency slices
-fslice_file = os.path.join(plot_dir, 'fslice' + chan_idx + '.png')
-plot.save_freq_slices(run, channel, df, fslice_file, show=True)
+    # Frequency slices
+    fslice_file = os.path.join(plot_dir, 'fslice' + str(channel) + '.png')
+    plot.save_freq_slices(run, channel, df, fslice_file, show=False)
 
-# Time slice
-times = lc.get_lines(run, chan_idx, line_evidence_file, lc_threshold)
-print('Plotting times...')
-tslice_file = os.path.join(plot_dir, 'tslice' + chan_idx + '.png')
-plot.save_time_slices(run, channel, df, 
-    times[:min(8, len(times)+1)], tslice_file,
-    time_format='gps', exact=True, show=True, logpsd=True
-)
+    # Time slice - first look for times with lines
+    times = lc.get_lines(run, channel, line_evidence_file, lc_threshold)
+    tslice_file = os.path.join(plot_dir, 'tslice' + str(channel) + '.png')
+    # Still plot something if no lines are found
+    if len(times) == 0:
+        gps_times = tf.get_gps_times(run)
+        times = gps_times[slice(0, len(gps_times), 3)]
+    plot.save_time_slices(run, channel, df, 
+        times[:min(8, len(times)+1)], tslice_file,
+        time_format='gps', exact=True, show=True, logpsd=True
+    )

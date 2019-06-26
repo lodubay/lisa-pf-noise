@@ -209,7 +209,7 @@ def save_colormaps(run, channel, summary, plot_file, show=True):
     median = unstacked.median(axis=1)
     # Set up figure
     fig, axs = plt.subplots(1, 2, figsize=(14, 6))
-    fig.suptitle(run + ' channel ' + channel + ' colormap')
+    fig.suptitle(run + ' channel ' + str(channel) + ' colormap')
     # Subplots
     axs[0].title.set_text('PSD(t) - PSD_median')
     colormap(fig, axs[0], 
@@ -224,7 +224,7 @@ def save_colormaps(run, channel, summary, plot_file, show=True):
         cmap='PuRd',
         vlims=(0,1)
     )
-    print('Saving color plot for ' + run + ' channel ' + channel + '...')
+    print('Saving color plot for ' + run + ' channel ' + str(channel) + '...')
     plt.savefig(plot_file)
     if show: plt.show()
     else: plt.close()
@@ -235,7 +235,7 @@ def save_freq_slices(run, channel, summary, plot_file, show=True,
     nrows = int(np.floor(len(frequencies) ** 0.5))
     ncols = int(np.ceil(1. * len(frequencies) / nrows))
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(run + ' channel ' + channel + ' PSDs at selected frequencies')
+    fig.suptitle(run + ' channel ' + str(channel) + ' PSDs at selected frequencies')
     start_date = tf.gps2iso(tf.get_gps_times(run)[0])
     df = summary.loc[channel]
     # Subplots
@@ -252,7 +252,7 @@ def save_freq_slices(run, channel, summary, plot_file, show=True,
     handles, labels = ax.get_legend_handles_labels()
     fig.legend(handles, labels)
     fig.tight_layout(w_pad=-1.0, rect=[0, 0, 1, 0.92])
-    print('Saving frequency plot for ' + run + ' channel ' + channel + '...')
+    print('Saving frequency plot for ' + run + ' channel ' + str(channel) + '...')
     plt.savefig(plot_file)
     if show: plt.show()
     else: plt.close()
@@ -266,10 +266,10 @@ def save_time_slices(run, channel, summary, times, plot_file, show=True,
     if not exact:
         times = [tf.get_exact_gps(run, t) for t in times]
     # Automatically create grid of axes
-    nrows = int(np.floor(len(times) ** 0.5))
+    nrows = int(np.floor(float(len(times)) ** 0.5))
     ncols = int(np.ceil(1. * len(times) / nrows))
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(run + ' channel ' + channel + ' PSDs at selected times')
+    fig.suptitle(run + ' channel ' + str(channel) + ' PSDs at selected times')
     df = summary.loc[channel]
     # Subplots
     for i, time in enumerate(times):
@@ -285,7 +285,7 @@ def save_time_slices(run, channel, summary, times, plot_file, show=True,
     handles, labels = ax.get_legend_handles_labels()
     fig.legend(handles, labels)
     fig.tight_layout(rect=[0, 0, 1, 0.92])
-    print('Saving frequency plot for ' + run + ' channel ' + channel + '...')
+    print('Saving frequency plot for ' + run + ' channel ' + str(channel) + '...')
     plt.savefig(plot_file)
     if show: plt.show()
     else: plt.close()

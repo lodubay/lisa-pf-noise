@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import os
 import glob
+import sys
 import time_functions as tf
 
 def import_time(time_dir):
@@ -18,9 +19,8 @@ def import_time(time_dir):
       time_dir : relative path to the time directory
     '''
     time = int(time_dir[-11:-1])
-    print('\tImporting ' + str(time) + '...')
     # Channel names
-    channels = ['a_x', 'a_y', 'a_z', 'theta_x', 'theta_y', 'theta_z']
+    channels = list(range(6))
     # Column names
     cols = ['FREQ'] + channels
     # Sort so that (for example) psd.dat.2 is sorted after psd.dat.19
@@ -92,7 +92,13 @@ def save_summary(run, summary_file):
     # Pull PSD files from target run
     print('Importing ' + run + '...')
     # Concatenate DataFrames of all times; takes a while
-    summaries = pd.concat([summarize_psd(d) for d in time_dirs])
+    summaries = []
+    for i, d in enumerate(time_dirs):
+        summaries.append(summarize_psd(d))
+        # Progress indicator
+        sys.stdout.write('\r' + str(i+1) + '/' + str(len(time_dirs)))
+        sys.stdout.flush()
+    summaries = pd.concat(summaries)
     # Output to file
     print('Writing to ' + summary_file + '...')
     summaries.to_pickle(summary_file)
