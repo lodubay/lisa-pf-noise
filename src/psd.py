@@ -32,19 +32,20 @@ def import_time(time_dir):
         psd = pd.read_csv(
             pf, sep=' ', usecols=range(len(cols)), names=cols, index_col=0
         )
-        # Define MultiIndex
-        # Round frequency index to 5 decimals to deal with floating point issues
-        midx = pd.MultiIndex.from_product(
-            [channels, [time], np.around(psd.index.get_level_values('FREQ'), 5)], 
-            names=['CHANNEL', 'TIME', 'FREQ']
-        )
         # Concatenate columns vertically
         psd = pd.concat([psd[channel] for channel in channels])
         # Assign MultiIndex
-        psd.index = midx
+        #psd.index = midx
         time_data.append(psd)
     # Concatenate psd series horizontally
     time_data = pd.concat(time_data, axis=1, ignore_index=True)
+    # Define MultiIndex
+    # Round frequency index to 5 decimals to deal with floating point issues
+    time_data.index = pd.MultiIndex.from_product(
+        [channels, [time], 
+            np.around(time_data.index.get_level_values('FREQ').unique(), 5)], 
+        names=['CHANNEL', 'TIME', 'FREQ']
+    )
     # Strip rows of 2s
     return time_data[time_data.iloc[:,0] < 2]
 
@@ -98,6 +99,8 @@ def save_summary(run, summary_file):
         # Progress indicator
         sys.stdout.write('\r' + str(i+1) + '/' + str(len(time_dirs)))
         sys.stdout.flush()
+    sys.stdout.write('\n')
+    sys.stdout.flush()
     summaries = pd.concat(summaries)
     # Output to file
     print('Writing to ' + summary_file + '...')

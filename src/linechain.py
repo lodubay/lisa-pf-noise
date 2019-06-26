@@ -38,6 +38,8 @@ def gen_evidence_df(run, line_evidence_file, evidence_threshold=0.5):
         detection_ratio = len(counts) / len(lc)
         # Record whether this file provides evidence for lines
         df.loc[gps_times[t], c] = detection_ratio > evidence_threshold
+    sys.stdout.write('\n')
+    sys.stdout.flush()
     df.to_csv(line_evidence_file, sep=' ')
     return df
 
@@ -52,5 +54,5 @@ def get_lines(run, channel, line_evidence_file, threshold=0.5):
         print('No line evidence file found. Generating...')
         df = gen_evidence_df(run, line_evidence_file, threshold)
     # Return list of times
-    return [int(t) for t in df.index if df.loc[t,str(channel)]]
+    return [int(t) for i, t in enumerate(df.index) if df.iloc[i,channel]]
 

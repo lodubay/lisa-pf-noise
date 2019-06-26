@@ -8,8 +8,7 @@ import numpy as np
 import os
 
 # Parameters
-run = 'ltp_run_c'
-#channel = 0
+run = 'run_k'
 lc_threshold = 0.5
 
 # File locations
@@ -17,7 +16,7 @@ output_dir = os.path.join('out', run)
 if not os.path.exists(output_dir): os.makedirs(output_dir)
 summary_file = os.path.join(output_dir, run + '_summary.pkl')
 line_evidence_file = os.path.join(output_dir, 
-    run + '_line_evidence_' + str(int(100 * lc_threshold)) + '.dat')
+        run + '_line_evidence_' + str(int(100 * lc_threshold)) + '.dat')
 plot_dir = os.path.join('out', run, 'plots')
 if not os.path.exists(plot_dir): os.makedirs(plot_dir)
 
@@ -48,5 +47,6 @@ for channel in range(6):
         times = gps_times[slice(0, len(gps_times), 3)]
     plot.save_time_slices(run, channel, df, 
         times[:min(8, len(times)+1)], tslice_file,
-        time_format='gps', exact=True, show=True, logpsd=True
+        time_format='gps', exact=True, show=False, logpsd=True
     )
+print('Done!')
