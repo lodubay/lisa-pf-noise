@@ -9,32 +9,42 @@ import pandas as pd
 import os
 
 # Parameters
-run = 'ltp/run_b2'
+run = 'ltp_run_b2'
 channel = 'theta_z'
 chan_idx = 5
+lc_threshold = 0.5
 
-# Summary file locations
-summary_dir = os.path.join('summaries', run)
-summary_file = os.path.join(summary_dir, 'summary.pkl')
+# File locations
+output_dir = os.path.join('out', run)
+if not os.path.exists(output_dir): os.makedirs(output_dir)
+summary_file = os.path.join(output_dir, run + '_summary.pkl')
+line_evidence_file = os.path.join(output_dir, 
+    run + '_line_evidence_' + str(int(100 * lc_threshold)) + '.dat')
+plot_dir = os.path.join('out', run, 'plots')
+if not os.path.exists(plot_dir): os.makedirs(plot_dir)
 
 # Import / generate summary PSD DataFrame
 try:
     print('PSD summaries file found. Importing...')
     df = pd.read_pickle(summary_file)
 except FileNotFoundError:
-    print('No PSD summaries file found. Importing ' + run + ' data files...')
-    df = pd.save_summary(run, summary_file)
+    print('No PSD summaries file found. Generating...')
+    df = psd.save_summary(run, summary_file)
 
 print('Plotting...')
-plot.save_colormaps(run, channel, df, os.path.join('plots', run, channel + '_colormap.png'), show=False)
+# Colormap
+cmap_file = os.path.join(plot_dir, 'colormap' + chan_idx + '.png')
+plot.save_colormaps(run, channel, df, cmap_file, show=True)
 
 # Frequency slices
-plot.save_freq_slices(run, channel, df, os.path.join('plots', run, channel + '_fslices.png'), show=False)
+fslice_file = os.path.join(plot_dir, 'fslice' + chan_idx + '.png')
+plot.save_freq_slices(run, channel, df, fslice_file, show=True)
 
 # Time slice
-times = lc.get_lines(run, chan_idx)
+times = lc.get_lines(run, chan_idx, line_evidence_file, lc_threshold)
 print('Plotting times...')
+tslice_file = os.path.join(plot_dir, 'tslice' + chan_idx + '.png')
 plot.save_time_slices(run, channel, df, 
-    times[:min(8, len(times)+1)], os.path.join('plots', run, channel + '_tslices.png'),
+    times[:min(8, len(times)+1)], tslice_file,
     time_format='gps', exact=True, show=True, logpsd=True
 )

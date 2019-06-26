@@ -41,12 +41,10 @@ def gen_evidence_df(run, line_evidence_file, evidence_threshold=0.5):
     df.to_csv(line_evidence_file, sep=' ')
     return df
 
-def get_lines(run, channel, threshold=0.5):
+def get_lines(run, channel, line_evidence_file, threshold=0.5):
     '''
     Returns a list of times with likely lines in the given run and channel.
     '''
-    line_evidence_file = os.path.join('linechain', 
-            run + '_line_evidence_' + str(int(100 * threshold)) + '.dat')
     try:
         print('Line evidence file found. Reading...')
         df = pd.read_csv(line_evidence_file, sep=' ', index_col=0)
