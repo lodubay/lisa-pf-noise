@@ -2,6 +2,7 @@ print('Importing libraries...')
 import time_functions as tf
 import psd
 import plot
+import linechain as lc
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import pandas as pd
@@ -12,6 +13,7 @@ import os
 # Parameters
 run = 'ltp/run_b2'
 channel = 'theta_y'
+chan_idx = 4
 
 # Summary file locations
 summary_dir = os.path.join('summaries', run)
@@ -26,18 +28,15 @@ except FileNotFoundError:
     df = pd.save_summary(run, summary_file)
 
 print('Plotting...')
-#plot.save_colormaps(run, channel, df, os.path.join('plots', run, channel + '_colormap.png'))
+plot.save_colormaps(run, channel, df, os.path.join('plots', run, channel + '_colormap.png'), show=False)
 
 # Frequency slices
-#plot.generate_plots(6)
-plot.save_freq_slices(run, channel, df, os.path.join('plots', run, channel + '_colormap.png'))
+plot.save_freq_slices(run, channel, df, os.path.join('plots', run, channel + '_fslices.png'), show=True)
 
 # Time slice
-fig, axs = plt.subplots(1,1)
-fig.suptitle(run + ' channel ' + channel + ' PSDs at selected times')
-plot.time_slice(fig, axs, tf.gps2day(run, 1143963964), df, 'b', logpsd=True)
-#plot.time_slice(fig, axs, 0.50, df, 'g')
-#plot.time_slice(fig, axs, 0.85, df, 'orange')
-#plot.time_slice(fig, axs, 2.50, df, 'r')
-axs.title.set_text('')
-#plt.show()
+times = lc.get_lines(run, chan_idx)
+print('Plotting times...')
+plot.save_time_slices(run, channel, df, 
+    times[:7], os.path.join('plots', run, channel + '_tslices.png'),
+    time_format='gps', exact=True, show=True
+)

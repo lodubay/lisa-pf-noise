@@ -18,19 +18,42 @@ def get_gps_times(run):
     time_dirs = get_time_dirs(run)
     # Array of run times
     return [int(time_dir[-11:-1]) for time_dir in time_dirs]
+
+def gps2day(run, gps_time):
+    '''
+    Takes an exact gps time and returns the number of days from the start of run
+    '''
+    gps_times = get_gps_times(run)
+    return (gps_time - gps_times[0]) / (60*60*24)
     
-def get_days_elapsed(gps_times):
+def gps2day_list(gps_times):
     '''
     Converts list of gps times to days elapsed from the first time in the list.
     '''
     return [(t - gps_times[0]) / (60*60*24) for t in gps_times]
     
-def get_iso_date(gps_int):
+def gps2iso(gps_int):
     '''
     Converts a gps time (int) to an ISO date.
     '''
     gps_time = Time(gps_int, format='gps')
     return Time(gps_time, format='iso')
+
+def iso2gps(iso_date):
+    return int(Time(iso_date, format='gps'))
+
+def day2gps(run, day):
+    gps_times = get_gps_times(run)
+    return int(60 * 60 * 24 * day + gps_times[0])
+
+def get_exact_gps(run, approx_gps):
+    gps_times = get_gps_times(run)
+    time_index = round(
+        (approx_gps - gps_times[0]) 
+        / (gps_times[-1] - gps_times[0]) 
+        * len(gps_times)
+    )
+    return gps_times[time_index]
 
 def get_exact_time(summary, approx_day):
     '''
@@ -47,9 +70,3 @@ def get_exact_time(summary, approx_day):
     time_index = round(approx_day / max(days_elapsed) * len(days_elapsed))
     return gps_times[time_index], days_elapsed[time_index]
 
-def gps2day(run, gps_time):
-    '''
-    Takes an exact gps time and returns the number of days from the start of run
-    '''
-    gps_times = get_gps_times(run)
-    return (gps_time - gps_times[0]) / (60*60*24)

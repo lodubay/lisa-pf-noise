@@ -6,10 +6,7 @@ import sys
 import time_functions as tf
 import itertools
 
-run = os.path.join('ltp', 'run_b2')
-evidence_threshold = 0.5
-
-def gen_evidence_df(run, evidence_threshold):
+def gen_evidence_df(run, line_evidence_file, evidence_threshold=0.5):
     '''
     Returns a DataFrame with times as rows and channels as columns. A cell is
     marked True if that time and column showed sufficient evidence for a
@@ -41,20 +38,21 @@ def gen_evidence_df(run, evidence_threshold):
         detection_ratio = len(counts) / len(lc)
         # Record whether this file provides evidence for lines
         df.loc[gps_times[t], c] = detection_ratio > evidence_threshold
-    df.to_csv(os.path.join('linechain', run, 'evidence.dat'), sep=' ')
+    df.to_csv(line_evidence_file, sep=' ')
     return df
 
-def get_lined(evidence_file):
+def get_lines(run, channel, threshold=0.5):
     '''
-    Returns a list of times and channels from the given evidence file 
-    with evidence for the existence of lines. Formatted as <time>_<channel #>
+    Returns a list of times with likely lines in the given run and channel.
     '''
-    df = pd.read_csv(evidence_file, sep=' ', index_col=0)
-    lined = [str(t) + '_' + str(c) for t, c 
-        in list(itertools.product(df.index, df.columns)) if df.loc[t,c]
-    ]
-    return len(lined)
-
-#gen_evidence_df(run, evidence_threshold)
-print(get_lined(os.path.join('linechain', run, 'evidence.dat')))
+    line_evidence_file = os.path.join('linechain', 
+            run + '_line_evidence_' + str(int(100 * threshold)) + '.dat')
+    try:
+        print('Line evidence file found. Reading...')
+        df = pd.read_csv(line_evidence_file, sep=' ', index_col=0)
+    except FileNotFoundError:
+        print('No line evidence file found. Generating...')
+        df = gen_evidence_df(run, line_evidence_file, threshold)
+    # Return list of times
+    return [int(t) for t in df.index if df.loc[t,str(channel)]]
 

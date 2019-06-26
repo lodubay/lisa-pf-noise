@@ -51,16 +51,6 @@ def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     plt.register_cmap(cmap=newcmap)
     return newcmap
 
-def generate_plots(n):
-    '''
-    Generate an arbitrary number of subplots, and return the figure and axes
-    '''
-    a = int(np.floor(n**0.5))
-    b = int(np.ceil(1.*n/a))
-    fig, axs = plt.subplots(a, b)
-    plt.plot()
-    return fig
-
 def colormap(fig, ax, psd, cmap, vlims=None, cbar_label=None, center=None):
     '''
     Function to plot the colormap of a PSD with frequency on the y-axis and
@@ -76,9 +66,9 @@ def colormap(fig, ax, psd, cmap, vlims=None, cbar_label=None, center=None):
       center : The center value of a diverging colormap
     '''
     # Get start date in UTC
-    start_date = tf.get_iso_date(int(psd.columns[0]))
+    start_date = tf.gps2iso(int(psd.columns[0]))
     # Change columns from GPS time to days elapsed from start of run
-    psd.columns = pd.Series(tf.get_days_elapsed(psd.columns), name='TIME')
+    psd.columns = pd.Series(tf.gps2day_list(psd.columns), name='TIME')
     # Auto colormap scale
     if not vlims:
         med = psd.median(axis=1).median()
@@ -145,7 +135,7 @@ def freq_slice(fig, ax, freq, summary, color='b', ylim=None):
     # Slice along that frequency
     fslice = summary.xs(freq, level='FREQ')
     # Date stuff
-    days_elapsed = tf.get_days_elapsed(fslice.index)
+    days_elapsed = tf.gps2day_list(fslice.index)
     # Plot 50% credible interval
     ax.fill_between(days_elapsed,
         fslice['CI_50_LO'],
@@ -180,50 +170,44 @@ def time_slice(fig, ax, time, summary, color='b', ylim=None, logpsd=False):
     Input
     -----
       fig, ax : the figure and axes of the plot
-      time : the approximate time (run begins at 0) along which to slice
+      time : the exact gps time along which to slice
       summary : the summary DataFrame
       color : the color of the plot, optional
       ylim : tuple of y axis bounds, optional
       lobpsd : if true, plots psd on a log scale
     '''
-    # Get the index of the nearest time to the one requested
-    gps_time, day = tf.get_exact_time(summary, time)
-    day = str(np.round(day, 4))
     # Get time slice
-    tslice = summary.xs(gps_time)
+    tslice = summary.xs(time)
     # Plot 50% credible interval
     ax.fill_between(tslice.index, 
         tslice['CI_50_LO'], 
         tslice['CI_50_HI'],
         color=color, 
         alpha=0.5,
-        label='50% credible interval at T+' + str(day) + ' days')
+        label='50% credible interval')
     # Plot 90% credible interval
     ax.fill_between(tslice.index, 
         tslice['CI_90_LO'], 
         tslice['CI_90_HI'],
         color=color, 
         alpha=0.1,
-        label='90% credible interval at T+' + str(day) + ' days')
+        label='90% credible interval')
     # Plot median
     ax.plot(tslice.index, tslice['MEDIAN'], 
-        label='Median PSD at T+' + str(day) + ' days', 
+        label='Median PSD', 
         color=color)
-    ax.legend()
-    ax.set_xlabel('Frequency (Hz)')
     ax.set_xscale('log')
     if ylim: ax.set_ylim(ylim)
     if logpsd: ax.set_yscale('log')
-    ax.set_ylabel('PSD')
-    ax.title.set_text('PSD at ' + str(tf.get_iso_date(gps_time)) + ' UTC')
+    ax.title.set_text(str(time))
 
 def save_colormaps(run, channel, summary, plot_file, show=True):
     df = summary.loc[channel]
-    # Get differences from reference PSD
-    median = df['MEDIAN'].unstack(level=0)
     # Unstack psd, removing all columns except the median
-    unstacked = df['MEDIAN'].unstack(level=0).median(axis=1)
-    # Plot colormaps
+    unstacked = df['MEDIAN'].unstack(level=0)
+    # Find median across all times
+    median = unstacked.median(axis=1)
+    # Set up figure
     fig, axs = plt.subplots(1, 2, figsize=(14, 6))
     fig.suptitle(run + ' channel ' + channel + ' colormap')
     # Subplots
@@ -243,15 +227,16 @@ def save_colormaps(run, channel, summary, plot_file, show=True):
     print('Saving color plot for ' + run + ' channel ' + channel + '...')
     plt.savefig(plot_file)
     if show: plt.show()
+    else: plt.close()
 
 def save_freq_slices(run, channel, summary, plot_file, show=True,
-        frequencies=[1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2, 0.5]):
+        frequencies=[1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2]):
     # Automatically create grid of axes
     nrows = int(np.floor(len(frequencies) ** 0.5))
     ncols = int(np.ceil(1. * len(frequencies) / nrows))
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
     fig.suptitle(run + ' channel ' + channel + ' PSDs at selected frequencies')
-    start_date = tf.get_iso_date(tf.get_gps_times(run)[0])
+    start_date = tf.gps2iso(tf.get_gps_times(run)[0])
     df = summary.loc[channel]
     # Subplots
     for i, freq in enumerate(frequencies):
@@ -270,3 +255,37 @@ def save_freq_slices(run, channel, summary, plot_file, show=True,
     print('Saving frequency plot for ' + run + ' channel ' + channel + '...')
     plt.savefig(plot_file)
     if show: plt.show()
+    else: plt.close()
+
+def save_time_slices(run, channel, summary, times, plot_file, show=True,
+        time_format='gps', exact=True):
+    # Convert given times to gps if necessary
+    if time_format == 'day':
+        times = [tf.day2gps(run, t) for t in times]
+    # Find exact times if necessary
+    if not exact:
+        times = [tf.get_exact_gps(run, t) for t in times]
+    # Automatically create grid of axes
+    nrows = int(np.floor(len(times) ** 0.5))
+    ncols = int(np.ceil(1. * len(times) / nrows))
+    fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
+    fig.suptitle(run + ' channel ' + channel + ' PSDs at selected times')
+    df = summary.loc[channel]
+    # Subplots
+    for i, time in enumerate(times):
+        ax = fig.add_subplot(nrows, ncols, i+1)
+        time_slice(fig, ax, times[i], df)
+        # Vertical axis label on first plot in each row
+        if i % ncols == 0:
+            ax.set_ylabel('PSD')
+        # Horizontal axis label on bottom plot in each column
+        if i >= len(times) - ncols:
+            ax.set_xlabel('Frequency (Hz)')
+    # Legend
+    handles, labels = ax.get_legend_handles_labels()
+    fig.legend(handles, labels)
+    fig.tight_layout(rect=[0, 0, 1, 0.92])
+    print('Saving frequency plot for ' + run + ' channel ' + channel + '...')
+    plt.savefig(plot_file)
+    if show: plt.show()
+    else: plt.close()
