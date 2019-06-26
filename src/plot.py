@@ -289,3 +289,9 @@ def save_time_slices(run, channel, summary, times, plot_file, show=True,
     plt.savefig(plot_file)
     if show: plt.show()
     else: plt.close()
+
+def line_params(line_df):
+    plt.hist(line_df['FREQ'], bins=100)
+    plt.xlabel('Frequency (Hz)')
+    plt.ylabel('Count')
+    plt.show()

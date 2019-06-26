@@ -1,5 +1,5 @@
 import pandas as pd
-import numpy as np
+#import numpy as np
 import csv
 import os
 import sys
@@ -14,15 +14,11 @@ def gen_evidence_df(run, line_evidence_file, evidence_threshold=0.5):
     '''
     time_dirs = tf.get_time_dirs(run)
     gps_times = tf.get_gps_times(run)
-    
-    # Set up progress indicator
-    max_iter = len(time_dirs) * 6
-    
     # Create empty DataFrame
     df = pd.DataFrame(index=gps_times, columns=range(6))
     for t, c in list(itertools.product(range(len(time_dirs)), range(6))):
         # Update progress
-        sys.stdout.write('\r' + str(t * 6 + c + 1) + '/' + str(max_iter))
+        sys.stdout.write('\r' + str(t*6 + c+1) + '/' + str(len(time_dirs)*6))
         sys.stdout.flush()
         # linechain file name
         lc_file = os.path.join(
@@ -56,3 +52,52 @@ def get_lines(run, channel, line_evidence_file, threshold=0.5):
     # Return list of times
     return [int(t) for i, t in enumerate(df.index) if df.iloc[i,channel]]
 
+def best_line_model(run, time, channel):
+    # Get time directory
+    time_index = tf.get_gps_times(run).index(time)
+    time_dir = tf.get_time_dirs(run)[time_index]
+    # File name
+    lc_file = os.path.join(
+        time_dir, 'linechain_channel' + str(channel) + '.dat'
+    )
+    # Import first column to determine how wide DataFrame should be
+    counts = pd.read_csv(
+        lc_file, engine='c', sep=' ', usecols=[0], header=None, squeeze=True
+    )
+    # Runoff: eliminates the least likely model, then transfers those counts
+    # to the model with one fewer line (unless there is none).
+    # Tries to give a bit more balance to the less-likely models
+    while len(set(counts)) > 1:
+        # Find the least-likely model (the count which appears the least)
+        unlikely = min(set(list(counts)), key=list(counts).count)
+        print(len(counts[counts == unlikely]))
+        if unlikely - 1 in set(counts):
+            counts[counts == unlikely] = unlikely - 1
+        else:
+            counts = counts[counts != unlikely]
+    return max(counts)
+
+def get_line_params(run, time, channel):
+    # Get time directory
+    time_index = tf.get_gps_times(run).index(time)
+    time_dir = tf.get_time_dirs(run)[time_index]
+    # File name
+    lc_file = os.path.join(
+        time_dir, 'linechain_channel' + str(channel) + '.dat'
+    )
+    # Import first column to determine how wide DataFrame should be
+    counts = pd.read_csv(
+        lc_file, engine='c', sep=' ', usecols=[0], header=None, squeeze=True
+    )
+    # Import entire data file, accounting for uneven rows
+    lc = pd.read_csv(lc_file, header=None, names=range(max(counts)*3+1), sep=' ')
+    # Column headers
+    headers = ['FREQ', 'AMP', 'QF']
+    # Make 3 column DataFrame by stacking sections vertically
+    df = pd.concat([
+        lc.iloc[:,c*3+1:c*3+4].set_axis(headers, axis=1, inplace=False) 
+        for c in range(max(counts))
+    ], ignore_index=True)
+    # Remove NaNs and reset index
+    return df[df.iloc[:,0].notna()].reset_index()
+    

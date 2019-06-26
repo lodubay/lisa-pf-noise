@@ -34,8 +34,6 @@ def import_time(time_dir):
         )
         # Concatenate columns vertically
         psd = pd.concat([psd[channel] for channel in channels])
-        # Assign MultiIndex
-        #psd.index = midx
         time_data.append(psd)
     # Concatenate psd series horizontally
     time_data = pd.concat(time_data, axis=1, ignore_index=True)
