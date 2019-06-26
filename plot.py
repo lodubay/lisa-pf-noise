@@ -51,6 +51,16 @@ def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     plt.register_cmap(cmap=newcmap)
     return newcmap
 
+def generate_plots(n):
+    '''
+    Generate an arbitrary number of subplots, and return the figure and axes
+    '''
+    a = int(np.floor(n**0.5))
+    b = int(np.ceil(1.*n/a))
+    fig, axs = plt.subplots(a, b)
+    plt.plot()
+    return fig
+
 def colormap(fig, ax, psd, cmap, vlims=None, cbar_label=None, center=None):
     '''
     Function to plot the colormap of a PSD with frequency on the y-axis and
@@ -234,26 +244,29 @@ def save_colormaps(run, channel, summary, plot_file, show=True):
     plt.savefig(plot_file)
     if show: plt.show()
 
-def save_freq_slices(run, channel, summary, show=True,
-        frequencies=[1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2]):
-    ncols = 3
-    nrows = int(np.ceil(len(frequencies)/ncols))
-    fig, axs = plt.subplots(nrows, ncols, figsize=(4 * ncols, 4 * nrows), squeeze=0)
+def save_freq_slices(run, channel, summary, plot_file, show=True,
+        frequencies=[1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2, 0.5]):
+    # Automatically create grid of axes
+    nrows = int(np.floor(len(frequencies) ** 0.5))
+    ncols = int(np.ceil(1. * len(frequencies) / nrows))
+    fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
     fig.suptitle(run + ' channel ' + channel + ' PSDs at selected frequencies')
-    #plt.margins(x=0.05)
     start_date = tf.get_iso_date(tf.get_gps_times(run)[0])
     df = summary.loc[channel]
     # Subplots
-    for i, ax in enumerate(axs.reshape(-1)):
+    for i, freq in enumerate(frequencies):
+        ax = fig.add_subplot(nrows, ncols, i+1)
         freq_slice(fig, ax, frequencies[i], df)
         # Vertical axis label on first plot in each row
         if i % ncols == 0:
             ax.set_ylabel('PSD')
         # Horizontal axis label on bottom plot in each column
-        if i >= (ncols * nrows) - ncols:
+        if i >= len(frequencies) - ncols:
             ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
     # Legend
-    handles, labels = axs[0,0].get_legend_handles_labels()
+    handles, labels = ax.get_legend_handles_labels()
     fig.legend(handles, labels)
-    fig.tight_layout(rect=[0, 0, 1, 0.92])
-    plt.show()
+    fig.tight_layout(w_pad=-1.0, rect=[0, 0, 1, 0.92])
+    print('Saving frequency plot for ' + run + ' channel ' + channel + '...')
+    plt.savefig(plot_file)
+    if show: plt.show()

@@ -29,7 +29,8 @@ print('Plotting...')
 #plot.save_colormaps(run, channel, df, os.path.join('plots', run, channel + '_colormap.png'))
 
 # Frequency slices
-plot.save_freq_slices(run, channel, df)
+#plot.generate_plots(6)
+plot.save_freq_slices(run, channel, df, os.path.join('plots', run, channel + '_colormap.png'))
 
 # Time slice
 fig, axs = plt.subplots(1,1)
