@@ -7,9 +7,11 @@ import matplotlib.cm as cm
 import pandas as pd
 import os
 
+# TODO move fslice and tslice plotting to plot.py
+
 # Parameters
 run = 'ltp/run_b2'
-channel = 'theta_x'
+channel = 'theta_y'
 
 # Summary file locations
 summary_dir = os.path.join('summaries', run)
@@ -24,22 +26,10 @@ except FileNotFoundError:
     df = pd.save_summary(run, summary_file)
 
 print('Plotting...')
-plot.save_colormaps(run, channel, df, os.path.join('plots', run, channel + '_colormap.png'))
+#plot.save_colormaps(run, channel, df, os.path.join('plots', run, channel + '_colormap.png'))
 
 # Frequency slices
-fig, axs = plt.subplots(2, 3, figsize=(16, 9))
-fig.suptitle(run + ' channel ' + channel + ' PSDs at selected frequencies')
-# Subplots
-plot.freq_slice(fig, axs[0,0], 1e-3, df)
-plot.freq_slice(fig, axs[0,1], 3e-3, df)
-plot.freq_slice(fig, axs[0,2], 5e-3, df)
-plot.freq_slice(fig, axs[1,0], 1e-2, df)
-plot.freq_slice(fig, axs[1,1], 3e-2, df)
-plot.freq_slice(fig, axs[1,2], 5e-2, df)
-# Legend
-handles, labels = axs[1,2].get_legend_handles_labels()
-fig.legend(handles, labels)
-plt.show()
+plot.save_freq_slices(run, channel, df)
 
 # Time slice
 fig, axs = plt.subplots(1,1)

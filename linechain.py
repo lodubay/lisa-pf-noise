@@ -42,6 +42,7 @@ def gen_evidence_df(run, evidence_threshold):
         # Record whether this file provides evidence for lines
         df.loc[gps_times[t], c] = detection_ratio > evidence_threshold
     df.to_csv(os.path.join('linechain', run, 'evidence.dat'), sep=' ')
+    return df
 
 def get_lined(evidence_file):
     '''
@@ -49,9 +50,10 @@ def get_lined(evidence_file):
     with evidence for the existence of lines. Formatted as <time>_<channel #>
     '''
     df = pd.read_csv(evidence_file, sep=' ', index_col=0)
-    return [str(t) + '_' + str(c) for t, c 
+    lined = [str(t) + '_' + str(c) for t, c 
         in list(itertools.product(df.index, df.columns)) if df.loc[t,c]
     ]
+    return len(lined)
 
 #gen_evidence_df(run, evidence_threshold)
 print(get_lined(os.path.join('linechain', run, 'evidence.dat')))

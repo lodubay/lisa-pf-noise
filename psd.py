@@ -98,9 +98,6 @@ def save_summary(run, summary_file):
     summaries.to_pickle(summary_file)
     return summaries
 
-def get_time_slice(summary, gps_time):
-    return summary.xs(gps_time)
-
 def get_exact_freq(summary, approx_freq):
     '''
     Takes an approximate input frequency and returns the closest measured
@@ -110,22 +107,3 @@ def get_exact_freq(summary, approx_freq):
     freqs = list(summary.xs(gps_times[0]).index)
     freq_index = round(approx_freq / (max(freqs) - min(freqs)) * len(freqs))
     return freqs[freq_index]
-
-def get_freq_slice(summary, freq):
-    '''
-    Returns a DataFrame sliced along the input frequency. 
-    '''
-    return summary.xs(freq, level='FREQ')
-
-def unstack_median(summary):
-    '''
-    Returns an unstacked DataFrame of just median PSD values, with time
-    along columns and frequency along rows.
-    '''
-    return summary['MEDIAN'].unstack(level=0)
-
-def get_median_psd(summary):
-    '''
-    Returns PSD medianed across all times.
-    '''
-    return summary['MEDIAN'].unstack(level=0).median(axis=1)

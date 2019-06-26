@@ -102,34 +102,6 @@ def colormap(fig, ax, psd, cmap, vlims=None, cbar_label=None, center=None):
     if not cbar_label: cbar_label = 'Fractional difference from reference PSD'
     cbar.set_label(cbar_label, labelpad=15, rotation=270)
 
-def save_colormaps(run, channel, summary, plot_file, show=True):
-    df = summary.loc[channel]
-    # Get differences from reference PSD
-    median = psd.get_median_psd(df)
-    # Unstack psd, removing all columns except the median
-    unstacked = psd.unstack_median(df)
-    # Plot colormaps
-    fig, axs = plt.subplots(1, 2, figsize=(14, 6))
-    fig.suptitle(run + ' channel ' + channel + ' colormap')
-    # Subplots
-    axs[0].title.set_text('PSD(t) - PSD_median')
-    colormap(fig, axs[0], 
-        unstacked.sub(median, axis=0), 
-        cmap=cm.get_cmap('coolwarm'),
-        center=0.0,
-        cbar_label='Absolute difference from reference PSD'
-    )
-    axs[1].title.set_text('|PSD(t) - PSD_median| / PSD_median')
-    colormap(fig, axs[1], 
-        abs(unstacked.sub(median, axis=0)).div(median, axis=0),
-        cmap='PuRd',
-        vlims=(0,1)
-    )
-    print('Saving color plot for ' + run + ' channel ' + channel + '...')
-    plt.savefig(plot_file)
-    if show: plt.show()
-    
-
 def all_psds(fig, ax, time_dir, channel, xlim=None, ylim=None):
     '''
     Plots all PSD samples in a single time directory for one channel
@@ -161,10 +133,9 @@ def freq_slice(fig, ax, freq, summary, color='b', ylim=None):
     # Get the index of the nearest frequency to the one requested
     freq = psd.get_exact_freq(summary, freq)
     # Slice along that frequency
-    fslice = psd.get_freq_slice(summary, freq)
+    fslice = summary.xs(freq, level='FREQ')
     # Date stuff
     days_elapsed = tf.get_days_elapsed(fslice.index)
-    start_date = tf.get_iso_date(int(fslice.index[0]))
     # Plot 50% credible interval
     ax.fill_between(days_elapsed,
         fslice['CI_50_LO'],
@@ -187,12 +158,9 @@ def freq_slice(fig, ax, freq, summary, color='b', ylim=None):
     else:
         med = fslice['MEDIAN'].median()
         std = fslice['MEDIAN'].std()
-        hi = (fslice['CI_90_HI'].quantile(0.95) - med)
-        lo = (med - fslice['CI_90_LO'].quantile(0.05))
+        hi = fslice['CI_90_HI'].quantile(0.95) - med
+        lo = med - fslice['CI_90_LO'].quantile(0.05)
         ax.set_ylim((max(med - 2 * lo, 0), med + 2 * hi))
-    # Axis labels
-    ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
-    ax.set_ylabel('PSD')
     ax.title.set_text(str(np.around(freq*1000, 3)) + ' mHz')
 
 def time_slice(fig, ax, time, summary, color='b', ylim=None, logpsd=False):
@@ -212,7 +180,7 @@ def time_slice(fig, ax, time, summary, color='b', ylim=None, logpsd=False):
     gps_time, day = tf.get_exact_time(summary, time)
     day = str(np.round(day, 4))
     # Get time slice
-    tslice = psd.get_time_slice(summary, gps_time)
+    tslice = summary.xs(gps_time)
     # Plot 50% credible interval
     ax.fill_between(tslice.index, 
         tslice['CI_50_LO'], 
@@ -239,3 +207,53 @@ def time_slice(fig, ax, time, summary, color='b', ylim=None, logpsd=False):
     ax.set_ylabel('PSD')
     ax.title.set_text('PSD at ' + str(tf.get_iso_date(gps_time)) + ' UTC')
 
+def save_colormaps(run, channel, summary, plot_file, show=True):
+    df = summary.loc[channel]
+    # Get differences from reference PSD
+    median = df['MEDIAN'].unstack(level=0)
+    # Unstack psd, removing all columns except the median
+    unstacked = df['MEDIAN'].unstack(level=0).median(axis=1)
+    # Plot colormaps
+    fig, axs = plt.subplots(1, 2, figsize=(14, 6))
+    fig.suptitle(run + ' channel ' + channel + ' colormap')
+    # Subplots
+    axs[0].title.set_text('PSD(t) - PSD_median')
+    colormap(fig, axs[0], 
+        unstacked.sub(median, axis=0), 
+        cmap=cm.get_cmap('coolwarm'),
+        center=0.0,
+        cbar_label='Absolute difference from reference PSD'
+    )
+    axs[1].title.set_text('|PSD(t) - PSD_median| / PSD_median')
+    colormap(fig, axs[1], 
+        abs(unstacked.sub(median, axis=0)).div(median, axis=0),
+        cmap='PuRd',
+        vlims=(0,1)
+    )
+    print('Saving color plot for ' + run + ' channel ' + channel + '...')
+    plt.savefig(plot_file)
+    if show: plt.show()
+
+def save_freq_slices(run, channel, summary, show=True,
+        frequencies=[1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2]):
+    ncols = 3
+    nrows = int(np.ceil(len(frequencies)/ncols))
+    fig, axs = plt.subplots(nrows, ncols, figsize=(4 * ncols, 4 * nrows), squeeze=0)
+    fig.suptitle(run + ' channel ' + channel + ' PSDs at selected frequencies')
+    #plt.margins(x=0.05)
+    start_date = tf.get_iso_date(tf.get_gps_times(run)[0])
+    df = summary.loc[channel]
+    # Subplots
+    for i, ax in enumerate(axs.reshape(-1)):
+        freq_slice(fig, ax, frequencies[i], df)
+        # Vertical axis label on first plot in each row
+        if i % ncols == 0:
+            ax.set_ylabel('PSD')
+        # Horizontal axis label on bottom plot in each column
+        if i >= (ncols * nrows) - ncols:
+            ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
+    # Legend
+    handles, labels = axs[0,0].get_legend_handles_labels()
+    fig.legend(handles, labels)
+    fig.tight_layout(rect=[0, 0, 1, 0.92])
+    plt.show()
