@@ -1,11 +1,11 @@
 import pandas as pd
-#import numpy as np
+import numpy as np
 import csv
 import os
 import sys
 import time_functions as tf
 import itertools
-from sklearn.cluster import KMeans
+from sklearn.cluster import MiniBatchKMeans
 
 def get_counts(lc_file):
     '''
@@ -148,7 +148,7 @@ def get_model_params(run, time, channel, model):
     # Make 3 column DataFrame by stacking sections vertically
     df = pd.concat([
         lc.iloc[:,c*3+1:c*3+4].set_axis(headers, axis=1, inplace=False) 
-        for c in range(max(counts))
+        for c in range(model)
     ], ignore_index=True)
     # Remove NaNs and reset index
     return df[df.iloc[:,0].notna()].reset_index(drop=True)
@@ -156,5 +156,6 @@ def get_model_params(run, time, channel, model):
 def get_param_centroids(run, time, channel, model):
     # Uses scikit-learn K-means algorithm
     param_df = get_model_params(run, time, channel, model)
-    centroids = KMeans(n_clusters=model).fit(param_df)
+    init = np.array([[6.944806e-02, 3.072776e-20, 3.067084e+02], [3.189902e-03, 6.450174e-19, 5.410645e+03]])
+    centroids = MiniBatchKMeans(n_clusters=model, init=init).fit(param_df)
     return centroids.cluster_centers_

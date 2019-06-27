@@ -19,5 +19,5 @@ time = 1143789532
 channel = 4
 model = lc.best_line_model(run, time, channel)
 print(lc.get_param_centroids(run, time, channel, model))
-#lc_params = lc.get_model_params(run, time, channel, model)
-#plot.line_params_corner(lc_params)
+lc_params = lc.get_model_params(run, time, channel, model)
+plot.line_params_corner(lc_params)
