@@ -6,6 +6,15 @@ import sys
 import time_functions as tf
 import itertools
 
+def get_counts(lc_file):
+    '''
+    Returns just the first column of the linechain file as a list of ints
+    as a pandas Series
+    '''
+    # Use incorrect separator to load uneven lines
+    lc = pd.read_csv(lc_file, usecols=[0], header=None, squeeze=True, dtype=str)
+    return pd.Series([int(row[0]) for row in lc])
+
 def gen_evidence_df(run, line_evidence_file, evidence_threshold=0.5):
     '''
     Returns a DataFrame with times as rows and channels as columns. A cell is
@@ -24,13 +33,8 @@ def gen_evidence_df(run, line_evidence_file, evidence_threshold=0.5):
         lc_file = os.path.join(
             time_dirs[t], 'linechain_channel' + str(c) + '.dat'
         )
-        with open(lc_file, 'r') as f:
-            # Use incorrect separator to load uneven lines
-            lc = pd.read_csv(f, usecols=[0], engine='c', header=None, 
-                squeeze=True, dtype=str
-            )
         # Calculate fraction of steps with non-zero line counts
-        counts = [int(row[0]) for row in lc if int(row[0]) > 0]
+        counts = [count for count in get_counts(lc_file) if count > 0]
         detection_ratio = len(counts) / len(lc)
         # Record whether this file provides evidence for lines
         df.loc[gps_times[t], c] = detection_ratio > evidence_threshold
@@ -39,18 +43,53 @@ def gen_evidence_df(run, line_evidence_file, evidence_threshold=0.5):
     df.to_csv(line_evidence_file, sep=' ')
     return df
 
-def get_lines(run, channel, line_evidence_file, threshold=0.5):
+def gen_model_df(run, model_file):
+    '''
+    Returns a DataFrame with times as rows and channels as columns. Cells
+    are filled with the most likely model number
+    '''
+    time_dirs = tf.get_time_dirs(run)
+    gps_times = tf.get_gps_times(run)
+    # Create empty DataFrame
+    df = pd.DataFrame(index=gps_times, columns=range(6))
+    #df = []
+    #for c in range(6):
+    #    df.append(pd.Series([
+    #        int(get_counts(os.path.join(d, 'linechain_channel' + str(c) + '.dat')).mode())
+    #        for d in time_dirs
+    #    ], index=gps_times))
+    for t, c in list(itertools.product(range(len(time_dirs)), range(6))):
+        # Update progress
+        sys.stdout.write('\r' + str(t*6 + c+1) + '/' + str(len(time_dirs)*6))
+        sys.stdout.flush()
+        # linechain file name
+        lc_file = os.path.join(
+            time_dirs[t], 'linechain_channel' + str(c) + '.dat'
+        )
+        # Find the mode
+        count = int(get_counts(lc_file).mode())
+        df.loc[gps_times[t], c] = count
+    #df = pd.concat(df)
+    #print(df)
+    sys.stdout.write('\n')
+    sys.stdout.flush()
+    df.to_csv(model_file, sep=' ')
+    return df
+
+def get_lines(run, channel, model_file):
     '''
     Returns a list of times with likely lines in the given run and channel.
     '''
-    try:
+    if os.path.exists(model_file):
         print('Line evidence file found. Reading...')
-        df = pd.read_csv(line_evidence_file, sep=' ', index_col=0)
-    except FileNotFoundError:
+        df = pd.read_csv(model_file, sep=' ', index_col=0)
+    else:
         print('No line evidence file found. Generating...')
-        df = gen_evidence_df(run, line_evidence_file, threshold)
+        #df = gen_evidence_df(run, line_evidence_file, threshold)
+        df = gen_model_df(run, model_file)
     # Return list of times
-    return [int(t) for i, t in enumerate(df.index) if df.iloc[i,channel]]
+    return df[df.iloc[:,channel] > 0].index
+    #return [int(t) for i, t in enumerate(df.index) if df.iloc[i,channel] > 0]
 
 def best_line_model(run, time, channel):
     # Get time directory
@@ -60,18 +99,16 @@ def best_line_model(run, time, channel):
     lc_file = os.path.join(
         time_dir, 'linechain_channel' + str(channel) + '.dat'
     )
-    # Import first column to determine how wide DataFrame should be
-    counts = pd.read_csv(
-        lc_file, engine='c', sep=' ', usecols=[0], header=None, squeeze=True
-    )
+    # Import first column
+    counts = pd.Series(get_counts(lc_file))
     # Runoff: eliminates the least likely model, then transfers those counts
     # to the model with one fewer line (unless there is none).
     # Tries to give a bit more balance to the less-likely models
     while len(set(counts)) > 1:
         # Find the least-likely model (the count which appears the least)
-        unlikely = min(set(list(counts)), key=list(counts).count)
-        print(len(counts[counts == unlikely]))
-        if unlikely - 1 in set(counts):
+        unlikely = min(set(counts), key=list(counts).count)
+        # Find the nearest larger model, if it exists
+        if unlikely + 1 in set(counts):
             counts[counts == unlikely] = unlikely - 1
         else:
             counts = counts[counts != unlikely]
@@ -86,9 +123,7 @@ def get_line_params(run, time, channel):
         time_dir, 'linechain_channel' + str(channel) + '.dat'
     )
     # Import first column to determine how wide DataFrame should be
-    counts = pd.read_csv(
-        lc_file, engine='c', sep=' ', usecols=[0], header=None, squeeze=True
-    )
+    counts = get_counts(lc_file)
     # Import entire data file, accounting for uneven rows
     lc = pd.read_csv(lc_file, header=None, names=range(max(counts)*3+1), sep=' ')
     # Column headers
