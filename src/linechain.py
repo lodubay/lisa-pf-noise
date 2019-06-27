@@ -52,12 +52,6 @@ def gen_model_df(run, model_file):
     gps_times = tf.get_gps_times(run)
     # Create empty DataFrame
     df = pd.DataFrame(index=gps_times, columns=range(6))
-    #df = []
-    #for c in range(6):
-    #    df.append(pd.Series([
-    #        int(get_counts(os.path.join(d, 'linechain_channel' + str(c) + '.dat')).mode())
-    #        for d in time_dirs
-    #    ], index=gps_times))
     for t, c in list(itertools.product(range(len(time_dirs)), range(6))):
         # Update progress
         sys.stdout.write('\r' + str(t*6 + c+1) + '/' + str(len(time_dirs)*6))
@@ -69,8 +63,6 @@ def gen_model_df(run, model_file):
         # Find the mode
         count = int(get_counts(lc_file).mode())
         df.loc[gps_times[t], c] = count
-    #df = pd.concat(df)
-    #print(df)
     sys.stdout.write('\n')
     sys.stdout.flush()
     df.to_csv(model_file, sep=' ')
