@@ -5,6 +5,7 @@ import os
 import sys
 import time_functions as tf
 import itertools
+from sklearn.cluster import KMeans
 
 def get_counts(lc_file):
     '''
@@ -127,4 +128,33 @@ def get_line_params(run, time, channel):
     ], ignore_index=True)
     # Remove NaNs and reset index
     return df[df.iloc[:,0].notna()].reset_index()
-    
+
+def get_model_params(run, time, channel, model):
+    # Get time directory
+    time_index = tf.get_gps_times(run).index(time)
+    time_dir = tf.get_time_dirs(run)[time_index]
+    # File name
+    lc_file = os.path.join(
+        time_dir, 'linechain_channel' + str(channel) + '.dat'
+    )
+    # Import first column to determine how wide DataFrame should be
+    counts = get_counts(lc_file)
+    # Import entire data file, accounting for uneven rows
+    lc = pd.read_csv(lc_file, header=None, names=range(max(counts)*3+1), sep=' ')
+    # Strip of all rows that don't match the model
+    lc = lc[lc.iloc[:,0] == model]
+    # Column headers
+    headers = ['FREQ', 'AMP', 'QF']
+    # Make 3 column DataFrame by stacking sections vertically
+    df = pd.concat([
+        lc.iloc[:,c*3+1:c*3+4].set_axis(headers, axis=1, inplace=False) 
+        for c in range(max(counts))
+    ], ignore_index=True)
+    # Remove NaNs and reset index
+    return df[df.iloc[:,0].notna()].reset_index(drop=True)
+
+def get_param_centroids(run, time, channel, model):
+    # Uses scikit-learn K-means algorithm
+    param_df = get_model_params(run, time, channel, model)
+    centroids = KMeans(n_clusters=model).fit(param_df)
+    return centroids.cluster_centers_

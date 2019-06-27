@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.colors
+import corner
 import numpy as np
 import pandas as pd
 import time_functions as tf
@@ -290,10 +291,19 @@ def save_time_slices(run, channel, summary, times, plot_file, show=True,
     if show: plt.show()
     else: plt.close()
 
-def line_params(line_df):
-    vals = line_df['FREQ']
-    plt.hist(vals, bins=np.logspace(-3, 0, 100))
+def line_params(line_df, logx=True):
+    logx=False
+    vals = line_df['QF']
+    if logx: bins = np.logspace(np.log10(min(vals)), np.log10(max(vals)), 100)
+    else: bins = np.linspace(min(vals), max(vals), 100)
+    print(max(vals))
+    plt.hist(vals, bins)
     plt.xlabel('Frequency (Hz)')
     plt.ylabel('Count')
-    plt.xscale('log')
+    if logx: plt.xscale('log')
+    plt.show()
+
+def line_params_corner(line_df):
+    #plt.scatter(line_df['FREQ'], line_df['AMP'])
+    corner.corner(pd.concat([line_df['FREQ'], line_df['QF']], axis=1), range=[(0, 0.08), (0, 1000)])
     plt.show()

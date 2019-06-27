@@ -15,4 +15,9 @@ model_file = os.path.join(output_dir, run + '_line_evidence.dat')
 #    for time in lc.get_lines(run, channel, model_file):
 #        best_model.append(lc.best_line_model(run, time, channel))
 #    print('Best model for channel ' + str(channel) + ': ' + str(best_model))
-plot.line_params(lc.get_line_params(run, 1143789532, 4))
+time = 1143789532
+channel = 4
+model = lc.best_line_model(run, time, channel)
+print(lc.get_param_centroids(run, time, channel, model))
+#lc_params = lc.get_model_params(run, time, channel, model)
+#plot.line_params_corner(lc_params)
