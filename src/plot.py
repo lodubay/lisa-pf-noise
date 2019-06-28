@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 import time_functions as tf
 import psd
+from chainconsumer import ChainConsumer
     
 def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     '''
@@ -305,5 +306,13 @@ def line_params(line_df, logx=True):
 
 def line_params_corner(line_df):
     #plt.scatter(line_df['FREQ'], line_df['AMP'])
-    corner.corner(line_df, range=[(0, 0.08), (0, 0.5e-18), (0, 5000)])
+    corner.corner(line_df, range=[(0, 0.08), (0, 1e-19), (0, 5000)])
+    plt.show()
+
+def chain_consumer(line_df):
+    c = ChainConsumer().add_chain(line_df.to_numpy(), parameters=['FREQ', 'AMP',
+        'QF'], kde=False, cloud=True, shade=False)
+    #rng = [(0, 0.1), (0, 0.2), (0, 5e6)]
+    rng = [(0, 0.08), (0, 1e-19), (0, 5000)]
+    fig = c.plotter.plot(extents=rng)
     plt.show()

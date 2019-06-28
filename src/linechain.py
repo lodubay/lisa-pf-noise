@@ -7,6 +7,7 @@ import time_functions as tf
 import itertools
 from sklearn.cluster import KMeans
 from sklearn.neighbors import KernelDensity
+from chainconsumer import ChainConsumer
 
 def get_counts(lc_file):
     '''
@@ -144,6 +145,7 @@ def get_model_params(run, time, channel, model):
     lc = pd.read_csv(lc_file, header=None, names=range(max(counts)*3+1), sep=' ')
     # Strip of all rows that don't match the model
     lc = lc[lc.iloc[:,0] == model]
+    # TODO rearrange columns with lowest to highest frequency, left to right
     # Column headers
     headers = ['FREQ', 'AMP', 'QF']
     # Make 3 column DataFrame by stacking sections vertically
@@ -162,3 +164,4 @@ def get_param_centroids(param_df, model):
     #freqs = KernelDensity(kernel='gaussian').fit(param_df.iloc[:,0:1])
     #return freqs.get_params()
     return centroids.cluster_centers_
+
