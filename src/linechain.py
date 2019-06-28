@@ -5,7 +5,8 @@ import os
 import sys
 import time_functions as tf
 import itertools
-from sklearn.cluster import MiniBatchKMeans
+from sklearn.cluster import KMeans
+from sklearn.neighbors import KernelDensity
 
 def get_counts(lc_file):
     '''
@@ -153,9 +154,11 @@ def get_model_params(run, time, channel, model):
     # Remove NaNs and reset index
     return df[df.iloc[:,0].notna()].reset_index(drop=True)
 
-def get_param_centroids(run, time, channel, model):
+def get_param_centroids(param_df, model):
     # Uses scikit-learn K-means algorithm
-    param_df = get_model_params(run, time, channel, model)
-    init = np.array([[6.944806e-02, 3.072776e-20, 3.067084e+02], [3.189902e-03, 6.450174e-19, 5.410645e+03]])
-    centroids = MiniBatchKMeans(n_clusters=model, init=init).fit(param_df)
+    #init = np.array([param_df.median().to_numpy(), param_df.median().to_numpy()])
+    #print(init)
+    centroids = KMeans(n_clusters=model).fit(param_df)
+    #freqs = KernelDensity(kernel='gaussian').fit(param_df.iloc[:,0:1])
+    #return freqs.get_params()
     return centroids.cluster_centers_

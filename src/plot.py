@@ -305,5 +305,5 @@ def line_params(line_df, logx=True):
 
 def line_params_corner(line_df):
     #plt.scatter(line_df['FREQ'], line_df['AMP'])
-    corner.corner(line_df, range=[(0, 0.1), (0, 1e-18), (0, 1e4)])
+    corner.corner(line_df, range=[(0, 0.08), (0, 0.5e-18), (0, 5000)])
     plt.show()
