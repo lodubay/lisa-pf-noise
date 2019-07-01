@@ -1,5 +1,5 @@
-#import time_functions as tf
-#import psd
+import time_functions as tf
+import psd
 import plot
 import linechain as lc
 import pandas as pd
@@ -27,5 +27,5 @@ lc_params = lc.get_model_params(run, time, channel, model)
 #print(lc_params[lc_params.all() > lower.all() and lc_params.all() < upper.all()])
 #print(lc.get_param_centroids(lc_params, model))
 #plot.line_params_corner(lc_params)
-plot.chain_consumer(lc_params)
-plot.line_params_corner(lc_params)
+#plot.chain_consumer(lc_params)
+#plot.line_params_corner(lc_params)

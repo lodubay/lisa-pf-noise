@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import time_functions as tf
 import psd
-from chainconsumer import ChainConsumer
+#from chainconsumer import ChainConsumer
     
 def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     '''

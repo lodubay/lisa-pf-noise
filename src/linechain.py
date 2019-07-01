@@ -7,12 +7,11 @@ import time_functions as tf
 import itertools
 from sklearn.cluster import KMeans
 from sklearn.neighbors import KernelDensity
-from chainconsumer import ChainConsumer
+#from chainconsumer import ChainConsumer
 
 def get_counts(lc_file):
     '''
-    Returns just the first column of the linechain file as a list of ints
-    as a pandas Series
+    Returns just the first column of the linechain file as a pandas Series
     '''
     # Use incorrect separator to load uneven lines
     lc = pd.read_csv(lc_file, usecols=[0], header=None, squeeze=True, dtype=str)
@@ -66,8 +65,10 @@ def gen_model_df(run, model_file):
         # Find the mode
         count = int(get_counts(lc_file).mode())
         df.loc[gps_times[t], c] = count
+    # Finish progress indicator
     sys.stdout.write('\n')
     sys.stdout.flush()
+    # Write to CSV
     df.to_csv(model_file, sep=' ')
     return df
 
@@ -80,11 +81,9 @@ def get_lines(run, channel, model_file):
         df = pd.read_csv(model_file, sep=' ', index_col=0)
     else:
         print('No line evidence file found. Generating...')
-        #df = gen_evidence_df(run, line_evidence_file, threshold)
         df = gen_model_df(run, model_file)
     # Return list of times
     return df[df.iloc[:,channel] > 0].index
-    #return [int(t) for i, t in enumerate(df.index) if df.iloc[i,channel] > 0]
 
 def best_line_model(run, time, channel):
     # Get time directory
@@ -109,29 +108,7 @@ def best_line_model(run, time, channel):
             counts = counts[counts != unlikely]
     return max(counts)
 
-def get_line_params(run, time, channel):
-    # Get time directory
-    time_index = tf.get_gps_times(run).index(time)
-    time_dir = tf.get_time_dirs(run)[time_index]
-    # File name
-    lc_file = os.path.join(
-        time_dir, 'linechain_channel' + str(channel) + '.dat'
-    )
-    # Import first column to determine how wide DataFrame should be
-    counts = get_counts(lc_file)
-    # Import entire data file, accounting for uneven rows
-    lc = pd.read_csv(lc_file, header=None, names=range(max(counts)*3+1), sep=' ')
-    # Column headers
-    headers = ['FREQ', 'AMP', 'QF']
-    # Make 3 column DataFrame by stacking sections vertically
-    df = pd.concat([
-        lc.iloc[:,c*3+1:c*3+4].set_axis(headers, axis=1, inplace=False) 
-        for c in range(max(counts))
-    ], ignore_index=True)
-    # Remove NaNs and reset index
-    return df[df.iloc[:,0].notna()].reset_index()
-
-def get_model_params(run, time, channel, model):
+def get_line_params(run, time, channel, model):
     # Get time directory
     time_index = tf.get_gps_times(run).index(time)
     time_dir = tf.get_time_dirs(run)[time_index]
@@ -144,17 +121,22 @@ def get_model_params(run, time, channel, model):
     # Import entire data file, accounting for uneven rows
     lc = pd.read_csv(lc_file, header=None, names=range(max(counts)*3+1), sep=' ')
     # Strip of all rows that don't match the model
-    lc = lc[lc.iloc[:,0] == model]
-    # TODO rearrange columns with lowest to highest frequency, left to right
-    # Column headers
-    headers = ['FREQ', 'AMP', 'QF']
+    lc = lc[lc.iloc[:,0] == model].dropna(1).reset_index(drop=True).rename_axis('IDX')
+    # Rearrange DataFrame so same lines are grouped together
     # Make 3 column DataFrame by stacking sections vertically
     df = pd.concat([
-        lc.iloc[:,c*3+1:c*3+4].set_axis(headers, axis=1, inplace=False) 
-        for c in range(model)
-    ], ignore_index=True)
-    # Remove NaNs and reset index
-    return df[df.iloc[:,0].notna()].reset_index(drop=True)
+        lc.iloc[:,c*3+1:c*3+4].set_axis(
+            ['FREQ','AMP','QF'], axis=1, inplace=False
+        ) for c in range(model)
+    ], keys=pd.Series(range(model), name='LINE'))
+    # Sort first by index, then by frequency to preserve index order
+    df = df.sort_values(by=['IDX', 'FREQ'])
+    # Re-sort line index to bin similar line frequencies together
+    df.index = pd.MultiIndex.from_arrays(
+        [list(range(model)) * len(lc), df.index.get_level_values('IDX')], 
+        names=['LINE', 'IDX']
+    )
+    return df.sort_values(by=['LINE', 'IDX'])
 
 def get_param_centroids(param_df, model):
     # Uses scikit-learn K-means algorithm
