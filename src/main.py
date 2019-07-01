@@ -17,7 +17,8 @@ time = 1143789532
 channel = 4
 
 lc_params = lc.get_line_params(run, time, channel)
-plot.line_chain(lc_params, 'FREQ')
+print(lc.summarize_params(lc_params))
+#plot.line_chain(lc_params, 'FREQ')
 #lc_hpd = hpd(lc_params.to_numpy(), alpha=0.05)
 #print(lc_hpd)
 #med = lc_params.median()

@@ -110,7 +110,7 @@ def get_exact_freq(summary, approx_freq):
     Takes an approximate input frequency and returns the closest measured
     frequency in the data.
     '''
-    gps_times = list(summary.index.get_level_values(0).unique())
+    gps_times = list(summary.index.get_level_values('TIME').unique())
     freqs = list(summary.xs(gps_times[0]).index)
     freq_index = round(approx_freq / (max(freqs) - min(freqs)) * len(freqs))
     return freqs[freq_index]

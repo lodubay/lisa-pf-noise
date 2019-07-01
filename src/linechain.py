@@ -57,10 +57,7 @@ def get_lines(run, channel, model_file):
     # Return list of times
     return df[df.iloc[:,channel] > 0].index
 
-def get_line_params(run, time, channel):
-    # Get time directory
-    time_index = tf.get_gps_times(run).index(time)
-    time_dir = tf.get_time_dirs(run)[time_index]
+def get_line_params(time_dir, channel):
     # File name
     lc_file = os.path.join(
         time_dir, 'linechain_channel' + str(channel) + '.dat'
@@ -88,6 +85,17 @@ def get_line_params(run, time, channel):
         names=['LINE', 'IDX']
     )
     return df.sort_values(by=['LINE', 'IDX'])
+
+def summarize_params(line_df):
+    '''
+    Takes a DataFrame with FREQ, AMP, and QF columns for one spectral line
+    Returns percentiles for each parameter in a single-row DataFrame
+    '''
+    return pd.concat(
+        [pd.Series(np.percentile(line_df[col], p), name=col+'_P'+str(p)) 
+            for col in line_df.columns for p in [10, 25, 50, 75, 90]
+        ], axis=1
+    )
 
 def get_param_centroids(param_df, model):
     # Uses scikit-learn K-means algorithm
