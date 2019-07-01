@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import time_functions as tf
 import psd
-#from chainconsumer import ChainConsumer
+from chainconsumer import ChainConsumer
     
 def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     '''
@@ -306,13 +306,42 @@ def line_params(line_df, logx=True):
 
 def line_params_corner(line_df):
     #plt.scatter(line_df['FREQ'], line_df['AMP'])
-    corner.corner(line_df, range=[(0, 0.08), (0, 1e-19), (0, 5000)])
+    corner.corner(line_df, range=[(0, 0.005), (0, 1e-19), (0, 5000)])
     plt.show()
 
 def chain_consumer(line_df):
     c = ChainConsumer().add_chain(line_df.to_numpy(), parameters=['FREQ', 'AMP',
-        'QF'], kde=False, cloud=True, shade=False)
+        'QF'], kde=False, cloud=False, shade=False)
     #rng = [(0, 0.1), (0, 0.2), (0, 5e6)]
-    rng = [(0, 0.08), (0, 1e-19), (0, 5000)]
-    fig = c.plotter.plot(extents=rng)
+    #rng = [(0, 0.08), (0, 1e-19), (0, 5000)]
+    fig = c.plotter.plot()
+    plt.show()
+
+def line_chain(line_df, column):
+    fig, axs = plt.subplots(2, 1)
+    # First spectral line
+    axs[0].set_title('Spectral line at ' + str(line_df.loc[0,'FREQ'].median()) + ' Hz')    
+    axs[0].scatter(line_df.loc[0].index, line_df.loc[0,column], color='r', marker='.', alpha=0.5)
+    # Medians
+    axs[0].axhline(line_df.loc[0,column].median(), color='pink')
+    # 90% CIs
+    axs[0].axhspan(np.percentile(line_df.loc[0,column], 5), 
+        np.percentile(line_df.loc[0,column], 95),
+        color='r', alpha=0.2
+    )
+    axs[0].set_ylim(np.percentile(line_df.loc[0,column], 1),
+        np.percentile(line_df.loc[0,column], 99)
+    )
+    # Second spectral line
+    axs[1].set_title('Spectral line at ' + str(line_df.loc[1,'FREQ'].median()) + ' Hz')    
+    axs[1].scatter(line_df.loc[1].index, line_df.loc[1,column], color='b', marker='.', alpha=0.5)
+    axs[1].axhline(line_df.loc[1,column].median(), color='cyan')
+    axs[1].axhspan(np.percentile(line_df.loc[1,column], 5), 
+        np.percentile(line_df.loc[1,column], 95),
+        color='b', alpha=0.2
+    )
+    axs[1].set_ylim(np.percentile(line_df.loc[1,column], 1),
+        np.percentile(line_df.loc[1,column], 99)
+    )
+    fig.suptitle(column)
     plt.show()

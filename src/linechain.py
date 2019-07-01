@@ -7,7 +7,7 @@ import time_functions as tf
 import itertools
 from sklearn.cluster import KMeans
 from sklearn.neighbors import KernelDensity
-#from chainconsumer import ChainConsumer
+from chainconsumer import ChainConsumer
 
 def get_counts(lc_file):
     '''
@@ -57,7 +57,7 @@ def get_lines(run, channel, model_file):
     # Return list of times
     return df[df.iloc[:,channel] > 0].index
 
-def get_line_params(run, time, channel, model):
+def get_line_params(run, time, channel):
     # Get time directory
     time_index = tf.get_gps_times(run).index(time)
     time_dir = tf.get_time_dirs(run)[time_index]
@@ -67,6 +67,8 @@ def get_line_params(run, time, channel, model):
     )
     # Import first column to determine how wide DataFrame should be
     counts = get_counts(lc_file)
+    # Get most likely line model (i.e., the number of spectral lines)
+    model = int(counts.mode())
     # Import entire data file, accounting for uneven rows
     lc = pd.read_csv(lc_file, header=None, names=range(max(counts)*3+1), sep=' ')
     # Strip of all rows that don't match the model

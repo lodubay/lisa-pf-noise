@@ -8,14 +8,16 @@ import os
 from pymc3.stats import hpd
 import matplotlib.pyplot as plt
 
+# Testing variables
 run = 'ltp_run_b1'
 output_dir = os.path.join('out', run)
 if not os.path.exists(output_dir): os.makedirs(output_dir)
 model_file = os.path.join(output_dir, run + '_line_evidence.dat')
 time = 1143789532
 channel = 4
-model = lc.best_line_model(run, time, channel)
-lc_params = lc.get_model_params(run, time, channel, model)
+
+lc_params = lc.get_line_params(run, time, channel)
+plot.line_chain(lc_params, 'FREQ')
 #lc_hpd = hpd(lc_params.to_numpy(), alpha=0.05)
 #print(lc_hpd)
 #med = lc_params.median()
