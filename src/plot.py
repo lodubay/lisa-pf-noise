@@ -345,3 +345,25 @@ def line_chain(line_df, column):
     )
     fig.suptitle(column)
     plt.show()
+
+def line_param(summary, param, run, channel):
+    # 90% error bars
+    plt.errorbar(summary.index, summary[param+'_P50'], 
+        yerr=([summary[param+'_P50'] - summary[param+'_P10'], 
+            summary[param+'_P50'] + summary[param+'_P90']
+        ]), 
+        ls='', marker='', capsize=3, alpha=0.2, ecolor='b'
+    )
+    # Median and 50% error bars
+    plt.errorbar(summary.index, summary[param+'_P50'], 
+        yerr=([summary[param+'_P50'] - summary[param+'_P25'], 
+            summary[param+'_P50'] + summary[param+'_P75']
+        ]), 
+        ls='', marker='.', capsize=5, color='b'
+    )
+    plt.xlabel('Time')
+    plt.ylabel(param)
+    plt.yscale('log')
+    plt.title(run + ' channel ' + str(channel) + ' spectral line ' + param + ' over time')
+    plt.show()
+

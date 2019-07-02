@@ -10,25 +10,18 @@ import matplotlib.pyplot as plt
 
 # Testing variables
 run = 'ltp_run_b1'
+channel = 4
 output_dir = os.path.join('out', run)
 if not os.path.exists(output_dir): os.makedirs(output_dir)
 model_file = os.path.join(output_dir, run + '_line_evidence.dat')
-time = 1143789532
-channel = 4
+summary_file = os.path.join(output_dir, run + '_linechain_summary_' + str(channel) + '.pkl')
 
-lc_params = lc.get_line_params(run, time, channel)
-print(lc.summarize_params(lc_params))
-#plot.line_chain(lc_params, 'FREQ')
-#lc_hpd = hpd(lc_params.to_numpy(), alpha=0.05)
-#print(lc_hpd)
-#med = lc_params.median()
-#std = lc_params.std()
-#print(med)
-#lower = med - std
-#upper = med + 5 * std
-#print(lower)
-#print(lc_params[lc_params.all() > lower.all() and lc_params.all() < upper.all()])
-#print(lc.get_param_centroids(lc_params, model))
-#plot.line_params_corner(lc_params)
-#plot.chain_consumer(lc_params)
-#plot.line_params_corner(lc_params)
+# Import / generate summary PSD DataFrame
+if os.path.exists(summary_file):
+    df = pd.read_pickle(summary_file)
+    print('Imported PSD summaries file.')
+else:
+    print('No PSD summaries file found. Generating...')
+    df = lc.save_summary(run, channel, summary_file)
+
+plot.line_param(df, 'AMP', run, channel)
