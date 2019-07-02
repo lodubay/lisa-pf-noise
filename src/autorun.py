@@ -39,17 +39,28 @@ for run in runs:
         # Frequency slices
         fslice_file = os.path.join(plot_dir, 'fslice' + str(channel) + '.png')
         plot.save_freq_slices(run, channel, df, fslice_file, show=False)
-
-        # Time slice - first look for times with lines
-        times = lc.get_lines(run, channel, model_file)
+        
+        # Time slices - representative sample
+        # Time plot file name
         tslice_file = os.path.join(plot_dir, 'tslice' + str(channel) + '.png')
-        # Still plot something if no lines are found
-        if len(times) == 0:
-            gps_times = tf.get_gps_times(run)
-            times = gps_times[slice(0, len(gps_times), 3)]
-        plot.save_time_slices(run, channel, df, 
-            times[:min(8, len(times)+1)], tslice_file,
+        gps_times = tf.get_gps_times(run)
+        line_times = lc.get_lines(run, channel, model_file)
+        # Choose 6 times: beginning, end, and 4 evenly drawn from list
+        l = len(gps_times)
+        indices = [int(i / 5 * l) for i in range(1,5)]
+        slice_times = sorted([gps_times[0], gps_times[-1]] +
+            [gps_times[i] for i in indices]
+        )
+        # Plot
+        plot.save_time_slices(run, channel, df, slice_times, tslice_file,
             time_format='gps', exact=True, show=False, logpsd=True
         )
+        
+        # Time slices - all spectral lines
+        if len(line_times) > 0:
+            tslice_file = os.path.join(plot_dir, 'tslice_lines'+str(channel)+'.png')
+            plot.save_time_slices(run, channel, df, line_times, tslice_file,
+                time_format='gps', exact=True, show=False, logpsd=True
+            )
 print('Done!')
 
