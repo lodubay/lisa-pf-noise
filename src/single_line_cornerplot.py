@@ -4,10 +4,9 @@ import numpy as np
 import pandas as pd
 import os
 import time_functions as tf
-import linechain as lc
 
 # Looking at a cornerplot for a single spectral line
-time_dir = 'data/drs_run_q/run_b_1143779701/'
+time_dir = 'data/ltp_run_b1/run_b_1143779701/'
 channel = 4
 model = 1
 
@@ -15,7 +14,9 @@ time = int(time_dir[-11:-1])
 # File name
 lc_file = os.path.join(time_dir, 'linechain_channel' + str(channel) + '.dat')
 # Import first column to determine how wide DataFrame should be
-counts = lc.get_counts(lc_file)
+# Use incorrect separator to load uneven lines
+lc = pd.read_csv(lc_file, usecols=[0], header=None, squeeze=True, dtype=str)
+counts = pd.Series([int(row[0]) for row in lc])
 # Import entire data file, accounting for uneven rows
 lc = pd.read_csv(lc_file, header=None, names=range(max(counts)*3+1), sep=' ')
 # Strip of all rows that don't match the model
