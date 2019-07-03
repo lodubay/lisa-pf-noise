@@ -1,0 +1,30 @@
+import matplotlib.pyplot as plt
+import corner
+import numpy as np
+import pandas as pd
+import os
+import time_functions as tf
+import linechain as lc
+
+# Looking at a cornerplot for a single spectral line
+time_dir = 'data/drs_run_q/run_b_1143779701/'
+channel = 4
+model = 1
+
+time = int(time_dir[-11:-1])
+# File name
+lc_file = os.path.join(time_dir, 'linechain_channel' + str(channel) + '.dat')
+# Import first column to determine how wide DataFrame should be
+counts = lc.get_counts(lc_file)
+# Import entire data file, accounting for uneven rows
+lc = pd.read_csv(lc_file, header=None, names=range(max(counts)*3+1), sep=' ')
+# Strip of all rows that don't match the model
+lc = lc[lc.iloc[:,0] == model].dropna(1).reset_index(drop=True).rename_axis('IDX')
+# Cornerplot
+corner.corner(lc.iloc[:,1:4], 
+    labels=['Frequency (Hz)', 'Amplitude', 'Quality factor'],
+    range=[(3e-3, 3.7e-3), (8e-21, 2.4e-20), (0, 800)]
+)
+plt.suptitle('ltp_run_b1/run_b_1143779701, channel ' + str(channel) + 
+    ', N='+str(model) + ', ' + str(len(lc)) + ' samples')
+plt.show()

@@ -6,8 +6,7 @@ import sys
 import time_functions as tf
 import itertools
 from sklearn.cluster import KMeans
-from sklearn.neighbors import KernelDensity
-from chainconsumer import ChainConsumer
+import matplotlib.pyplot as plt
 
 def get_counts(lc_file):
     '''
@@ -91,6 +90,32 @@ def get_line_params(time_dir, channel):
         return df.sort_values(by=['LINE', 'IDX'])
     else:
         return pd.DataFrame()
+
+def cluster_params(time_dir, channel):
+    # File name
+    lc_file = os.path.join(
+        time_dir, 'linechain_channel' + str(channel) + '.dat'
+    )
+    # Import first column to determine how wide DataFrame should be
+    counts = get_counts(lc_file)
+    # Get most likely line model (i.e., the number of spectral lines)
+    model = int(counts.mode())
+    # Import entire data file, accounting for uneven rows
+    lc = pd.read_csv(lc_file, header=None, names=range(max(counts)*3+1), sep=' ')
+    # Strip of all rows that don't match the model
+    lc = lc[lc.iloc[:,0] == model].dropna(1).reset_index(drop=True).rename_axis('IDX')
+    col1 = lc.iloc[:,1] < 1e-2
+    col4 = lc.iloc[:,4] < 1e-2
+    print(lc[col1 & col4])
+    # KMeans for peak frequencies
+    freq_df = lc[[m*3+1 for m in range(model)]]
+    kmeans = KMeans(n_clusters=2)
+    kmeans.fit(freq_df)
+    plt.scatter(freq_df.iloc[:,0], freq_df.iloc[:,1], c=kmeans.labels_, cmap='rainbow')
+    plt.ylim(0, 0.1)
+    plt.xlim(0, 0.1)
+    plt.show()
+    return kmeans.cluster_centers_
 
 def summarize_params(line_df):
     '''
