@@ -322,7 +322,9 @@ def line_params(line_df, logx=True):
 
 def line_params_corner(line_df):
     #plt.scatter(line_df['FREQ'], line_df['AMP'])
-    corner.corner(line_df, range=[(0, 0.005), (0, 1e-19), (0, 5000)])
+    line_df['AMP'] = np.log(line_df['AMP'])
+    line_df['QF'] = np.log(line_df['QF'])
+    corner.corner(line_df)#, range=[(0, 0.005), (0, 1e-19), (0, 5000)])
     plt.show()
 
 def chain_consumer(line_df):

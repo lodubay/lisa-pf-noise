@@ -9,14 +9,14 @@ from pymc3.stats import hpd
 import matplotlib.pyplot as plt
 
 # Testing variables
-run = 'ltp_run_b1'
+run = 'ltp_run_b'
 channel = 4
 output_dir = os.path.join('out', run)
 if not os.path.exists(output_dir): os.makedirs(output_dir)
 model_file = os.path.join(output_dir, run + '_line_evidence.dat')
 summary_file = os.path.join(output_dir, run + '_linechain_summary_' + str(channel) + '.pkl')
 
-print(lc.cluster_params('data/ltp_run_b1/run_b_1143768233/', 4))
+print(lc.cluster_params('data/ltp_run_b/run_b_1143768233/', 4))
 
 # Import / generate summary PSD DataFrame
 #if os.path.exists(summary_file):
