@@ -100,33 +100,31 @@ def save_summary(run, summary_file):
     sys.stdout.write('\n')
     sys.stdout.flush()
     summaries = pd.concat(summaries)
-    # Insert NaNs in place of data gaps
-    print('Filling missing times...')
     # List of GPS times from index
     gps_times = summaries.index.get_level_values('TIME').unique()
     # Median time step
     dt = int(np.median(
         [gps_times[i+1] - gps_times[i] for i in range(len(gps_times) - 1)]
     ))
-    # Check for gaps and fill with NaN DataFrames
+    # Check for time gaps and fill with NaN DataFrames
     for i in range(len(gps_times) - 1):
         diff = gps_times[i+1] - gps_times[i]
         if diff > dt + 1:
-            # For debugging, remove when finished
-            print(diff)
-            print(dt)
-            missing_times = [
-                gps_times[i] + dt * k for k in range(1, int(np.floor(diff / dt)+1))
-            ]
+            # Number of new times to insert
+            n = int(np.floor(diff / dt))
+            print('Filling ' + str(n) + ' missing times...')
+            # List of missing times, with same time interval
+            missing_times = [gps_times[i] + dt * k for k in range(1, n + 1)]
+            # Create new MultiIndex for empty DataFrame
             channels = summaries.index.get_level_values('CHANNEL').unique()
             frequencies = summaries.index.get_level_values('FREQ').unique()
             midx = pd.MultiIndex.from_product(
                 [channels, missing_times, frequencies],
                 names=['CHANNEL', 'TIME', 'FREQ']
             )
+            # Create empty DataFrame, append to summaries, and sort
             filler = pd.DataFrame(columns=summaries.columns, index=midx)
             summaries = summaries.append(filler).sort_index(level=[0, 1, 2])
-            print(summaries.index.get_level_values('TIME').unique())
     # Output to file
     print('Writing to ' + summary_file + '...')
     summaries.to_pickle(summary_file)
