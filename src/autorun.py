@@ -23,10 +23,10 @@ for run in runs:
     if not os.path.exists(plot_dir): os.makedirs(plot_dir)
 
     # Import / generate summary PSD DataFrame
-    try:
+    if os.path.exists(summary_file):
         df = pd.read_pickle(summary_file)
         print('Imported PSD summaries file.')
-    except FileNotFoundError:
+    else:
         print('No PSD summaries file found. Generating...')
         df = psd.save_summary(run, summary_file)
 

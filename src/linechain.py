@@ -114,15 +114,18 @@ def cluster_params(time_dir, channel):
         ) for c in range(model)
     ], keys=pd.Series(range(model), name='LINE'))
     # Gaussian mixture model
-    gmm = GaussianMixture(n_components=8)
+    gmm = GaussianMixture(n_components=2)
     test_df = df.iloc[:,0:3]
     gmm.fit(test_df)
     labels = gmm.predict(test_df)
     probs = gmm.predict_proba(test_df)
     #print(pred.ravel())
     plt.scatter(test_df['FREQ'], test_df['AMP'], c=labels, cmap='rainbow', marker='x', alpha=0.1)
-    plt.ylim(0, 2e-18)
+    plt.ylim(0, 1e-10)
+    plt.ylabel('Amplitude')
     plt.xlim(0, 0.08)
+    plt.xlabel('Frequency (Hz)')
+    plt.title(time_dir + ', channel ' + str(channel))
     plt.show()
     return gmm.means_
 

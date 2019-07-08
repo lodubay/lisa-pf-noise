@@ -71,6 +71,14 @@ def colormap(fig, ax, psd, cmap, vlims=None, cbar_label=None, center=None):
     start_date = tf.gps2iso(int(psd.columns[0]))
     # Change columns from GPS time to days elapsed from start of run
     psd.columns = pd.Series(tf.gps2day_list(psd.columns), name='TIME')
+    # Median time step (in days)
+    dt = np.median(
+        [psd.columns[i] - psd.columns[i-1] for i in range(1, len(psd.columns))]
+    )
+    # Median frequency step
+    df = np.median(
+        [psd.index[i] - psd.index[i-1] for i in range(1, len(psd.index))]
+    )
     # Auto colormap scale
     if not vlims:
         med = psd.median(axis=1).median()
@@ -84,14 +92,22 @@ def colormap(fig, ax, psd, cmap, vlims=None, cbar_label=None, center=None):
             name='shifted colormap'
         )
     # Plot colormap
-    im = ax.imshow(
+    #im = ax.imshow(
+    #    psd,
+    #    cmap=cmap,
+    #    aspect='auto',
+    #    origin='lower',
+    #    vmin=vlims[0],
+    #    vmax=vlims[1],
+    #    extent=[psd.columns[0], psd.columns[-1], 0., 1.]
+    #)
+    im = ax.pcolormesh(
+        list(psd.columns) + [psd.columns[-1] + dt],
+        list(psd.index) + [psd.index[-1] + df],
         psd,
         cmap=cmap,
-        aspect='auto',
-        origin='lower',
         vmin=vlims[0],
-        vmax=vlims[1],
-        extent=[psd.columns[0], psd.columns[-1], 0., 1.]
+        vmax=vlims[1]
     )
     # Vertical scale
     ax.set_yscale('log')

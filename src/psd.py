@@ -23,7 +23,7 @@ def import_time(time_dir):
     channels = list(range(6))
     # Column names
     cols = ['FREQ'] + channels
-    # Sort so that (for example) psd.dat.2 is sorted after psd.dat.19
+    # Sort so that (for example) psd.dat.2 is sorted before psd.dat.19
     psd_files = sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9]'))) + \
         sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9][0-9]')))
     # Import PSD files into DataFrame
@@ -100,6 +100,33 @@ def save_summary(run, summary_file):
     sys.stdout.write('\n')
     sys.stdout.flush()
     summaries = pd.concat(summaries)
+    # Insert NaNs in place of data gaps
+    print('Filling missing times...')
+    # List of GPS times from index
+    gps_times = summaries.index.get_level_values('TIME').unique()
+    # Median time step
+    dt = int(np.median(
+        [gps_times[i+1] - gps_times[i] for i in range(len(gps_times) - 1)]
+    ))
+    # Check for gaps and fill with NaN DataFrames
+    for i in range(len(gps_times) - 1):
+        diff = gps_times[i+1] - gps_times[i]
+        if diff > dt + 1:
+            # For debugging, remove when finished
+            print(diff)
+            print(dt)
+            missing_times = [
+                gps_times[i] + dt * k for k in range(1, int(np.floor(diff / dt)+1))
+            ]
+            channels = summaries.index.get_level_values('CHANNEL').unique()
+            frequencies = summaries.index.get_level_values('FREQ').unique()
+            midx = pd.MultiIndex.from_product(
+                [channels, missing_times, frequencies],
+                names=['CHANNEL', 'TIME', 'FREQ']
+            )
+            filler = pd.DataFrame(columns=summaries.columns, index=midx)
+            summaries = summaries.append(filler).sort_index(level=[0, 1, 2])
+            print(summaries.index.get_level_values('TIME').unique())
     # Output to file
     print('Writing to ' + summary_file + '...')
     summaries.to_pickle(summary_file)
