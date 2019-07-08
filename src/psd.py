@@ -40,7 +40,7 @@ def import_time(time_dir):
     # Define MultiIndex
     # Round frequency index to 5 decimals to deal with floating point issues
     time_data.index = pd.MultiIndex.from_product(
-        [channels, [time], #time_data.index.get_level_values('FREQ').unique()],
+        [channels, [time],
             np.around(time_data.index.get_level_values('FREQ').unique(), 6)], 
         names=['CHANNEL', 'TIME', 'FREQ']
     )

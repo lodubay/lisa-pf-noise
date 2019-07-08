@@ -91,16 +91,6 @@ def colormap(fig, ax, psd, cmap, vlims=None, cbar_label=None, center=None):
             midpoint=(center-vlims[0])/(vlims[1]-vlims[0]), 
             name='shifted colormap'
         )
-    # Plot colormap
-    #im = ax.imshow(
-    #    psd,
-    #    cmap=cmap,
-    #    aspect='auto',
-    #    origin='lower',
-    #    vmin=vlims[0],
-    #    vmax=vlims[1],
-    #    extent=[psd.columns[0], psd.columns[-1], 0., 1.]
-    #)
     im = ax.pcolormesh(
         list(psd.columns) + [psd.columns[-1] + dt],
         list(psd.index) + [psd.index[-1] + df],
