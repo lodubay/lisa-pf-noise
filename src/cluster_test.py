@@ -49,7 +49,7 @@ X_plot = np.linspace(0, 1, 1638)[:, np.newaxis]
 fig, ax = plt.subplots()
 ax.hist(X[:, 0], bins=100, range=(0.068, 0.071), density=True)
 
-kde = KernelDensity(kernel='gaussian', bandwidth=1e-4).fit(X_train)
+kde = KernelDensity(kernel='gaussian', bandwidth=1e-7).fit(X_train)
 log_dens = kde.score_samples(X_plot)
 ax.plot(X_plot[:, 0], np.exp(log_dens), '-', label="kernel = 'gaussian'")
 
