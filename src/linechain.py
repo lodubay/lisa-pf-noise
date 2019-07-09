@@ -7,7 +7,9 @@ import time_functions as tf
 import itertools
 from sklearn.cluster import KMeans
 from sklearn.mixture import GaussianMixture
+from sklearn.mixture import BayesianGaussianMixture
 import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 
 def get_counts(lc_file):
     '''
@@ -92,7 +94,7 @@ def get_line_params(time_dir, channel):
     else:
         return pd.DataFrame()
 
-def cluster_params(time_dir, channel):
+def gmm_cluster(time_dir, channel):
     # File name
     lc_file = os.path.join(
         time_dir, 'linechain_channel' + str(channel) + '.dat'
@@ -114,18 +116,54 @@ def cluster_params(time_dir, channel):
         ) for c in range(model)
     ], keys=pd.Series(range(model), name='LINE'))
     # Gaussian mixture model
-    gmm = GaussianMixture(n_components=2)
+    gmm = GaussianMixture(n_components=2, 
+        covariance_type='full'
+        #means_init=[[lc.iloc[0,1], lc.iloc[0,3]], [lc.iloc[0, 4], lc.iloc[0, 6]]]
+    )
     test_df = df.iloc[:,0:3]
     gmm.fit(test_df)
     labels = gmm.predict(test_df)
     probs = gmm.predict_proba(test_df)
     #print(pred.ravel())
-    plt.scatter(test_df['FREQ'], test_df['AMP'], c=labels, cmap='rainbow', marker='x', alpha=0.1)
-    plt.ylim(0, 1e-10)
-    plt.ylabel('Amplitude')
-    plt.xlim(0, 0.08)
-    plt.xlabel('Frequency (Hz)')
-    plt.title(time_dir + ', channel ' + str(channel))
+    fig, axs = plt.subplots(1, 2)
+    colors = ['red', 'purple']
+    axs[0].scatter(test_df['FREQ'], test_df['AMP'], 
+        c=labels, cmap='rainbow', 
+        #color=colors,
+        marker='.', alpha=0.1, s=1
+    )
+    axs[0].set_ylim(1e-20, 1)
+    axs[0].set_yscale('log')
+    axs[0].set_ylabel('Amplitude')
+    axs[0].set_xlim(1e-3, 1)
+    axs[0].set_xscale('log')
+    axs[0].set_xlabel('Frequency (Hz)')
+    fig.suptitle(time_dir + ', channel ' + str(channel))
+    axs[1].scatter(test_df['FREQ'], test_df['QF'], 
+        c=labels, cmap='rainbow', 
+        #color=colors,
+        marker='.', alpha=0.1, s=1
+    )
+    axs[1].set_ylim(1e2, 1e8)
+    axs[1].set_yscale('log')
+    axs[1].set_ylabel('Quality factor')
+    axs[1].set_xlim(1e-3, 1)
+    axs[1].set_xscale('log')
+    axs[1].set_xlabel('Frequency (Hz)')
+    # Plot ellipses
+    for ax in axs:
+        for n, color in enumerate(colors):
+            covariances = gmm.covariances_[n][:2, :2]
+            v, w = np.linalg.eigh(covariances)
+            u = w[0] / np.linalg.norm(w[0])
+            angle = np.arctan2(u[1], u[0])
+            angle = 180 * angle / np.pi # convert to degrees
+            v = 2. * np.sqrt(2.) * np.sqrt(v)
+            ell = patches.Ellipse(gmm.means_[n, :2], v[0], v[1], 180 + angle, color=color)
+            ell.set_clip_box(ax.bbox)
+            ell.set_alpha(0.5)
+            ax.add_artist(ell)
+            ax.set_aspect('equal', 'datalim')
     plt.show()
     return gmm.means_
 
