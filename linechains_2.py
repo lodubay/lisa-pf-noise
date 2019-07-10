@@ -54,30 +54,27 @@ for k in range(4,5,1):
     for i, row in enumerate(freqs):
         # Compute row permutations
         perm = np.array(list(itertools.permutations(row)))
-        # Calculated the distances between each permutation and the modes
+        # Calculate the distances between each permutation and the modes
         dist = np.abs(perm - modes)
         # Compute the total distance magnitudes
-        sums = np.sqrt(np.sum(dist ** 2, axis=1))
+        # Inverting 
+        sums = np.sum(dist ** -1, axis=1) ** -1
         # Use permutation that minimizes total distance
         freqs[i] = perm[sums == np.min(sums)][0]
     
-    print(freqs)
     medians = np.median(freqs, axis=0)
     print(medians)
+    print((np.quantile(freqs, 0.25, axis=0), np.quantile(freqs, 0.75, axis=0)))
     
     # Plot
     colors = ['r', 'g', 'b']
-    #for i in range(len(medians)):
-    #    plt.scatter(freqs[:,i], np.random.random(freqs.shape[0]), 
-    #        marker='.', alpha=0.2, s=1, c=colors[i]
-    #    )
-        #plt.axvline(medians[i], c=colors[i])
-        
-    plt.scatter(freqs[:,0], np.random.random(freqs.shape[0]), 
-        marker='.', alpha=0.2, s=1, c=colors[0]
-    )
+    for i in range(len(medians)):
+        plt.scatter(freqs[:,i], np.random.random(freqs.shape[0]), 
+            marker='.', alpha=0.2, s=1, c=colors[i]
+        )
+        plt.axvline(medians[i], c=colors[i])
     
     #plt.xlim(0.25,0.28)
-    plt.xlim(0,1)
-    #plt.xscale('log')
+    plt.xlim(1e-3,1)
+    plt.xscale('log')
     plt.show()
