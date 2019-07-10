@@ -10,8 +10,8 @@ time = 1176962857
 time_dir = './data/drsCrutch_run_q/run_q_' + str(time) + '/linechain_channel'
 
 #Only looking at CHANNEL 4! **********************************************
-#for channel in range(6):
-for channel in range(4,5):
+for channel in range(6):
+#for channel in range(4,5):
     print('\n-- CHANNEL ' + str(channel) + ' --')
     lc_file = time_dir + str(channel) + '.dat'
     # Find the most frequently sampled line model number
@@ -76,11 +76,12 @@ for channel in range(4,5):
         
         # Summary statistics
         percentiles = np.array([5, 25, 50, 75, 95])
+        parameters = ['FREQ', 'AMP', 'QF']
         summary = np.percentile(params, percentiles, axis=0)
         # Transpose to index as [line, param, index]
         summary = np.transpose(summary, axes=(1,2,0))
         midx = pd.MultiIndex.from_product(
-            [[channel], [time], list(range(model)), ['F', 'A', 'Q']],
+            [[channel], [time], list(range(model)), parameters],
             names=['CHANNEL', 'TIME', 'LINE', 'PARAMETER']
         )
         summary = pd.DataFrame(
@@ -92,7 +93,7 @@ for channel in range(4,5):
         
         # Plot
         colors = ['r', 'g', 'b']
-        medians = summary.loc[pd.IndexSlice[:, :, :, 'F'], '50']
+        medians = summary.loc[pd.IndexSlice[:, :, :, 'FREQ'], '50']
         for i in range(model):
         #for i in [2]:
             plt.scatter(params[:,i,0], np.random.random(params.shape[0]), 
@@ -100,8 +101,7 @@ for channel in range(4,5):
             )
             plt.axvline(medians[i], c=colors[i])
         
-        #plt.xlim(0.25,0.28)
         plt.xlim(1e-3,1)
-        #plt.xscale('log')
+        plt.xscale('log')
         plt.show()
 
