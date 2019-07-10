@@ -3,11 +3,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import itertools
 
-#time = 1144203931
-#time_dir = './data/ltp_run_b/run_b_' + str(time) + '/linechain_channel'
+time = 1144203931
+time_dir = './data/ltp_run_b/run_b_' + str(time) + '/linechain_channel'
 # Has 3 spectral lines
-time = 1176962857
-time_dir = './data/drsCrutch_run_q/run_q_' + str(time) + '/linechain_channel'
+#time = 1176962857
+#time_dir = './data/drsCrutch_run_q/run_q_' + str(time) + '/linechain_channel'
 
 #Only looking at CHANNEL 4! **********************************************
 for channel in range(6):
@@ -93,7 +93,7 @@ for channel in range(6):
         
         # Plot
         colors = ['r', 'g', 'b']
-        medians = summary.loc[pd.IndexSlice[:, :, :, 'FREQ'], '50']
+        medians = summary.xs('FREQ', level='PARAMETER')['50']
         for i in range(model):
         #for i in [2]:
             plt.scatter(params[:,i,0], np.random.random(params.shape[0]), 
