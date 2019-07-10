@@ -23,6 +23,7 @@ for channel in range(4,5):
     dim_u = np.arange(np.max(dim)+1)
     # Count how often each model is used
     counts = np.array([len(dim[dim == m]) for m in dim_u])
+    print('Line model histogram:')
     print(counts)
     # Get the most common model
     model = counts.argmax()
@@ -74,8 +75,6 @@ for channel in range(4,5):
                 params[i] = row[min_idx]
         
         # Summary statistics
-        medians = np.median(params, axis=0)
-        print(medians)
         percentiles = np.array([5, 25, 50, 75, 95])
         summary = np.percentile(params, percentiles, axis=0)
         # Transpose to index as [line, param, index]
@@ -93,9 +92,10 @@ for channel in range(4,5):
         
         # Plot
         colors = ['r', 'g', 'b']
-        for i in range(len(medians)):
+        medians = summary.loc[pd.IndexSlice[:, :, :, 'F'], '50']
+        for i in range(model):
         #for i in [2]:
-            plt.scatter(freqs[:,i], np.random.random(freqs.shape[0]), 
+            plt.scatter(params[:,i,0], np.random.random(params.shape[0]), 
                 marker='.', alpha=0.2, s=1, c=colors[i]
             )
             plt.axvline(medians[i], c=colors[i])
