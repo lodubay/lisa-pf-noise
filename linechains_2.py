@@ -73,21 +73,23 @@ for channel in range(4,5):
                 min_idx = idx[sums.argmin()]
                 params[i] = row[min_idx]
         
-        freqs = params[:,:,0]
         # Summary statistics
-        medians = np.median(freqs, axis=0)
+        medians = np.median(params, axis=0)
+        print(medians)
         percentiles = np.array([5, 25, 50, 75, 95])
-        f_summary = np.percentile(freqs, percentiles, axis=0)
+        summary = np.percentile(params, percentiles, axis=0)
+        # Transpose to index as [line, param, index]
+        summary = np.transpose(summary, axes=(1,2,0))
         midx = pd.MultiIndex.from_product(
-            [[channel], [time], list(range(model))],
-            names=['CHANNEL', 'TIME', 'LINE']
+            [[channel], [time], list(range(model)), ['F', 'A', 'Q']],
+            names=['CHANNEL', 'TIME', 'LINE', 'PARAMETER']
         )
-        f_summary = pd.DataFrame(
-            f_summary.T, 
+        summary = pd.DataFrame(
+            np.vstack(summary), 
             columns=pd.Series(percentiles.astype('str'), name='PERCENTILE'), 
             index=midx
         )
-        print(f_summary)
+        print(summary)
         
         # Plot
         colors = ['r', 'g', 'b']
