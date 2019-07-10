@@ -26,56 +26,61 @@ for channel in range(4,5):
     print(counts)
     # Get the most common model
     model = counts.argmax()
-    print(model)
+    print(str(model) + ' spectral lines found.')
     
-    if model == 0:
-        print('No spectral lines found, skipping...')
-    else:
+    if model > 0:
         # Import all rows with dim == model
         with open(lc_file) as lc:
-            params = [line.split() for line in lc if int(line[0]) == model]
+            lines = [line.split() for line in lc if int(line[0]) == model]
         
         # Configure array
-        params = np.asarray(params, dtype='float64')[:,1:]
-        
-        # Make an array of just frequencies - for testing purposes
-        freqs = np.hstack([params[:,3*c:3*c+1] for c in range(model)])
-        freqs.sort(axis=1)
+        line_array = np.asarray(lines, dtype='float64')[:,1:]
+        # Create 3D array with index order [index, line, parameter]
+        params = []
+        for p in range(3):
+            param = [line_array[:,3*c+p:3*c+p+1] for c in range(model)]
+            params.append(np.hstack(param))
+        params = np.dstack(params)
         
         # Calculate modes for each column
-        df = 1e-3
+        # This should give a rough value for the location of each spectral line
         modes = []
-        for c in range(freqs.shape[1]):
-            f = freqs[:,c]
-            hist, bin_edges = np.histogram(f, bins=int((np.max(f)-np.min(f))/(2*df)))
-            hist_max = np.where(hist == np.max(hist))[0][0]
+        for c in range(params.shape[1]):
+            f = params[:,c,0]
+            hist, bin_edges = np.histogram(f, bins=2000)
+            hist_max = hist.argmax()
             mode = np.mean(bin_edges[hist_max:hist_max+2])
             modes.append(mode)
-        modes = np.array(modes)
-        
+        modes = np.sort(np.array(modes))
+        # For debugging
+        print('Spectral line modal frequencies: ')
         print(modes)
-        print(np.median(freqs, axis=0))
         
         # Iterate through rows and sort values to correct columns
         if model > 1:
-            for i, row in enumerate(freqs):
-                # Compute row permutations
-                perm = np.array(list(itertools.permutations(row)))
+            for i, row in enumerate(params):
+                # Compute permutations of all frequencies
+                f = row[:,0]
+                perm = np.array(list(itertools.permutations(f)))
+                # Permutations of indices
+                idx = np.array(list(itertools.permutations(range(len(f)))))
                 # Calculate the distances between each permutation and the modes
                 dist = np.abs(perm - modes) / modes
                 # Compute the total distance magnitudes
                 # Inverting to lessen penalty for one value that doesn't match
                 sums = np.sum(dist ** -1, axis=1) ** -1
                 # Use permutation that minimizes total distance
-                freqs[i] = perm[sums == np.min(sums)][0]
+                min_idx = idx[sums.argmin()]
+                params[i] = row[min_idx]
         
+        freqs = params[:,:,0]
         # Summary statistics
         medians = np.median(freqs, axis=0)
         percentiles = np.array([5, 25, 50, 75, 95])
         f_summary = np.percentile(freqs, percentiles, axis=0)
         midx = pd.MultiIndex.from_product(
-            [[channel], [time], list(range(model)), ['F', 'A', 'Q']],
-            names=['CHANNEL', 'TIME', 'LINE', 'PARAMETER']
+            [[channel], [time], list(range(model))],
+            names=['CHANNEL', 'TIME', 'LINE']
         )
         f_summary = pd.DataFrame(
             f_summary.T, 
