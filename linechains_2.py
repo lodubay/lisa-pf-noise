@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy import stats
+import itertools
 
 def find_nearest(array, value):
     array = np.asarray(array)
@@ -45,66 +45,39 @@ for k in range(4,5,1):
         modes.append(mode)
     modes = np.array(modes)
     
-    # Iterate through rows and sort values to correct columns
-    for c in range(freqs.shape[1] - 1):
-        f = freqs[:,c]
-        for i in range(len(f)):
-            # Find difference between this value and each mode
-            difs = np.abs(f[i] - modes)
-            # If the closest mode isn't in this column, swap with next value
-            if difs[c] != np.min(difs):
-                freqs[i,c], freqs[i,c+1] = freqs[i,c+1], freqs[i,c]
+    print(modes)
+    print(np.median(freqs, axis=0))
     
-    param_stack = np.vstack([params[:,3*c:3*c+3] for c in range(most_freq_dim)])
-    #f = param_stack[:,0]
-    f = params[:,6]
-    amp = param_stack[:,1]
-    Q = param_stack[:,2]
-    index=np.arange(len(f))
-
-
-    #mid_pt=(min(f)+max(f))/2
-    #mid_pt = np.mean(f)
-    #df = np.std(f)
-    df = 1e-3
-    hist, bin_edges = np.histogram(f, bins=int((np.max(f)-np.min(f))/(2*df)))
-    #mode = stats.mode(f)[0]
-    hist_max = np.where(hist == np.max(hist))[0][0]
-    print(hist_max)
-    mode = np.mean(bin_edges[hist_max:hist_max+2])
-    print(mode)
-    lower = mode - df
-    upper = mode + df
-    mids = np.quantile(f, [1./3., 2./3.])
-
-    #f_1=f[f<mid_pt]
-    #f_2=f[f>=mid_pt]
-    f_1 = f[f<mids[0]]
-    f_2 = f[(f>=mids[0]) & (f<mids[1])]
-    f_3 = f[f>=mids[1]]
-    f_prime = f[(f>lower) & (f<upper)]
-     
-    #amp_1=amp[f<mid_pt]
-    #amp_2=amp[f>=mid_pt]
-
-    #q_1=Q[f<mid_pt]
-    #q_2=Q[f>=mid_pt]
-
-    #plt.scatter(f_1,q_1, marker='.', alpha=0.2, s=1)
-    #plt.scatter(f_2,q_2, marker='.', alpha=0.2, s=1)
-    #plt.hist(f_1, range=(0,0.1), bins=1000)
-    #plt.hist(f_2, range=(0,0.1), bins=1000)
-    plt.scatter(f_1, np.random.random(len(f_1)), marker='.', alpha=0.2, s=1)
-    plt.scatter(f_2, np.random.random(len(f_2)), marker='.', alpha=0.2, s=1)
-    plt.scatter(f_3, np.random.random(len(f_3)), marker='.', alpha=0.2, s=1)
-    #plt.axvline(mids[0], c='r')
-    #plt.axvline(mids[1], c='purple')
-    plt.axvline(mode, c='g')
-    plt.axvline(lower, c='purple')
-    plt.axvline(upper, c='purple')
+    # Iterate through rows and sort values to correct columns
+    #for c in range(freqs.shape[1] - 1):
+    #    f = freqs[:,c]
+    for i, row in enumerate(freqs):
+        # Compute row permutations
+        perm = np.array(list(itertools.permutations(row)))
+        # Calculated the distances between each permutation and the modes
+        dist = np.abs(perm - modes)
+        # Compute the total distance magnitudes
+        sums = np.sqrt(np.sum(dist ** 2, axis=1))
+        # Use permutation that minimizes total distance
+        freqs[i] = perm[sums == np.min(sums)][0]
+    
+    print(freqs)
+    medians = np.median(freqs, axis=0)
+    print(medians)
+    
+    # Plot
+    colors = ['r', 'g', 'b']
+    #for i in range(len(medians)):
+    #    plt.scatter(freqs[:,i], np.random.random(freqs.shape[0]), 
+    #        marker='.', alpha=0.2, s=1, c=colors[i]
+    #    )
+        #plt.axvline(medians[i], c=colors[i])
+        
+    plt.scatter(freqs[:,0], np.random.random(freqs.shape[0]), 
+        marker='.', alpha=0.2, s=1, c=colors[0]
+    )
+    
+    #plt.xlim(0.25,0.28)
     plt.xlim(0,1)
     #plt.xscale('log')
-
-    #plt.scatter(f_1,q_1)
-    #plt.scatter(f_2,q_2)
-    #plt.show()
+    plt.show()
