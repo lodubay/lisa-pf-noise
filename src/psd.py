@@ -95,16 +95,21 @@ def save_summary(run, summary_file):
     # Get list of time directories within run directory
     time_dirs = tf.get_time_dirs(run)
     # Pull PSD files from target run
-    print('Importing ' + run + '...')
+    sys.stdout.write('Importing ' + run + ' psd...   0%\b')
+    sys.stdout.flush()
+    steps = len(time_dirs)
     # Concatenate DataFrames of all times; takes a while
     summaries = []
     for i, d in enumerate(time_dirs):
         summaries.append(summarize_psd(d))
-        # Progress indicator
-        sys.stdout.write('\r' + str(i+1) + '/' + str(len(time_dirs)))
+        # Update progress indicator
+        progress = str(int((i+1) / steps * 100))
+        sys.stdout.write('\b' * len(progress) + progress)
         sys.stdout.flush()
+    # Finish progress indicator
     sys.stdout.write('\n')
     sys.stdout.flush()
+
     summaries = pd.concat(summaries)
     # List of GPS times from index
     gps_times = summaries.index.get_level_values('TIME').unique()
@@ -112,6 +117,7 @@ def save_summary(run, summary_file):
     dt = int(np.median(
         [gps_times[i+1] - gps_times[i] for i in range(len(gps_times) - 1)]
     ))
+
     # Check for time gaps and fill with NaN DataFrames
     for i in range(len(gps_times) - 1):
         diff = gps_times[i+1] - gps_times[i]
@@ -149,23 +155,30 @@ def get_exact_freq(summary, approx_freq):
 def main():
     runs = sys.argv[1:]
     for run in runs:
-        print('Run: ' + run)
-        # File locations
+        print('\n-- ' + run + ' --')
+        # Directories
         output_dir = os.path.join('out', run)
         if not os.path.exists(output_dir): os.makedirs(output_dir)
-        summary_file = os.path.join(output_dir, 'psd.pkl')
-        model_file = os.path.join(output_dir, run + '_line_evidence.dat')
         plot_dir = os.path.join('out', run, 'plots')
         if not os.path.exists(plot_dir): os.makedirs(plot_dir)
+        # Output files
+        summary_file = os.path.join(output_dir, 'psd.pkl')
+        model_file = os.path.join(output_dir, 'line_evidence.dat')
+        # Confirm to overwrite if summary already exists
+        gen_new = True
+        if os.path.exists(summary_file):
+            over = input('Found summary.pkl for this run. Overwrite? (y/N) ')
+            gen_new = True if over == 'y' else False
 
         # Import / generate summary PSD DataFrame
-        if os.path.exists(summary_file):
-            df = pd.read_pickle(summary_file)
-            print('Imported PSD summaries file.')
-        else:
-            print('No PSD summaries file found. Generating...')
+        if gen_new:
+            print('Generating summary file...')
             df = save_summary(run, summary_file)
+        else:
+            print('Reading summary file...')
+            df = pd.read_pickle(summary_file)
 
+        # Make plots
         for channel in range(6):
             print('Plotting channel ' + str(channel) + '...')
             # Colormap
