@@ -242,7 +242,9 @@ def main():
         print('\n-- ' + run + ' --')
         summary_file = 'out/' + run + '/linechain.pkl'
         log_file = 'out/' + run + '/linechain.log'
+        gen_new = True
         if os.path.exists(summary_file):
+            input('Found existing linechain summary for this run. Overwrite? (y/N) ')
         save_summary(run, summary_file, log_file)
 
 if __name__ == '__main__':
