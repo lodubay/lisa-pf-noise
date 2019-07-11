@@ -1,5 +1,11 @@
 # lisa-pf-noise
+
 Noise analysis scripts
 
-To automatically generate plots for a list of runs, execute
-`$ python3 autorun.py 'run_a' 'run_b' ...`
+## PSD analysis
+
+Execute `$ python3 psd.py 'run_a' 'run_b' ...`
+
+## Spectral line analysis
+
+Execute `$ python3 linechain.py 'run_a' 'run_b' ...`
