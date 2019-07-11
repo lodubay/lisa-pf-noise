@@ -12,7 +12,7 @@ def get_counts(lc_file):
     '''
     with open(lc_file) as lc:
         # Only use the first column
-        dim = np.array([int(line[0]) for line in lc])
+        dim = np.array([int(line.split()[0]) for line in lc])
     
     # List of unique model numbers through max from lc file
     dim_u = np.arange(np.max(dim)+1)
@@ -53,13 +53,18 @@ def import_linechain(lc_file, model):
     '''
     Imports a linechain file for the given time and channel.
     Returns a 3D array of all line parameters matching the preferred model.
+    
+    Input
+    -----
+      lc_file : string, path to linechain file
+      model : int, preferred model number, must be greater than 0
     '''
     # Import all rows with dim == model
     with open(lc_file) as lc:
-        lines = [line.split() for line in lc if int(line[0]) == model]
+        lines = [l.split()[1:] for l in lc if int(l.split()[0]) == model]
     
     # Configure array
-    line_array = np.asarray(lines, dtype='float64')[:,1:]
+    line_array = np.array(lines, dtype='float64')
     # Create 3D array with index order [index, line, parameter]
     params = []
     for p in range(3):
@@ -122,8 +127,8 @@ def summarize_linechain(time_dir, channel):
       time_dir : string, time directory
       channel : int, channel index
     '''
-    print('\n-- CHANNEL ' + str(channel) + ' --')
     time = int(time_dir[-11:-1])
+    print('\n-- ' + str(time) + ' CHANNEL ' + str(channel) + ' --')
     # Import linechain
     lc_file = time_dir + 'linechain_channel' + str(channel) + '.dat'
     # Get preferred model
@@ -172,12 +177,16 @@ def summarize(run):
     print('###### ' + run + ' ######')
     time_dirs = tf.get_time_dirs(run)
     # Generate all summaries
-    summaries = [summarize_linechain(d,c) for d in time_dirs for c in range(6)]
-    summaries = pd.concat(summaries).sort_index(level=[0,1,2,3])
+    summaries = [summarize_linechain(d,c) for c in range(6) for d in time_dirs]
+    summaries = pd.concat(summaries, axis=0)
+    midx = pd.MultiIndex.from_tuples(
+        summaries.index, names=['CHANNEL', 'TIME', 'LINE', 'PARAMETER']
+    )
+    summaries.index = midx
     print('\nAll summaries:')
     print(summaries)
     return summaries
             
 
-summarize('ltp_run_c')
+summarize('run_k_1')
 
