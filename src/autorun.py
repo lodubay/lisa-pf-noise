@@ -44,7 +44,17 @@ for run in runs:
         # Time plot file name
         tslice_file = os.path.join(plot_dir, 'tslice' + str(channel) + '.png')
         gps_times = tf.get_gps_times(run)
-        line_times = lc.get_lines(run, channel, model_file)
+        
+        # Generate / import DataFrame of all times with spectral lines
+        if os.path.exists(model_file):
+            print('Line evidence file found. Reading...')
+            line_df = pd.read_csv(model_file, sep=' ', index_col=0)
+        else:
+            print('No line evidence file found. Generating...')
+            line_df = lc.gen_model_df(run, model_file)
+        # Return list of times
+        line_times = df[df.iloc[:,channel] > 0].index
+        
         # Choose 6 times: beginning, end, and 4 evenly drawn from list
         l = len(gps_times)
         indices = [int(i / 5 * l) for i in range(1,5)]

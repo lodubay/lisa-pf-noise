@@ -1,23 +1,25 @@
 import pandas as pd
 import numpy as np
-import csv
 import os
 import sys
 import time_functions as tf
 import itertools
-from sklearn.cluster import KMeans
-from sklearn.mixture import GaussianMixture
-from sklearn.mixture import BayesianGaussianMixture
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
+
 
 def get_counts(lc_file):
     '''
-    Returns just the first column of the linechain file as a pandas Series
+    Returns a histogram of the counts for each model in the given linechain file
     '''
-    # Use incorrect separator to load uneven lines
-    lc = pd.read_csv(lc_file, usecols=[0], header=None, squeeze=True, dtype=str)
-    return pd.Series([int(row[0]) for row in lc])
+    with open(lc_file) as lc:
+        # Only use the first column
+        dim = np.array([int(line[0]) for line in lc])
+    
+    # List of unique model numbers through max from lc file
+    dim_u = np.arange(np.max(dim)+1)
+    # Count how often each model is used
+    counts = np.array([len(dim[dim == m]) for m in dim_u])
+    return counts
+
 
 def gen_model_df(run, model_file):
     '''
@@ -37,8 +39,8 @@ def gen_model_df(run, model_file):
             time_dirs[t], 'linechain_channel' + str(c) + '.dat'
         )
         # Find the mode
-        count = int(get_counts(lc_file).mode())
-        df.loc[gps_times[t], c] = count
+        model = get_counts(lc_file).argmax()
+        df.loc[gps_times[t], c] = model
     # Finish progress indicator
     sys.stdout.write('\n')
     sys.stdout.flush()
@@ -46,156 +48,136 @@ def gen_model_df(run, model_file):
     df.to_csv(model_file, sep=' ')
     return df
 
-def get_lines(run, channel, model_file):
-    '''
-    Returns a list of times with likely lines in the given run and channel.
-    '''
-    if os.path.exists(model_file):
-        print('Line evidence file found. Reading...')
-        df = pd.read_csv(model_file, sep=' ', index_col=0)
-    else:
-        print('No line evidence file found. Generating...')
-        df = gen_model_df(run, model_file)
-    # Return list of times
-    return df[df.iloc[:,channel] > 0].index
 
-def get_line_params(time_dir, channel):
+def import_linechain(lc_file, model):
+    '''
+    Imports a linechain file for the given time and channel.
+    Returns a 3D array of all line parameters matching the preferred model.
+    '''
+    # Import all rows with dim == model
+    with open(lc_file) as lc:
+        lines = [line.split() for line in lc if int(line[0]) == model]
+    
+    # Configure array
+    line_array = np.asarray(lines, dtype='float64')[:,1:]
+    # Create 3D array with index order [index, line, parameter]
+    params = []
+    for p in range(3):
+        param = [line_array[:,3*c+p:3*c+p+1] for c in range(model)]
+        params.append(np.hstack(param))
+    
+    params = np.dstack(params)
+    return params
+        
+
+def sort_params(params):
+    '''
+    Sorts the frequencies in the linechain array so that each column corresponds
+    to just one spectral line. Returns an array of the same shape as params.
+    
+    Input
+    -----
+      params : 3D numpy array, the output of import_linechain()
+    '''
+    # Calculate modes for each column
+    # This should give a rough value for the location of each spectral line
+    modes = []
+    for c in range(params.shape[1]):
+        f = params[:,c,0]
+        hist, bin_edges = np.histogram(f, bins=2000)
+        hist_max = hist.argmax()
+        mode = np.mean(bin_edges[hist_max:hist_max+2])
+        modes.append(mode)
+    
+    modes = np.sort(np.array(modes))
+    # For debugging
+    print('Spectral line modal frequencies: ')
+    print(modes)
+    
+    # Iterate through rows and sort values to correct columns
+    for i, row in enumerate(params):
+        # Compute permutations of all frequencies
+        f = row[:,0]
+        perm = np.array(list(itertools.permutations(f)))
+        # Permutations of indices
+        idx = np.array(list(itertools.permutations(range(len(f)))))
+        # Calculate the distances between each permutation and the modes
+        dist = np.abs(perm - modes) / modes
+        # Compute the total distance magnitudes
+        # Inverting to lessen penalty for one value that doesn't match
+        sums = np.sum(dist ** -1, axis=1) ** -1
+        # Use permutation that minimizes total distance
+        min_idx = idx[sums.argmin()]
+        params[i] = row[min_idx]
+
+    return params
+
+
+def summarize_linechain(time_dir, channel):
+    '''
+    Returns DataFrame of percentile values for each parameter.
+    
+    Input
+    -----
+      time_dir : string, time directory
+      channel : int, channel index
+    '''
+    print('\n-- CHANNEL ' + str(channel) + ' --')
     time = int(time_dir[-11:-1])
-    # File name
-    lc_file = os.path.join(
-        time_dir, 'linechain_channel' + str(channel) + '.dat'
-    )
-    # Import first column to determine how wide DataFrame should be
+    # Import linechain
+    lc_file = time_dir + 'linechain_channel' + str(channel) + '.dat'
+    # Get preferred model
     counts = get_counts(lc_file)
-    # Get most likely line model (i.e., the number of spectral lines)
-    model = int(counts.mode())
+    print('Line model histogram:')
+    print(counts)
+    model = counts.argmax()
+    print(str(model) + ' spectral lines found.')
+    
+    # Initialize summary DataFrame
+    percentiles = np.array([5, 25, 50, 75, 95])
+    cols = pd.Series(percentiles.astype('str'), name='PERCENTILE')
+    parameters = ['FREQ', 'AMP', 'QF']
+    summary = pd.DataFrame([], columns=cols)
+    
     if model > 0:
-        # Import entire data file, accounting for uneven rows
-        lc = pd.read_csv(lc_file, header=None, names=range(max(counts)*3+1), sep=' ')
-        # Strip of all rows that don't match the model
-        lc = lc[lc.iloc[:,0] == model].dropna(1).reset_index(drop=True).rename_axis('IDX')
-        # Rearrange DataFrame so same lines are grouped together
-        # Make 3 column DataFrame by stacking sections vertically
-        df = pd.concat([
-            lc.iloc[:,c*3+1:c*3+4].set_axis(
-                ['FREQ','AMP','QF'], axis=1, inplace=False
-            ) for c in range(model)
-        ], keys=pd.Series(range(model), name='LINE'))
-        # Sort first by index, then by frequency to preserve index order
-        df = df.sort_values(by=['IDX', 'FREQ'])
-        # Re-sort line index to bin similar line frequencies together
-        df.index = pd.MultiIndex.from_arrays(
-            [[time] * len(df), list(range(model)) * len(lc), 
-                df.index.get_level_values('IDX')
-            ], 
-            names=['TIME', 'LINE', 'IDX']
+        params = import_linechain(lc_file, model)
+        # Line model
+        model = params.shape[1]
+        # Sort
+        if model > 1:
+            params = sort_params(params)
+    
+        # Summary statistics
+        p_array = np.percentile(params, percentiles, axis=0)
+        # Transpose to index as [line, param, index]
+        p_array = np.transpose(p_array, axes=(1,2,0))
+        midx = pd.MultiIndex.from_product(
+            [[channel], [time], list(range(model)), parameters],
+            names=['CHANNEL', 'TIME', 'LINE', 'PARAMETER']
         )
-        return df.sort_values(by=['LINE', 'IDX'])
-    else:
-        return pd.DataFrame()
+        summary = pd.DataFrame(np.vstack(p_array), columns=cols, index=midx)
+        print('Line parameter summary:')
+        print(summary)
+    return summary
 
-def gmm_cluster(time_dir, channel):
-    # File name
-    lc_file = os.path.join(
-        time_dir, 'linechain_channel' + str(channel) + '.dat'
-    )
-    # Import first column to determine how wide DataFrame should be
-    counts = get_counts(lc_file)
-    # Get most likely line model (i.e., the number of spectral lines)
-    model = int(counts.mode())
-    print(model)
-    # Import entire data file, accounting for uneven rows
-    lc = pd.read_csv(lc_file, header=None, names=range(max(counts)*3+1), sep=' ')
-    # Strip of all rows that don't match the model
-    lc = lc[lc.iloc[:,0] == model].dropna(1).reset_index(drop=True).rename_axis('IDX')
-    # Rearrange DataFrame so same lines are grouped together
-    # Make 3 column DataFrame by stacking sections vertically
-    df = pd.concat([
-        lc.iloc[:,c*3+1:c*3+4].set_axis(
-            ['FREQ','AMP','QF'], axis=1, inplace=False
-        ) for c in range(model)
-    ], keys=pd.Series(range(model), name='LINE'))
-    # Gaussian mixture model
-    gmm = GaussianMixture(n_components=2, 
-        covariance_type='full'
-        #means_init=[[lc.iloc[0,1], lc.iloc[0,3]], [lc.iloc[0, 4], lc.iloc[0, 6]]]
-    )
-    test_df = df.iloc[:,0:3]
-    gmm.fit(test_df)
-    labels = gmm.predict(test_df)
-    probs = gmm.predict_proba(test_df)
-    #print(pred.ravel())
-    fig, axs = plt.subplots(1, 2)
-    colors = ['red', 'purple']
-    axs[0].scatter(test_df['FREQ'], test_df['AMP'], 
-        c=labels, cmap='rainbow', 
-        #color=colors,
-        marker='.', alpha=0.1, s=1
-    )
-    axs[0].set_ylim(1e-20, 1)
-    axs[0].set_yscale('log')
-    axs[0].set_ylabel('Amplitude')
-    axs[0].set_xlim(1e-3, 1)
-    axs[0].set_xscale('log')
-    axs[0].set_xlabel('Frequency (Hz)')
-    fig.suptitle(time_dir + ', channel ' + str(channel))
-    axs[1].scatter(test_df['FREQ'], test_df['QF'], 
-        c=labels, cmap='rainbow', 
-        #color=colors,
-        marker='.', alpha=0.1, s=1
-    )
-    axs[1].set_ylim(1e2, 1e8)
-    axs[1].set_yscale('log')
-    axs[1].set_ylabel('Quality factor')
-    axs[1].set_xlim(1e-3, 1)
-    axs[1].set_xscale('log')
-    axs[1].set_xlabel('Frequency (Hz)')
-    # Plot ellipses
-    for ax in axs:
-        for n, color in enumerate(colors):
-            covariances = gmm.covariances_[n][:2, :2]
-            v, w = np.linalg.eigh(covariances)
-            u = w[0] / np.linalg.norm(w[0])
-            angle = np.arctan2(u[1], u[0])
-            angle = 180 * angle / np.pi # convert to degrees
-            v = 2. * np.sqrt(2.) * np.sqrt(v)
-            ell = patches.Ellipse(gmm.means_[n, :2], v[0], v[1], 180 + angle, color=color)
-            ell.set_clip_box(ax.bbox)
-            ell.set_alpha(0.5)
-            ax.add_artist(ell)
-            ax.set_aspect('equal', 'datalim')
-    plt.show()
-    return gmm.means_
 
-def summarize_params(line_df):
+def summarize(run):
     '''
-    Takes a DataFrame with FREQ, AMP, and QF columns for one spectral line
-    Returns percentiles for each parameter in a single-row DataFrame
-    Returns multiple rows if multiple lines are present in the df
+    Returns a summary DataFrame for all linechain files in the given run.
+    
+    Input
+    -----
+      run : string, name of run
     '''
-    summary = []
-    time = line_df.index.get_level_values('TIME')[0]
-    for i in line_df.index.get_level_values('LINE').unique():
-        summary.append(pd.concat(
-            [pd.Series([time], name='TIME')] +
-            [pd.Series(np.percentile(line_df.loc[pd.IndexSlice[:, i], col], p), 
-                    name=col+'_P'+str(p) # Col name, e.g. FREQ_P10
-                ) for col in line_df.columns for p in [10, 25, 50, 75, 90]
-            ], axis=1
-        ))
-    return pd.concat(summary).set_index('TIME')
-
-def save_summary(run, channel, summary_file):
+    print('###### ' + run + ' ######')
     time_dirs = tf.get_time_dirs(run)
-    summaries = []
-    for i, t in enumerate(time_dirs):
-        line_df = get_line_params(t, channel)
-        if len(line_df) > 0:
-            print(t)
-            summaries.append(summarize_params(line_df))
-    summaries = pd.concat(summaries)
-    # Output to file
-    print('Writing to ' + summary_file + '...')
-    summaries.to_pickle(summary_file)
+    # Generate all summaries
+    summaries = [summarize_linechain(d,c) for d in time_dirs for c in range(6)]
+    summaries = pd.concat(summaries).sort_index(level=[0,1,2,3])
+    print('\nAll summaries:')
+    print(summaries)
     return summaries
+            
+
+summarize('ltp_run_c')
 

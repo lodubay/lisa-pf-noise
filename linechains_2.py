@@ -9,9 +9,7 @@ time_dir = './data/ltp_run_b/run_b_' + str(time) + '/linechain_channel'
 #time = 1176962857
 #time_dir = './data/drsCrutch_run_q/run_q_' + str(time) + '/linechain_channel'
 
-#Only looking at CHANNEL 4! **********************************************
 for channel in range(6):
-#for channel in range(4,5):
     print('\n-- CHANNEL ' + str(channel) + ' --')
     lc_file = time_dir + str(channel) + '.dat'
     # Find the most frequently sampled line model number
@@ -20,7 +18,7 @@ for channel in range(6):
         dim = np.array([int(line[0]) for line in lc])
     
     # List of unique model numbers through max from lc file
-    dim_u = np.arange(np.max(dim)+1)
+    dim_u = np.arange(dim.max() + 1)
     # Count how often each model is used
     counts = np.array([len(dim[dim == m]) for m in dim_u])
     print('Line model histogram:')
@@ -89,14 +87,16 @@ for channel in range(6):
             columns=pd.Series(percentiles.astype('str'), name='PERCENTILE'), 
             index=midx
         )
+        print('Line parameter summary:')
         print(summary)
         
+        '''
         # Plot
         colors = ['r', 'g', 'b']
         medians = summary.xs('FREQ', level='PARAMETER')['50']
         for i in range(model):
         #for i in [2]:
-            plt.scatter(params[:,i,0], np.random.random(params.shape[0]), 
+            plt.scatter(params[:,i,0], params[:,i,2], 
                 marker='.', alpha=0.2, s=1, c=colors[i]
             )
             plt.axvline(medians[i], c=colors[i])
@@ -104,4 +104,5 @@ for channel in range(6):
         plt.xlim(1e-3,1)
         plt.xscale('log')
         plt.show()
+        '''
 
