@@ -1,0 +1,4112 @@
+linechain.py log file for run_k
+
+-- 1159724317 CHANNEL 0 --
+Line model histogram:
+[84605 13073  1984   309    27     2]
+0 spectral lines found
+
+-- 1159725956 CHANNEL 0 --
+Line model histogram:
+[84202 13441  2038   282    37]
+0 spectral lines found
+
+-- 1159727594 CHANNEL 0 --
+Line model histogram:
+[84750 12922  1966   313    41     7     1]
+0 spectral lines found
+
+-- 1159729233 CHANNEL 0 --
+Line model histogram:
+[84401 13293  1935   325    41     5]
+0 spectral lines found
+
+-- 1159730871 CHANNEL 0 --
+Line model histogram:
+[84336 13222  2077   303    46    16]
+0 spectral lines found
+
+-- 1159732509 CHANNEL 0 --
+Line model histogram:
+[84620 13218  1892   236    33     1]
+0 spectral lines found
+
+-- 1159734148 CHANNEL 0 --
+Line model histogram:
+[84481 13262  1921   286    38    12]
+0 spectral lines found
+
+-- 1159735786 CHANNEL 0 --
+Line model histogram:
+[84963 12774  1956   259    36    10     2]
+0 spectral lines found
+
+-- 1159737425 CHANNEL 0 --
+Line model histogram:
+[84322 13262  2022   339    51     4]
+0 spectral lines found
+
+-- 1159739063 CHANNEL 0 --
+Line model histogram:
+[84185 13323  2117   335    32     7     1]
+0 spectral lines found
+
+-- 1159740701 CHANNEL 0 --
+Line model histogram:
+[84399 13282  1945   309    55     9     1]
+0 spectral lines found
+
+-- 1159742340 CHANNEL 0 --
+Line model histogram:
+[83941 13615  2123   273    39     6     3]
+0 spectral lines found
+
+-- 1159743978 CHANNEL 0 --
+Line model histogram:
+[84220 13399  2005   321    51     4]
+0 spectral lines found
+
+-- 1159745617 CHANNEL 0 --
+Line model histogram:
+[83422 13927  2141   410    83    13     2     1     1]
+0 spectral lines found
+
+-- 1159747255 CHANNEL 0 --
+Line model histogram:
+[84392 13310  1957   276    52    10     3]
+0 spectral lines found
+
+-- 1159748893 CHANNEL 0 --
+Line model histogram:
+[84650 13185  1847   274    35     5     2     2]
+0 spectral lines found
+
+-- 1159750532 CHANNEL 0 --
+Line model histogram:
+[84123 13451  2047   320    53     5     1]
+0 spectral lines found
+
+-- 1159752170 CHANNEL 0 --
+Line model histogram:
+[84525 13205  1908   291    65     5     1]
+0 spectral lines found
+
+-- 1159753809 CHANNEL 0 --
+Line model histogram:
+[84361 13306  1978   301    46     7     1]
+0 spectral lines found
+
+-- 1159755447 CHANNEL 0 --
+Line model histogram:
+[84642 13159  1891   272    33     2     1]
+0 spectral lines found
+
+-- 1159757085 CHANNEL 0 --
+Line model histogram:
+[84372 13363  1856   336    57    14     2]
+0 spectral lines found
+
+-- 1159758724 CHANNEL 0 --
+Line model histogram:
+[84636 13005  2000   301    53     4     1]
+0 spectral lines found
+
+-- 1159760362 CHANNEL 0 --
+Line model histogram:
+[50460 36451 10280  2331   396    76     4     1     1]
+0 spectral lines found
+
+-- 1159762001 CHANNEL 0 --
+Line model histogram:
+[83713 13789  2112   335    45     6]
+0 spectral lines found
+
+-- 1159763639 CHANNEL 0 --
+Line model histogram:
+[84620 13045  1963   306    55    11]
+0 spectral lines found
+
+-- 1159765277 CHANNEL 0 --
+Line model histogram:
+[84483 13218  1925   308    54    12]
+0 spectral lines found
+
+-- 1159766916 CHANNEL 0 --
+Line model histogram:
+[83637 13792  2147   336    76    12]
+0 spectral lines found
+
+-- 1159768554 CHANNEL 0 --
+Line model histogram:
+[84369 13405  1868   306    48     4]
+0 spectral lines found
+
+-- 1159770193 CHANNEL 0 --
+Line model histogram:
+[83894 13625  2062   346    63     8     2]
+0 spectral lines found
+
+-- 1159771831 CHANNEL 0 --
+Line model histogram:
+[84349 13120  2138   298    73    16     6]
+0 spectral lines found
+
+-- 1159773469 CHANNEL 0 --
+Line model histogram:
+[84480 13321  1863   283    48     5]
+0 spectral lines found
+
+-- 1159775108 CHANNEL 0 --
+Line model histogram:
+[84331 13455  1907   251    50     5     1]
+0 spectral lines found
+
+-- 1159776746 CHANNEL 0 --
+Line model histogram:
+[84192 13507  1912   329    47    10     3]
+0 spectral lines found
+
+-- 1159778385 CHANNEL 0 --
+Line model histogram:
+[83966 13565  2089   313    60     7]
+0 spectral lines found
+
+-- 1159780023 CHANNEL 0 --
+Line model histogram:
+[84182 13307  2136   308    54     7     5     0     1]
+0 spectral lines found
+
+-- 1159781661 CHANNEL 0 --
+Line model histogram:
+[84786 12944  1901   314    42    11     2]
+0 spectral lines found
+
+-- 1159783300 CHANNEL 0 --
+Line model histogram:
+[84334 13310  1955   351    44     5     1]
+0 spectral lines found
+
+-- 1159784938 CHANNEL 0 --
+Line model histogram:
+[84587 13206  1866   316    22     3]
+0 spectral lines found
+
+-- 1159786577 CHANNEL 0 --
+Line model histogram:
+[78316 17589  3317   655   111    10     2]
+0 spectral lines found
+
+-- 1159788215 CHANNEL 0 --
+Line model histogram:
+[84742 13084  1833   279    58     4]
+0 spectral lines found
+
+-- 1159789853 CHANNEL 0 --
+Line model histogram:
+[84375 13106  2078   372    60     9]
+0 spectral lines found
+
+-- 1159791492 CHANNEL 0 --
+Line model histogram:
+[84295 13377  2006   294    23     4     1]
+0 spectral lines found
+
+-- 1159793130 CHANNEL 0 --
+Line model histogram:
+[83519 13908  2183   331    51     7     1]
+0 spectral lines found
+
+-- 1159794769 CHANNEL 0 --
+Line model histogram:
+[84521 13116  1973   346    34     9     1]
+0 spectral lines found
+
+-- 1159796407 CHANNEL 0 --
+Line model histogram:
+[84247 13355  2012   310    67     7     2]
+0 spectral lines found
+
+-- 1159798045 CHANNEL 0 --
+Line model histogram:
+[84216 13356  2013   354    53     8]
+0 spectral lines found
+
+-- 1159799684 CHANNEL 0 --
+Line model histogram:
+[84463 13079  2104   299    36    13     5     1]
+0 spectral lines found
+
+-- 1159801322 CHANNEL 0 --
+Line model histogram:
+[84860 12825  1980   301    31     3]
+0 spectral lines found
+
+-- 1159802961 CHANNEL 0 --
+Line model histogram:
+[84882 12882  1892   307    35     2]
+0 spectral lines found
+
+-- 1159804599 CHANNEL 0 --
+Line model histogram:
+[84430 13104  2029   367    62     6     2]
+0 spectral lines found
+
+-- 1159806237 CHANNEL 0 --
+Line model histogram:
+[84302 13226  2046   361    56     9]
+0 spectral lines found
+
+-- 1159807876 CHANNEL 0 --
+Line model histogram:
+[83518 13736  2269   400    72     5]
+0 spectral lines found
+
+-- 1159809514 CHANNEL 0 --
+Line model histogram:
+[84334 13231  2050   321    37    24     3]
+0 spectral lines found
+
+-- 1159811153 CHANNEL 0 --
+Line model histogram:
+[84353 13197  2106   292    42     5     5]
+0 spectral lines found
+
+-- 1159812791 CHANNEL 0 --
+Line model histogram:
+[84871 12906  1860   309    50     4]
+0 spectral lines found
+
+-- 1159814429 CHANNEL 0 --
+Line model histogram:
+[83940 13522  2105   343    63    19     7     1]
+0 spectral lines found
+
+-- 1159816068 CHANNEL 0 --
+Line model histogram:
+[84225 13415  2013   311    29     6     1]
+0 spectral lines found
+
+-- 1159817706 CHANNEL 0 --
+Line model histogram:
+[83253 13876  2327   449    81    11     3]
+0 spectral lines found
+
+-- 1159819345 CHANNEL 0 --
+Line model histogram:
+[84233 13330  2056   316    58     4     2     1]
+0 spectral lines found
+
+-- 1159820983 CHANNEL 0 --
+Line model histogram:
+[84294 13411  1916   326    39     9     4     1]
+0 spectral lines found
+
+-- 1159822621 CHANNEL 0 --
+Line model histogram:
+[84268 13284  2027   347    65     8     1]
+0 spectral lines found
+
+-- 1159824260 CHANNEL 0 --
+Line model histogram:
+[82074 14863  2580   406    63    10     3     1]
+0 spectral lines found
+
+-- 1159825898 CHANNEL 0 --
+Line model histogram:
+[84461 13283  1919   295    40     2]
+0 spectral lines found
+
+-- 1159827537 CHANNEL 0 --
+Line model histogram:
+[84677 12997  1980   289    50     3     4]
+0 spectral lines found
+
+-- 1159829175 CHANNEL 0 --
+Line model histogram:
+[84195 13447  2013   289    49     5     2]
+0 spectral lines found
+
+-- 1159830813 CHANNEL 0 --
+Line model histogram:
+[84335 13343  1928   328    53    11     2]
+0 spectral lines found
+
+-- 1159832452 CHANNEL 0 --
+Line model histogram:
+[84218 13452  1969   318    33     7     3]
+0 spectral lines found
+
+-- 1159834090 CHANNEL 0 --
+Line model histogram:
+[84270 13174  2128   357    64     4     3]
+0 spectral lines found
+
+-- 1159835729 CHANNEL 0 --
+Line model histogram:
+[84449 13193  2012   306    35     4     1]
+0 spectral lines found
+
+-- 1159837367 CHANNEL 0 --
+Line model histogram:
+[84082 13510  2039   308    49    12]
+0 spectral lines found
+
+-- 1159839005 CHANNEL 0 --
+Line model histogram:
+[83903 13594  2081   371    48     3]
+0 spectral lines found
+
+-- 1159840644 CHANNEL 0 --
+Line model histogram:
+[84477 13133  1971   353    57     8     1]
+0 spectral lines found
+
+-- 1159842282 CHANNEL 0 --
+Line model histogram:
+[84469 13101  2040   325    52     9     4]
+0 spectral lines found
+
+-- 1159843921 CHANNEL 0 --
+Line model histogram:
+[84369 13274  1973   340    40     4]
+0 spectral lines found
+
+-- 1159845559 CHANNEL 0 --
+Line model histogram:
+[83967 13519  2124   345    43     2]
+0 spectral lines found
+
+-- 1159847197 CHANNEL 0 --
+Line model histogram:
+[84426 13223  1948   350    41     8     4]
+0 spectral lines found
+
+-- 1159848836 CHANNEL 0 --
+Line model histogram:
+[84158 13435  1991   330    74    11     1]
+0 spectral lines found
+
+-- 1159850474 CHANNEL 0 --
+Line model histogram:
+[84277 13407  1987   275    45     3     3     3]
+0 spectral lines found
+
+-- 1159852113 CHANNEL 0 --
+Line model histogram:
+[84511 13035  2061   346    36     8     2     1]
+0 spectral lines found
+
+-- 1159853751 CHANNEL 0 --
+Line model histogram:
+[84189 13397  2064   315    31     3     1]
+0 spectral lines found
+
+-- 1159855389 CHANNEL 0 --
+Line model histogram:
+[84560 13248  1917   227    37    11]
+0 spectral lines found
+
+-- 1159857028 CHANNEL 0 --
+Line model histogram:
+[84661 13121  1887   277    40    13     1]
+0 spectral lines found
+
+-- 1159858666 CHANNEL 0 --
+Line model histogram:
+[84682 12954  1970   343    45     4     2]
+0 spectral lines found
+
+-- 1159860305 CHANNEL 0 --
+Line model histogram:
+[84445 13210  2033   263    46     3]
+0 spectral lines found
+
+-- 1159861943 CHANNEL 0 --
+Line model histogram:
+[84504 13118  2003   312    51     7     5]
+0 spectral lines found
+
+-- 1159863581 CHANNEL 0 --
+Line model histogram:
+[84486 13191  1926   324    52    13     8]
+0 spectral lines found
+
+-- 1159865220 CHANNEL 0 --
+Line model histogram:
+[84190 13425  2023   294    54    10     4]
+0 spectral lines found
+
+-- 1159866858 CHANNEL 0 --
+Line model histogram:
+[ 9444 64115 20410  4784   945   215    72    12     3]
+1 spectral lines found
+Line parameter summary:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+0       1159866858 0    FREQ       6.612976e-01  6.614890e-01  6.617459e-01  6.618622e-01  6.620692e-01
+                        AMP        1.045657e-17  2.704961e-16  9.317044e-15  1.089879e-12  1.730399e-07
+                        QF         1.492224e+02  6.881889e+02  4.005604e+03  4.852461e+04  1.048717e+06
+
+-- 1159868497 CHANNEL 0 --
+Line model histogram:
+[84838 12984  1847   292    34     5]
+0 spectral lines found
+
+-- 1159870135 CHANNEL 0 --
+Line model histogram:
+[84214 13453  1976   303    46     6     2]
+0 spectral lines found
+
+-- 1159871773 CHANNEL 0 --
+Line model histogram:
+[84321 13344  2000   302    26     5     1     1]
+0 spectral lines found
+
+-- 1159873412 CHANNEL 0 --
+Line model histogram:
+[84789 13058  1865   249    35     1     3]
+0 spectral lines found
+
+-- 1159875050 CHANNEL 0 --
+Line model histogram:
+[84185 13402  2047   310    47     6     3]
+0 spectral lines found
+
+-- 1159876689 CHANNEL 0 --
+Line model histogram:
+[84502 13120  2013   325    35     5]
+0 spectral lines found
+
+-- 1159878327 CHANNEL 0 --
+Line model histogram:
+[84396 13261  1986   295    55     7]
+0 spectral lines found
+
+-- 1159879965 CHANNEL 0 --
+Line model histogram:
+[84671 13108  1901   294    24     1     1]
+0 spectral lines found
+
+-- 1159881604 CHANNEL 0 --
+Line model histogram:
+[84354 13244  2058   275    53    15     1]
+0 spectral lines found
+
+-- 1159883242 CHANNEL 0 --
+Line model histogram:
+[84512 13201  1924   323    37     2     1]
+0 spectral lines found
+
+-- 1159884881 CHANNEL 0 --
+Line model histogram:
+[83930 13395  2310   335    25     4     1]
+0 spectral lines found
+
+-- 1159886519 CHANNEL 0 --
+Line model histogram:
+[84800 12913  1925   305    42    15]
+0 spectral lines found
+
+-- 1159888157 CHANNEL 0 --
+Line model histogram:
+[84307 13228  2076   336    40    12     1]
+0 spectral lines found
+
+-- 1159889796 CHANNEL 0 --
+Line model histogram:
+[84270 13292  2027   358    49     4]
+0 spectral lines found
+
+-- 1159891434 CHANNEL 0 --
+Line model histogram:
+[84170 13403  2012   355    56     4]
+0 spectral lines found
+
+-- 1159893073 CHANNEL 0 --
+Line model histogram:
+[84380 13138  2116   304    53     7     2]
+0 spectral lines found
+
+-- 1159894711 CHANNEL 0 --
+Line model histogram:
+[84545 13054  2010   345    35    11]
+0 spectral lines found
+
+-- 1159896349 CHANNEL 0 --
+Line model histogram:
+[84613 13035  1988   329    31     3     1]
+0 spectral lines found
+
+-- 1159897988 CHANNEL 0 --
+Line model histogram:
+[84639 13083  1932   307    36     3]
+0 spectral lines found
+
+-- 1159899626 CHANNEL 0 --
+Line model histogram:
+[84470 13189  1999   299    40     3]
+0 spectral lines found
+
+-- 1159901265 CHANNEL 0 --
+Line model histogram:
+[84415 13331  1870   344    30     8     1     0     0     1]
+0 spectral lines found
+
+-- 1159902903 CHANNEL 0 --
+Line model histogram:
+[84402 13276  1960   311    39    11     1]
+0 spectral lines found
+
+-- 1159904541 CHANNEL 0 --
+Line model histogram:
+[84340 13274  1967   322    66    12    10     8     1]
+0 spectral lines found
+
+-- 1159906180 CHANNEL 0 --
+Line model histogram:
+[84211 13273  2079   372    52    13]
+0 spectral lines found
+
+-- 1159907818 CHANNEL 0 --
+Line model histogram:
+[84222 13396  2057   272    45     8]
+0 spectral lines found
+
+-- 1159909457 CHANNEL 0 --
+Line model histogram:
+[84193 13509  1928   300    61     8     1]
+0 spectral lines found
+
+-- 1159911095 CHANNEL 0 --
+Line model histogram:
+[84274 13288  2069   321    41     6     1]
+0 spectral lines found
+
+-- 1159912733 CHANNEL 0 --
+Line model histogram:
+[84531 13191  1923   291    42    22]
+0 spectral lines found
+
+-- 1159914372 CHANNEL 0 --
+Line model histogram:
+[84467 13136  1977   350    64     6]
+0 spectral lines found
+
+-- 1159916010 CHANNEL 0 --
+Line model histogram:
+[83838 13564  2178   331    75    11     3]
+0 spectral lines found
+
+-- 1159917649 CHANNEL 0 --
+Line model histogram:
+[84532 12951  2133   333    41     9     1]
+0 spectral lines found
+
+-- 1159919287 CHANNEL 0 --
+Line model histogram:
+[84698 12884  2020   332    41    17     5     3]
+0 spectral lines found
+
+-- 1159920925 CHANNEL 0 --
+Line model histogram:
+[84261 13464  1960   262    45     8]
+0 spectral lines found
+
+-- 1159922564 CHANNEL 0 --
+Line model histogram:
+[84605 13079  1957   317    32     9     1]
+0 spectral lines found
+
+-- 1159924202 CHANNEL 0 --
+Line model histogram:
+[84429 13221  2006   284    55     5]
+0 spectral lines found
+
+-- 1159925841 CHANNEL 0 --
+Line model histogram:
+[84454 13169  1930   382    59     6]
+0 spectral lines found
+
+-- 1159927479 CHANNEL 0 --
+Line model histogram:
+[84876 12891  1855   331    45     2]
+0 spectral lines found
+
+-- 1159929117 CHANNEL 0 --
+Line model histogram:
+[84766 12996  1954   248    29     6     0     1]
+0 spectral lines found
+
+-- 1159930756 CHANNEL 0 --
+Line model histogram:
+[85107 12771  1862   232    25     3]
+0 spectral lines found
+
+-- 1159932394 CHANNEL 0 --
+Line model histogram:
+[84476 13135  1994   349    42     4]
+0 spectral lines found
+
+-- 1159934033 CHANNEL 0 --
+Line model histogram:
+[84057 13491  2092   310    45     5]
+0 spectral lines found
+
+-- 1159935671 CHANNEL 0 --
+Line model histogram:
+[84515 13198  1957   273    42    10     2     3]
+0 spectral lines found
+
+-- 1159937309 CHANNEL 0 --
+Line model histogram:
+[84688 13016  1928   307    52     4     5]
+0 spectral lines found
+
+-- 1159938948 CHANNEL 0 --
+Line model histogram:
+[84108 13499  2074   280    36     2     1]
+0 spectral lines found
+
+-- 1159940586 CHANNEL 0 --
+Line model histogram:
+[84451 13175  2055   266    53]
+0 spectral lines found
+
+-- 1159942225 CHANNEL 0 --
+Line model histogram:
+[84235 13237  2172   299    46     9     2]
+0 spectral lines found
+
+-- 1159943863 CHANNEL 0 --
+Line model histogram:
+[84413 13299  1956   274    51     6     1]
+0 spectral lines found
+
+-- 1159945501 CHANNEL 0 --
+Line model histogram:
+[84269 13305  2005   349    62     5     5]
+0 spectral lines found
+
+-- 1159724317 CHANNEL 1 --
+Line model histogram:
+[81082 15433  2812   572    77    17     7]
+0 spectral lines found
+
+-- 1159725956 CHANNEL 1 --
+Line model histogram:
+[81016 15475  2859   483   142    17     8]
+0 spectral lines found
+
+-- 1159727594 CHANNEL 1 --
+Line model histogram:
+[80815 15728  2761   604    79    12     1]
+0 spectral lines found
+
+-- 1159729233 CHANNEL 1 --
+Line model histogram:
+[80603 15752  2941   608    86    10]
+0 spectral lines found
+
+-- 1159730871 CHANNEL 1 --
+Line model histogram:
+[80904 15664  2858   469    84    20     1]
+0 spectral lines found
+
+-- 1159732509 CHANNEL 1 --
+Line model histogram:
+[81204 15468  2731   497    83    15     2]
+0 spectral lines found
+
+-- 1159734148 CHANNEL 1 --
+Line model histogram:
+[81359 15212  2752   573    95     9]
+0 spectral lines found
+
+-- 1159735786 CHANNEL 1 --
+Line model histogram:
+[81421 15329  2659   465   108    18]
+0 spectral lines found
+
+-- 1159737425 CHANNEL 1 --
+Line model histogram:
+[81369 15280  2730   544    66    11]
+0 spectral lines found
+
+-- 1159739063 CHANNEL 1 --
+Line model histogram:
+[81269 15339  2811   480    89    12]
+0 spectral lines found
+
+-- 1159740701 CHANNEL 1 --
+Line model histogram:
+[81514 15130  2750   471   116    19]
+0 spectral lines found
+
+-- 1159742340 CHANNEL 1 --
+Line model histogram:
+[80923 15731  2753   502    83     8]
+0 spectral lines found
+
+-- 1159743978 CHANNEL 1 --
+Line model histogram:
+[81059 15482  2801   534   111    13]
+0 spectral lines found
+
+-- 1159745617 CHANNEL 1 --
+Line model histogram:
+[80923 15741  2746   500    77    10     3]
+0 spectral lines found
+
+-- 1159747255 CHANNEL 1 --
+Line model histogram:
+[81198 15298  2853   527   110    11     3]
+0 spectral lines found
+
+-- 1159748893 CHANNEL 1 --
+Line model histogram:
+[80926 15581  2828   553    95    16     1]
+0 spectral lines found
+
+-- 1159750532 CHANNEL 1 --
+Line model histogram:
+[81414 15170  2848   474    83     8     3]
+0 spectral lines found
+
+-- 1159752170 CHANNEL 1 --
+Line model histogram:
+[80902 15608  2790   568   105    21     5     1]
+0 spectral lines found
+
+-- 1159753809 CHANNEL 1 --
+Line model histogram:
+[81302 15191  2912   499    89     7]
+0 spectral lines found
+
+-- 1159755447 CHANNEL 1 --
+Line model histogram:
+[81433 15162  2792   479   114    20]
+0 spectral lines found
+
+-- 1159757085 CHANNEL 1 --
+Line model histogram:
+[81194 15366  2799   523   112     6]
+0 spectral lines found
+
+-- 1159758724 CHANNEL 1 --
+Line model histogram:
+[81296 15255  2862   473   107     6     1]
+0 spectral lines found
+
+-- 1159760362 CHANNEL 1 --
+Line model histogram:
+[81399 15220  2682   574   114     9     2]
+0 spectral lines found
+
+-- 1159762001 CHANNEL 1 --
+Line model histogram:
+[80120 16059  3103   581   122    15]
+0 spectral lines found
+
+-- 1159763639 CHANNEL 1 --
+Line model histogram:
+[80886 15721  2830   468    85     8     1     1]
+0 spectral lines found
+
+-- 1159765277 CHANNEL 1 --
+Line model histogram:
+[81130 15422  2853   492    94     9]
+0 spectral lines found
+
+-- 1159766916 CHANNEL 1 --
+Line model histogram:
+[81246 15449  2738   472    84    11]
+0 spectral lines found
+
+-- 1159768554 CHANNEL 1 --
+Line model histogram:
+[80926 15711  2737   489   128     8     1]
+0 spectral lines found
+
+-- 1159770193 CHANNEL 1 --
+Line model histogram:
+[81122 15525  2775   489    74    13     1     1]
+0 spectral lines found
+
+-- 1159771831 CHANNEL 1 --
+Line model histogram:
+[81359 15366  2663   504    94    14]
+0 spectral lines found
+
+-- 1159773469 CHANNEL 1 --
+Line model histogram:
+[81047 15563  2774   514    96     6]
+0 spectral lines found
+
+-- 1159775108 CHANNEL 1 --
+Line model histogram:
+[81557 15177  2685   483    88     9     1]
+0 spectral lines found
+
+-- 1159776746 CHANNEL 1 --
+Line model histogram:
+[81364 15272  2756   518    81     9]
+0 spectral lines found
+
+-- 1159778385 CHANNEL 1 --
+Line model histogram:
+[81216 15502  2691   479   103     9]
+0 spectral lines found
+
+-- 1159780023 CHANNEL 1 --
+Line model histogram:
+[81415 15322  2676   467   107    13]
+0 spectral lines found
+
+-- 1159781661 CHANNEL 1 --
+Line model histogram:
+[81227 15519  2686   470    92     6]
+0 spectral lines found
+
+-- 1159783300 CHANNEL 1 --
+Line model histogram:
+[81266 15256  2872   473   123    10]
+0 spectral lines found
+
+-- 1159784938 CHANNEL 1 --
+Line model histogram:
+[81308 15339  2769   484    94     4     0     2]
+0 spectral lines found
+
+-- 1159786577 CHANNEL 1 --
+Line model histogram:
+[80832 15757  2738   549   116     7     1]
+0 spectral lines found
+
+-- 1159788215 CHANNEL 1 --
+Line model histogram:
+[81385 15342  2672   504    80    17]
+0 spectral lines found
+
+-- 1159789853 CHANNEL 1 --
+Line model histogram:
+[81344 15254  2860   459    75     6     2]
+0 spectral lines found
+
+-- 1159791492 CHANNEL 1 --
+Line model histogram:
+[81389 15371  2690   450    92     7     0     1]
+0 spectral lines found
+
+-- 1159793130 CHANNEL 1 --
+Line model histogram:
+[81241 15409  2730   531    79    10]
+0 spectral lines found
+
+-- 1159794769 CHANNEL 1 --
+Line model histogram:
+[81462 15350  2575   494   111     8]
+0 spectral lines found
+
+-- 1159796407 CHANNEL 1 --
+Line model histogram:
+[81354 15208  2822   506    85    20     5]
+0 spectral lines found
+
+-- 1159798045 CHANNEL 1 --
+Line model histogram:
+[81350 15315  2653   538   118    24     2]
+0 spectral lines found
+
+-- 1159799684 CHANNEL 1 --
+Line model histogram:
+[81597 15104  2666   528    98     7]
+0 spectral lines found
+
+-- 1159801322 CHANNEL 1 --
+Line model histogram:
+[81188 15317  2795   588   100    12]
+0 spectral lines found
+
+-- 1159802961 CHANNEL 1 --
+Line model histogram:
+[81298 15408  2675   497    88    32     2]
+0 spectral lines found
+
+-- 1159804599 CHANNEL 1 --
+Line model histogram:
+[81361 15094  2866   559   105    13     2]
+0 spectral lines found
+
+-- 1159806237 CHANNEL 1 --
+Line model histogram:
+[81550 15424  2559   378    84     5]
+0 spectral lines found
+
+-- 1159807876 CHANNEL 1 --
+Line model histogram:
+[80696 15725  2865   585   110    19]
+0 spectral lines found
+
+-- 1159809514 CHANNEL 1 --
+Line model histogram:
+[81052 15470  2856   518    83    21]
+0 spectral lines found
+
+-- 1159811153 CHANNEL 1 --
+Line model histogram:
+[81271 15258  2808   527   121    15]
+0 spectral lines found
+
+-- 1159812791 CHANNEL 1 --
+Line model histogram:
+[81583 15218  2560   516   101    18     4]
+0 spectral lines found
+
+-- 1159814429 CHANNEL 1 --
+Line model histogram:
+[81640 15056  2702   493    88    21]
+0 spectral lines found
+
+-- 1159816068 CHANNEL 1 --
+Line model histogram:
+[81312 15369  2675   514   115    13     2]
+0 spectral lines found
+
+-- 1159817706 CHANNEL 1 --
+Line model histogram:
+[81360 15233  2731   550   112    14]
+0 spectral lines found
+
+-- 1159819345 CHANNEL 1 --
+Line model histogram:
+[81082 15500  2801   515    94     8]
+0 spectral lines found
+
+-- 1159820983 CHANNEL 1 --
+Line model histogram:
+[81425 15305  2689   478    85    18]
+0 spectral lines found
+
+-- 1159822621 CHANNEL 1 --
+Line model histogram:
+[81534 15339  2567   479    62    19]
+0 spectral lines found
+
+-- 1159824260 CHANNEL 1 --
+Line model histogram:
+[80883 15564  2815   621   107    10]
+0 spectral lines found
+
+-- 1159825898 CHANNEL 1 --
+Line model histogram:
+[80827 15590  2922   540   107    14]
+0 spectral lines found
+
+-- 1159827537 CHANNEL 1 --
+Line model histogram:
+[79571 16386  3301   597   127    17     1]
+0 spectral lines found
+
+-- 1159829175 CHANNEL 1 --
+Line model histogram:
+[81455 15262  2707   474    89    12     1]
+0 spectral lines found
+
+-- 1159830813 CHANNEL 1 --
+Line model histogram:
+[81188 15360  2867   470    96    18     1]
+0 spectral lines found
+
+-- 1159832452 CHANNEL 1 --
+Line model histogram:
+[81042 15431  2842   567   104    10     4]
+0 spectral lines found
+
+-- 1159834090 CHANNEL 1 --
+Line model histogram:
+[81288 15292  2828   474    97    20     1]
+0 spectral lines found
+
+-- 1159835729 CHANNEL 1 --
+Line model histogram:
+[80101 15817  3333   591   131    22     5]
+0 spectral lines found
+
+-- 1159837367 CHANNEL 1 --
+Line model histogram:
+[81047 15426  2812   569   129    17]
+0 spectral lines found
+
+-- 1159839005 CHANNEL 1 --
+Line model histogram:
+[81309 15445  2592   525   105    13     9     2]
+0 spectral lines found
+
+-- 1159840644 CHANNEL 1 --
+Line model histogram:
+[81271 15388  2754   479    97    11]
+0 spectral lines found
+
+-- 1159842282 CHANNEL 1 --
+Line model histogram:
+[81437 15173  2744   521   105    14     6]
+0 spectral lines found
+
+-- 1159843921 CHANNEL 1 --
+Line model histogram:
+[80938 15405  2940   563   131    21     2]
+0 spectral lines found
+
+-- 1159845559 CHANNEL 1 --
+Line model histogram:
+[81296 15286  2805   501    93    14     5]
+0 spectral lines found
+
+-- 1159847197 CHANNEL 1 --
+Line model histogram:
+[81155 15491  2716   505   123     8     2]
+0 spectral lines found
+
+-- 1159848836 CHANNEL 1 --
+Line model histogram:
+[81530 15234  2628   499    97     9     0     3]
+0 spectral lines found
+
+-- 1159850474 CHANNEL 1 --
+Line model histogram:
+[81408 15290  2684   490   106    21     1]
+0 spectral lines found
+
+-- 1159852113 CHANNEL 1 --
+Line model histogram:
+[80969 15443  2959   523    86    17     0     3]
+0 spectral lines found
+
+-- 1159853751 CHANNEL 1 --
+Line model histogram:
+[81394 15204  2761   533    83    21     4]
+0 spectral lines found
+
+-- 1159855389 CHANNEL 1 --
+Line model histogram:
+[81514 15175  2727   494    72    18]
+0 spectral lines found
+
+-- 1159857028 CHANNEL 1 --
+Line model histogram:
+[81476 15325  2626   466    83    23     1]
+0 spectral lines found
+
+-- 1159858666 CHANNEL 1 --
+Line model histogram:
+[80841 15608  2837   573   119    13     4     5]
+0 spectral lines found
+
+-- 1159860305 CHANNEL 1 --
+Line model histogram:
+[81106 15595  2682   500   105    12]
+0 spectral lines found
+
+-- 1159861943 CHANNEL 1 --
+Line model histogram:
+[81440 15288  2733   452    76    11]
+0 spectral lines found
+
+-- 1159863581 CHANNEL 1 --
+Line model histogram:
+[81395 15224  2766   536    74     5]
+0 spectral lines found
+
+-- 1159865220 CHANNEL 1 --
+Line model histogram:
+[81225 15389  2747   507   107    25]
+0 spectral lines found
+
+-- 1159866858 CHANNEL 1 --
+Line model histogram:
+[81559 15109  2744   466   111    10     1]
+0 spectral lines found
+
+-- 1159868497 CHANNEL 1 --
+Line model histogram:
+[81480 15198  2730   498    85     9]
+0 spectral lines found
+
+-- 1159870135 CHANNEL 1 --
+Line model histogram:
+[81076 15373  2892   549   107     3]
+0 spectral lines found
+
+-- 1159871773 CHANNEL 1 --
+Line model histogram:
+[80670 15761  2894   543   117    12     3]
+0 spectral lines found
+
+-- 1159873412 CHANNEL 1 --
+Line model histogram:
+[81516 15099  2712   538   127     8]
+0 spectral lines found
+
+-- 1159875050 CHANNEL 1 --
+Line model histogram:
+[81382 15239  2698   512   137    28     4]
+0 spectral lines found
+
+-- 1159876689 CHANNEL 1 --
+Line model histogram:
+[81070 15595  2703   504   109    13     6]
+0 spectral lines found
+
+-- 1159878327 CHANNEL 1 --
+Line model histogram:
+[81351 15248  2769   495   119    17     1]
+0 spectral lines found
+
+-- 1159879965 CHANNEL 1 --
+Line model histogram:
+[81202 15387  2770   520   105    15     1]
+0 spectral lines found
+
+-- 1159881604 CHANNEL 1 --
+Line model histogram:
+[81267 15224  2860   506   108    30     5]
+0 spectral lines found
+
+-- 1159883242 CHANNEL 1 --
+Line model histogram:
+[81173 15253  3001   479    73    11    10]
+0 spectral lines found
+
+-- 1159884881 CHANNEL 1 --
+Line model histogram:
+[81093 15467  2871   484    77     8]
+0 spectral lines found
+
+-- 1159886519 CHANNEL 1 --
+Line model histogram:
+[81657 15126  2651   472    84    10]
+0 spectral lines found
+
+-- 1159888157 CHANNEL 1 --
+Line model histogram:
+[81112 15457  2794   524   100    12     1]
+0 spectral lines found
+
+-- 1159889796 CHANNEL 1 --
+Line model histogram:
+[81478 15336  2648   434    89    15]
+0 spectral lines found
+
+-- 1159891434 CHANNEL 1 --
+Line model histogram:
+[81445 15314  2623   505   100    13]
+0 spectral lines found
+
+-- 1159893073 CHANNEL 1 --
+Line model histogram:
+[81288 15357  2768   502    66    15     3     1]
+0 spectral lines found
+
+-- 1159894711 CHANNEL 1 --
+Line model histogram:
+[80362 15946  2975   597   102    13     5]
+0 spectral lines found
+
+-- 1159896349 CHANNEL 1 --
+Line model histogram:
+[81002 15525  2845   528    83    17]
+0 spectral lines found
+
+-- 1159897988 CHANNEL 1 --
+Line model histogram:
+[81376 15243  2738   548    88     5     2]
+0 spectral lines found
+
+-- 1159899626 CHANNEL 1 --
+Line model histogram:
+[81366 15342  2684   490   103    15]
+0 spectral lines found
+
+-- 1159901265 CHANNEL 1 --
+Line model histogram:
+[80307 15982  3016   543   136    14     2]
+0 spectral lines found
+
+-- 1159902903 CHANNEL 1 --
+Line model histogram:
+[80932 15541  2854   546   108    19]
+0 spectral lines found
+
+-- 1159904541 CHANNEL 1 --
+Line model histogram:
+[81135 15507  2695   505   117    39     2]
+0 spectral lines found
+
+-- 1159906180 CHANNEL 1 --
+Line model histogram:
+[81296 15434  2656   504    90    20]
+0 spectral lines found
+
+-- 1159907818 CHANNEL 1 --
+Line model histogram:
+[78854 16704  3494   766   149    24     7     2]
+0 spectral lines found
+
+-- 1159909457 CHANNEL 1 --
+Line model histogram:
+[81064 15657  2657   518    87    17]
+0 spectral lines found
+
+-- 1159911095 CHANNEL 1 --
+Line model histogram:
+[81265 15438  2759   427    99    12]
+0 spectral lines found
+
+-- 1159912733 CHANNEL 1 --
+Line model histogram:
+[81407 15237  2795   444   105    11     1]
+0 spectral lines found
+
+-- 1159914372 CHANNEL 1 --
+Line model histogram:
+[81301 15370  2719   526    75     8     1]
+0 spectral lines found
+
+-- 1159916010 CHANNEL 1 --
+Line model histogram:
+[81221 15346  2746   545   121    18     3]
+0 spectral lines found
+
+-- 1159917649 CHANNEL 1 --
+Line model histogram:
+[81165 15522  2728   473   100    12]
+0 spectral lines found
+
+-- 1159919287 CHANNEL 1 --
+Line model histogram:
+[81473 15314  2679   455    70     8     1]
+0 spectral lines found
+
+-- 1159920925 CHANNEL 1 --
+Line model histogram:
+[81135 15428  2817   494   103    20     0     3]
+0 spectral lines found
+
+-- 1159922564 CHANNEL 1 --
+Line model histogram:
+[61750 27452  8066  2084   478   128    34     7     1]
+0 spectral lines found
+
+-- 1159924202 CHANNEL 1 --
+Line model histogram:
+[81575 15010  2848   443   110    14]
+0 spectral lines found
+
+-- 1159925841 CHANNEL 1 --
+Line model histogram:
+[80750 15659  2882   586   108     7     7     1]
+0 spectral lines found
+
+-- 1159927479 CHANNEL 1 --
+Line model histogram:
+[81279 15208  2856   542   106     8     1]
+0 spectral lines found
+
+-- 1159929117 CHANNEL 1 --
+Line model histogram:
+[81196 15562  2698   482    59     3]
+0 spectral lines found
+
+-- 1159930756 CHANNEL 1 --
+Line model histogram:
+[81292 15273  2690   616   108    13     5     2     1]
+0 spectral lines found
+
+-- 1159932394 CHANNEL 1 --
+Line model histogram:
+[79291 16413  3459   683   123    31]
+0 spectral lines found
+
+-- 1159934033 CHANNEL 1 --
+Line model histogram:
+[81183 15350  2811   528   114     8     6]
+0 spectral lines found
+
+-- 1159935671 CHANNEL 1 --
+Line model histogram:
+[81354 15287  2743   500   105    10     1]
+0 spectral lines found
+
+-- 1159937309 CHANNEL 1 --
+Line model histogram:
+[80891 15562  2889   497   123    26    10     2]
+0 spectral lines found
+
+-- 1159938948 CHANNEL 1 --
+Line model histogram:
+[81387 15298  2753   469    82    10     0     1]
+0 spectral lines found
+
+-- 1159940586 CHANNEL 1 --
+Line model histogram:
+[81350 15385  2668   509    74    14]
+0 spectral lines found
+
+-- 1159942225 CHANNEL 1 --
+Line model histogram:
+[81202 15324  2881   507    75    11]
+0 spectral lines found
+
+-- 1159943863 CHANNEL 1 --
+Line model histogram:
+[80817 15648  2912   502   106    12     3]
+0 spectral lines found
+
+-- 1159945501 CHANNEL 1 --
+Line model histogram:
+[81164 15386  2820   536    84     9     1]
+0 spectral lines found
+
+-- 1159724317 CHANNEL 2 --
+Line model histogram:
+[81364 15301  2738   480   102    14     1]
+0 spectral lines found
+
+-- 1159725956 CHANNEL 2 --
+Line model histogram:
+[80998 15626  2778   515    75     8]
+0 spectral lines found
+
+-- 1159727594 CHANNEL 2 --
+Line model histogram:
+[81441 15449  2559   432   105    13     1]
+0 spectral lines found
+
+-- 1159729233 CHANNEL 2 --
+Line model histogram:
+[81403 15227  2822   465    77     6]
+0 spectral lines found
+
+-- 1159730871 CHANNEL 2 --
+Line model histogram:
+[81296 15391  2736   478    88    11]
+0 spectral lines found
+
+-- 1159732509 CHANNEL 2 --
+Line model histogram:
+[81114 15543  2772   479    71    20     1]
+0 spectral lines found
+
+-- 1159734148 CHANNEL 2 --
+Line model histogram:
+[81047 15597  2734   533    81     6     2]
+0 spectral lines found
+
+-- 1159735786 CHANNEL 2 --
+Line model histogram:
+[81171 15483  2736   533    68     9]
+0 spectral lines found
+
+-- 1159737425 CHANNEL 2 --
+Line model histogram:
+[81428 15286  2705   478    87    13     3]
+0 spectral lines found
+
+-- 1159739063 CHANNEL 2 --
+Line model histogram:
+[81394 15221  2785   496    91    12     1]
+0 spectral lines found
+
+-- 1159740701 CHANNEL 2 --
+Line model histogram:
+[80973 15612  2730   548   102    26     9]
+0 spectral lines found
+
+-- 1159742340 CHANNEL 2 --
+Line model histogram:
+[81090 15556  2792   497    58     5     2]
+0 spectral lines found
+
+-- 1159743978 CHANNEL 2 --
+Line model histogram:
+[81367 15303  2686   517   114     9     3     1]
+0 spectral lines found
+
+-- 1159745617 CHANNEL 2 --
+Line model histogram:
+[80969 15501  2918   491    96    22     3]
+0 spectral lines found
+
+-- 1159747255 CHANNEL 2 --
+Line model histogram:
+[81254 15480  2692   480    89     5]
+0 spectral lines found
+
+-- 1159748893 CHANNEL 2 --
+Line model histogram:
+[81346 15491  2578   488    89     6     2]
+0 spectral lines found
+
+-- 1159750532 CHANNEL 2 --
+Line model histogram:
+[81009 15508  2877   516    83     6     1]
+0 spectral lines found
+
+-- 1159752170 CHANNEL 2 --
+Line model histogram:
+[81053 15544  2852   440   101    10]
+0 spectral lines found
+
+-- 1159753809 CHANNEL 2 --
+Line model histogram:
+[80712 15704  2973   519    88     4]
+0 spectral lines found
+
+-- 1159755447 CHANNEL 2 --
+Line model histogram:
+[80910 15678  2857   455    87    13]
+0 spectral lines found
+
+-- 1159757085 CHANNEL 2 --
+Line model histogram:
+[81297 15323  2759   506    98    17]
+0 spectral lines found
+
+-- 1159758724 CHANNEL 2 --
+Line model histogram:
+[81347 15371  2710   446   117     9]
+0 spectral lines found
+
+-- 1159760362 CHANNEL 2 --
+Line model histogram:
+[81481 15215  2660   543    91     9     1]
+0 spectral lines found
+
+-- 1159762001 CHANNEL 2 --
+Line model histogram:
+[81115 15488  2726   547   100    22     2]
+0 spectral lines found
+
+-- 1159763639 CHANNEL 2 --
+Line model histogram:
+[81311 15402  2707   484    88     8]
+0 spectral lines found
+
+-- 1159765277 CHANNEL 2 --
+Line model histogram:
+[81711 14999  2729   466    83     7     5]
+0 spectral lines found
+
+-- 1159766916 CHANNEL 2 --
+Line model histogram:
+[81151 15391  2829   527    97     5]
+0 spectral lines found
+
+-- 1159768554 CHANNEL 2 --
+Line model histogram:
+[81101 15453  2803   527   103    10     3]
+0 spectral lines found
+
+-- 1159770193 CHANNEL 2 --
+Line model histogram:
+[80972 15454  2874   551   135     9     5]
+0 spectral lines found
+
+-- 1159771831 CHANNEL 2 --
+Line model histogram:
+[81058 15506  2839   508    78    10     1]
+0 spectral lines found
+
+-- 1159773469 CHANNEL 2 --
+Line model histogram:
+[79774 16319  3185   598    99    24     1]
+0 spectral lines found
+
+-- 1159775108 CHANNEL 2 --
+Line model histogram:
+[81279 15405  2741   479    80    15     1]
+0 spectral lines found
+
+-- 1159776746 CHANNEL 2 --
+Line model histogram:
+[80797 15782  2833   487    96     5]
+0 spectral lines found
+
+-- 1159778385 CHANNEL 2 --
+Line model histogram:
+[81438 15414  2596   450    86    16]
+0 spectral lines found
+
+-- 1159780023 CHANNEL 2 --
+Line model histogram:
+[81385 15370  2734   434    68     9]
+0 spectral lines found
+
+-- 1159781661 CHANNEL 2 --
+Line model histogram:
+[81153 15487  2801   461    80    13     4     1]
+0 spectral lines found
+
+-- 1159783300 CHANNEL 2 --
+Line model histogram:
+[81048 15485  2889   477    97     2     2]
+0 spectral lines found
+
+-- 1159784938 CHANNEL 2 --
+Line model histogram:
+[81102 15451  2904   444    69    24     6]
+0 spectral lines found
+
+-- 1159786577 CHANNEL 2 --
+Line model histogram:
+[81431 15409  2625   442    89     3     1]
+0 spectral lines found
+
+-- 1159788215 CHANNEL 2 --
+Line model histogram:
+[81020 15550  2874   470    81     5]
+0 spectral lines found
+
+-- 1159789853 CHANNEL 2 --
+Line model histogram:
+[81365 15255  2783   493    98     6]
+0 spectral lines found
+
+-- 1159791492 CHANNEL 2 --
+Line model histogram:
+[81332 15302  2831   445    81     9]
+0 spectral lines found
+
+-- 1159793130 CHANNEL 2 --
+Line model histogram:
+[81161 15375  2755   565   122    21     1]
+0 spectral lines found
+
+-- 1159794769 CHANNEL 2 --
+Line model histogram:
+[80898 15624  2807   555    99    15     2]
+0 spectral lines found
+
+-- 1159796407 CHANNEL 2 --
+Line model histogram:
+[81503 15154  2738   486   103    15     1]
+0 spectral lines found
+
+-- 1159798045 CHANNEL 2 --
+Line model histogram:
+[81583 15228  2671   431    80     6     1]
+0 spectral lines found
+
+-- 1159799684 CHANNEL 2 --
+Line model histogram:
+[81207 15345  2827   475   120    26]
+0 spectral lines found
+
+-- 1159801322 CHANNEL 2 --
+Line model histogram:
+[81209 15424  2747   490   103    24     3]
+0 spectral lines found
+
+-- 1159802961 CHANNEL 2 --
+Line model histogram:
+[81299 15262  2758   535   127    15     4]
+0 spectral lines found
+
+-- 1159804599 CHANNEL 2 --
+Line model histogram:
+[81269 15401  2782   446    82    20]
+0 spectral lines found
+
+-- 1159806237 CHANNEL 2 --
+Line model histogram:
+[81069 15613  2762   485    68     3]
+0 spectral lines found
+
+-- 1159807876 CHANNEL 2 --
+Line model histogram:
+[81500 15005  2861   543    81     6     4]
+0 spectral lines found
+
+-- 1159809514 CHANNEL 2 --
+Line model histogram:
+[80845 15578  2972   507    83    14     1]
+0 spectral lines found
+
+-- 1159811153 CHANNEL 2 --
+Line model histogram:
+[80815 15671  2837   544   108    22     3]
+0 spectral lines found
+
+-- 1159812791 CHANNEL 2 --
+Line model histogram:
+[81039 15461  2847   542    96    12     3]
+0 spectral lines found
+
+-- 1159814429 CHANNEL 2 --
+Line model histogram:
+[81437 15183  2758   525    82    12     3]
+0 spectral lines found
+
+-- 1159816068 CHANNEL 2 --
+Line model histogram:
+[81194 15297  2816   578   101    12     2]
+0 spectral lines found
+
+-- 1159817706 CHANNEL 2 --
+Line model histogram:
+[81103 15462  2828   511    86    10]
+0 spectral lines found
+
+-- 1159819345 CHANNEL 2 --
+Line model histogram:
+[81266 15364  2786   484    94     5     1]
+0 spectral lines found
+
+-- 1159820983 CHANNEL 2 --
+Line model histogram:
+[81081 15537  2752   523    93     9     5]
+0 spectral lines found
+
+-- 1159822621 CHANNEL 2 --
+Line model histogram:
+[81403 15389  2635   446   113    14]
+0 spectral lines found
+
+-- 1159824260 CHANNEL 2 --
+Line model histogram:
+[80436 15878  2977   593   105    10     0     1]
+0 spectral lines found
+
+-- 1159825898 CHANNEL 2 --
+Line model histogram:
+[81496 15201  2659   538    95    10     1]
+0 spectral lines found
+
+-- 1159827537 CHANNEL 2 --
+Line model histogram:
+[81453 15165  2807   477    86    11     1]
+0 spectral lines found
+
+-- 1159829175 CHANNEL 2 --
+Line model histogram:
+[81242 15393  2810   459    89     7]
+0 spectral lines found
+
+-- 1159830813 CHANNEL 2 --
+Line model histogram:
+[81240 15391  2808   467    86     7     1]
+0 spectral lines found
+
+-- 1159832452 CHANNEL 2 --
+Line model histogram:
+[81336 15352  2640   551   103    16     2]
+0 spectral lines found
+
+-- 1159834090 CHANNEL 2 --
+Line model histogram:
+[81092 15508  2848   471    78     3]
+0 spectral lines found
+
+-- 1159835729 CHANNEL 2 --
+Line model histogram:
+[81365 15234  2780   490   111    20]
+0 spectral lines found
+
+-- 1159837367 CHANNEL 2 --
+Line model histogram:
+[81129 15532  2764   468    88    18     1]
+0 spectral lines found
+
+-- 1159839005 CHANNEL 2 --
+Line model histogram:
+[81113 15435  2829   531    79    11     2]
+0 spectral lines found
+
+-- 1159840644 CHANNEL 2 --
+Line model histogram:
+[81155 15493  2715   523    91    20     3]
+0 spectral lines found
+
+-- 1159842282 CHANNEL 2 --
+Line model histogram:
+[81702 15159  2598   451    77    13]
+0 spectral lines found
+
+-- 1159843921 CHANNEL 2 --
+Line model histogram:
+[81289 15352  2791   485    80     3]
+0 spectral lines found
+
+-- 1159845559 CHANNEL 2 --
+Line model histogram:
+[81225 15499  2691   493    80     9     3]
+0 spectral lines found
+
+-- 1159847197 CHANNEL 2 --
+Line model histogram:
+[81136 15556  2787   432    73    16]
+0 spectral lines found
+
+-- 1159848836 CHANNEL 2 --
+Line model histogram:
+[81014 15661  2759   460    99     7]
+0 spectral lines found
+
+-- 1159850474 CHANNEL 2 --
+Line model histogram:
+[81446 15357  2715   390    85     7]
+0 spectral lines found
+
+-- 1159852113 CHANNEL 2 --
+Line model histogram:
+[81655 15015  2753   481    80    16]
+0 spectral lines found
+
+-- 1159853751 CHANNEL 2 --
+Line model histogram:
+[80696 15921  2808   471    80    23     1]
+0 spectral lines found
+
+-- 1159855389 CHANNEL 2 --
+Line model histogram:
+[80983 15499  2913   522    79     4]
+0 spectral lines found
+
+-- 1159857028 CHANNEL 2 --
+Line model histogram:
+[81506 15345  2660   424    56     9]
+0 spectral lines found
+
+-- 1159858666 CHANNEL 2 --
+Line model histogram:
+[80702 15907  2787   499    95    10]
+0 spectral lines found
+
+-- 1159860305 CHANNEL 2 --
+Line model histogram:
+[81079 15345  2904   541   105    24     2]
+0 spectral lines found
+
+-- 1159861943 CHANNEL 2 --
+Line model histogram:
+[81515 15306  2589   474    94    19     2     1]
+0 spectral lines found
+
+-- 1159863581 CHANNEL 2 --
+Line model histogram:
+[81401 15254  2736   480   102    20     7]
+0 spectral lines found
+
+-- 1159865220 CHANNEL 2 --
+Line model histogram:
+[81453 15162  2758   514    96    17]
+0 spectral lines found
+
+-- 1159866858 CHANNEL 2 --
+Line model histogram:
+[81121 15544  2729   483   107    16]
+0 spectral lines found
+
+-- 1159868497 CHANNEL 2 --
+Line model histogram:
+[81431 15356  2651   468    86     8]
+0 spectral lines found
+
+-- 1159870135 CHANNEL 2 --
+Line model histogram:
+[80768 15670  2925   542    82    13]
+0 spectral lines found
+
+-- 1159871773 CHANNEL 2 --
+Line model histogram:
+[80901 15394  3092   522    86     5]
+0 spectral lines found
+
+-- 1159873412 CHANNEL 2 --
+Line model histogram:
+[81236 15340  2770   553    94     7]
+0 spectral lines found
+
+-- 1159875050 CHANNEL 2 --
+Line model histogram:
+[81463 15328  2669   431    96    10     1     2]
+0 spectral lines found
+
+-- 1159876689 CHANNEL 2 --
+Line model histogram:
+[81681 15051  2692   423   125    26     2]
+0 spectral lines found
+
+-- 1159878327 CHANNEL 2 --
+Line model histogram:
+[81295 15366  2765   470    95     9]
+0 spectral lines found
+
+-- 1159879965 CHANNEL 2 --
+Line model histogram:
+[81623 15091  2689   503    85     9]
+0 spectral lines found
+
+-- 1159881604 CHANNEL 2 --
+Line model histogram:
+[81217 15421  2810   442   101     9]
+0 spectral lines found
+
+-- 1159883242 CHANNEL 2 --
+Line model histogram:
+[81232 15535  2682   453    79    19]
+0 spectral lines found
+
+-- 1159884881 CHANNEL 2 --
+Line model histogram:
+[81189 15330  2793   581    90    17]
+0 spectral lines found
+
+-- 1159886519 CHANNEL 2 --
+Line model histogram:
+[81344 15334  2730   471   102    18     1]
+0 spectral lines found
+
+-- 1159888157 CHANNEL 2 --
+Line model histogram:
+[81411 15454  2600   421   100    11     3]
+0 spectral lines found
+
+-- 1159889796 CHANNEL 2 --
+Line model histogram:
+[81198 15532  2690   461   109    10]
+0 spectral lines found
+
+-- 1159891434 CHANNEL 2 --
+Line model histogram:
+[81179 15460  2764   503    83     8     3]
+0 spectral lines found
+
+-- 1159893073 CHANNEL 2 --
+Line model histogram:
+[81400 15314  2738   456    81    11]
+0 spectral lines found
+
+-- 1159894711 CHANNEL 2 --
+Line model histogram:
+[81144 15415  2934   432    66     8     1]
+0 spectral lines found
+
+-- 1159896349 CHANNEL 2 --
+Line model histogram:
+[81080 15578  2717   517    92    15     1]
+0 spectral lines found
+
+-- 1159897988 CHANNEL 2 --
+Line model histogram:
+[80759 15702  2818   592   105    23     1]
+0 spectral lines found
+
+-- 1159899626 CHANNEL 2 --
+Line model histogram:
+[81330 15197  2860   498   104    11]
+0 spectral lines found
+
+-- 1159901265 CHANNEL 2 --
+Line model histogram:
+[81227 15384  2750   524    79    27     4     4     1]
+0 spectral lines found
+
+-- 1159902903 CHANNEL 2 --
+Line model histogram:
+[80406 16022  2966   496    94    14     2]
+0 spectral lines found
+
+-- 1159904541 CHANNEL 2 --
+Line model histogram:
+[80999 15575  2780   549    88     9]
+0 spectral lines found
+
+-- 1159906180 CHANNEL 2 --
+Line model histogram:
+[81544 15167  2696   463   112    18]
+0 spectral lines found
+
+-- 1159907818 CHANNEL 2 --
+Line model histogram:
+[81097 15415  2857   513    95    18     5]
+0 spectral lines found
+
+-- 1159909457 CHANNEL 2 --
+Line model histogram:
+[80810 15619  2882   577   106     3     3]
+0 spectral lines found
+
+-- 1159911095 CHANNEL 2 --
+Line model histogram:
+[80952 15708  2707   485   118    28     2]
+0 spectral lines found
+
+-- 1159912733 CHANNEL 2 --
+Line model histogram:
+[81239 15179  2874   568   117    21     2]
+0 spectral lines found
+
+-- 1159914372 CHANNEL 2 --
+Line model histogram:
+[81324 15362  2735   466    99    14]
+0 spectral lines found
+
+-- 1159916010 CHANNEL 2 --
+Line model histogram:
+[81056 15493  2771   541   113    21     4     1]
+0 spectral lines found
+
+-- 1159917649 CHANNEL 2 --
+Line model histogram:
+[80877 15573  2909   512   105    19     5]
+0 spectral lines found
+
+-- 1159919287 CHANNEL 2 --
+Line model histogram:
+[81135 15414  2851   508    79    10     3]
+0 spectral lines found
+
+-- 1159920925 CHANNEL 2 --
+Line model histogram:
+[80944 15528  2903   521    92    11     1]
+0 spectral lines found
+
+-- 1159922564 CHANNEL 2 --
+Line model histogram:
+[80855 15611  2863   530   131    10]
+0 spectral lines found
+
+-- 1159924202 CHANNEL 2 --
+Line model histogram:
+[80808 15662  2962   463    95     8     2]
+0 spectral lines found
+
+-- 1159925841 CHANNEL 2 --
+Line model histogram:
+[81236 15401  2756   488   104    12     3]
+0 spectral lines found
+
+-- 1159927479 CHANNEL 2 --
+Line model histogram:
+[81052 15619  2698   510    99    20     1     1]
+0 spectral lines found
+
+-- 1159929117 CHANNEL 2 --
+Line model histogram:
+[80677 15678  2982   541   109    13]
+0 spectral lines found
+
+-- 1159930756 CHANNEL 2 --
+Line model histogram:
+[81164 15440  2848   477    66     5]
+0 spectral lines found
+
+-- 1159932394 CHANNEL 2 --
+Line model histogram:
+[81362 15491  2620   438    82     6     1]
+0 spectral lines found
+
+-- 1159934033 CHANNEL 2 --
+Line model histogram:
+[81521 15148  2716   480   119    14     2]
+0 spectral lines found
+
+-- 1159935671 CHANNEL 2 --
+Line model histogram:
+[81373 15172  2704   619   123     9]
+0 spectral lines found
+
+-- 1159937309 CHANNEL 2 --
+Line model histogram:
+[81519 15189  2685   482   108    15     2]
+0 spectral lines found
+
+-- 1159938948 CHANNEL 2 --
+Line model histogram:
+[81194 15272  2934   505    77    14     2     2]
+0 spectral lines found
+
+-- 1159940586 CHANNEL 2 --
+Line model histogram:
+[80891 15670  2841   492    96     9     1]
+0 spectral lines found
+
+-- 1159942225 CHANNEL 2 --
+Line model histogram:
+[81213 15494  2726   483    68    16]
+0 spectral lines found
+
+-- 1159943863 CHANNEL 2 --
+Line model histogram:
+[81528 15164  2733   447   120     7     1]
+0 spectral lines found
+
+-- 1159945501 CHANNEL 2 --
+Line model histogram:
+[81238 15454  2670   532    97     9]
+0 spectral lines found
+
+-- 1159724317 CHANNEL 3 --
+Line model histogram:
+[77933 17421  3686   756   147    47    10]
+0 spectral lines found
+
+-- 1159725956 CHANNEL 3 --
+Line model histogram:
+[77608 17727  3651   782   178    52     2]
+0 spectral lines found
+
+-- 1159727594 CHANNEL 3 --
+Line model histogram:
+[77960 17345  3775   735   149    28     8]
+0 spectral lines found
+
+-- 1159729233 CHANNEL 3 --
+Line model histogram:
+[77565 17640  3789   779   181    40     6]
+0 spectral lines found
+
+-- 1159730871 CHANNEL 3 --
+Line model histogram:
+[77883 17402  3748   782   151    23     9     1     1]
+0 spectral lines found
+
+-- 1159732509 CHANNEL 3 --
+Line model histogram:
+[77910 17479  3588   825   157    31    10]
+0 spectral lines found
+
+-- 1159734148 CHANNEL 3 --
+Line model histogram:
+[77519 17801  3718   766   171    18     7]
+0 spectral lines found
+
+-- 1159735786 CHANNEL 3 --
+Line model histogram:
+[77936 17318  3726   804   169    24    14     7     2]
+0 spectral lines found
+
+-- 1159737425 CHANNEL 3 --
+Line model histogram:
+[77588 17652  3684   755   264    37    18     2]
+0 spectral lines found
+
+-- 1159739063 CHANNEL 3 --
+Line model histogram:
+[77727 17375  3861   797   189    43     5     3]
+0 spectral lines found
+
+-- 1159740701 CHANNEL 3 --
+Line model histogram:
+[78086 17372  3612   744   157    23     6]
+0 spectral lines found
+
+-- 1159742340 CHANNEL 3 --
+Line model histogram:
+[78193 17405  3399   766   188    40     7     0     1     1]
+0 spectral lines found
+
+-- 1159743978 CHANNEL 3 --
+Line model histogram:
+[78283 17196  3531   779   163    43     4     1]
+0 spectral lines found
+
+-- 1159745617 CHANNEL 3 --
+Line model histogram:
+[78064 17494  3512   739   158    28     3     1     1]
+0 spectral lines found
+
+-- 1159747255 CHANNEL 3 --
+Line model histogram:
+[77825 17686  3585   715   160    21     6     2]
+0 spectral lines found
+
+-- 1159748893 CHANNEL 3 --
+Line model histogram:
+[77563 17667  3700   829   186    38    14     3]
+0 spectral lines found
+
+-- 1159750532 CHANNEL 3 --
+Line model histogram:
+[77278 17811  3841   829   197    35     8     1]
+0 spectral lines found
+
+-- 1159752170 CHANNEL 3 --
+Line model histogram:
+[77912 17511  3590   748   203    27     8     1]
+0 spectral lines found
+
+-- 1159753809 CHANNEL 3 --
+Line model histogram:
+[77900 17416  3661   753   225    42     3]
+0 spectral lines found
+
+-- 1159755447 CHANNEL 3 --
+Line model histogram:
+[77597 17714  3657   751   195    73    13]
+0 spectral lines found
+
+-- 1159757085 CHANNEL 3 --
+Line model histogram:
+[77981 17236  3665   847   200    57     9     4     1]
+0 spectral lines found
+
+-- 1159758724 CHANNEL 3 --
+Line model histogram:
+[77014 17922  3991   856   178    35     3     1]
+0 spectral lines found
+
+-- 1159760362 CHANNEL 3 --
+Line model histogram:
+[77512 17485  3990   814   145    53     1]
+0 spectral lines found
+
+-- 1159762001 CHANNEL 3 --
+Line model histogram:
+[77662 17623  3635   792   240    46     2]
+0 spectral lines found
+
+-- 1159763639 CHANNEL 3 --
+Line model histogram:
+[77968 17470  3598   761   173    25     5]
+0 spectral lines found
+
+-- 1159765277 CHANNEL 3 --
+Line model histogram:
+[77926 17391  3729   741   169    43     1]
+0 spectral lines found
+
+-- 1159766916 CHANNEL 3 --
+Line model histogram:
+[77695 17696  3652   736   171    37     5     4     4]
+0 spectral lines found
+
+-- 1159768554 CHANNEL 3 --
+Line model histogram:
+[77795 17486  3634   840   202    42     1]
+0 spectral lines found
+
+-- 1159770193 CHANNEL 3 --
+Line model histogram:
+[77921 17367  3704   801   179    20     5     3]
+0 spectral lines found
+
+-- 1159771831 CHANNEL 3 --
+Line model histogram:
+[77578 17565  3849   788   159    43    17     1]
+0 spectral lines found
+
+-- 1159773469 CHANNEL 3 --
+Line model histogram:
+[77496 17700  3743   796   208    50     7]
+0 spectral lines found
+
+-- 1159775108 CHANNEL 3 --
+Line model histogram:
+[77987 17482  3554   759   168    45     5]
+0 spectral lines found
+
+-- 1159776746 CHANNEL 3 --
+Line model histogram:
+[77799 17534  3663   754   198    49     3]
+0 spectral lines found
+
+-- 1159778385 CHANNEL 3 --
+Line model histogram:
+[77837 17628  3595   711   182    39     7     1]
+0 spectral lines found
+
+-- 1159780023 CHANNEL 3 --
+Line model histogram:
+[77637 17685  3665   755   186    52    11     9]
+0 spectral lines found
+
+-- 1159781661 CHANNEL 3 --
+Line model histogram:
+[77689 17626  3650   781   206    34    13     1]
+0 spectral lines found
+
+-- 1159783300 CHANNEL 3 --
+Line model histogram:
+[77564 17783  3688   771   158    32     4]
+0 spectral lines found
+
+-- 1159784938 CHANNEL 3 --
+Line model histogram:
+[77708 17812  3567   723   159    30     1]
+0 spectral lines found
+
+-- 1159786577 CHANNEL 3 --
+Line model histogram:
+[77436 17695  3819   800   197    50     3]
+0 spectral lines found
+
+-- 1159788215 CHANNEL 3 --
+Line model histogram:
+[77631 17642  3760   794   147    23     3]
+0 spectral lines found
+
+-- 1159789853 CHANNEL 3 --
+Line model histogram:
+[77973 17196  3875   783   132    25    11     4     1]
+0 spectral lines found
+
+-- 1159791492 CHANNEL 3 --
+Line model histogram:
+[77893 17370  3755   787   151    36     7     1]
+0 spectral lines found
+
+-- 1159793130 CHANNEL 3 --
+Line model histogram:
+[78059 17307  3696   707   196    30     5]
+0 spectral lines found
+
+-- 1159794769 CHANNEL 3 --
+Line model histogram:
+[77735 17508  3805   745   171    31     4     1]
+0 spectral lines found
+
+-- 1159796407 CHANNEL 3 --
+Line model histogram:
+[77753 17716  3593   765   131    36     6]
+0 spectral lines found
+
+-- 1159798045 CHANNEL 3 --
+Line model histogram:
+[77958 17383  3681   744   186    21     8    17     1     1]
+0 spectral lines found
+
+-- 1159799684 CHANNEL 3 --
+Line model histogram:
+[77609 17632  3752   790   172    34     7     3     1]
+0 spectral lines found
+
+-- 1159801322 CHANNEL 3 --
+Line model histogram:
+[77652 17569  3727   817   196    37     2]
+0 spectral lines found
+
+-- 1159802961 CHANNEL 3 --
+Line model histogram:
+[77565 17702  3764   769   177    23]
+0 spectral lines found
+
+-- 1159804599 CHANNEL 3 --
+Line model histogram:
+[77945 17467  3619   750   186    29     4]
+0 spectral lines found
+
+-- 1159806237 CHANNEL 3 --
+Line model histogram:
+[77986 17517  3529   720   213    24    11]
+0 spectral lines found
+
+-- 1159807876 CHANNEL 3 --
+Line model histogram:
+[77885 17433  3577   864   148    68    23     2]
+0 spectral lines found
+
+-- 1159809514 CHANNEL 3 --
+Line model histogram:
+[77497 17631  3927   749   160    30     6]
+0 spectral lines found
+
+-- 1159811153 CHANNEL 3 --
+Line model histogram:
+[77869 17593  3583   734   168    50     3]
+0 spectral lines found
+
+-- 1159812791 CHANNEL 3 --
+Line model histogram:
+[77885 17413  3672   793   185    47     5]
+0 spectral lines found
+
+-- 1159814429 CHANNEL 3 --
+Line model histogram:
+[77816 17549  3698   699   181    51     6]
+0 spectral lines found
+
+-- 1159816068 CHANNEL 3 --
+Line model histogram:
+[77786 17410  3803   783   186    28     4]
+0 spectral lines found
+
+-- 1159817706 CHANNEL 3 --
+Line model histogram:
+[77523 17764  3765   741   163    43     1]
+0 spectral lines found
+
+-- 1159819345 CHANNEL 3 --
+Line model histogram:
+[77681 17668  3702   723   183    38     5]
+0 spectral lines found
+
+-- 1159820983 CHANNEL 3 --
+Line model histogram:
+[77682 17654  3658   811   160    31     4]
+0 spectral lines found
+
+-- 1159822621 CHANNEL 3 --
+Line model histogram:
+[77770 17625  3629   795   147    32     2]
+0 spectral lines found
+
+-- 1159824260 CHANNEL 3 --
+Line model histogram:
+[77601 17610  3754   815   174    40     6]
+0 spectral lines found
+
+-- 1159825898 CHANNEL 3 --
+Line model histogram:
+[77639 17671  3696   776   176    39     3]
+0 spectral lines found
+
+-- 1159827537 CHANNEL 3 --
+Line model histogram:
+[77930 17296  3706   816   200    48     3     1]
+0 spectral lines found
+
+-- 1159829175 CHANNEL 3 --
+Line model histogram:
+[77908 17283  3770   824   182    23    10]
+0 spectral lines found
+
+-- 1159830813 CHANNEL 3 --
+Line model histogram:
+[77766 17403  3746   835   192    52     6]
+0 spectral lines found
+
+-- 1159832452 CHANNEL 3 --
+Line model histogram:
+[77534 17617  3952   720   144    28     5]
+0 spectral lines found
+
+-- 1159834090 CHANNEL 3 --
+Line model histogram:
+[77533 17690  3785   742   211    36     3]
+0 spectral lines found
+
+-- 1159835729 CHANNEL 3 --
+Line model histogram:
+[77427 17754  3809   768   198    39     5]
+0 spectral lines found
+
+-- 1159837367 CHANNEL 3 --
+Line model histogram:
+[77379 17697  3823   841   210    47     3]
+0 spectral lines found
+
+-- 1159839005 CHANNEL 3 --
+Line model histogram:
+[77504 17715  3803   762   182    31     3]
+0 spectral lines found
+
+-- 1159840644 CHANNEL 3 --
+Line model histogram:
+[77625 17618  3739   775   184    54     5]
+0 spectral lines found
+
+-- 1159842282 CHANNEL 3 --
+Line model histogram:
+[77684 17499  3747   822   186    60     2]
+0 spectral lines found
+
+-- 1159843921 CHANNEL 3 --
+Line model histogram:
+[78104 17428  3413   826   173    42    13     1]
+0 spectral lines found
+
+-- 1159845559 CHANNEL 3 --
+Line model histogram:
+[78318 17164  3524   767   170    54     3]
+0 spectral lines found
+
+-- 1159847197 CHANNEL 3 --
+Line model histogram:
+[77737 17536  3771   753   175    27     1]
+0 spectral lines found
+
+-- 1159848836 CHANNEL 3 --
+Line model histogram:
+[77734 17564  3753   721   192    28     8]
+0 spectral lines found
+
+-- 1159850474 CHANNEL 3 --
+Line model histogram:
+[77849 17338  3769   830   168    30    16]
+0 spectral lines found
+
+-- 1159852113 CHANNEL 3 --
+Line model histogram:
+[77473 17722  3824   808   147    18     8]
+0 spectral lines found
+
+-- 1159853751 CHANNEL 3 --
+Line model histogram:
+[77798 17311  3932   789   133    36     1]
+0 spectral lines found
+
+-- 1159855389 CHANNEL 3 --
+Line model histogram:
+[77917 17416  3587   841   196    35     6     1     1]
+0 spectral lines found
+
+-- 1159857028 CHANNEL 3 --
+Line model histogram:
+[77811 17547  3718   762   136    25     1]
+0 spectral lines found
+
+-- 1159858666 CHANNEL 3 --
+Line model histogram:
+[77630 17603  3697   828   211    31]
+0 spectral lines found
+
+-- 1159860305 CHANNEL 3 --
+Line model histogram:
+[78114 17314  3647   754   148    20     3]
+0 spectral lines found
+
+-- 1159861943 CHANNEL 3 --
+Line model histogram:
+[77993 17347  3677   781   156    39     7]
+0 spectral lines found
+
+-- 1159863581 CHANNEL 3 --
+Line model histogram:
+[77529 17707  3781   780   162    35     5     0     1]
+0 spectral lines found
+
+-- 1159865220 CHANNEL 3 --
+Line model histogram:
+[77099 17855  3886   884   228    34    14]
+0 spectral lines found
+
+-- 1159866858 CHANNEL 3 --
+Line model histogram:
+[77254 18009  3817   710   165    33    10     2]
+0 spectral lines found
+
+-- 1159868497 CHANNEL 3 --
+Line model histogram:
+[78004 17308  3649   787   194    51     7]
+0 spectral lines found
+
+-- 1159870135 CHANNEL 3 --
+Line model histogram:
+[77613 17796  3595   787   182    27]
+0 spectral lines found
+
+-- 1159871773 CHANNEL 3 --
+Line model histogram:
+[78010 17401  3555   768   235    30     1]
+0 spectral lines found
+
+-- 1159873412 CHANNEL 3 --
+Line model histogram:
+[77746 17710  3624   717   171    30     1     1]
+0 spectral lines found
+
+-- 1159875050 CHANNEL 3 --
+Line model histogram:
+[77598 17653  3760   770   186    32     1]
+0 spectral lines found
+
+-- 1159876689 CHANNEL 3 --
+Line model histogram:
+[77859 17407  3736   816   164    16     1     1]
+0 spectral lines found
+
+-- 1159878327 CHANNEL 3 --
+Line model histogram:
+[78159 17251  3704   731   128    27]
+0 spectral lines found
+
+-- 1159879965 CHANNEL 3 --
+Line model histogram:
+[77648 17645  3688   782   202    34     1]
+0 spectral lines found
+
+-- 1159881604 CHANNEL 3 --
+Line model histogram:
+[77915 17448  3646   767   164    46    13     1]
+0 spectral lines found
+
+-- 1159883242 CHANNEL 3 --
+Line model histogram:
+[77641 17566  3797   773   182    40     1]
+0 spectral lines found
+
+-- 1159884881 CHANNEL 3 --
+Line model histogram:
+[77925 17337  3624   802   230    66    13     3]
+0 spectral lines found
+
+-- 1159886519 CHANNEL 3 --
+Line model histogram:
+[77708 17557  3700   823   192    18     2]
+0 spectral lines found
+
+-- 1159888157 CHANNEL 3 --
+Line model histogram:
+[77886 17519  3648   774   132    31    10]
+0 spectral lines found
+
+-- 1159889796 CHANNEL 3 --
+Line model histogram:
+[77866 17650  3548   710   179    40     7]
+0 spectral lines found
+
+-- 1159891434 CHANNEL 3 --
+Line model histogram:
+[77549 17660  3784   787   171    33    14     2]
+0 spectral lines found
+
+-- 1159893073 CHANNEL 3 --
+Line model histogram:
+[78083 17414  3538   734   194    32     5]
+0 spectral lines found
+
+-- 1159894711 CHANNEL 3 --
+Line model histogram:
+[77305 17812  3796   837   205    39     5     1]
+0 spectral lines found
+
+-- 1159896349 CHANNEL 3 --
+Line model histogram:
+[77943 17422  3680   752   171    30     2]
+0 spectral lines found
+
+-- 1159897988 CHANNEL 3 --
+Line model histogram:
+[78333 17059  3611   785   162    36    14]
+0 spectral lines found
+
+-- 1159899626 CHANNEL 3 --
+Line model histogram:
+[76656 18060  4172   882   177    33    19     1]
+0 spectral lines found
+
+-- 1159901265 CHANNEL 3 --
+Line model histogram:
+[77491 17559  3775   867   229    59    20]
+0 spectral lines found
+
+-- 1159902903 CHANNEL 3 --
+Line model histogram:
+[77561 17630  3796   832   149    31     1]
+0 spectral lines found
+
+-- 1159904541 CHANNEL 3 --
+Line model histogram:
+[77777 17560  3688   784   152    31     8]
+0 spectral lines found
+
+-- 1159906180 CHANNEL 3 --
+Line model histogram:
+[77600 17696  3768   760   148    25     3]
+0 spectral lines found
+
+-- 1159907818 CHANNEL 3 --
+Line model histogram:
+[76755 18125  4086   789   215    28     2]
+0 spectral lines found
+
+-- 1159909457 CHANNEL 3 --
+Line model histogram:
+[77734 17439  3828   794   170    29     3     3]
+0 spectral lines found
+
+-- 1159911095 CHANNEL 3 --
+Line model histogram:
+[78004 17419  3594   761   186    31     5]
+0 spectral lines found
+
+-- 1159912733 CHANNEL 3 --
+Line model histogram:
+[77979 17311  3740   781   155    33     1]
+0 spectral lines found
+
+-- 1159914372 CHANNEL 3 --
+Line model histogram:
+[77984 17598  3488   723   150    48     8     1]
+0 spectral lines found
+
+-- 1159916010 CHANNEL 3 --
+Line model histogram:
+[77768 17481  3641   849   215    43     3]
+0 spectral lines found
+
+-- 1159917649 CHANNEL 3 --
+Line model histogram:
+[78371 17192  3558   669   170    35     4     1]
+0 spectral lines found
+
+-- 1159919287 CHANNEL 3 --
+Line model histogram:
+[77493 17882  3673   760   174    16     2]
+0 spectral lines found
+
+-- 1159920925 CHANNEL 3 --
+Line model histogram:
+[77760 17507  3726   824   154    25     4]
+0 spectral lines found
+
+-- 1159922564 CHANNEL 3 --
+Line model histogram:
+[78122 17416  3541   755   139    21     6]
+0 spectral lines found
+
+-- 1159924202 CHANNEL 3 --
+Line model histogram:
+[78026 17479  3526   792   147    25     4     1]
+0 spectral lines found
+
+-- 1159925841 CHANNEL 3 --
+Line model histogram:
+[77948 17436  3608   778   181    37    12]
+0 spectral lines found
+
+-- 1159927479 CHANNEL 3 --
+Line model histogram:
+[77966 17546  3559   723   170    34     2]
+0 spectral lines found
+
+-- 1159929117 CHANNEL 3 --
+Line model histogram:
+[78272 17140  3539   785   198    57     9]
+0 spectral lines found
+
+-- 1159930756 CHANNEL 3 --
+Line model histogram:
+[77682 17694  3645   756   176    35    11     1]
+0 spectral lines found
+
+-- 1159932394 CHANNEL 3 --
+Line model histogram:
+[77705 17541  3757   761   192    36     8]
+0 spectral lines found
+
+-- 1159934033 CHANNEL 3 --
+Line model histogram:
+[77486 17808  3761   757   163    23     2]
+0 spectral lines found
+
+-- 1159935671 CHANNEL 3 --
+Line model histogram:
+[77078 17889  3984   815   183    33    18]
+0 spectral lines found
+
+-- 1159937309 CHANNEL 3 --
+Line model histogram:
+[77441 17764  3817   748   191    39]
+0 spectral lines found
+
+-- 1159938948 CHANNEL 3 --
+Line model histogram:
+[77824 17579  3653   746   154    36     8]
+0 spectral lines found
+
+-- 1159940586 CHANNEL 3 --
+Line model histogram:
+[78125 17391  3536   751   166    31]
+0 spectral lines found
+
+-- 1159942225 CHANNEL 3 --
+Line model histogram:
+[78034 17375  3595   853   112    30     1]
+0 spectral lines found
+
+-- 1159943863 CHANNEL 3 --
+Line model histogram:
+[78176 17161  3674   781   183    22     3]
+0 spectral lines found
+
+-- 1159945501 CHANNEL 3 --
+Line model histogram:
+[78103 17341  3607   736   176    30     7]
+0 spectral lines found
+
+-- 1159724317 CHANNEL 4 --
+Line model histogram:
+[83144 14068  2325   391    57    13     1     0     1]
+0 spectral lines found
+
+-- 1159725956 CHANNEL 4 --
+Line model histogram:
+[82949 14251  2372   368    56     3     1]
+0 spectral lines found
+
+-- 1159727594 CHANNEL 4 --
+Line model histogram:
+[82292 14573  2522   471   116    17     9]
+0 spectral lines found
+
+-- 1159729233 CHANNEL 4 --
+Line model histogram:
+[82877 14311  2251   446    99    15     1]
+0 spectral lines found
+
+-- 1159730871 CHANNEL 4 --
+Line model histogram:
+[82891 14412  2241   389    60     6     1]
+0 spectral lines found
+
+-- 1159732509 CHANNEL 4 --
+Line model histogram:
+[83079 14150  2309   404    47     4     5     2]
+0 spectral lines found
+
+-- 1159734148 CHANNEL 4 --
+Line model histogram:
+[83028 14191  2272   418    77    14]
+0 spectral lines found
+
+-- 1159735786 CHANNEL 4 --
+Line model histogram:
+[83131 14025  2400   382    59     3]
+0 spectral lines found
+
+-- 1159737425 CHANNEL 4 --
+Line model histogram:
+[82688 14490  2359   385    70     5     3]
+0 spectral lines found
+
+-- 1159739063 CHANNEL 4 --
+Line model histogram:
+[82555 14437  2470   428    91    13     4     2]
+0 spectral lines found
+
+-- 1159740701 CHANNEL 4 --
+Line model histogram:
+[82516 14700  2323   377    69     8     6     1]
+0 spectral lines found
+
+-- 1159742340 CHANNEL 4 --
+Line model histogram:
+[82323 14830  2385   382    55    12     6     5     2]
+0 spectral lines found
+
+-- 1159743978 CHANNEL 4 --
+Line model histogram:
+[83197 14066  2284   384    57    11     1]
+0 spectral lines found
+
+-- 1159745617 CHANNEL 4 --
+Line model histogram:
+[82394 14626  2419   466    73    22]
+0 spectral lines found
+
+-- 1159747255 CHANNEL 4 --
+Line model histogram:
+[83018 14154  2354   404    58    12]
+0 spectral lines found
+
+-- 1159748893 CHANNEL 4 --
+Line model histogram:
+[82770 14456  2305   391    67    10     1]
+0 spectral lines found
+
+-- 1159750532 CHANNEL 4 --
+Line model histogram:
+[82633 14209  2559   489    88    18     4]
+0 spectral lines found
+
+-- 1159752170 CHANNEL 4 --
+Line model histogram:
+[83030 14212  2339   339    69    11]
+0 spectral lines found
+
+-- 1159753809 CHANNEL 4 --
+Line model histogram:
+[82844 14361  2307   395    76    13     4]
+0 spectral lines found
+
+-- 1159755447 CHANNEL 4 --
+Line model histogram:
+[82509 14430  2540   429    77    13     1     0     1]
+0 spectral lines found
+
+-- 1159757085 CHANNEL 4 --
+Line model histogram:
+[83185 14155  2259   339    44    15     3]
+0 spectral lines found
+
+-- 1159758724 CHANNEL 4 --
+Line model histogram:
+[82529 14521  2431   446    66     7]
+0 spectral lines found
+
+-- 1159760362 CHANNEL 4 --
+Line model histogram:
+[82144 14817  2502   447    73    14     3]
+0 spectral lines found
+
+-- 1159762001 CHANNEL 4 --
+Line model histogram:
+[82933 14388  2191   408    60    15     4     1]
+0 spectral lines found
+
+-- 1159763639 CHANNEL 4 --
+Line model histogram:
+[82610 14382  2483   446    62    10     7]
+0 spectral lines found
+
+-- 1159765277 CHANNEL 4 --
+Line model histogram:
+[82560 14472  2381   479    92    16]
+0 spectral lines found
+
+-- 1159766916 CHANNEL 4 --
+Line model histogram:
+[83041 14280  2186   409    65    14     4     1]
+0 spectral lines found
+
+-- 1159768554 CHANNEL 4 --
+Line model histogram:
+[82970 14258  2315   377    66     8     5     1]
+0 spectral lines found
+
+-- 1159770193 CHANNEL 4 --
+Line model histogram:
+[82643 14469  2439   396    48     5]
+0 spectral lines found
+
+-- 1159771831 CHANNEL 4 --
+Line model histogram:
+[82755 14303  2418   447    67     9     1]
+0 spectral lines found
+
+-- 1159773469 CHANNEL 4 --
+Line model histogram:
+[82898 14183  2472   378    54    11     4]
+0 spectral lines found
+
+-- 1159775108 CHANNEL 4 --
+Line model histogram:
+[82378 14761  2294   470    89     8]
+0 spectral lines found
+
+-- 1159776746 CHANNEL 4 --
+Line model histogram:
+[82767 14403  2293   459    75     3]
+0 spectral lines found
+
+-- 1159778385 CHANNEL 4 --
+Line model histogram:
+[82818 14327  2305   465    64    18     3]
+0 spectral lines found
+
+-- 1159780023 CHANNEL 4 --
+Line model histogram:
+[83233 14007  2256   425    64     8     6     1]
+0 spectral lines found
+
+-- 1159781661 CHANNEL 4 --
+Line model histogram:
+[82552 14640  2300   419    74    12     2     1]
+0 spectral lines found
+
+-- 1159783300 CHANNEL 4 --
+Line model histogram:
+[82676 14539  2328   396    56     3     2]
+0 spectral lines found
+
+-- 1159784938 CHANNEL 4 --
+Line model histogram:
+[82312 14749  2431   419    72    11     3     3]
+0 spectral lines found
+
+-- 1159786577 CHANNEL 4 --
+Line model histogram:
+[83209 14183  2137   393    62     4     6     6]
+0 spectral lines found
+
+-- 1159788215 CHANNEL 4 --
+Line model histogram:
+[82844 14314  2302   461    61     9     3     2     4]
+0 spectral lines found
+
+-- 1159789853 CHANNEL 4 --
+Line model histogram:
+[80690 15673  2864   640    94    27    11     1]
+0 spectral lines found
+
+-- 1159791492 CHANNEL 4 --
+Line model histogram:
+[83174 14173  2181   388    74     6     4]
+0 spectral lines found
+
+-- 1159793130 CHANNEL 4 --
+Line model histogram:
+[82827 14249  2361   497    58     7     1]
+0 spectral lines found
+
+-- 1159794769 CHANNEL 4 --
+Line model histogram:
+[80048 16273  2892   604   161    20     1     1]
+0 spectral lines found
+
+-- 1159796407 CHANNEL 4 --
+Line model histogram:
+[82805 14375  2337   426    49     8]
+0 spectral lines found
+
+-- 1159798045 CHANNEL 4 --
+Line model histogram:
+[82910 14307  2270   422    86     5]
+0 spectral lines found
+
+-- 1159799684 CHANNEL 4 --
+Line model histogram:
+[82461 14424  2570   452    73    20]
+0 spectral lines found
+
+-- 1159801322 CHANNEL 4 --
+Line model histogram:
+[82987 14207  2326   422    55     3]
+0 spectral lines found
+
+-- 1159802961 CHANNEL 4 --
+Line model histogram:
+[83148 14009  2381   374    66    15     3     4]
+0 spectral lines found
+
+-- 1159804599 CHANNEL 4 --
+Line model histogram:
+[82234 14793  2452   426    85     9     1]
+0 spectral lines found
+
+-- 1159806237 CHANNEL 4 --
+Line model histogram:
+[82497 14626  2391   415    57    10     4]
+0 spectral lines found
+
+-- 1159807876 CHANNEL 4 --
+Line model histogram:
+[82281 14648  2492   473    88    10     6     2]
+0 spectral lines found
+
+-- 1159809514 CHANNEL 4 --
+Line model histogram:
+[82102 14794  2509   474   101    16     4]
+0 spectral lines found
+
+-- 1159811153 CHANNEL 4 --
+Line model histogram:
+[82804 14306  2384   417    80     9]
+0 spectral lines found
+
+-- 1159812791 CHANNEL 4 --
+Line model histogram:
+[82562 14469  2459   429    75     6]
+0 spectral lines found
+
+-- 1159814429 CHANNEL 4 --
+Line model histogram:
+[82495 14542  2389   465    92    13     4]
+0 spectral lines found
+
+-- 1159816068 CHANNEL 4 --
+Line model histogram:
+[83211 14014  2282   403    69    19     2]
+0 spectral lines found
+
+-- 1159817706 CHANNEL 4 --
+Line model histogram:
+[82965 14220  2269   454    77    13     1     1]
+0 spectral lines found
+
+-- 1159819345 CHANNEL 4 --
+Line model histogram:
+[82625 14622  2286   405    52     7     3]
+0 spectral lines found
+
+-- 1159820983 CHANNEL 4 --
+Line model histogram:
+[82840 14309  2323   413    95    16     4]
+0 spectral lines found
+
+-- 1159822621 CHANNEL 4 --
+Line model histogram:
+[82786 14412  2339   386    65     6     3     3]
+0 spectral lines found
+
+-- 1159824260 CHANNEL 4 --
+Line model histogram:
+[81414 15141  2699   596   130    17     3]
+0 spectral lines found
+
+-- 1159825898 CHANNEL 4 --
+Line model histogram:
+[82732 14437  2326   399    75    16     7     2     2     2     1     1]
+0 spectral lines found
+
+-- 1159827537 CHANNEL 4 --
+Line model histogram:
+[82477 14565  2424   437    79    17     1]
+0 spectral lines found
+
+-- 1159829175 CHANNEL 4 --
+Line model histogram:
+[82843 14360  2311   424    57     2     3]
+0 spectral lines found
+
+-- 1159830813 CHANNEL 4 --
+Line model histogram:
+[82750 14326  2440   391    83     9     1]
+0 spectral lines found
+
+-- 1159832452 CHANNEL 4 --
+Line model histogram:
+[82692 14491  2325   391    71    20    10]
+0 spectral lines found
+
+-- 1159834090 CHANNEL 4 --
+Line model histogram:
+[82874 14361  2306   393    62     4]
+0 spectral lines found
+
+-- 1159835729 CHANNEL 4 --
+Line model histogram:
+[82273 14730  2426   450    94    22     5]
+0 spectral lines found
+
+-- 1159837367 CHANNEL 4 --
+Line model histogram:
+[82716 14362  2324   493    92    10     3]
+0 spectral lines found
+
+-- 1159839005 CHANNEL 4 --
+Line model histogram:
+[82964 14325  2220   406    67    11     6     0     1]
+0 spectral lines found
+
+-- 1159840644 CHANNEL 4 --
+Line model histogram:
+[82913 14311  2239   434    79    19     4     0     1]
+0 spectral lines found
+
+-- 1159842282 CHANNEL 4 --
+Line model histogram:
+[83078 14168  2180   468    80    22     3     1]
+0 spectral lines found
+
+-- 1159843921 CHANNEL 4 --
+Line model histogram:
+[82692 14346  2450   408    84    14     5     1]
+0 spectral lines found
+
+-- 1159845559 CHANNEL 4 --
+Line model histogram:
+[83285 14063  2242   343    59     5     3]
+0 spectral lines found
+
+-- 1159847197 CHANNEL 4 --
+Line model histogram:
+[82597 14551  2370   407    64     7     3     1]
+0 spectral lines found
+
+-- 1159848836 CHANNEL 4 --
+Line model histogram:
+[83005 14223  2329   366    56    12     7     1     1]
+0 spectral lines found
+
+-- 1159850474 CHANNEL 4 --
+Line model histogram:
+[83088 14330  2141   364    58    11     7     0     1]
+0 spectral lines found
+
+-- 1159852113 CHANNEL 4 --
+Line model histogram:
+[81058 15556  2748   510   109    15     4]
+0 spectral lines found
+
+-- 1159853751 CHANNEL 4 --
+Line model histogram:
+[82429 14666  2372   435    83    12     3]
+0 spectral lines found
+
+-- 1159855389 CHANNEL 4 --
+Line model histogram:
+[82732 14184  2545   418   105    11     5]
+0 spectral lines found
+
+-- 1159857028 CHANNEL 4 --
+Line model histogram:
+[83188 14207  2243   321    35     4     2]
+0 spectral lines found
+
+-- 1159858666 CHANNEL 4 --
+Line model histogram:
+[83044 14128  2343   388    73    17     6     1]
+0 spectral lines found
+
+-- 1159860305 CHANNEL 4 --
+Line model histogram:
+[82713 14338  2459   412    55    12    11]
+0 spectral lines found
+
+-- 1159861943 CHANNEL 4 --
+Line model histogram:
+[83203 14095  2287   354    53     7     1]
+0 spectral lines found
+
+-- 1159863581 CHANNEL 4 --
+Line model histogram:
+[82474 14527  2479   415    77    22     6]
+0 spectral lines found
+
+-- 1159865220 CHANNEL 4 --
+Line model histogram:
+[83420 13835  2279   363    84     6    13]
+0 spectral lines found
+
+-- 1159866858 CHANNEL 4 --
+Line model histogram:
+[52664 33535  9997  2866   651   206    76     3     2]
+0 spectral lines found
+
+-- 1159868497 CHANNEL 4 --
+Line model histogram:
+[82907 14083  2467   429    87    21     6]
+0 spectral lines found
+
+-- 1159870135 CHANNEL 4 --
+Line model histogram:
+[82541 14641  2323   420    67     6     2]
+0 spectral lines found
+
+-- 1159871773 CHANNEL 4 --
+Line model histogram:
+[83139 14215  2188   386    61    10     1]
+0 spectral lines found
+
+-- 1159873412 CHANNEL 4 --
+Line model histogram:
+[82240 14788  2455   440    72     5]
+0 spectral lines found
+
+-- 1159875050 CHANNEL 4 --
+Line model histogram:
+[82293 14794  2359   456    79    14     5]
+0 spectral lines found
+
+-- 1159876689 CHANNEL 4 --
+Line model histogram:
+[83007 14162  2292   458    70    10     1]
+0 spectral lines found
+
+-- 1159878327 CHANNEL 4 --
+Line model histogram:
+[82571 14592  2344   420    69     4]
+0 spectral lines found
+
+-- 1159879965 CHANNEL 4 --
+Line model histogram:
+[82072 14695  2670   461    81    21]
+0 spectral lines found
+
+-- 1159881604 CHANNEL 4 --
+Line model histogram:
+[82666 14501  2324   419    78     9     3]
+0 spectral lines found
+
+-- 1159883242 CHANNEL 4 --
+Line model histogram:
+[83108 14074  2378   372    66     2]
+0 spectral lines found
+
+-- 1159884881 CHANNEL 4 --
+Line model histogram:
+[82614 14513  2395   419    55     2     2]
+0 spectral lines found
+
+-- 1159886519 CHANNEL 4 --
+Line model histogram:
+[83084 14106  2361   368    74     6     1]
+0 spectral lines found
+
+-- 1159888157 CHANNEL 4 --
+Line model histogram:
+[82705 14312  2480   450    48     4     1]
+0 spectral lines found
+
+-- 1159889796 CHANNEL 4 --
+Line model histogram:
+[82905 14330  2329   363    61    12]
+0 spectral lines found
+
+-- 1159891434 CHANNEL 4 --
+Line model histogram:
+[83089 14095  2335   398    65    16     1     1]
+0 spectral lines found
+
+-- 1159893073 CHANNEL 4 --
+Line model histogram:
+[82901 14290  2321   402    79     5     1     1]
+0 spectral lines found
+
+-- 1159894711 CHANNEL 4 --
+Line model histogram:
+[82817 14378  2317   390    71    22     5]
+0 spectral lines found
+
+-- 1159896349 CHANNEL 4 --
+Line model histogram:
+[83079 14283  2178   357    86    11     4     2]
+0 spectral lines found
+
+-- 1159897988 CHANNEL 4 --
+Line model histogram:
+[83002 14194  2320   396    73    11     4]
+0 spectral lines found
+
+-- 1159899626 CHANNEL 4 --
+Line model histogram:
+[83163 14066  2297   383    67    19     5]
+0 spectral lines found
+
+-- 1159901265 CHANNEL 4 --
+Line model histogram:
+[83091 14202  2241   379    67    17     3]
+0 spectral lines found
+
+-- 1159902903 CHANNEL 4 --
+Line model histogram:
+[82616 14457  2422   436    63     6]
+0 spectral lines found
+
+-- 1159904541 CHANNEL 4 --
+Line model histogram:
+[83256 14130  2201   334    65    12     2]
+0 spectral lines found
+
+-- 1159906180 CHANNEL 4 --
+Line model histogram:
+[82830 14340  2324   426    61    14     5]
+0 spectral lines found
+
+-- 1159907818 CHANNEL 4 --
+Line model histogram:
+[83103 14029  2426   368    64    10]
+0 spectral lines found
+
+-- 1159909457 CHANNEL 4 --
+Line model histogram:
+[82825 14419  2282   388    76     8     2]
+0 spectral lines found
+
+-- 1159911095 CHANNEL 4 --
+Line model histogram:
+[82689 14384  2334   451   117    21     4]
+0 spectral lines found
+
+-- 1159912733 CHANNEL 4 --
+Line model histogram:
+[83051 14057  2401   409    64    13     5]
+0 spectral lines found
+
+-- 1159914372 CHANNEL 4 --
+Line model histogram:
+[82788 14438  2285   392    92     4     1]
+0 spectral lines found
+
+-- 1159916010 CHANNEL 4 --
+Line model histogram:
+[81960 14848  2537   522   104    29]
+0 spectral lines found
+
+-- 1159917649 CHANNEL 4 --
+Line model histogram:
+[82793 14333  2364   422    76    11     1]
+0 spectral lines found
+
+-- 1159919287 CHANNEL 4 --
+Line model histogram:
+[82938 14194  2376   412    67    13]
+0 spectral lines found
+
+-- 1159920925 CHANNEL 4 --
+Line model histogram:
+[82899 14260  2340   408    85     6     2]
+0 spectral lines found
+
+-- 1159922564 CHANNEL 4 --
+Line model histogram:
+[83018 14302  2251   356    68     5]
+0 spectral lines found
+
+-- 1159924202 CHANNEL 4 --
+Line model histogram:
+[82688 14366  2477   374    84     8     2     1]
+0 spectral lines found
+
+-- 1159925841 CHANNEL 4 --
+Line model histogram:
+[82767 14422  2332   401    74     4]
+0 spectral lines found
+
+-- 1159927479 CHANNEL 4 --
+Line model histogram:
+[82502 14423  2462   470   117    22     4]
+0 spectral lines found
+
+-- 1159929117 CHANNEL 4 --
+Line model histogram:
+[82564 14548  2374   433    67    12     2]
+0 spectral lines found
+
+-- 1159930756 CHANNEL 4 --
+Line model histogram:
+[83036 14221  2269   390    65    16     2     1]
+0 spectral lines found
+
+-- 1159932394 CHANNEL 4 --
+Line model histogram:
+[82911 14268  2351   377    84     4     5]
+0 spectral lines found
+
+-- 1159934033 CHANNEL 4 --
+Line model histogram:
+[82255 14670  2507   447   102    19]
+0 spectral lines found
+
+-- 1159935671 CHANNEL 4 --
+Line model histogram:
+[82650 14454  2419   408    55    13     1]
+0 spectral lines found
+
+-- 1159937309 CHANNEL 4 --
+Line model histogram:
+[82730 14256  2461   457    82    12     2]
+0 spectral lines found
+
+-- 1159938948 CHANNEL 4 --
+Line model histogram:
+[82829 14378  2263   421    92    13     4]
+0 spectral lines found
+
+-- 1159940586 CHANNEL 4 --
+Line model histogram:
+[82765 14437  2361   351    69    14     3]
+0 spectral lines found
+
+-- 1159942225 CHANNEL 4 --
+Line model histogram:
+[82737 14366  2415   400    67    13     2]
+0 spectral lines found
+
+-- 1159943863 CHANNEL 4 --
+Line model histogram:
+[82824 14282  2317   492    69     9     7]
+0 spectral lines found
+
+-- 1159945501 CHANNEL 4 --
+Line model histogram:
+[83150 14218  2153   377    71     8    10     4     4     5]
+0 spectral lines found
+
+-- 1159724317 CHANNEL 5 --
+Line model histogram:
+[82289 14684  2484   443    76    20     4]
+0 spectral lines found
+
+-- 1159725956 CHANNEL 5 --
+Line model histogram:
+[82355 14762  2369   430    72     9     1     2]
+0 spectral lines found
+
+-- 1159727594 CHANNEL 5 --
+Line model histogram:
+[82567 14523  2417   413    77     2     1]
+0 spectral lines found
+
+-- 1159729233 CHANNEL 5 --
+Line model histogram:
+[82643 14510  2331   432    65    12     5     2]
+0 spectral lines found
+
+-- 1159730871 CHANNEL 5 --
+Line model histogram:
+[82097 14740  2602   481    73     6     1]
+0 spectral lines found
+
+-- 1159732509 CHANNEL 5 --
+Line model histogram:
+[82806 14284  2380   409   111     8     2]
+0 spectral lines found
+
+-- 1159734148 CHANNEL 5 --
+Line model histogram:
+[82176 14815  2484   432    78     9     6]
+0 spectral lines found
+
+-- 1159735786 CHANNEL 5 --
+Line model histogram:
+[82367 14650  2430   444    99     9     1]
+0 spectral lines found
+
+-- 1159737425 CHANNEL 5 --
+Line model histogram:
+[15305 58550 19617  5090  1105   247    77     9]
+1 spectral lines found
+Line parameter summary:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+5       1159737425 0    FREQ       9.981145e-01  9.984766e-01  9.987392e-01  9.989205e-01  9.990941e-01
+                        AMP        1.792748e-15  1.139367e-13  1.032083e-11  4.228898e-09  5.860794e-04
+                        QF         2.006099e+02  1.337593e+03  1.284818e+04  1.963838e+05  2.132090e+06
+
+-- 1159739063 CHANNEL 5 --
+Line model histogram:
+[82744 14251  2508   430    55    10     2]
+0 spectral lines found
+
+-- 1159740701 CHANNEL 5 --
+Line model histogram:
+[81179 15380  2738   603    71    23     6]
+0 spectral lines found
+
+-- 1159742340 CHANNEL 5 --
+Line model histogram:
+[82380 14645  2455   439    72     8     1]
+0 spectral lines found
+
+-- 1159743978 CHANNEL 5 --
+Line model histogram:
+[82228 14548  2563   515   118    26     2]
+0 spectral lines found
+
+-- 1159745617 CHANNEL 5 --
+Line model histogram:
+[11042 61490 20865  5129  1141   266    49    16     1     1]
+1 spectral lines found
+Line parameter summary:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+5       1159745617 0    FREQ       9.988573e-01  9.990735e-01  9.992768e-01  9.994840e-01  9.996928e-01
+                        AMP        1.286374e-15  4.073230e-14  3.195685e-12  1.786394e-09  5.758941e-04
+                        QF         1.690683e+02  9.242224e+02  8.904143e+03  1.777306e+05  1.652837e+06
+
+-- 1159747255 CHANNEL 5 --
+Line model histogram:
+[82366 14738  2390   418    68    17     3]
+0 spectral lines found
+
+-- 1159748893 CHANNEL 5 --
+Line model histogram:
+[82255 14765  2466   452    52    10]
+0 spectral lines found
+
+-- 1159750532 CHANNEL 5 --
+Line model histogram:
+[82294 14747  2457   423    64    15]
+0 spectral lines found
+
+-- 1159752170 CHANNEL 5 --
+Line model histogram:
+[81853 15052  2539   463    86     6     1]
+0 spectral lines found
+
+-- 1159753809 CHANNEL 5 --
+Line model histogram:
+[77998 17423  3692   720   139    23     5]
+0 spectral lines found
+
+-- 1159755447 CHANNEL 5 --
+Line model histogram:
+[82358 14640  2466   457    78     1]
+0 spectral lines found
+
+-- 1159757085 CHANNEL 5 --
+Line model histogram:
+[82130 14901  2454   441    67     6     1]
+0 spectral lines found
+
+-- 1159758724 CHANNEL 5 --
+Line model histogram:
+[82498 14462  2499   435    84    12    10]
+0 spectral lines found
+
+-- 1159760362 CHANNEL 5 --
+Line model histogram:
+[82258 14800  2429   429    73    11]
+0 spectral lines found
+
+-- 1159762001 CHANNEL 5 --
+Line model histogram:
+[73832 20011  4776  1090   212    65    12     2]
+0 spectral lines found
+
+-- 1159763639 CHANNEL 5 --
+Line model histogram:
+[82394 14662  2424   436    73     8     3]
+0 spectral lines found
+
+-- 1159765277 CHANNEL 5 --
+Line model histogram:
+[82302 14746  2429   438    79     6]
+0 spectral lines found
+
+-- 1159766916 CHANNEL 5 --
+Line model histogram:
+[82531 14588  2368   398    86    17     5     6     1]
+0 spectral lines found
+
+-- 1159768554 CHANNEL 5 --
+Line model histogram:
+[82091 15017  2363   468    49    10     2]
+0 spectral lines found
+
+-- 1159770193 CHANNEL 5 --
+Line model histogram:
+[82298 14720  2470   449    59     4]
+0 spectral lines found
+
+-- 1159771831 CHANNEL 5 --
+Line model histogram:
+[82118 14883  2491   412    88     7     1]
+0 spectral lines found
+
+-- 1159773469 CHANNEL 5 --
+Line model histogram:
+[82467 14558  2419   467    75    11     2     1]
+0 spectral lines found
+
+-- 1159775108 CHANNEL 5 --
+Line model histogram:
+[82123 14798  2533   466    67     9     4]
+0 spectral lines found
+
+-- 1159776746 CHANNEL 5 --
+Line model histogram:
+[82107 14746  2552   499    88     8]
+0 spectral lines found
+
+-- 1159778385 CHANNEL 5 --
+Line model histogram:
+[82700 14434  2372   409    72    12     1]
+0 spectral lines found
+
+-- 1159780023 CHANNEL 5 --
+Line model histogram:
+[81747 15084  2634   449    80     5     1]
+0 spectral lines found
+
+-- 1159781661 CHANNEL 5 --
+Line model histogram:
+[82075 14856  2570   424    59    13     2     1]
+0 spectral lines found
+
+-- 1159783300 CHANNEL 5 --
+Line model histogram:
+[82794 14387  2339   405    70     5]
+0 spectral lines found
+
+-- 1159784938 CHANNEL 5 --
+Line model histogram:
+[82269 14790  2396   452    87     5     1]
+0 spectral lines found
+
+-- 1159786577 CHANNEL 5 --
+Line model histogram:
+[82257 14914  2374   400    50     5]
+0 spectral lines found
+
+-- 1159788215 CHANNEL 5 --
+Line model histogram:
+[82449 14583  2430   440    78    17     2     1]
+0 spectral lines found
+
+-- 1159789853 CHANNEL 5 --
+Line model histogram:
+[82274 14786  2399   450    85     5     1]
+0 spectral lines found
+
+-- 1159791492 CHANNEL 5 --
+Line model histogram:
+[82342 14588  2467   490    98    13     2]
+0 spectral lines found
+
+-- 1159793130 CHANNEL 5 --
+Line model histogram:
+[82579 14609  2270   441    87    12     2]
+0 spectral lines found
+
+-- 1159794769 CHANNEL 5 --
+Line model histogram:
+[81944 14857  2602   496    89    12]
+0 spectral lines found
+
+-- 1159796407 CHANNEL 5 --
+Line model histogram:
+[82663 14572  2355   355    51     4]
+0 spectral lines found
+
+-- 1159798045 CHANNEL 5 --
+Line model histogram:
+[82461 14557  2429   453    84    12     3     1]
+0 spectral lines found
+
+-- 1159799684 CHANNEL 5 --
+Line model histogram:
+[82004 14952  2500   448    84    10     2]
+0 spectral lines found
+
+-- 1159801322 CHANNEL 5 --
+Line model histogram:
+[82422 14539  2462   487    67    12     8     2     1]
+0 spectral lines found
+
+-- 1159802961 CHANNEL 5 --
+Line model histogram:
+[82427 14549  2446   480    79    10     3     6]
+0 spectral lines found
+
+-- 1159804599 CHANNEL 5 --
+Line model histogram:
+[81592 15016  2800   496    86    10]
+0 spectral lines found
+
+-- 1159806237 CHANNEL 5 --
+Line model histogram:
+[80580 15824  2965   523    95    13]
+0 spectral lines found
+
+-- 1159807876 CHANNEL 5 --
+Line model histogram:
+[81271 15225  2963   490    41    10]
+0 spectral lines found
+
+-- 1159809514 CHANNEL 5 --
+Line model histogram:
+[81876 14948  2601   493    68    13     1]
+0 spectral lines found
+
+-- 1159811153 CHANNEL 5 --
+Line model histogram:
+[82283 14794  2436   397    72    16     2]
+0 spectral lines found
+
+-- 1159812791 CHANNEL 5 --
+Line model histogram:
+[80238 16205  2997   468    73    19]
+0 spectral lines found
+
+-- 1159814429 CHANNEL 5 --
+Line model histogram:
+[82382 14696  2455   409    54     4]
+0 spectral lines found
+
+-- 1159816068 CHANNEL 5 --
+Line model histogram:
+[82644 14462  2417   408    62     6     1]
+0 spectral lines found
+
+-- 1159817706 CHANNEL 5 --
+Line model histogram:
+[82207 14786  2526   404    70     7]
+0 spectral lines found
+
+-- 1159819345 CHANNEL 5 --
+Line model histogram:
+[82593 14448  2472   405    66    16]
+0 spectral lines found
+
+-- 1159820983 CHANNEL 5 --
+Line model histogram:
+[82445 14744  2303   418    74    14     2]
+0 spectral lines found
+
+-- 1159822621 CHANNEL 5 --
+Line model histogram:
+[81013 15426  2825   630    94     8     4]
+0 spectral lines found
+
+-- 1159824260 CHANNEL 5 --
+Line model histogram:
+[82243 14759  2494   425    65    14]
+0 spectral lines found
+
+-- 1159825898 CHANNEL 5 --
+Line model histogram:
+[82454 14570  2417   476    69    10     2     2]
+0 spectral lines found
+
+-- 1159827537 CHANNEL 5 --
+Line model histogram:
+[82344 14711  2489   378    66    11     1]
+0 spectral lines found
+
+-- 1159829175 CHANNEL 5 --
+Line model histogram:
+[82360 14598  2400   509   106    22     5]
+0 spectral lines found
+
+-- 1159830813 CHANNEL 5 --
+Line model histogram:
+[82130 14756  2579   441    88     6]
+0 spectral lines found
+
+-- 1159832452 CHANNEL 5 --
+Line model histogram:
+[82525 14556  2426   402    78    12     1]
+0 spectral lines found
+
+-- 1159834090 CHANNEL 5 --
+Line model histogram:
+[82074 14958  2457   443    61     7]
+0 spectral lines found
+
+-- 1159835729 CHANNEL 5 --
+Line model histogram:
+[76708 18370  3936   838   132    14     2]
+0 spectral lines found
+
+-- 1159837367 CHANNEL 5 --
+Line model histogram:
+[80979 15711  2780   435    83    11     1]
+0 spectral lines found
+
+-- 1159839005 CHANNEL 5 --
+Line model histogram:
+[82454 14480  2534   454    59    12     5     1     1]
+0 spectral lines found
+
+-- 1159840644 CHANNEL 5 --
+Line model histogram:
+[82038 14838  2546   477    82    18     1]
+0 spectral lines found
+
+-- 1159842282 CHANNEL 5 --
+Line model histogram:
+[82647 14469  2404   391    77     9     3]
+0 spectral lines found
+
+-- 1159843921 CHANNEL 5 --
+Line model histogram:
+[82451 14615  2451   389    71    15     7     1]
+0 spectral lines found
+
+-- 1159845559 CHANNEL 5 --
+Line model histogram:
+[82055 14922  2501   450    59    13]
+0 spectral lines found
+
+-- 1159847197 CHANNEL 5 --
+Line model histogram:
+[82013 15044  2457   370   103    13]
+0 spectral lines found
+
+-- 1159848836 CHANNEL 5 --
+Line model histogram:
+[81925 14829  2653   494    76    13     5     3     2]
+0 spectral lines found
+
+-- 1159850474 CHANNEL 5 --
+Line model histogram:
+[81604 15148  2670   486    82    10]
+0 spectral lines found
+
+-- 1159852113 CHANNEL 5 --
+Line model histogram:
+[82335 14795  2362   411    83    14]
+0 spectral lines found
+
+-- 1159853751 CHANNEL 5 --
+Line model histogram:
+[82495 14475  2486   450    75    18     1]
+0 spectral lines found
+
+-- 1159855389 CHANNEL 5 --
+Line model histogram:
+[81788 14952  2655   510    80    14     1]
+0 spectral lines found
+
+-- 1159857028 CHANNEL 5 --
+Line model histogram:
+[75280 19445  4278   854   119    16     8]
+0 spectral lines found
+
+-- 1159858666 CHANNEL 5 --
+Line model histogram:
+[82179 14837  2536   375    59    10     3     1]
+0 spectral lines found
+
+-- 1159860305 CHANNEL 5 --
+Line model histogram:
+[82299 14687  2545   403    62     4]
+0 spectral lines found
+
+-- 1159861943 CHANNEL 5 --
+Line model histogram:
+[82079 14833  2504   475    87    20     2]
+0 spectral lines found
+
+-- 1159863581 CHANNEL 5 --
+Line model histogram:
+[80957 15631  2796   518    81    13     4]
+0 spectral lines found
+
+-- 1159865220 CHANNEL 5 --
+Line model histogram:
+[82508 14403  2551   418    94    26]
+0 spectral lines found
+
+-- 1159866858 CHANNEL 5 --
+Line model histogram:
+[82072 14869  2616   373    62     8]
+0 spectral lines found
+
+-- 1159868497 CHANNEL 5 --
+Line model histogram:
+[82934 14361  2276   351    62    16]
+0 spectral lines found
+
+-- 1159870135 CHANNEL 5 --
+Line model histogram:
+[82441 14610  2402   464    64    16     1     0     2]
+0 spectral lines found
+
+-- 1159871773 CHANNEL 5 --
+Line model histogram:
+[82532 14571  2408   431    42     5     3     4     1     2     1]
+0 spectral lines found
+
+-- 1159873412 CHANNEL 5 --
+Line model histogram:
+[82538 14553  2425   397    70    14     3]
+0 spectral lines found
+
+-- 1159875050 CHANNEL 5 --
+Line model histogram:
+[82462 14581  2429   432    84     9     2     0     1]
+0 spectral lines found
+
+-- 1159876689 CHANNEL 5 --
+Line model histogram:
+[82533 14553  2327   491    88     6     2]
+0 spectral lines found
+
+-- 1159878327 CHANNEL 5 --
+Line model histogram:
+[82472 14630  2423   424    34    15     2]
+0 spectral lines found
+
+-- 1159879965 CHANNEL 5 --
+Line model histogram:
+[82527 14550  2433   392    91     5     1     1]
+0 spectral lines found
+
+-- 1159881604 CHANNEL 5 --
+Line model histogram:
+[82438 14654  2377   452    69     8     2]
+0 spectral lines found
+
+-- 1159883242 CHANNEL 5 --
+Line model histogram:
+[81942 14969  2594   435    58     2]
+0 spectral lines found
+
+-- 1159884881 CHANNEL 5 --
+Line model histogram:
+[82020 14866  2562   454    88     9     1]
+0 spectral lines found
+
+-- 1159886519 CHANNEL 5 --
+Line model histogram:
+[82423 14792  2337   389    49    10]
+0 spectral lines found
+
+-- 1159888157 CHANNEL 5 --
+Line model histogram:
+[79860 16443  2952   602   117    23     3]
+0 spectral lines found
+
+-- 1159889796 CHANNEL 5 --
+Line model histogram:
+[81999 15001  2422   448   118    12]
+0 spectral lines found
+
+-- 1159891434 CHANNEL 5 --
+Line model histogram:
+[82031 15032  2500   373    61     3]
+0 spectral lines found
+
+-- 1159893073 CHANNEL 5 --
+Line model histogram:
+[81889 15078  2546   409    67    11]
+0 spectral lines found
+
+-- 1159894711 CHANNEL 5 --
+Line model histogram:
+[82091 14759  2568   474    86    15     4     3]
+0 spectral lines found
+
+-- 1159896349 CHANNEL 5 --
+Line model histogram:
+[81231 15405  2697   537   108    20     2]
+0 spectral lines found
+
+-- 1159897988 CHANNEL 5 --
+Line model histogram:
+[82455 14570  2489   423    52     9     2]
+0 spectral lines found
+
+-- 1159899626 CHANNEL 5 --
+Line model histogram:
+[79369 16700  3219   571   123    14     4]
+0 spectral lines found
+
+-- 1159901265 CHANNEL 5 --
+Line model histogram:
+[81756 14906  2687   506   120    13     6     6]
+0 spectral lines found
+
+-- 1159902903 CHANNEL 5 --
+Line model histogram:
+[82517 14399  2520   477    69    14     4]
+0 spectral lines found
+
+-- 1159904541 CHANNEL 5 --
+Line model histogram:
+[82238 14567  2560   539    84    10     1     1]
+0 spectral lines found
+
+-- 1159906180 CHANNEL 5 --
+Line model histogram:
+[81338 15400  2716   473    61    10     2]
+0 spectral lines found
+
+-- 1159907818 CHANNEL 5 --
+Line model histogram:
+[82695 14515  2299   401    78    12]
+0 spectral lines found
+
+-- 1159909457 CHANNEL 5 --
+Line model histogram:
+[82392 14558  2510   450    67    22     1]
+0 spectral lines found
+
+-- 1159911095 CHANNEL 5 --
+Line model histogram:
+[82272 14766  2417   453    84     6     2]
+0 spectral lines found
+
+-- 1159912733 CHANNEL 5 --
+Line model histogram:
+[82393 14647  2446   445    57    12]
+0 spectral lines found
+
+-- 1159914372 CHANNEL 5 --
+Line model histogram:
+[74197 19937  4675   984   172    22    11     2]
+0 spectral lines found
+
+-- 1159916010 CHANNEL 5 --
+Line model histogram:
+[82418 14604  2446   425    82    15    10]
+0 spectral lines found
+
+-- 1159917649 CHANNEL 5 --
+Line model histogram:
+[82426 14650  2410   430    69    11     4]
+0 spectral lines found
+
+-- 1159919287 CHANNEL 5 --
+Line model histogram:
+[82457 14553  2399   501    81     9]
+0 spectral lines found
+
+-- 1159920925 CHANNEL 5 --
+Line model histogram:
+[82686 14530  2281   406    81    16]
+0 spectral lines found
+
+-- 1159922564 CHANNEL 5 --
+Line model histogram:
+[82215 14763  2552   367    81    21     1]
+0 spectral lines found
+
+-- 1159924202 CHANNEL 5 --
+Line model histogram:
+[82233 14726  2547   394    85    13     2]
+0 spectral lines found
+
+-- 1159925841 CHANNEL 5 --
+Line model histogram:
+[82022 14856  2547   472    66    18     8     6     3     2]
+0 spectral lines found
+
+-- 1159927479 CHANNEL 5 --
+Line model histogram:
+[81431 15226  2704   530    93    14     2]
+0 spectral lines found
+
+-- 1159929117 CHANNEL 5 --
+Line model histogram:
+[81961 15028  2543   389    66     9     4]
+0 spectral lines found
+
+-- 1159930756 CHANNEL 5 --
+Line model histogram:
+[82395 14721  2396   385    85    15     3]
+0 spectral lines found
+
+-- 1159932394 CHANNEL 5 --
+Line model histogram:
+[82209 14670  2555   445   102    18     1]
+0 spectral lines found
+
+-- 1159934033 CHANNEL 5 --
+Line model histogram:
+[82070 14968  2509   380    66     7]
+0 spectral lines found
+
+-- 1159935671 CHANNEL 5 --
+Line model histogram:
+[81982 15006  2489   425    76    18     4]
+0 spectral lines found
+
+-- 1159937309 CHANNEL 5 --
+Line model histogram:
+[82760 14497  2249   412    68    13     1]
+0 spectral lines found
+
+-- 1159938948 CHANNEL 5 --
+Line model histogram:
+[82358 14558  2464   508    94    17     1]
+0 spectral lines found
+
+-- 1159940586 CHANNEL 5 --
+Line model histogram:
+[81752 15151  2628   393    70     6]
+0 spectral lines found
+
+-- 1159942225 CHANNEL 5 --
+Line model histogram:
+[82283 14569  2580   484    72     8     4]
+0 spectral lines found
+
+-- 1159943863 CHANNEL 5 --
+Line model histogram:
+[79989 15935  3214   713   121    23     5]
+0 spectral lines found
+
+-- 1159945501 CHANNEL 5 --
+Line model histogram:
+[81571 15243  2692   423    51    19     1]
+0 spectral lines found
+
+All summaries:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+0       1159866858 0    FREQ       6.612976e-01  6.614890e-01  6.617459e-01  6.618622e-01  6.620692e-01
+                        AMP        1.045657e-17  2.704961e-16  9.317044e-15  1.089879e-12  1.730399e-07
+                        QF         1.492224e+02  6.881889e+02  4.005604e+03  4.852461e+04  1.048717e+06
+5       1159737425 0    FREQ       9.981145e-01  9.984766e-01  9.987392e-01  9.989205e-01  9.990941e-01
+                        AMP        1.792748e-15  1.139367e-13  1.032083e-11  4.228898e-09  5.860794e-04
+                        QF         2.006099e+02  1.337593e+03  1.284818e+04  1.963838e+05  2.132090e+06
+        1159745617 0    FREQ       9.988573e-01  9.990735e-01  9.992768e-01  9.994840e-01  9.996928e-01
+                        AMP        1.286374e-15  4.073230e-14  3.195685e-12  1.786394e-09  5.758941e-04
+                        QF         1.690683e+02  9.242224e+02  8.904143e+03  1.777306e+05  1.652837e+06

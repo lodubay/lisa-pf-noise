@@ -1,10 +1,13 @@
-import pandas as pd
-import numpy as np
+#!/bin/bash
+
 import os
 import sys
-import time_functions as tf
 import itertools
 
+import pandas as pd
+import numpy as np
+
+import time_functions as tf
 
 def get_counts(lc_file):
     '''
@@ -19,7 +22,6 @@ def get_counts(lc_file):
     # Count how often each model is used
     counts = np.array([len(dim[dim == m]) for m in dim_u])
     return counts
-
 
 def gen_model_df(run, model_file):
     '''
@@ -48,7 +50,6 @@ def gen_model_df(run, model_file):
     df.to_csv(model_file, sep=' ')
     return df
 
-
 def import_linechain(lc_file, model):
     '''
     Imports a linechain file for the given time and channel.
@@ -73,7 +74,6 @@ def import_linechain(lc_file, model):
     
     params = np.dstack(params)
     return params
-        
 
 def sort_params(params, log_file=None):
     '''
@@ -119,7 +119,6 @@ def sort_params(params, log_file=None):
         params[i] = row[min_idx]
 
     return params
-
 
 def summarize_linechain(time_dir, channel, log_file=None):
     '''
@@ -176,7 +175,6 @@ def summarize_linechain(time_dir, channel, log_file=None):
                 
     return summary
 
-
 def save_summary(run, summary_file, log_file=None):
     '''
     Returns a summary DataFrame for all linechain files in the given run.
@@ -222,12 +220,18 @@ def save_summary(run, summary_file, log_file=None):
             log.write('\n')
     # Output to file
     summaries.to_pickle(summary_file)
-    print('Output written to ' + summary_file + '...')
+    print('Output written to ' + summary_file)
     return summaries
             
+def main():
+    # Get all runs to use from the command line.
+    runs = sys.argv[1:]
+    for run in runs:
+        print('\n-- ' + run + ' --')
+        summary_file = 'out/' + run + '/linechain.pkl'
+        log_file = 'out/' + run + '/linechain.log'
+        save_summary(run, summary_file, log_file)
 
-run = 'ltp_run_c'
-summary_file = 'out/' + run + '/linechain.pkl'
-log_file = 'out/' + run + '/linechain.log'
-save_summary(run, summary_file, log_file)
+if __name__ == '__main__':
+    main()
 
