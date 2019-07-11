@@ -4,9 +4,9 @@ import os
 import glob
 import sys
 
-from pymc3.stats import hpd
 import numpy as np
 import pandas as pd
+from pymc3.stats import hpd
 
 import time_functions as tf
 import linechain as lc

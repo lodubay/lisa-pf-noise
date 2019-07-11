@@ -240,12 +240,19 @@ def main():
     runs = sys.argv[1:]
     for run in runs:
         print('\n-- ' + run + ' --')
-        summary_file = 'out/' + run + '/linechain.pkl'
-        log_file = 'out/' + run + '/linechain.log'
+        # Directories
+        output_dir = os.path.join('out', run)
+        if not os.path.exists(output_dir): os.makedirs(output_dir)
+        # Output files
+        summary_file = os.path.join(output_dir, 'linechain.pkl')
+        log_file = os.path.join(output_dir, 'linechain.log')
+        # Confirm to overwrite if summary already exists
         gen_new = True
         if os.path.exists(summary_file):
-            input('Found existing linechain summary for this run. Overwrite? (y/N) ')
-        save_summary(run, summary_file, log_file)
+            over = input('Found linechain.pkl for this run. Overwrite? (y/N) ')
+            gen_new = True if over == 'y' else False
+        if gen_new:
+            save_summary(run, summary_file, log_file)
 
 if __name__ == '__main__':
     main()
