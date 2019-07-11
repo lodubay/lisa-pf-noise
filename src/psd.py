@@ -172,10 +172,8 @@ def main():
 
         # Import / generate summary PSD DataFrame
         if gen_new:
-            print('Generating summary file...')
             df = save_summary(run, summary_file)
         else:
-            print('Reading summary file...')
             df = pd.read_pickle(summary_file)
 
         # Make plots
