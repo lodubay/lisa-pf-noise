@@ -11,7 +11,12 @@ import time_functions as tf
 
 def get_counts(lc_file):
     '''
-    Returns a histogram of the counts for each model in the given linechain file
+    Returns a histogram of the counts for each model in the given linechain
+    file. Output is an array where the index equals the number of lines.
+    
+    Input
+    -----
+      lc_file : string, path to the linechain file
     '''
     with open(lc_file) as lc:
         # Only use the first column
@@ -83,6 +88,7 @@ def sort_params(params, log_file=None):
     Input
     -----
       params : 3D numpy array, the output of import_linechain()
+      log_file : string, path to log file (if any)
     '''
     # Calculate modes for each column
     # This should give a rough value for the location of each spectral line
@@ -128,6 +134,7 @@ def summarize_linechain(time_dir, channel, log_file=None):
     -----
       time_dir : string, time directory
       channel : int, channel index
+      log_file : string, path to log file (if any)
     '''
     time = int(time_dir[-11:-1])
     # Import linechain
@@ -182,6 +189,8 @@ def save_summary(run, summary_file, log_file=None):
     Input
     -----
       run : string, name of run
+      summary_file : string, path to summary pickle file
+      log_file : string, path to log file (if any)
     '''
     time_dirs = tf.get_time_dirs(run)
     # Set up log file
@@ -189,6 +198,7 @@ def save_summary(run, summary_file, log_file=None):
         print('Logging output to ' + log_file)
         with open(log_file, 'w+') as log:
             log.write('linechain.py log file for ' + run + '\n\n')
+    
     # Set up progress indicator
     sys.stdout.write('Importing ' + run + ' linechain...   0%\b')
     sys.stdout.flush()
@@ -202,22 +212,24 @@ def save_summary(run, summary_file, log_file=None):
         progress = str(int((i+1) / steps * 100))
         sys.stdout.write('\b' * len(progress) + progress)
         sys.stdout.flush()
-    
     # Finish progress indicator
     sys.stdout.write('\n')
     sys.stdout.flush()
     
+    # Combine summaries into one DataFrame
     summaries = pd.concat(summaries, axis=0)
     midx = pd.MultiIndex.from_tuples(
         summaries.index, names=['CHANNEL', 'TIME', 'LINE', 'PARAMETER']
     )
     summaries.index = midx
+    
     # Log final output
     if log_file:
         with open(log_file, 'a+') as log:
             log.write('All summaries:\n')
             log.write(summaries.to_string(max_cols=80))
             log.write('\n')
+    
     # Output to file
     summaries.to_pickle(summary_file)
     print('Output written to ' + summary_file)
@@ -230,6 +242,7 @@ def main():
         print('\n-- ' + run + ' --')
         summary_file = 'out/' + run + '/linechain.pkl'
         log_file = 'out/' + run + '/linechain.log'
+        if os.path.exists(summary_file):
         save_summary(run, summary_file, log_file)
 
 if __name__ == '__main__':
