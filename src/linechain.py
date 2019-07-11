@@ -75,7 +75,7 @@ def import_linechain(lc_file, model):
     return params
         
 
-def sort_params(params):
+def sort_params(params, log_file=None):
     '''
     Sorts the frequencies in the linechain array so that each column corresponds
     to just one spectral line. Returns an array of the same shape as params.
@@ -96,8 +96,11 @@ def sort_params(params):
     
     modes = np.sort(np.array(modes))
     # For debugging
-    print('Spectral line modal frequencies: ')
-    print(modes)
+    if log_file:
+        with open(log_file, 'a+') as log:
+            log.write('Spectral line modal frequencies:\n')
+            log.write(np.array2string(modes, max_line_width=80))
+            log.write('\n')
     
     # Iterate through rows and sort values to correct columns
     for i, row in enumerate(params):
@@ -118,7 +121,7 @@ def sort_params(params):
     return params
 
 
-def summarize_linechain(time_dir, channel):
+def summarize_linechain(time_dir, channel, log_file=None):
     '''
     Returns DataFrame of percentile values for each parameter.
     
@@ -128,15 +131,11 @@ def summarize_linechain(time_dir, channel):
       channel : int, channel index
     '''
     time = int(time_dir[-11:-1])
-    print('\n-- ' + str(time) + ' CHANNEL ' + str(channel) + ' --')
     # Import linechain
     lc_file = time_dir + 'linechain_channel' + str(channel) + '.dat'
     # Get preferred model
     counts = get_counts(lc_file)
-    print('Line model histogram:')
-    print(counts)
     model = counts.argmax()
-    print(str(model) + ' spectral lines found.')
     
     # Initialize summary DataFrame
     percentiles = np.array([5, 25, 50, 75, 95])
@@ -150,7 +149,7 @@ def summarize_linechain(time_dir, channel):
         model = params.shape[1]
         # Sort
         if model > 1:
-            params = sort_params(params)
+            params = sort_params(params, log_file)
     
         # Summary statistics
         p_array = np.percentile(params, percentiles, axis=0)
@@ -161,12 +160,24 @@ def summarize_linechain(time_dir, channel):
             names=['CHANNEL', 'TIME', 'LINE', 'PARAMETER']
         )
         summary = pd.DataFrame(np.vstack(p_array), columns=cols, index=midx)
-        print('Line parameter summary:')
-        print(summary)
+    
+    # Write to log file
+    if log_file:
+        with open(log_file, 'a+') as log:
+            log.write('-- ' + str(time) + ' CHANNEL ' + str(channel) + ' --\n')
+            log.write('Line model histogram:\n') 
+            log.write(np.array2string(counts, max_line_width=80))
+            log.write('\n' + str(model) + ' spectral lines found\n')
+            if model > 0:
+                log.write('Line parameter summary:\n')
+                log.write(summary.to_string(max_cols=80))
+                log.write('\n')
+            log.write('\n')
+                
     return summary
 
 
-def summarize(run):
+def save_summary(run, summary_file, log_file=None):
     '''
     Returns a summary DataFrame for all linechain files in the given run.
     
@@ -174,19 +185,49 @@ def summarize(run):
     -----
       run : string, name of run
     '''
-    print('###### ' + run + ' ######')
     time_dirs = tf.get_time_dirs(run)
+    # Set up log file
+    if log_file:
+        print('Logging output to ' + log_file)
+        with open(log_file, 'w+') as log:
+            log.write('linechain.py log file for ' + run + '\n\n')
+    # Set up progress indicator
+    sys.stdout.write('Importing ' + run + ' linechain...   0%\b')
+    sys.stdout.flush()
+    steps = 6 * len(time_dirs)
     # Generate all summaries
-    summaries = [summarize_linechain(d,c) for c in range(6) for d in time_dirs]
+    summaries = []
+    for i, t in enumerate(list(itertools.product(range(6), time_dirs))):
+        channel, time_dir = t
+        summaries.append(summarize_linechain(time_dir, channel, log_file))
+        # Update progress indicator
+        progress = str(int((i+1) / steps * 100))
+        sys.stdout.write('\b' * len(progress) + progress)
+        sys.stdout.flush()
+    
+    # Finish progress indicator
+    sys.stdout.write('\n')
+    sys.stdout.flush()
+    
     summaries = pd.concat(summaries, axis=0)
     midx = pd.MultiIndex.from_tuples(
         summaries.index, names=['CHANNEL', 'TIME', 'LINE', 'PARAMETER']
     )
     summaries.index = midx
-    print('\nAll summaries:')
-    print(summaries)
+    # Log final output
+    if log_file:
+        with open(log_file, 'a+') as log:
+            log.write('All summaries:\n')
+            log.write(summaries.to_string(max_cols=80))
+            log.write('\n')
+    # Output to file
+    summaries.to_pickle(summary_file)
+    print('Output written to ' + summary_file + '...')
     return summaries
             
 
-summarize('run_k_1')
+run = 'ltp_run_c'
+summary_file = 'out/' + run + '/linechain.pkl'
+log_file = 'out/' + run + '/linechain.log'
+save_summary(run, summary_file, log_file)
 

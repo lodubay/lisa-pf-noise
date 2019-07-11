@@ -1,0 +1,707 @@
+linechain.py log file for ltp_run_c
+
+-- 1144019669 CHANNEL 0 --
+Line model histogram:
+[37932 45131 13103  3023   624   169    18]
+1 spectral lines found
+Line parameter summary:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+0       1144019669 0    FREQ       3.109105e-03  3.276242e-03  3.447747e-03  3.600277e-03  6.069395e-01
+                        AMP        2.297805e-20  6.896309e-19  3.112925e-17  1.567709e-15  9.473255e-07
+                        QF         4.034040e+02  3.040976e+03  6.413274e+03  1.702198e+04  5.666538e+06
+
+-- 1144054076 CHANNEL 0 --
+Line model histogram:
+[84377 13312  1952   319    34     6]
+0 spectral lines found
+
+-- 1144083128 CHANNEL 0 --
+Line model histogram:
+[46007 39714 10986  2593   577   109    13     1]
+0 spectral lines found
+
+-- 1144084767 CHANNEL 0 --
+Line model histogram:
+[84512 13144  1979   313    49     3]
+0 spectral lines found
+
+-- 1144158495 CHANNEL 0 --
+Line model histogram:
+[66161 25606  6454  1429   294    45    11]
+0 spectral lines found
+
+-- 1144187547 CHANNEL 0 --
+Line model histogram:
+[  291 71915 21773  4857   968   184    11     0     0     1]
+1 spectral lines found
+Line parameter summary:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+0       1144187547 0    FREQ       3.130568e-03  3.252289e-03  3.386359e-03  3.526191e-03  3.636477e-03
+                        AMP        1.998365e-20  9.748106e-18  5.850637e-15  4.189837e-13  1.076136e-11
+                        QF         4.565067e+02  4.203414e+03  9.354636e+03  1.568738e+04  3.713106e+04
+
+-- 1144200655 CHANNEL 0 --
+Line model histogram:
+[29139 51362 15208  3461   667   146    17]
+1 spectral lines found
+Line parameter summary:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+0       1144200655 0    FREQ       3.138683e-03  3.276782e-03  3.436665e-03  3.581319e-03  4.215415e-01
+                        AMP        6.058630e-20  9.014384e-17  3.479856e-15  9.952487e-13  1.213772e-06
+                        QF         1.438062e+03  5.595668e+03  1.006525e+04  2.096648e+04  1.378306e+06
+
+-- 1144238338 CHANNEL 0 --
+Line model histogram:
+[83554 13865  2226   300    45     9     1]
+0 spectral lines found
+
+-- 1144246530 CHANNEL 0 --
+Line model histogram:
+[84213 13417  2011   301    52     6]
+0 spectral lines found
+
+-- 1144248168 CHANNEL 0 --
+Line model histogram:
+[84232 13339  2055   317    48     9]
+0 spectral lines found
+
+-- 1144251445 CHANNEL 0 --
+Line model histogram:
+[84503 13188  1984   281    42     2]
+0 spectral lines found
+
+-- 1144256360 CHANNEL 0 --
+Line model histogram:
+[83929 13602  2103   304    61     1]
+0 spectral lines found
+
+-- 1144278859 CHANNEL 0 --
+Line model histogram:
+[83518 13764  2270   347    98     0     0     3]
+0 spectral lines found
+
+-- 1144306712 CHANNEL 0 --
+Line model histogram:
+[83954 13470  2154   345    63     6     8]
+0 spectral lines found
+
+-- 1144332926 CHANNEL 0 --
+Line model histogram:
+[84319 13391  1975   277    30     8]
+0 spectral lines found
+
+-- 1144450453 CHANNEL 0 --
+Line model histogram:
+[84559 13204  1871   315    48     3]
+0 spectral lines found
+
+-- 1144457007 CHANNEL 0 --
+Line model histogram:
+[83794 13699  2061   344    60    28    14]
+0 spectral lines found
+
+-- 1144495890 CHANNEL 0 --
+Line model histogram:
+[84159 13358  2109   320    40     8     6]
+0 spectral lines found
+
+-- 1144606863 CHANNEL 0 --
+Line model histogram:
+[83019 14283  2286   338    68     6]
+0 spectral lines found
+
+-- 1144019669 CHANNEL 1 --
+Line model histogram:
+[80584 15799  2946   557   105     8     1]
+0 spectral lines found
+
+-- 1144054076 CHANNEL 1 --
+Line model histogram:
+[81016 15507  2861   506    92    13     3     1     1]
+0 spectral lines found
+
+-- 1144083128 CHANNEL 1 --
+Line model histogram:
+[81179 15434  2755   527    98     7]
+0 spectral lines found
+
+-- 1144084767 CHANNEL 1 --
+Line model histogram:
+[81198 15534  2637   525    93    13]
+0 spectral lines found
+
+-- 1144158495 CHANNEL 1 --
+Line model histogram:
+[81038 15542  2878   438    83    21]
+0 spectral lines found
+
+-- 1144187547 CHANNEL 1 --
+Line model histogram:
+[81306 15415  2720   445   102     8     4]
+0 spectral lines found
+
+-- 1144200655 CHANNEL 1 --
+Line model histogram:
+[80716 15850  2844   468   103    18     1]
+0 spectral lines found
+
+-- 1144238338 CHANNEL 1 --
+Line model histogram:
+[81554 15190  2733   438    74     9     2]
+0 spectral lines found
+
+-- 1144246530 CHANNEL 1 --
+Line model histogram:
+[80783 15708  2815   545   124    25]
+0 spectral lines found
+
+-- 1144248168 CHANNEL 1 --
+Line model histogram:
+[80987 15478  2835   559   108    19    12     2]
+0 spectral lines found
+
+-- 1144251445 CHANNEL 1 --
+Line model histogram:
+[81048 15360  2889   560   114    27     2]
+0 spectral lines found
+
+-- 1144256360 CHANNEL 1 --
+Line model histogram:
+[81640 15106  2717   449    80     7     1]
+0 spectral lines found
+
+-- 1144278859 CHANNEL 1 --
+Line model histogram:
+[75993 18505  4227   984   221    54    10     6]
+0 spectral lines found
+
+-- 1144306712 CHANNEL 1 --
+Line model histogram:
+[81010 15577  2774   533    92    11     3]
+0 spectral lines found
+
+-- 1144332926 CHANNEL 1 --
+Line model histogram:
+[81274 15329  2767   510   112     5     2     1]
+0 spectral lines found
+
+-- 1144450453 CHANNEL 1 --
+Line model histogram:
+[81626 15200  2695   387    76    15     1]
+0 spectral lines found
+
+-- 1144457007 CHANNEL 1 --
+Line model histogram:
+[81437 15190  2692   544   122    13     2]
+0 spectral lines found
+
+-- 1144495890 CHANNEL 1 --
+Line model histogram:
+[81152 15425  2782   537    88    13     3]
+0 spectral lines found
+
+-- 1144606863 CHANNEL 1 --
+Line model histogram:
+[81329 15272  2813   458   113    12     0     3]
+0 spectral lines found
+
+-- 1144019669 CHANNEL 2 --
+Line model histogram:
+[80605 15838  2898   525   115    19]
+0 spectral lines found
+
+-- 1144054076 CHANNEL 2 --
+Line model histogram:
+[80856 15602  2937   506    74    22     3]
+0 spectral lines found
+
+-- 1144083128 CHANNEL 2 --
+Line model histogram:
+[81205 15391  2782   516   101     5]
+0 spectral lines found
+
+-- 1144084767 CHANNEL 2 --
+Line model histogram:
+[23868 50981 18813  4962  1101   205    51    17     2]
+1 spectral lines found
+Line parameter summary:
+PERCENTILE                                    5            25            50            75             95
+CHANNEL TIME       LINE PARAMETER                                                                       
+2       1144084767 0    FREQ       5.542076e-02  5.560394e-02  5.576479e-02  5.599541e-02       0.510209
+                        AMP        5.391091e-20  6.354804e-17  2.701691e-14  1.663468e-10       0.000014
+                        QF         2.400356e+02  4.636840e+03  4.773900e+04  1.473063e+05  885294.100000
+
+-- 1144158495 CHANNEL 2 --
+Line model histogram:
+[80925 15384  2939   619   101    30     2]
+0 spectral lines found
+
+-- 1144187547 CHANNEL 2 --
+Line model histogram:
+[80919 15713  2760   514    90     4]
+0 spectral lines found
+
+-- 1144200655 CHANNEL 2 --
+Line model histogram:
+[81090 15425  2949   446    75    13     2]
+0 spectral lines found
+
+-- 1144238338 CHANNEL 2 --
+Line model histogram:
+[81092 15607  2715   457   119    10]
+0 spectral lines found
+
+-- 1144246530 CHANNEL 2 --
+Line model histogram:
+[80416 15801  3087   553   118    25]
+0 spectral lines found
+
+-- 1144248168 CHANNEL 2 --
+Line model histogram:
+[80722 15644  3043   490    87    12     2]
+0 spectral lines found
+
+-- 1144251445 CHANNEL 2 --
+Line model histogram:
+[80868 15539  2901   533   119    25    14     1]
+0 spectral lines found
+
+-- 1144256360 CHANNEL 2 --
+Line model histogram:
+[80728 15547  3091   523   101    10]
+0 spectral lines found
+
+-- 1144278859 CHANNEL 2 --
+Line model histogram:
+[80762 15434  3055   607   121    13     6     1     1]
+0 spectral lines found
+
+-- 1144306712 CHANNEL 2 --
+Line model histogram:
+[80938 15424  3026   484   109    17     2]
+0 spectral lines found
+
+-- 1144332926 CHANNEL 2 --
+Line model histogram:
+[81134 15306  2943   519    94     3     1]
+0 spectral lines found
+
+-- 1144450453 CHANNEL 2 --
+Line model histogram:
+[81034 15605  2806   463    83     8     1]
+0 spectral lines found
+
+-- 1144457007 CHANNEL 2 --
+Line model histogram:
+[80867 15478  3056   496    83    18     2]
+0 spectral lines found
+
+-- 1144495890 CHANNEL 2 --
+Line model histogram:
+[81210 15483  2711   476   100    19     1]
+0 spectral lines found
+
+-- 1144606863 CHANNEL 2 --
+Line model histogram:
+[80540 15804  3046   482   118     7     3]
+0 spectral lines found
+
+-- 1144019669 CHANNEL 3 --
+Line model histogram:
+[77594 17670  3710   786   182    42     6     8     2]
+0 spectral lines found
+
+-- 1144054076 CHANNEL 3 --
+Line model histogram:
+[77907 17579  3589   711   178    34     2]
+0 spectral lines found
+
+-- 1144083128 CHANNEL 3 --
+Line model histogram:
+[77601 17542  3824   833   160    38     2]
+0 spectral lines found
+
+-- 1144084767 CHANNEL 3 --
+Line model histogram:
+[77931 17472  3655   766   149    22     5]
+0 spectral lines found
+
+-- 1144158495 CHANNEL 3 --
+Line model histogram:
+[78109 17244  3648   746   207    33    12     1]
+0 spectral lines found
+
+-- 1144187547 CHANNEL 3 --
+Line model histogram:
+[77986 17599  3447   794   137    30     6     1]
+0 spectral lines found
+
+-- 1144200655 CHANNEL 3 --
+Line model histogram:
+[77538 17656  3772   825   180    27     2]
+0 spectral lines found
+
+-- 1144238338 CHANNEL 3 --
+Line model histogram:
+[77795 17574  3545   836   223    23     4]
+0 spectral lines found
+
+-- 1144246530 CHANNEL 3 --
+Line model histogram:
+[77769 17577  3621   796   211    22     4]
+0 spectral lines found
+
+-- 1144248168 CHANNEL 3 --
+Line model histogram:
+[77692 17488  3762   829   203    20     5     1]
+0 spectral lines found
+
+-- 1144251445 CHANNEL 3 --
+Line model histogram:
+[77328 17815  3815   815   182    39     6]
+0 spectral lines found
+
+-- 1144256360 CHANNEL 3 --
+Line model histogram:
+[77427 17724  3784   818   198    41     8]
+0 spectral lines found
+
+-- 1144278859 CHANNEL 3 --
+Line model histogram:
+[77911 17558  3571   738   170    39    12     0     0     1]
+0 spectral lines found
+
+-- 1144306712 CHANNEL 3 --
+Line model histogram:
+[77721 17626  3654   782   179    31     7]
+0 spectral lines found
+
+-- 1144332926 CHANNEL 3 --
+Line model histogram:
+[77575 17739  3659   809   183    33     2]
+0 spectral lines found
+
+-- 1144450453 CHANNEL 3 --
+Line model histogram:
+[78000 17450  3595   745   163    38     9]
+0 spectral lines found
+
+-- 1144457007 CHANNEL 3 --
+Line model histogram:
+[77471 17609  3849   842   184    34    11]
+0 spectral lines found
+
+-- 1144495890 CHANNEL 3 --
+Line model histogram:
+[77756 17286  3922   815   187    30     3     0     1]
+0 spectral lines found
+
+-- 1144606863 CHANNEL 3 --
+Line model histogram:
+[77471 17526  3874   889   205    30     5]
+0 spectral lines found
+
+Spectral line modal frequencies:
+[0.00325237 0.06958186]
+-- 1144019669 CHANNEL 4 --
+Line model histogram:
+[  208 15145 46328 24835  9325  3013   839   214    83    10]
+2 spectral lines found
+Line parameter summary:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1144019669 0    FREQ       3.083921e-03  3.176466e-03  3.318468e-03  3.477671e-03  3.622652e-03
+                        AMP        1.376093e-20  6.120118e-20  2.806599e-18  8.814658e-16  6.181834e-14
+                        QF         2.538548e+02  9.710475e+02  3.365860e+03  7.976403e+03  6.145856e+04
+                   1    FREQ       5.163768e-03  6.932751e-02  6.969780e-02  6.999729e-02  5.822281e-01
+                        AMP        2.190500e-20  5.615565e-18  1.205257e-14  3.402709e-09  1.776724e-03
+                        QF         1.881758e+02  2.769589e+03  4.487619e+04  2.407955e+05  2.943749e+06
+
+-- 1144054076 CHANNEL 4 --
+Line model histogram:
+[56486 31728  9027  2169   461   103    22     3     1]
+0 spectral lines found
+
+-- 1144083128 CHANNEL 4 --
+Line model histogram:
+[13583 59692 20126  5140  1152   260    42     5]
+1 spectral lines found
+Line parameter summary:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1144083128 0    FREQ       3.095243e-03  3.226772e-03  3.393941e-03  3.535876e-03  3.657126e-03
+                        AMP        1.911191e-20  4.953613e-18  3.376061e-13  1.645977e-11  8.361284e-07
+                        QF         2.076100e+02  2.927245e+03  1.099960e+04  2.442362e+04  1.377210e+05
+
+Spectral line modal frequencies:
+[0.0030964 0.005185 ]
+-- 1144084767 CHANNEL 4 --
+Line model histogram:
+[30199  5598 35720 18912  6912  2110   458    66    22     3]
+2 spectral lines found
+Line parameter summary:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1144084767 0    FREQ       3.059865e-03  3.116037e-03  3.297763e-03  3.498759e-03  3.646829e-03
+                        AMP        2.011528e-20  7.268084e-16  1.330055e-13  2.946435e-04  3.788889e-03
+                        QF         2.758501e+02  6.046704e+03  2.537945e+04  6.205130e+04  4.410830e+05
+                   1    FREQ       5.054976e-03  5.240162e-03  5.355507e-03  5.438537e-03  5.488976e-03
+                        AMP        1.153580e-19  5.241721e-19  2.977849e-18  2.481814e-17  1.056211e-14
+                        QF         2.119971e+02  4.239007e+02  8.677203e+02  1.819542e+03  4.176186e+03
+
+-- 1144158495 CHANNEL 4 --
+Line model histogram:
+[70379 13708  9883  4184  1387   368    75    12     4]
+0 spectral lines found
+
+Spectral line modal frequencies:
+[0.00330875 0.06980055]
+-- 1144187547 CHANNEL 4 --
+Line model histogram:
+[ 1423 20613 46352 22064  7105  1882   462    77    16     6]
+2 spectral lines found
+Line parameter summary:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1144187547 0    FREQ       3.116970e-03  3.188633e-03  3.369307e-03  3.545630e-03  4.196364e-01
+                        AMP        2.326847e-20  1.637090e-18  3.111801e-13  1.659726e-10  5.763194e-07
+                        QF         2.480923e+02  2.670393e+03  1.223186e+04  3.562482e+04  8.023114e+05
+                   1    FREQ       6.950000e-02  6.966522e-02  6.979094e-02  6.998008e-02  2.463165e-01
+                        AMP        9.251940e-20  8.195921e-16  2.589082e-13  9.582945e-06  2.039395e-02
+                        QF         3.390721e+02  1.565088e+04  8.348518e+04  3.668893e+05  1.656331e+06
+
+-- 1144200655 CHANNEL 4 --
+Line model histogram:
+[ 2037 52612 30247 10846  3178   842   174    53     8     3]
+1 spectral lines found
+Line parameter summary:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1144200655 0    FREQ       3.141315e-03  3.291378e-03  3.432247e-03  3.562866e-03  3.661728e-03
+                        AMP        1.692486e-20  1.092737e-19  3.863971e-18  1.771071e-14  5.743361e-08
+                        QF         1.753696e+02  5.995005e+02  3.095860e+03  9.438028e+03  3.151275e+04
+
+-- 1144238338 CHANNEL 4 --
+Line model histogram:
+[79838 16263  3158   582   133    26]
+0 spectral lines found
+
+-- 1144246530 CHANNEL 4 --
+Line model histogram:
+[82789 14247  2500   383    65    14     2]
+0 spectral lines found
+
+-- 1144248168 CHANNEL 4 --
+Line model histogram:
+[75574 19204  4180   817   198    24     2     1]
+0 spectral lines found
+
+-- 1144251445 CHANNEL 4 --
+Line model histogram:
+[  127 68318 23682  6099  1442   272    51     7     2]
+1 spectral lines found
+Line parameter summary:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1144251445 0    FREQ       2.495899e-03  2.607136e-03  2.759928e-03  2.902483e-03  3.020604e-03
+                        AMP        2.330723e-20  9.690833e-17  3.486755e-14  7.487836e-12  5.247292e-09
+                        QF         5.088283e+02  4.764870e+03  8.904061e+03  1.709227e+04  5.726625e+04
+
+-- 1144256360 CHANNEL 4 --
+Line model histogram:
+[62895 27397  7690  1573   349    78    14     3     1]
+0 spectral lines found
+
+-- 1144278859 CHANNEL 4 --
+Line model histogram:
+[82143 14934  2405   415    77    23     3]
+0 spectral lines found
+
+-- 1144306712 CHANNEL 4 --
+Line model histogram:
+[77400 17829  3796   768   181    24     2]
+0 spectral lines found
+
+-- 1144332926 CHANNEL 4 --
+Line model histogram:
+[81913 14888  2562   535    85    12     1     2     2]
+0 spectral lines found
+
+-- 1144450453 CHANNEL 4 --
+Line model histogram:
+[71309 21862  5335  1174   265    52     3]
+0 spectral lines found
+
+-- 1144457007 CHANNEL 4 --
+Line model histogram:
+[ 4740 65338 22473  5772  1310   299    56    12]
+1 spectral lines found
+Line parameter summary:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1144457007 0    FREQ       2.466348e-03  2.584608e-03  2.744015e-03  2.891992e-03  3.023897e-03
+                        AMP        1.527862e-20  1.751752e-19  4.627664e-15  1.330199e-13  4.379547e-10
+                        QF         2.289102e+02  1.517704e+03  6.367733e+03  1.356824e+04  1.836587e+05
+
+-- 1144495890 CHANNEL 4 --
+Line model histogram:
+[  354 61817 26598  8363  2226   486   111    42     3]
+1 spectral lines found
+Line parameter summary:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1144495890 0    FREQ       6.946784e-02  6.962291e-02  6.971027e-02  6.985844e-02  7.012124e-02
+                        AMP        3.543403e-20  1.922068e-18  8.450192e-15  9.523135e-11  3.991475e-02
+                        QF         1.954080e+02  1.321849e+03  5.232367e+04  2.188383e+05  1.140776e+06
+
+-- 1144606863 CHANNEL 4 --
+Line model histogram:
+[68478 23872  6079  1235   266    63     7]
+0 spectral lines found
+
+-- 1144019669 CHANNEL 5 --
+Line model histogram:
+[82017 15045  2437   418    80     3]
+0 spectral lines found
+
+-- 1144054076 CHANNEL 5 --
+Line model histogram:
+[82234 14816  2462   416    67     5]
+0 spectral lines found
+
+-- 1144083128 CHANNEL 5 --
+Line model histogram:
+[81183 15612  2599   517    77    12]
+0 spectral lines found
+
+-- 1144084767 CHANNEL 5 --
+Line model histogram:
+[82506 14788  2183   415   102     6]
+0 spectral lines found
+
+-- 1144158495 CHANNEL 5 --
+Line model histogram:
+[51776 34649 10448  2558   487    71    10     1]
+0 spectral lines found
+
+-- 1144187547 CHANNEL 5 --
+Line model histogram:
+[81996 14995  2552   377    70    10]
+0 spectral lines found
+
+-- 1144200655 CHANNEL 5 --
+Line model histogram:
+[81669 15160  2566   501    92     6     6]
+0 spectral lines found
+
+-- 1144238338 CHANNEL 5 --
+Line model histogram:
+[82067 14945  2474   435    72     7]
+0 spectral lines found
+
+-- 1144246530 CHANNEL 5 --
+Line model histogram:
+[80746 15701  2940   523    85     5]
+0 spectral lines found
+
+-- 1144248168 CHANNEL 5 --
+Line model histogram:
+[81851 14950  2681   427    78    10     3]
+0 spectral lines found
+
+-- 1144251445 CHANNEL 5 --
+Line model histogram:
+[81383 15417  2678   452    62     8]
+0 spectral lines found
+
+-- 1144256360 CHANNEL 5 --
+Line model histogram:
+[81544 15304  2577   467    89    19]
+0 spectral lines found
+
+-- 1144278859 CHANNEL 5 --
+Line model histogram:
+[81824 15025  2644   425    75     7]
+0 spectral lines found
+
+-- 1144306712 CHANNEL 5 --
+Line model histogram:
+[81524 15217  2649   524    68    18]
+0 spectral lines found
+
+-- 1144332926 CHANNEL 5 --
+Line model histogram:
+[78766 16977  3393   698   146    19     1]
+0 spectral lines found
+
+-- 1144450453 CHANNEL 5 --
+Line model histogram:
+[81924 14959  2532   475    94    11     2     2     1]
+0 spectral lines found
+
+-- 1144457007 CHANNEL 5 --
+Line model histogram:
+[80975 15750  2696   460   100    17     1     1]
+0 spectral lines found
+
+-- 1144495890 CHANNEL 5 --
+Line model histogram:
+[81819 14906  2602   541   103    14    10     3     1     1]
+0 spectral lines found
+
+-- 1144606863 CHANNEL 5 --
+Line model histogram:
+[82340 14788  2374   408    71    18     1]
+0 spectral lines found
+
+All summaries:
+PERCENTILE                                    5            25            50            75            95
+CHANNEL TIME       LINE PARAMETER                                                                      
+0       1144019669 0    FREQ       3.109105e-03  3.276242e-03  3.447747e-03  3.600277e-03  6.069395e-01
+                        AMP        2.297805e-20  6.896309e-19  3.112925e-17  1.567709e-15  9.473255e-07
+                        QF         4.034040e+02  3.040976e+03  6.413274e+03  1.702198e+04  5.666538e+06
+        1144187547 0    FREQ       3.130568e-03  3.252289e-03  3.386359e-03  3.526191e-03  3.636477e-03
+                        AMP        1.998365e-20  9.748106e-18  5.850637e-15  4.189837e-13  1.076136e-11
+                        QF         4.565067e+02  4.203414e+03  9.354636e+03  1.568738e+04  3.713106e+04
+        1144200655 0    FREQ       3.138683e-03  3.276782e-03  3.436665e-03  3.581319e-03  4.215415e-01
+                        AMP        6.058630e-20  9.014384e-17  3.479856e-15  9.952487e-13  1.213772e-06
+                        QF         1.438062e+03  5.595668e+03  1.006525e+04  2.096648e+04  1.378306e+06
+2       1144084767 0    FREQ       5.542076e-02  5.560394e-02  5.576479e-02  5.599541e-02  5.102088e-01
+                        AMP        5.391091e-20  6.354804e-17  2.701691e-14  1.663468e-10  1.359287e-05
+                        QF         2.400356e+02  4.636840e+03  4.773900e+04  1.473063e+05  8.852941e+05
+4       1144019669 0    FREQ       3.083921e-03  3.176466e-03  3.318468e-03  3.477671e-03  3.622652e-03
+                        AMP        1.376093e-20  6.120118e-20  2.806599e-18  8.814658e-16  6.181834e-14
+                        QF         2.538548e+02  9.710475e+02  3.365860e+03  7.976403e+03  6.145856e+04
+                   1    FREQ       5.163768e-03  6.932751e-02  6.969780e-02  6.999729e-02  5.822281e-01
+                        AMP        2.190500e-20  5.615565e-18  1.205257e-14  3.402709e-09  1.776724e-03
+                        QF         1.881758e+02  2.769589e+03  4.487619e+04  2.407955e+05  2.943749e+06
+        1144083128 0    FREQ       3.095243e-03  3.226772e-03  3.393941e-03  3.535876e-03  3.657126e-03
+                        AMP        1.911191e-20  4.953613e-18  3.376061e-13  1.645977e-11  8.361284e-07
+                        QF         2.076100e+02  2.927245e+03  1.099960e+04  2.442362e+04  1.377210e+05
+        1144084767 0    FREQ       3.059865e-03  3.116037e-03  3.297763e-03  3.498759e-03  3.646829e-03
+                        AMP        2.011528e-20  7.268084e-16  1.330055e-13  2.946435e-04  3.788889e-03
+                        QF         2.758501e+02  6.046704e+03  2.537945e+04  6.205130e+04  4.410830e+05
+                   1    FREQ       5.054976e-03  5.240162e-03  5.355507e-03  5.438537e-03  5.488976e-03
+                        AMP        1.153580e-19  5.241721e-19  2.977849e-18  2.481814e-17  1.056211e-14
+                        QF         2.119971e+02  4.239007e+02  8.677203e+02  1.819542e+03  4.176186e+03
+        1144187547 0    FREQ       3.116970e-03  3.188633e-03  3.369307e-03  3.545630e-03  4.196364e-01
+                        AMP        2.326847e-20  1.637090e-18  3.111801e-13  1.659726e-10  5.763194e-07
+                        QF         2.480923e+02  2.670393e+03  1.223186e+04  3.562482e+04  8.023114e+05
+                   1    FREQ       6.950000e-02  6.966522e-02  6.979094e-02  6.998008e-02  2.463165e-01
+                        AMP        9.251940e-20  8.195921e-16  2.589082e-13  9.582945e-06  2.039395e-02
+                        QF         3.390721e+02  1.565088e+04  8.348518e+04  3.668893e+05  1.656331e+06
+        1144200655 0    FREQ       3.141315e-03  3.291378e-03  3.432247e-03  3.562866e-03  3.661728e-03
+                        AMP        1.692486e-20  1.092737e-19  3.863971e-18  1.771071e-14  5.743361e-08
+                        QF         1.753696e+02  5.995005e+02  3.095860e+03  9.438028e+03  3.151275e+04
+        1144251445 0    FREQ       2.495899e-03  2.607136e-03  2.759928e-03  2.902483e-03  3.020604e-03
+                        AMP        2.330723e-20  9.690833e-17  3.486755e-14  7.487836e-12  5.247292e-09
+                        QF         5.088283e+02  4.764870e+03  8.904061e+03  1.709227e+04  5.726625e+04
+        1144457007 0    FREQ       2.466348e-03  2.584608e-03  2.744015e-03  2.891992e-03  3.023897e-03
+                        AMP        1.527862e-20  1.751752e-19  4.627664e-15  1.330199e-13  4.379547e-10
+                        QF         2.289102e+02  1.517704e+03  6.367733e+03  1.356824e+04  1.836587e+05
+        1144495890 0    FREQ       6.946784e-02  6.962291e-02  6.971027e-02  6.985844e-02  7.012124e-02
+                        AMP        3.543403e-20  1.922068e-18  8.450192e-15  9.523135e-11  3.991475e-02
+                        QF         1.954080e+02  1.321849e+03  5.232367e+04  2.188383e+05  1.140776e+06
