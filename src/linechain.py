@@ -8,6 +8,7 @@ import pandas as pd
 import numpy as np
 
 import time_functions as tf
+import plot
 
 def get_counts(lc_file):
     '''
@@ -144,8 +145,7 @@ def summarize_linechain(time_dir, channel, log_file=None):
     model = counts.argmax()
     
     # Initialize summary DataFrame
-    percentiles = np.array([5, 25, 50, 75, 95])
-    cols = pd.Series(percentiles.astype('str'), name='PERCENTILE')
+    cols = pd.Series([5, 25, 50, 75, 95], name='PERCENTILE')
     parameters = ['FREQ', 'AMP', 'QF']
     summary = pd.DataFrame([], columns=cols)
     
@@ -158,14 +158,14 @@ def summarize_linechain(time_dir, channel, log_file=None):
             params = sort_params(params, log_file)
     
         # Summary statistics
-        p_array = np.percentile(params, percentiles, axis=0)
+        percentiles = np.percentile(params, cols, axis=0)
         # Transpose to index as [line, param, index]
-        p_array = np.transpose(p_array, axes=(1,2,0))
+        percentiles = np.transpose(percentiles, axes=(1,2,0))
         midx = pd.MultiIndex.from_product(
             [[channel], [time], list(range(model)), parameters],
             names=['CHANNEL', 'TIME', 'LINE', 'PARAMETER']
         )
-        summary = pd.DataFrame(np.vstack(p_array), columns=cols, index=midx)
+        summary = pd.DataFrame(np.vstack(percentiles), columns=cols, index=midx)
     
     # Write to log file
     if log_file:
@@ -243,6 +243,8 @@ def main():
         # Directories
         output_dir = os.path.join('out', run)
         if not os.path.exists(output_dir): os.makedirs(output_dir)
+        plot_dir = os.path.join('out', run, 'plots')
+        if not os.path.exists(plot_dir): os.makedirs(plot_dir)
         # Output files
         summary_file = os.path.join(output_dir, 'linechain.pkl')
         log_file = os.path.join(output_dir, 'linechain.log')
@@ -252,7 +254,15 @@ def main():
             over = input('Found linechain.pkl for this run. Overwrite? (y/N) ')
             gen_new = True if over == 'y' else False
         if gen_new:
-            save_summary(run, summary_file, log_file)
+            df = save_summary(run, summary_file, log_file)
+        else:
+            df = pd.read_pickle(summary_file)
+        
+        # Plot
+        for channel in df.index.unique(level='CHANNEL'):
+            for param in df.index.unique(level='PARAMETER'):
+                plot_file = os.path.join(plot_dir, f'line{param.lower()}{channel}.png')
+                plot.linechain(df, 'FREQ', run, channel, plot_file=plot_file, show=False)
 
 if __name__ == '__main__':
     main()

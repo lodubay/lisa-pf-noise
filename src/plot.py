@@ -1,12 +1,11 @@
+import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.colors
-import corner
-import numpy as np
-import pandas as pd
+
 import time_functions as tf
 import psd
-from chainconsumer import ChainConsumer
     
 def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     '''
@@ -103,7 +102,7 @@ def colormap(fig, ax, psd, cmap, vlims=None, cbar_label=None, center=None):
     ax.set_yscale('log')
     ax.set_ylim(bottom=1e-3, top=1.)
     # Axis labels
-    ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
+    ax.set_xlabel(f'Days elapsed since {start_date} UTC')
     ax.set_ylabel('Frequency (Hz)')
     # Add and label colorbar
     cbar = fig.colorbar(im, ax=ax)
@@ -298,80 +297,28 @@ def save_time_slices(run, channel, summary, times, plot_file, show=True,
     if show: plt.show()
     else: plt.close()
 
-def line_params(line_df, logx=True):
-    logx=False
-    vals = line_df['QF']
-    if logx: bins = np.logspace(np.log10(min(vals)), np.log10(max(vals)), 100)
-    else: bins = np.linspace(min(vals), max(vals), 100)
-    print(max(vals))
-    plt.hist(vals, bins)
-    plt.xlabel('Frequency (Hz)')
-    plt.ylabel('Count')
-    if logx: plt.xscale('log')
-    plt.show()
-
-def line_params_corner(line_df):
-    #plt.scatter(line_df['FREQ'], line_df['AMP'])
-    line_df['AMP'] = np.log(line_df['AMP'])
-    line_df['QF'] = np.log(line_df['QF'])
-    corner.corner(line_df)#, range=[(0, 0.005), (0, 1e-19), (0, 5000)])
-    plt.show()
-
-def chain_consumer(line_df):
-    c = ChainConsumer().add_chain(line_df.to_numpy(), parameters=['FREQ', 'AMP',
-        'QF'], kde=False, cloud=False, shade=False)
-    #rng = [(0, 0.1), (0, 0.2), (0, 5e6)]
-    #rng = [(0, 0.08), (0, 1e-19), (0, 5000)]
-    fig = c.plotter.plot()
-    plt.show()
-
-def line_chain(line_df, column):
-    fig, axs = plt.subplots(2, 1)
-    # First spectral line
-    axs[0].set_title('Spectral line at ' + str(line_df.loc[0,'FREQ'].median()) + ' Hz')    
-    axs[0].scatter(line_df.loc[0].index, line_df.loc[0,column], color='r', marker='.', alpha=0.5)
-    # Medians
-    axs[0].axhline(line_df.loc[0,column].median(), color='pink')
-    # 90% CIs
-    axs[0].axhspan(np.percentile(line_df.loc[0,column], 5), 
-        np.percentile(line_df.loc[0,column], 95),
-        color='r', alpha=0.2
-    )
-    axs[0].set_ylim(np.percentile(line_df.loc[0,column], 1),
-        np.percentile(line_df.loc[0,column], 99)
-    )
-    # Second spectral line
-    axs[1].set_title('Spectral line at ' + str(line_df.loc[1,'FREQ'].median()) + ' Hz')    
-    axs[1].scatter(line_df.loc[1].index, line_df.loc[1,column], color='b', marker='.', alpha=0.5)
-    axs[1].axhline(line_df.loc[1,column].median(), color='cyan')
-    axs[1].axhspan(np.percentile(line_df.loc[1,column], 5), 
-        np.percentile(line_df.loc[1,column], 95),
-        color='b', alpha=0.2
-    )
-    axs[1].set_ylim(np.percentile(line_df.loc[1,column], 1),
-        np.percentile(line_df.loc[1,column], 99)
-    )
-    fig.suptitle(column)
-    plt.show()
-
-def line_param(summary, param, run, channel):
+def linechain(summary, param, run, channel, plot_file=None, show=True):
+    df = summary.loc[channel, :, :, param]
+    # Get start date in UTC
+    start_date = tf.gps2iso(int(df.index.get_level_values('TIME')[0]))
+    # Change columns from GPS time to days elapsed from start of run
+    dates = tf.gps2day_list(df.index.get_level_values('TIME'))
     # 90% error bars
-    plt.errorbar(summary.index, summary[param+'_P50'], 
-        yerr=([summary[param+'_P50'] - summary[param+'_P10'], 
-            summary[param+'_P50'] + summary[param+'_P90']
-        ]), 
+    plt.errorbar(dates, 
+        df[50], yerr=([df[50] - df[5], df[95] - df[50]]), 
         ls='', marker='', capsize=3, alpha=0.2, ecolor='b'
     )
     # Median and 50% error bars
-    plt.errorbar(summary.index, summary[param+'_P50'], 
-        yerr=([summary[param+'_P50'] - summary[param+'_P25'], 
-            summary[param+'_P50'] + summary[param+'_P75']
-        ]), 
-        ls='', marker='.', capsize=5, color='b'
+    plt.errorbar(dates, 
+        df[50], yerr=([df[50] - df[25], df[75] - df[50]]),  
+        ls='', marker='.', capsize=5, ecolor='b'
     )
-    plt.xlabel('Time')
+    plt.xlabel(f'Days elapsed since {start_date} UTC')
     plt.ylabel(param)
     plt.yscale('log')
-    plt.title(run + ' channel ' + str(channel) + ' spectral line ' + param + ' over time')
-    plt.show()
+    plt.title(f'{run} channel {channel} spectral line {param} over time')
+    if plot_file:
+        plt.savefig(plot_file)
+    if show: plt.show()
+    else: plt.close()
 

@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 import os
 import glob
@@ -47,7 +47,7 @@ def import_time(time_dir):
     # Round frequency index to 5 decimals to deal with floating point issues
     time_data.index = pd.MultiIndex.from_product(
         [channels, [time],
-            np.around(time_data.index.get_level_values('FREQ').unique(), 6)], 
+            np.around(time_data.index.unique(level='FREQ'), 6)], 
         names=['CHANNEL', 'TIME', 'FREQ']
     )
     # Strip rows of 2s
@@ -112,7 +112,7 @@ def save_summary(run, summary_file):
 
     summaries = pd.concat(summaries)
     # List of GPS times from index
-    gps_times = summaries.index.get_level_values('TIME').unique()
+    gps_times = summaries.index.unique(level='TIME')
     # Median time step
     dt = int(np.median(
         [gps_times[i+1] - gps_times[i] for i in range(len(gps_times) - 1)]
@@ -128,8 +128,8 @@ def save_summary(run, summary_file):
             # List of missing times, with same time interval
             missing_times = [gps_times[i] + dt * k for k in range(1, n + 1)]
             # Create new MultiIndex for empty DataFrame
-            channels = summaries.index.get_level_values('CHANNEL').unique()
-            frequencies = summaries.index.get_level_values('FREQ').unique()
+            channels = summaries.index.unique(level='CHANNEL')
+            frequencies = summaries.index.unique(level='FREQ')
             midx = pd.MultiIndex.from_product(
                 [channels, missing_times, frequencies],
                 names=['CHANNEL', 'TIME', 'FREQ']
@@ -147,7 +147,7 @@ def get_exact_freq(summary, approx_freq):
     Takes an approximate input frequency and returns the closest measured
     frequency in the data.
     '''
-    gps_times = list(summary.index.get_level_values('TIME').unique())
+    gps_times = list(summary.index.unique(level='TIME'))
     freqs = list(summary.xs(gps_times[0]).index)
     freq_index = round(approx_freq / (max(freqs) - min(freqs)) * len(freqs))
     return freqs[freq_index]
