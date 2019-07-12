@@ -440,7 +440,7 @@ Line model histogram:
 [ 9444 64115 20410  4784   945   215    72    12     3]
 1 spectral lines found
 Line parameter summary:
-PERCENTILE                                    5            25            50            75            95
+PERCENTILE                                   5             25            50            75            95
 CHANNEL TIME       LINE PARAMETER                                                                      
 0       1159866858 0    FREQ       6.612976e-01  6.614890e-01  6.617459e-01  6.618622e-01  6.620692e-01
                         AMP        1.045657e-17  2.704961e-16  9.317044e-15  1.089879e-12  1.730399e-07
@@ -3451,7 +3451,7 @@ Line model histogram:
 [15305 58550 19617  5090  1105   247    77     9]
 1 spectral lines found
 Line parameter summary:
-PERCENTILE                                    5            25            50            75            95
+PERCENTILE                                   5             25            50            75            95
 CHANNEL TIME       LINE PARAMETER                                                                      
 5       1159737425 0    FREQ       9.981145e-01  9.984766e-01  9.987392e-01  9.989205e-01  9.990941e-01
                         AMP        1.792748e-15  1.139367e-13  1.032083e-11  4.228898e-09  5.860794e-04
@@ -3482,7 +3482,7 @@ Line model histogram:
 [11042 61490 20865  5129  1141   266    49    16     1     1]
 1 spectral lines found
 Line parameter summary:
-PERCENTILE                                    5            25            50            75            95
+PERCENTILE                                   5             25            50            75            95
 CHANNEL TIME       LINE PARAMETER                                                                      
 5       1159745617 0    FREQ       9.988573e-01  9.990735e-01  9.992768e-01  9.994840e-01  9.996928e-01
                         AMP        1.286374e-15  4.073230e-14  3.195685e-12  1.786394e-09  5.758941e-04
@@ -4099,7 +4099,7 @@ Line model histogram:
 0 spectral lines found
 
 All summaries:
-PERCENTILE                                    5            25            50            75            95
+PERCENTILE                                   5             25            50            75            95
 CHANNEL TIME       LINE PARAMETER                                                                      
 0       1159866858 0    FREQ       6.612976e-01  6.614890e-01  6.617459e-01  6.618622e-01  6.620692e-01
                         AMP        1.045657e-17  2.704961e-16  9.317044e-15  1.089879e-12  1.730399e-07

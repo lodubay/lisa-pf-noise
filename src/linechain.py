@@ -158,7 +158,7 @@ def summarize_linechain(time_dir, channel, log_file=None):
             params = sort_params(params, log_file)
     
         # Summary statistics
-        percentiles = np.percentile(params, cols, axis=0)
+        percentiles = np.percentile(params, cols.to_numpy(), axis=0)
         # Transpose to index as [line, param, index]
         percentiles = np.transpose(percentiles, axes=(1,2,0))
         midx = pd.MultiIndex.from_product(
@@ -262,7 +262,7 @@ def main():
         for channel in df.index.unique(level='CHANNEL'):
             for param in df.index.unique(level='PARAMETER'):
                 plot_file = os.path.join(plot_dir, f'line{param.lower()}{channel}.png')
-                plot.linechain(df, 'FREQ', run, channel, plot_file=plot_file, show=False)
+                plot.linechain(df, param, run, channel, plot_file=plot_file, show=False)
 
 if __name__ == '__main__':
     main()
