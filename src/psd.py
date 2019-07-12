@@ -8,11 +8,11 @@ import numpy as np
 import pandas as pd
 from pymc3.stats import hpd
 
-import time_functions as tf
 import linechain as lc
 import plot
+import utils
 
-def import_time(time_dir):
+def import_time(run, time_dir):
     '''
     Import and combine all psd.dat files in a single time directory 
     for many channels. Assumes file name format 'psd.dat.#' and 'psd.dat.##'.
@@ -25,10 +25,8 @@ def import_time(time_dir):
       time_dir : relative path to the time directory
     '''
     time = int(time_dir[-11:-1])
-    # Channel names
-    channels = list(range(6))
     # Column names
-    cols = ['FREQ'] + channels
+    cols = ['FREQ'] + list(run.channels)
     # Sort so that (for example) psd.dat.2 is sorted before psd.dat.19
     psd_files = sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9]'))) + \
         sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9][0-9]')))
@@ -39,21 +37,21 @@ def import_time(time_dir):
             pf, sep=' ', usecols=range(len(cols)), names=cols, index_col=0
         )
         # Concatenate columns vertically
-        psd = pd.concat([psd[channel] for channel in channels])
+        psd = pd.concat([psd[channel] for channel in run.channels])
         time_data.append(psd)
     # Concatenate psd series horizontally
     time_data = pd.concat(time_data, axis=1, ignore_index=True)
     # Define MultiIndex
     # Round frequency index to 5 decimals to deal with floating point issues
     time_data.index = pd.MultiIndex.from_product(
-        [channels, [time],
+        [run.channels, [time],
             np.around(time_data.index.unique(level='FREQ'), 6)], 
         names=['CHANNEL', 'TIME', 'FREQ']
     )
     # Strip rows of 2s
     return time_data[time_data.iloc[:,0] < 2]
 
-def summarize_psd(time_dir):
+def summarize_psd(run, time_dir):
     '''
     Returns a DataFrame with the median and credible intervals for one time.
     Credible intervals are calculated using
@@ -66,7 +64,7 @@ def summarize_psd(time_dir):
       time_dir : relative path to the time directory
     '''
     # Import time data
-    time_data = import_time(time_dir)
+    time_data = import_time(run, time_dir)
     # Grab MultiIndex
     midx = time_data.index
     # Calculate HPDs
@@ -90,47 +88,31 @@ def save_summary(run, summary_file):
     
     Input
     -----
-      run : string, name of the run directory
+      run : Run object
     '''
-    # Get list of time directories within run directory
-    time_dirs = tf.get_time_dirs(run)
-    # Pull PSD files from target run
-    sys.stdout.write(f'Importing {run} psd files...   0%\b')
-    sys.stdout.flush()
-    steps = len(time_dirs)
+    # Set up progress indicator
+    p = utils.Progress(run.time_dirs, f'Importing {run.name} psd files...')
     # Concatenate DataFrames of all times; takes a while
     summaries = []
-    for i, d in enumerate(time_dirs):
-        summaries.append(summarize_psd(d))
+    for i, d in enumerate(run.time_dirs):
+        summaries.append(summarize_psd(run, d))
         # Update progress indicator
-        progress = str(int((i+1) / steps * 100))
-        sys.stdout.write('\b' * len(progress) + progress)
-        sys.stdout.flush()
-    # Finish progress indicator
-    sys.stdout.write('\n')
-    sys.stdout.flush()
+        p.update(i)
 
     summaries = pd.concat(summaries)
-    # List of GPS times from index
-    gps_times = summaries.index.unique(level='TIME')
-    # Median time step
-    dt = int(np.median(
-        [gps_times[i+1] - gps_times[i] for i in range(len(gps_times) - 1)]
-    ))
 
     # Check for time gaps and fill with NaN DataFrames
-    sys.stdout.write('Checking for time gaps...   0%\b')
-    sys.stdout.flush()
-    steps = len(gps_times) - 1
+    times = run.gps_times[:-1]
+    p = utils.Progress(times, 'Checking for time gaps...')
     N = 0
-    for i in range(steps):
-        diff = gps_times[i+1] - gps_times[i]
-        if diff > dt + 1:
+    for i, gps_time in enumerate(times):
+        diff = run.gps_times[i+1] - run.gps_times[i]
+        if diff > run.dt + 1:
             # Number of new times to insert
-            n = int(np.floor(diff / dt))
+            n = int(np.floor(diff / run.dt))
             N += n
             # List of missing times, with same time interval
-            missing_times = [gps_times[i] + dt * k for k in range(1, n + 1)]
+            missing_times = [times[i] + run.dt * k for k in range(1, n + 1)]
             # Create new MultiIndex for empty DataFrame
             channels = summaries.index.unique(level='CHANNEL')
             frequencies = summaries.index.unique(level='FREQ')
@@ -142,12 +124,7 @@ def save_summary(run, summary_file):
             filler = pd.DataFrame(columns=summaries.columns, index=midx)
             summaries = summaries.append(filler).sort_index(level=[0, 1, 2])
         # Update progress indicator
-        progress = str(int((i+1) / steps * 100))
-        sys.stdout.write('\b' * len(progress) + progress)
-        sys.stdout.flush()
-    # Finish progress indicator
-    sys.stdout.write('\n')
-    sys.stdout.flush()
+        p.update(i)
     print(f'Filled {N} missing times.')
     
     # Output to file
@@ -172,11 +149,12 @@ def main():
     if len(runs) == 0:
         runs = os.listdir('data')
     for run in runs:
-        print('\n-- ' + run + ' --')
+        run = utils.Run(run)
+        print(f'\n-- {run.name} --')
         # Directories
-        output_dir = os.path.join('out', run, 'summaries')
+        output_dir = os.path.join('out', run.name, 'summaries')
         if not os.path.exists(output_dir): os.makedirs(output_dir)
-        plot_dir = os.path.join('out', run, 'psd_plots')
+        plot_dir = os.path.join('out', run.name, 'psd_plots')
         if not os.path.exists(plot_dir): os.makedirs(plot_dir)
         # Output files
         summary_file = os.path.join(output_dir, 'psd.pkl')
@@ -194,7 +172,7 @@ def main():
             df = pd.read_pickle(summary_file)
 
         # Make plots
-        for channel in range(6):
+        for channel in run.channels:
             print('Plotting channel ' + str(channel) + '...')
             # Colormap
             cmap_file = os.path.join(plot_dir, f'colormap{channel}.png')
@@ -207,7 +185,6 @@ def main():
             # Time slices - representative sample
             # Time plot file name
             tslice_file = os.path.join(plot_dir, f'tslice{channel}.png')
-            gps_times = tf.get_gps_times(run)
             
             # Generate / import DataFrame of all times with spectral lines
             if os.path.exists(model_file):
@@ -220,10 +197,10 @@ def main():
             line_times = line_df[line_df.iloc[:,channel] > 0].index
             
             # Choose 6 times: beginning, end, and 4 evenly drawn from list
-            l = len(gps_times)
+            l = len(run.gps_times)
             indices = [int(i / 5 * l) for i in range(1,5)]
-            slice_times = sorted([gps_times[0], gps_times[-1]] +
-                [gps_times[i] for i in indices]
+            slice_times = sorted([run.gps_times[0], run.gps_times[-1]] +
+                [run.gps_times[i] for i in indices]
             )
             # Plot
             plot.save_time_slices(run, channel, df, slice_times, tslice_file,

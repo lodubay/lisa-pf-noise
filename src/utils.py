@@ -51,10 +51,35 @@ class Run:
         self.name = name
         run_dir = os.path.join(parent_dir, name)
         if os.path.exists(run_dir):
+            # Get time directories which contain the data
             self.time_dirs = sorted(glob.glob(os.path.join(run_dir, '*/')))
+            # Various time formats
             self.gps_times = np.array([int(d[-11:-1]) for d in self.time_dirs])
-            self.days_elapsed = (self.gps_times-self.gps_times[0]) / (60*60*24)
-            self.iso_dates = Time(Time(self.gps_times, format='gps'), format='iso')
+            self.days_elapsed = self.gps2day(self.gps_times)
+            self.iso_dates = self.gps2iso(self.gps_times)
+            # Median time step in seconds
+            self.dt = np.median(np.diff(self.gps_times))
         else:
             print(f'Could not find {name} in {parent_dir}!')
+        
+    def gps2day(self, gps_time):
+        ''' Convert GPS time to days elapsed since run start '''
+        return (gps_time - self.gps_times[0]) / (60*60*24)
+    
+    def day2gps(self, day):
+        return int(60 * 60 * 24 * day + self.gps_times[0])
+    
+    def gps2iso(self, gps_time):
+        ''' Convert GPS time to ISO date '''
+        gps_time = Time(gps_time, format='gps')
+        return Time(gps_time, format='iso')
+    
+    def get_exact_gps(self, approx_gps):
+        ''' Converts approximate day elapsed to exact GPS time '''
+        time_index = round(
+            (approx_gps - self.gps_times[0])
+            / (self.gps_times[-1] - self.gps_times[0]) 
+            * len(self.gps_times)
+        )
+        return self.gps_times[time_index]
 

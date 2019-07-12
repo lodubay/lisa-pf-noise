@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.colors
 
-import time_functions as tf
 import psd
+import utils
     
 def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     '''
@@ -52,7 +52,7 @@ def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     plt.register_cmap(cmap=newcmap)
     return newcmap
 
-def colormap(fig, ax, psd, cmap, vlims=None, cbar_label=None, center=None):
+def colormap(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, center=None):
     '''
     Function to plot the colormap of a PSD with frequency on the y-axis and
     time on the x-axis.
@@ -61,23 +61,18 @@ def colormap(fig, ax, psd, cmap, vlims=None, cbar_label=None, center=None):
     -----
       fig, ax : The figure and axes of the plot
       psd : The PSD, an unstacked DataFrame
+      run : Run object
       cmap : The unaltered color map to use
       vlims : A tuple of the color scale limits
       cbar_label : Color bar label
       center : The center value of a diverging colormap
     '''
     # Get start date in UTC
-    start_date = tf.gps2iso(int(psd.columns[0]))
+    start_date = run.iso_dates[0]
     # Change columns from GPS time to days elapsed from start of run
-    psd.columns = pd.Series(tf.gps2day(psd.columns), name='TIME')
-    # Median time step (in days)
-    dt = np.median(
-        [psd.columns[i] - psd.columns[i-1] for i in range(1, len(psd.columns))]
-    )
+    psd.columns = pd.Series(run.gps2day(psd.columns), name='TIME')
     # Median frequency step
-    df = np.median(
-        [psd.index[i] - psd.index[i-1] for i in range(1, len(psd.index))]
-    )
+    df = np.median(np.diff(psd.index))
     # Auto colormap scale
     if not vlims:
         med = psd.median(axis=1).median()
@@ -91,7 +86,7 @@ def colormap(fig, ax, psd, cmap, vlims=None, cbar_label=None, center=None):
             name='shifted colormap'
         )
     im = ax.pcolormesh(
-        list(psd.columns) + [psd.columns[-1] + dt],
+        list(psd.columns) + [psd.columns[-1] + run.dt],
         list(psd.index) + [psd.index[-1] + df],
         psd,
         cmap=cmap,
@@ -125,7 +120,7 @@ def all_psds(fig, ax, time_dir, channel, xlim=None, ylim=None):
     ax.set_xscale('log')
     ax.set_yscale('log')
     
-def freq_slice(fig, ax, freq, summary, color='b', ylim=None):
+def freq_slice(fig, ax, run, freq, summary, color='b', ylim=None):
     '''
     Plots time vs PSD at a specific frequency.
 
@@ -133,6 +128,7 @@ def freq_slice(fig, ax, freq, summary, color='b', ylim=None):
     -----
       fig, ax : the figure and axes of the plot
       freq : the approximate frequency along which to slice
+      run : Run object
       summary : the summary DataFrame
       color : the color of the plot, optional
       ylim : tuple of y axis bounds, optional
@@ -142,7 +138,7 @@ def freq_slice(fig, ax, freq, summary, color='b', ylim=None):
     # Slice along that frequency
     fslice = summary.xs(freq, level='FREQ')
     # Date stuff
-    days_elapsed = tf.gps2day(fslice.index)
+    days_elapsed = run.gps2day(fslice.index)
     # Plot 50% credible interval
     ax.fill_between(days_elapsed,
         fslice['CI_50_LO'],
@@ -216,22 +212,22 @@ def save_colormaps(run, channel, summary, plot_file, show=True):
     median = unstacked.median(axis=1)
     # Set up figure
     fig, axs = plt.subplots(1, 2, figsize=(14, 6))
-    fig.suptitle(run + ' channel ' + str(channel) + ' colormap')
+    fig.suptitle(f'{run.name} channel {channel} colormap')
     # Subplots
     axs[0].title.set_text('PSD(t) - PSD_median')
-    colormap(fig, axs[0], 
+    colormap(fig, axs[0], run,
         unstacked.sub(median, axis=0), 
         cmap=cm.get_cmap('coolwarm'),
         center=0.0,
         cbar_label='Absolute difference from reference PSD'
     )
     axs[1].title.set_text('|PSD(t) - PSD_median| / PSD_median')
-    colormap(fig, axs[1], 
+    colormap(fig, axs[1], run,
         abs(unstacked.sub(median, axis=0)).div(median, axis=0),
         cmap='PuRd',
         vlims=(0,1)
     )
-    print('Saving color plot for ' + run + ' channel ' + str(channel) + '...')
+    print(f'Saving color plot for {run.name} channel {channel}...')
     plt.savefig(plot_file)
     if show: plt.show()
     else: plt.close()
@@ -242,13 +238,13 @@ def save_freq_slices(run, channel, summary, plot_file, show=True,
     nrows = int(np.floor(len(frequencies) ** 0.5))
     ncols = int(np.ceil(1. * len(frequencies) / nrows))
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(run + ' channel ' + str(channel) + ' PSDs at selected frequencies')
-    start_date = tf.gps2iso(tf.get_gps_times(run)[0])
+    fig.suptitle(f'{run.name} channel {channel} PSDs at selected frequencies')
+    start_date = run.iso_dates[0]
     df = summary.loc[channel]
     # Subplots
     for i, freq in enumerate(frequencies):
         ax = fig.add_subplot(nrows, ncols, i+1)
-        freq_slice(fig, ax, frequencies[i], df)
+        freq_slice(fig, ax, run, frequencies[i], df)
         # Vertical axis label on first plot in each row
         if i % ncols == 0:
             ax.set_ylabel('PSD')
@@ -259,7 +255,7 @@ def save_freq_slices(run, channel, summary, plot_file, show=True,
     handles, labels = ax.get_legend_handles_labels()
     fig.legend(handles, labels)
     fig.tight_layout(w_pad=-1.0, rect=[0, 0, 1, 0.92])
-    print('Saving frequency plot for ' + run + ' channel ' + str(channel) + '...')
+    print(f'Saving frequency plot for {run.name} channel {channel}...')
     plt.savefig(plot_file)
     if show: plt.show()
     else: plt.close()
@@ -267,16 +263,14 @@ def save_freq_slices(run, channel, summary, plot_file, show=True,
 def save_time_slices(run, channel, summary, times, plot_file, show=True,
         time_format='gps', exact=True, logpsd=False):
     # Convert given times to gps if necessary
-    if time_format == 'day':
-        times = [tf.day2gps(run, t) for t in times]
+    if time_format == 'day': times = run.day2gps(times)
     # Find exact times if necessary
-    if not exact:
-        times = [tf.get_exact_gps(run, t) for t in times]
+    if not exact: times = run.get_exact_gps(times)
     # Automatically create grid of axes
     nrows = int(np.floor(float(len(times)) ** 0.5))
     ncols = int(np.ceil(1. * len(times) / nrows))
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(run + ' channel ' + str(channel) + ' PSDs at selected times')
+    fig.suptitle(f'{run.name} channel {channel} PSDs at selected times')
     df = summary.loc[channel]
     # Subplots
     for i, time in enumerate(times):
@@ -292,7 +286,7 @@ def save_time_slices(run, channel, summary, times, plot_file, show=True,
     handles, labels = ax.get_legend_handles_labels()
     fig.legend(handles, labels)
     fig.tight_layout(rect=[0, 0, 1, 0.92])
-    print('Saving frequency plot for ' + run + ' channel ' + str(channel) + '...')
+    print(f'Saving frequency plot for {run.name} channel {channel}...')
     plt.savefig(plot_file)
     if show: plt.show()
     else: plt.close()
@@ -300,9 +294,7 @@ def save_time_slices(run, channel, summary, times, plot_file, show=True,
 def linechain_scatter(summary, param, run, channel, plot_file=None, show=True):
     df = summary.loc[channel, :, :, param]
     # Get start date in UTC
-    start_date = tf.gps2iso(int(df.index.get_level_values('TIME')[0]))
-    # Change columns from GPS time to days elapsed from start of run
-    dates = tf.gps2day_list(df.index.get_level_values('TIME'))
+    start_date = run.iso_dates[0]
     '''
     # 90% error bars
     plt.errorbar(dates, 
@@ -316,13 +308,13 @@ def linechain_scatter(summary, param, run, channel, plot_file=None, show=True):
     )
     '''
     # 90% error bars
-    plt.errorbar(dates, 
+    plt.errorbar(run.days_elapsed, 
         df['MEDIAN'], 
         yerr=([df['MEDIAN'] - df['CI_90_LO'], df['CI_90_HI'] - df['MEDIAN']]), 
         ls='', marker='', capsize=3, alpha=0.2, ecolor='b'
     )
     # Median and 50% error bars
-    plt.errorbar(dates, 
+    plt.errorbar(run.days_elapsed, 
         df['MEDIAN'], 
         yerr=([df['MEDIAN'] - df['CI_50_LO'], df['CI_50_HI'] - df['MEDIAN']]), 
         ls='', marker='.', capsize=5, ecolor='b'
@@ -330,7 +322,7 @@ def linechain_scatter(summary, param, run, channel, plot_file=None, show=True):
     plt.xlabel(f'Days elapsed since {start_date} UTC')
     plt.ylabel(param)
     plt.yscale('log')
-    plt.title(f'{run} channel {channel} spectral line {param} over time')
+    plt.title(f'{run.name} channel {channel} spectral line {param} over time')
     if plot_file:
         plt.savefig(plot_file)
     if show: plt.show()
