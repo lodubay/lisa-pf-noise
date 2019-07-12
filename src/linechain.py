@@ -209,30 +209,16 @@ def save_summary(run, summary_file, log_file=None):
         with open(log_file, 'w+') as log:
             log.write('linechain.py log file for ' + run + '\n\n')
     
-    summaries = []
-    utils.progress(
-        list(itertools.product(range(6), time_dirs)),
-        summaries.append(summarize_linechain(item[1], item[0], log_file)),
-        f'Importing {run} linechain...'
-    )
-    '''
-    # Set up progress indicator
-    sys.stdout.write('Importing ' + run + ' linechain...   0%\b')
-    sys.stdout.flush()
-    steps = 6 * len(time_dirs)
     # Generate all summaries
+    all_lc = list(itertools.product(range(6), time_dirs))
     summaries = []
-    for i, t in enumerate(list(itertools.product(range(6), time_dirs))):
+    # Set up progress indicator
+    p = utils.Progress(all_lc, f'Importing {run} linechain...')
+    for i, t in enumerate(all_lc):
         channel, time_dir = t
         summaries.append(summarize_linechain(time_dir, channel, log_file))
-        # Update progress indicator
-        progress = str(int((i+1) / steps * 100))
-        sys.stdout.write('\b' * len(progress) + progress)
-        sys.stdout.flush()
-    # Finish progress indicator
-    sys.stdout.write('\n')
-    sys.stdout.flush()
-    '''
+        p.update(i)
+    
     # Combine summaries into one DataFrame
     summaries = pd.concat(summaries, axis=0)
     midx = pd.MultiIndex.from_tuples(
