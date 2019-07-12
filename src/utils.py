@@ -21,4 +21,20 @@ class Progress:
         # Terminate progress indicator; automatically called by self.update()
         sys.stdout.write('\n')
         sys.stdout.flush()
+
+class Log:
+    '''A class for outputting to a log file'''
+    def __init__(self, log_file=None, header='Log'):
+        self.log_file = log_file
+        if log_file:
+            print(f'Logging output to {log_file}')
+            with open(log_file, 'w+') as f:
+                f.write(header)
+                f.write('\n\n')
     
+    def log(self, message=''):
+        if self.log_file:
+            with open(self.log_file, 'a+') as f:
+                f.write(message)
+                f.write('\n')
+        
