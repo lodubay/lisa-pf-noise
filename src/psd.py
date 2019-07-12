@@ -95,7 +95,7 @@ def save_summary(run, summary_file):
     # Get list of time directories within run directory
     time_dirs = tf.get_time_dirs(run)
     # Pull PSD files from target run
-    sys.stdout.write('Importing ' + run + ' psd...   0%\b')
+    sys.stdout.write(f'Importing {run} psd files...   0%\b')
     sys.stdout.flush()
     steps = len(time_dirs)
     # Concatenate DataFrames of all times; takes a while
@@ -119,12 +119,16 @@ def save_summary(run, summary_file):
     ))
 
     # Check for time gaps and fill with NaN DataFrames
-    for i in range(len(gps_times) - 1):
+    sys.stdout.write('Checking for time gaps...   0%\b')
+    sys.stdout.flush()
+    steps = len(gps_times) - 1
+    N = 0
+    for i in range(steps):
         diff = gps_times[i+1] - gps_times[i]
         if diff > dt + 1:
             # Number of new times to insert
             n = int(np.floor(diff / dt))
-            print('Filling ' + str(n) + ' missing times...')
+            N += n
             # List of missing times, with same time interval
             missing_times = [gps_times[i] + dt * k for k in range(1, n + 1)]
             # Create new MultiIndex for empty DataFrame
@@ -137,8 +141,17 @@ def save_summary(run, summary_file):
             # Create empty DataFrame, append to summaries, and sort
             filler = pd.DataFrame(columns=summaries.columns, index=midx)
             summaries = summaries.append(filler).sort_index(level=[0, 1, 2])
+        # Update progress indicator
+        progress = str(int((i+1) / steps * 100))
+        sys.stdout.write('\b' * len(progress) + progress)
+        sys.stdout.flush()
+    # Finish progress indicator
+    sys.stdout.write('\n')
+    sys.stdout.flush()
+    print(f'Filled {N} missing times.')
+    
     # Output to file
-    print('Writing to ' + summary_file + '...')
+    print(f'Writing to {summary_file}...')
     summaries.to_pickle(summary_file)
     return summaries
 
@@ -153,17 +166,21 @@ def get_exact_freq(summary, approx_freq):
     return freqs[freq_index]
 
 def main():
+    # Get all runs to use from the command line.
     runs = sys.argv[1:]
+    # Defaults to all available runs
+    if len(runs) == 0:
+        runs = os.listdir('data')
     for run in runs:
         print('\n-- ' + run + ' --')
         # Directories
-        output_dir = os.path.join('out', run)
+        output_dir = os.path.join('out', run, 'summaries')
         if not os.path.exists(output_dir): os.makedirs(output_dir)
-        plot_dir = os.path.join('out', run, 'plots')
+        plot_dir = os.path.join('out', run, 'psd_plots')
         if not os.path.exists(plot_dir): os.makedirs(plot_dir)
         # Output files
         summary_file = os.path.join(output_dir, 'psd.pkl')
-        model_file = os.path.join(output_dir, 'line_evidence.dat')
+        model_file = os.path.join(output_dir, 'linecounts.dat')
         # Confirm to overwrite if summary already exists
         gen_new = True
         if os.path.exists(summary_file):
@@ -180,16 +197,16 @@ def main():
         for channel in range(6):
             print('Plotting channel ' + str(channel) + '...')
             # Colormap
-            cmap_file = os.path.join(plot_dir, 'colormap' + str(channel) + '.png')
+            cmap_file = os.path.join(plot_dir, f'colormap{channel}.png')
             plot.save_colormaps(run, channel, df, cmap_file, show=False)
 
             # Frequency slices
-            fslice_file = os.path.join(plot_dir, 'fslice' + str(channel) + '.png')
+            fslice_file = os.path.join(plot_dir, f'fslice{channel}.png')
             plot.save_freq_slices(run, channel, df, fslice_file, show=False)
             
             # Time slices - representative sample
             # Time plot file name
-            tslice_file = os.path.join(plot_dir, 'tslice' + str(channel) + '.png')
+            tslice_file = os.path.join(plot_dir, f'tslice{channel}.png')
             gps_times = tf.get_gps_times(run)
             
             # Generate / import DataFrame of all times with spectral lines
@@ -200,7 +217,7 @@ def main():
                 print('No line evidence file found. Generating...')
                 line_df = lc.gen_model_df(run, model_file)
             # Return list of times
-            line_times = df[df.iloc[:,channel] > 0].index
+            line_times = line_df[line_df.iloc[:,channel] > 0].index
             
             # Choose 6 times: beginning, end, and 4 evenly drawn from list
             l = len(gps_times)
@@ -215,7 +232,7 @@ def main():
             
             # Time slices - all spectral lines
             if len(line_times) > 0:
-                tslice_file = os.path.join(plot_dir, 'tslice_lines'+str(channel)+'.png')
+                tslice_file = os.path.join(plot_dir, f'tslice_lines{channel}.png')
                 plot.save_time_slices(run, channel, df, line_times, tslice_file,
                     time_format='gps', exact=True, show=False, logpsd=True
                 )

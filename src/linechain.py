@@ -6,6 +6,7 @@ import itertools
 
 import pandas as pd
 import numpy as np
+from pymc3.stats import hpd
 
 import time_functions as tf
 import plot
@@ -145,7 +146,8 @@ def summarize_linechain(time_dir, channel, log_file=None):
     model = counts.argmax()
     
     # Initialize summary DataFrame
-    cols = pd.Series([5, 25, 50, 75, 95], name='PERCENTILE')
+    #cols = pd.Series([5, 25, 50, 75, 95], name='PERCENTILE')
+    cols = pd.Series(['MEDIAN', 'CI_50_LO', 'CI_50_HI', 'CI_90_LO', 'CI_90_HI'])
     parameters = ['FREQ', 'AMP', 'QF']
     summary = pd.DataFrame([], columns=cols)
     
@@ -158,14 +160,26 @@ def summarize_linechain(time_dir, channel, log_file=None):
             params = sort_params(params, log_file)
     
         # Summary statistics
-        percentiles = np.percentile(params, cols.to_numpy(), axis=0)
+        #percentiles = np.percentile(params, cols.to_numpy(), axis=0)
+        params_np = params.to_numpy().T
+        print(params_np)
+        hpd_50 = hpd(params_np, alpha=0.5)
+        hpd_90 = hpd(params_np, alpha=0.1)
         # Transpose to index as [line, param, index]
-        percentiles = np.transpose(percentiles, axes=(1,2,0))
+        #percentiles = np.transpose(percentiles, axes=(1,2,0))
         midx = pd.MultiIndex.from_product(
             [[channel], [time], list(range(model)), parameters],
             names=['CHANNEL', 'TIME', 'LINE', 'PARAMETER']
         )
-        summary = pd.DataFrame(np.vstack(percentiles), columns=cols, index=midx)
+        #summary = pd.DataFrame(np.vstack(percentiles), columns=cols, index=midx)
+        summary = pd.DataFrame({
+            'MEDIAN'    : time_data.median(axis=1),
+            'CI_50_LO'  : pd.Series(hpd_50[:,0], index=midx),
+            'CI_50_HI'  : pd.Series(hpd_50[:,1], index=midx),
+            'CI_90_LO'  : pd.Series(hpd_90[:,0], index=midx),
+            'CI_90_HI'  : pd.Series(hpd_90[:,1], index=midx),
+        }, index=midx)
+        print(summary)
     
     # Write to log file
     if log_file:
@@ -238,6 +252,9 @@ def save_summary(run, summary_file, log_file=None):
 def main():
     # Get all runs to use from the command line.
     runs = sys.argv[1:]
+    # Defaults to all available runs
+    if len(runs) == 0:
+        runs = os.listdir('data')
     for run in runs:
         print('\n-- ' + run + ' --')
         # Directories
