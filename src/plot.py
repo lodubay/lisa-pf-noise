@@ -303,6 +303,7 @@ def linechain_scatter(summary, param, run, channel, plot_file=None, show=True):
     start_date = tf.gps2iso(int(df.index.get_level_values('TIME')[0]))
     # Change columns from GPS time to days elapsed from start of run
     dates = tf.gps2day_list(df.index.get_level_values('TIME'))
+    '''
     # 90% error bars
     plt.errorbar(dates, 
         df[50], yerr=([df[50] - df[5], df[95] - df[50]]), 
@@ -311,6 +312,19 @@ def linechain_scatter(summary, param, run, channel, plot_file=None, show=True):
     # Median and 50% error bars
     plt.errorbar(dates, 
         df[50], yerr=([df[50] - df[25], df[75] - df[50]]),  
+        ls='', marker='.', capsize=5, ecolor='b'
+    )
+    '''
+    # 90% error bars
+    plt.errorbar(dates, 
+        df['MEDIAN'], 
+        yerr=([df['MEDIAN'] - df['CI_90_LO'], df['CI_90_HI'] - df['MEDIAN']]), 
+        ls='', marker='', capsize=3, alpha=0.2, ecolor='b'
+    )
+    # Median and 50% error bars
+    plt.errorbar(dates, 
+        df['MEDIAN'], 
+        yerr=([df['MEDIAN'] - df['CI_50_LO'], df['CI_50_HI'] - df['MEDIAN']]), 
         ls='', marker='.', capsize=5, ecolor='b'
     )
     plt.xlabel(f'Days elapsed since {start_date} UTC')

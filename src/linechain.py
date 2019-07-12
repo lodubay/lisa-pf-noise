@@ -160,26 +160,21 @@ def summarize_linechain(time_dir, channel, log_file=None):
             params = sort_params(params, log_file)
     
         # Summary statistics
-        #percentiles = np.percentile(params, cols.to_numpy(), axis=0)
-        params_np = params.to_numpy().T
-        print(params_np)
-        hpd_50 = hpd(params_np, alpha=0.5)
-        hpd_90 = hpd(params_np, alpha=0.1)
+        #percentiles = np.percentile(params, [5, 25, 50, 75, 95], axis=0)
         # Transpose to index as [line, param, index]
         #percentiles = np.transpose(percentiles, axes=(1,2,0))
+        
+        # HPD
+        median = np.median(params, axis=0).flatten()[:, np.newaxis]
+        hpd_50 = np.vstack(hpd(params, alpha=0.5))
+        hpd_90 = np.vstack(hpd(params, alpha=0.1))
+        stats = np.hstack([median, hpd_50, hpd_90])
         midx = pd.MultiIndex.from_product(
             [[channel], [time], list(range(model)), parameters],
             names=['CHANNEL', 'TIME', 'LINE', 'PARAMETER']
         )
         #summary = pd.DataFrame(np.vstack(percentiles), columns=cols, index=midx)
-        summary = pd.DataFrame({
-            'MEDIAN'    : time_data.median(axis=1),
-            'CI_50_LO'  : pd.Series(hpd_50[:,0], index=midx),
-            'CI_50_HI'  : pd.Series(hpd_50[:,1], index=midx),
-            'CI_90_LO'  : pd.Series(hpd_90[:,0], index=midx),
-            'CI_90_HI'  : pd.Series(hpd_90[:,1], index=midx),
-        }, index=midx)
-        print(summary)
+        summary = pd.DataFrame(stats, columns=cols, index=midx)
     
     # Write to log file
     if log_file:
