@@ -8,7 +8,6 @@ import pandas as pd
 import numpy as np
 from pymc3.stats import hpd
 
-import time_functions as tf
 import plot
 import utils
 
