@@ -36,24 +36,19 @@ def gen_model_df(run, model_file):
     Returns a DataFrame with times as rows and channels as columns. Cells
     are filled with the most likely model number
     '''
-    time_dirs = tf.get_time_dirs(run)
-    gps_times = tf.get_gps_times(run)
+    all_lc = list(itertools.product(range(len(run.time_dirs)), run.channels))
     # Create empty DataFrame
-    df = pd.DataFrame(index=gps_times, columns=range(6))
-    for t, c in list(itertools.product(range(len(time_dirs)), range(6))):
-        # Update progress
-        sys.stdout.write('\r' + str(t*6 + c+1) + '/' + str(len(time_dirs)*6))
-        sys.stdout.flush()
+    df = pd.DataFrame(index=gps_times, columns=run.channels)
+    p = utils.Progress(all_lc, 'Generating best model DataFrame...')
+    for i, tup in enumerate(lc):
+        t, c = tup
         # linechain file name
-        lc_file = os.path.join(
-            time_dirs[t], 'linechain_channel' + str(c) + '.dat'
-        )
+        lc_file = os.path.join(run.time_dirs[t], f'linechain_channel{c}.dat')
         # Find the mode
         model = get_counts(lc_file).argmax()
-        df.loc[gps_times[t], c] = model
-    # Finish progress indicator
-    sys.stdout.write('\n')
-    sys.stdout.flush()
+        df.loc[run.gps_times[t], c] = model
+        # Update progress
+        p.update(i)
     # Write to CSV
     df.to_csv(model_file, sep=' ')
     return df
@@ -190,19 +185,18 @@ def save_summary(run, summary_file, log_file=None):
     
     Input
     -----
-      run : string, name of run
+      run : Run object
       summary_file : string, path to summary pickle file
       log_file : string, path to log file (if any)
     '''
-    time_dirs = tf.get_time_dirs(run)
     # Set up log file
-    log = utils.Log(log_file, f'linechain.py log file for {run}')
+    log = utils.Log(log_file, f'linechain.py log file for {run.name}')
     
     # Generate all summaries
-    all_lc = list(itertools.product(range(6), time_dirs))
+    all_lc = list(itertools.product(run.channels, run.time_dirs))
     summaries = []
     # Set up progress indicator
-    p = utils.Progress(all_lc, f'Importing {run} linechain...')
+    p = utils.Progress(all_lc, f'Importing {run.name} linechain...')
     for i, t in enumerate(all_lc):
         channel, time_dir = t
         summaries.append(summarize_linechain(time_dir, channel, log))
@@ -231,11 +225,13 @@ def main():
     if len(runs) == 0:
         runs = os.listdir('data')
     for run in runs:
-        print('\n-- ' + run + ' --')
+        # Initialize Run object
+        run = utils.Run(run)
+        print(f'\n-- {run.name} --')
         # Directories
-        output_dir = os.path.join('out', run, 'summaries')
+        output_dir = os.path.join('out', run.name, 'summaries')
         if not os.path.exists(output_dir): os.makedirs(output_dir)
-        plot_dir = os.path.join('out', run, 'linechain_plots')
+        plot_dir = os.path.join('out', run.name, 'linechain_plots')
         if not os.path.exists(plot_dir): os.makedirs(plot_dir)
         # Output files
         summary_file = os.path.join(output_dir, 'linechain.pkl')
@@ -261,7 +257,7 @@ def main():
                         plot_dir, f'linechain_{param.lower()}{channel}.png'
                     )
                     plot.linechain_scatter(
-                        df, param, run, channel, 
+                        df, param, run.name, channel, 
                         plot_file=plot_file, show=False
                     )
 

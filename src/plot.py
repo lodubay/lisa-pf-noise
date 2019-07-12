@@ -69,7 +69,7 @@ def colormap(fig, ax, psd, cmap, vlims=None, cbar_label=None, center=None):
     # Get start date in UTC
     start_date = tf.gps2iso(int(psd.columns[0]))
     # Change columns from GPS time to days elapsed from start of run
-    psd.columns = pd.Series(tf.gps2day_list(psd.columns), name='TIME')
+    psd.columns = pd.Series(tf.gps2day(psd.columns), name='TIME')
     # Median time step (in days)
     dt = np.median(
         [psd.columns[i] - psd.columns[i-1] for i in range(1, len(psd.columns))]
@@ -142,7 +142,7 @@ def freq_slice(fig, ax, freq, summary, color='b', ylim=None):
     # Slice along that frequency
     fslice = summary.xs(freq, level='FREQ')
     # Date stuff
-    days_elapsed = tf.gps2day_list(fslice.index)
+    days_elapsed = tf.gps2day(fslice.index)
     # Plot 50% credible interval
     ax.fill_between(days_elapsed,
         fslice['CI_50_LO'],
