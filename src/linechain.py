@@ -10,6 +10,7 @@ from pymc3.stats import hpd
 
 import time_functions as tf
 import plot
+import utils
 
 def get_counts(lc_file):
     '''
@@ -208,6 +209,13 @@ def save_summary(run, summary_file, log_file=None):
         with open(log_file, 'w+') as log:
             log.write('linechain.py log file for ' + run + '\n\n')
     
+    summaries = []
+    utils.progress(
+        list(itertools.product(range(6), time_dirs)),
+        summaries.append(summarize_linechain(item[1], item[0], log_file)),
+        f'Importing {run} linechain...'
+    )
+    '''
     # Set up progress indicator
     sys.stdout.write('Importing ' + run + ' linechain...   0%\b')
     sys.stdout.flush()
@@ -224,7 +232,7 @@ def save_summary(run, summary_file, log_file=None):
     # Finish progress indicator
     sys.stdout.write('\n')
     sys.stdout.flush()
-    
+    '''
     # Combine summaries into one DataFrame
     summaries = pd.concat(summaries, axis=0)
     midx = pd.MultiIndex.from_tuples(
