@@ -297,7 +297,7 @@ def save_time_slices(run, channel, summary, times, plot_file, show=True,
     if show: plt.show()
     else: plt.close()
 
-def linechain(summary, param, run, channel, plot_file=None, show=True):
+def linechain_scatter(summary, param, run, channel, plot_file=None, show=True):
     df = summary.loc[channel, :, :, param]
     # Get start date in UTC
     start_date = tf.gps2iso(int(df.index.get_level_values('TIME')[0]))

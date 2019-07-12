@@ -241,18 +241,20 @@ def main():
     for run in runs:
         print('\n-- ' + run + ' --')
         # Directories
-        output_dir = os.path.join('out', run)
+        output_dir = os.path.join('out', run, 'summaries')
         if not os.path.exists(output_dir): os.makedirs(output_dir)
-        plot_dir = os.path.join('out', run, 'plots')
+        plot_dir = os.path.join('out', run, 'linechain_plots')
         if not os.path.exists(plot_dir): os.makedirs(plot_dir)
         # Output files
         summary_file = os.path.join(output_dir, 'linechain.pkl')
         log_file = os.path.join(output_dir, 'linechain.log')
+        
         # Confirm to overwrite if summary already exists
         gen_new = True
         if os.path.exists(summary_file):
             over = input('Found linechain.pkl for this run. Overwrite? (y/N) ')
             gen_new = True if over == 'y' else False
+        
         if gen_new:
             df = save_summary(run, summary_file, log_file)
         else:
@@ -261,8 +263,15 @@ def main():
         # Plot
         for channel in df.index.unique(level='CHANNEL'):
             for param in df.index.unique(level='PARAMETER'):
-                plot_file = os.path.join(plot_dir, f'line{param.lower()}{channel}.png')
-                plot.linechain(df, param, run, channel, plot_file=plot_file, show=False)
+                # Only plot if more than 2 spectral lines
+                if df.loc[channel, :, :, param].shape[0] > 2:
+                    plot_file = os.path.join(
+                        plot_dir, f'linechain_{param.lower()}{channel}.png'
+                    )
+                    plot.linechain_scatter(
+                        df, param, run, channel, 
+                        plot_file=plot_file, show=False
+                    )
 
 if __name__ == '__main__':
     main()
