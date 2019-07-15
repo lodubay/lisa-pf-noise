@@ -3,6 +3,7 @@
 import os
 import glob
 import sys
+import argparse
 
 import numpy as np
 import pandas as pd
@@ -42,7 +43,7 @@ def import_time(run, time_dir):
     # Concatenate psd series horizontally
     time_data = pd.concat(time_data, axis=1, ignore_index=True)
     # Define MultiIndex
-    # Round frequency index to 5 decimals to deal with floating point issues
+    # Round frequency index to 6 decimals to deal with floating point issues
     time_data.index = pd.MultiIndex.from_product(
         [run.channels, [time],
             np.around(time_data.index.unique(level='FREQ'), 6)], 
@@ -84,7 +85,7 @@ def save_summary(run, summary_file):
     '''
     Returns a multi-index DataFrame of PSD summaries across multiple times 
     from one run folder. The first index represents channel, the second GPS time
-    and the third frequency.
+    and the third frequency. Inserts blank rows in place of time gaps.
     
     Input
     -----
@@ -114,10 +115,9 @@ def save_summary(run, summary_file):
             # List of missing times, with same time interval
             missing_times = [times[i] + run.dt * k for k in range(1, n + 1)]
             # Create new MultiIndex for empty DataFrame
-            channels = summaries.index.unique(level='CHANNEL')
             frequencies = summaries.index.unique(level='FREQ')
             midx = pd.MultiIndex.from_product(
-                [channels, missing_times, frequencies],
+                [run.channels, missing_times, frequencies],
                 names=['CHANNEL', 'TIME', 'FREQ']
             )
             # Create empty DataFrame, append to summaries, and sort
@@ -143,12 +143,26 @@ def get_exact_freq(summary, approx_freq):
     return freqs[freq_index]
 
 def main():
-    # Get all runs to use from the command line.
-    runs = sys.argv[1:]
-    # Defaults to all available runs
-    if len(runs) == 0:
-        runs = os.listdir('data')
-    for run in runs:
+    # Argument parser
+    parser = argparse.ArgumentParser(
+        description='Generate PSD summaries and plots.'
+    )
+    parser.add_argument('runs', type=str, nargs='*', 
+        help='run directory name (default: all folders in "data/" directory)'
+    )
+    parser.add_argument('--overwrite-all', dest='overwrite', action='store_true',
+        help='re-generate summary files even if they already exist (default: \
+              ask for each run)'
+    )
+    parser.add_argument('--keep-all', dest='keep', action='store_true',
+        help='do not generate summary file if it already exists (default: ask \
+              for each run)'
+    )
+    args = parser.parse_args()
+    # Add all runs in data directory if none are specified
+    if len(args.runs) == 0: args.runs = os.listdir('data')
+    
+    for run in args.runs:
         run = utils.Run(run)
         print(f'\n-- {run.name} --')
         # Directories
@@ -159,14 +173,17 @@ def main():
         # Output files
         summary_file = os.path.join(output_dir, 'psd.pkl')
         model_file = os.path.join(output_dir, 'linecounts.dat')
+        
         # Confirm to overwrite if summary already exists
-        gen_new = True
-        if os.path.exists(summary_file):
+        if args.keep: overwrite = False
+        elif args.overwrite: overwrite = True
+        elif os.path.exists(summary_file):
             over = input('Found summary.pkl for this run. Overwrite? (y/N) ')
-            gen_new = True if over == 'y' else False
+            overwrite = True if over == 'y' else False
+        else: overwrite = True
 
         # Import / generate summary PSD DataFrame
-        if gen_new:
+        if overwrite:
             df = save_summary(run, summary_file)
         else:
             df = pd.read_pickle(summary_file)
