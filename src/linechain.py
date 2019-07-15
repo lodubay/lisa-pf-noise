@@ -121,7 +121,7 @@ def sort_params(params, log):
 
     return params
 
-def summarize_linechain(time_dir, channel, log):
+def summarize_linechain(time_dir, channel, time_counts, log):
     '''
     Returns DataFrame of percentile values for each parameter.
     
@@ -129,6 +129,8 @@ def summarize_linechain(time_dir, channel, log):
     -----
       time_dir : string, time directory
       channel : int, channel index
+      time_counts : histogram of the number of times each model was chosen for 
+                    this time and channel
       log : utils.Log object
     '''
     time = int(time_dir[-11:-1])
@@ -136,15 +138,13 @@ def summarize_linechain(time_dir, channel, log):
     # Import linechain
     lc_file = time_dir + 'linechain_channel' + str(channel) + '.dat'
     # Get preferred model
-    counts = get_counts(lc_file)
-    model = counts.argmax()
+    model = time_counts.argmax()
     
     log.log('Line model histogram:')
-    log.log(np.array2string(counts, max_line_width=80))
+    log.log(np.array2string(time_counts, max_line_width=80))
     log.log(f'{model} spectral lines found.')
     
     # Initialize summary DataFrame
-    #cols = pd.Series([5, 25, 50, 75, 95], name='PERCENTILE')
     cols = pd.Series(['MEDIAN', 'CI_50_LO', 'CI_50_HI', 'CI_90_LO', 'CI_90_HI'])
     parameters = ['FREQ', 'AMP', 'QF']
     summary = pd.DataFrame([], columns=cols)
@@ -156,11 +156,6 @@ def summarize_linechain(time_dir, channel, log):
         # Sort
         if model > 1:
             params = sort_params(params, log)
-    
-        # Summary statistics
-        #percentiles = np.percentile(params, [5, 25, 50, 75, 95], axis=0)
-        # Transpose to index as [line, param, index]
-        #percentiles = np.transpose(percentiles, axes=(1,2,0))
         
         # HPD
         median = np.median(params, axis=0).flatten()[:, np.newaxis]
@@ -171,7 +166,6 @@ def summarize_linechain(time_dir, channel, log):
             [[channel], [time], list(range(model)), parameters],
             names=['CHANNEL', 'TIME', 'LINE', 'PARAMETER']
         )
-        #summary = pd.DataFrame(np.vstack(percentiles), columns=cols, index=midx)
         summary = pd.DataFrame(stats, columns=cols, index=midx)
         
         log.log('Line parameter summary:')
@@ -179,7 +173,7 @@ def summarize_linechain(time_dir, channel, log):
                 
     return summary
 
-def save_summary(run, summary_file, log_file=None):
+def save_summary(run, counts_file, summary_file, log_file=None):
     '''
     Returns a summary DataFrame for all linechain files in the given run.
     
@@ -192,15 +186,43 @@ def save_summary(run, summary_file, log_file=None):
     # Set up log file
     log = utils.Log(log_file, f'linechain.py log file for {run.name}')
     
-    # Generate all summaries
+    # Generate iterable of channels and times
     all_lc = list(itertools.product(run.channels, run.time_dirs))
+    counts = []
     summaries = []
     # Set up progress indicator
     p = utils.Progress(all_lc, f'Importing {run.name} linechain...')
     for i, t in enumerate(all_lc):
         channel, time_dir = t
-        summaries.append(summarize_linechain(time_dir, channel, log))
+        # Counts for each viable model
+        lc_file = os.path.join(time_dir, f'linechain_channel{channel}.dat')
+        time_counts = get_counts(lc_file)
+        counts.append(time_counts)
+        # Spectral line summary statistics
+        summaries.append(
+            summarize_linechain(time_dir, channel, time_counts, log)
+        )
+        # Update progress indicator
         p.update(i)
+    
+    # Combine counts into one DataFrame
+    counts = pd.DataFrame(counts, index=pd.MultiIndex.from_product(
+            [run.channels, run.gps_times], names=['CHANNEL', 'TIME']
+    ))
+    # Combine with DataFrame of missing times
+    missing = pd.DataFrame(columns=counts.columns, 
+        index=pd.MultiIndex.from_product(
+            [run.channels, run.missing_times], names=['CHANNEL', 'TIME']
+        )
+    )
+    counts = pd.concat([counts, missing]).sort_index(level=[0, 1])
+    counts = counts.astype('float64')
+    # Log final output
+    log.log('All line counts:')
+    log.log(counts.to_string(max_cols=80))
+    # Output to file
+    counts.to_pickle(counts_file)
+    print('Model counts written to ' + counts_file)
     
     # Combine summaries into one DataFrame
     summaries = pd.concat(summaries, axis=0)
@@ -208,15 +230,13 @@ def save_summary(run, summary_file, log_file=None):
         summaries.index, names=['CHANNEL', 'TIME', 'LINE', 'PARAMETER']
     )
     summaries.index = midx
-    
     # Log final output
     log.log('All summaries:')
     log.log(summaries.to_string(max_cols=80))
-    
     # Output to file
     summaries.to_pickle(summary_file)
-    print('Output written to ' + summary_file)
-    return summaries
+    print('Summary written to ' + summary_file)
+    return counts, summaries
             
 def main():
     # Argument parser
@@ -250,6 +270,7 @@ def main():
         if not os.path.exists(plot_dir): os.makedirs(plot_dir)
         # Output files
         summary_file = os.path.join(output_dir, 'linechain.pkl')
+        counts_file = os.path.join(output_dir, 'linecounts.pkl')
         log_file = os.path.join(output_dir, 'linechain.log')
         
         # Confirm to overwrite if summary already exists
@@ -261,12 +282,16 @@ def main():
         else: overwrite = True
         
         if overwrite:
-            df = save_summary(run, summary_file, log_file)
+            counts, df = save_summary(run, counts_file, summary_file, log_file)
         else:
             df = pd.read_pickle(summary_file)
+            counts = pd.read_pickle(counts_file)
         
-        # Plot
+        # Plot line parameters
+        print('Plotting...')
         for channel in df.index.unique(level='CHANNEL'):
+            plot_file = os.path.join(plot_dir, f'linecounts{channel}.png')
+            plot.linechain_cmap(counts, run, channel, plot_file)
             for param in df.index.unique(level='PARAMETER'):
                 # Only plot if more than 2 spectral lines
                 if df.loc[channel, :, :, param].shape[0] > 2:
@@ -277,6 +302,8 @@ def main():
                         df, param, run, channel, 
                         plot_file=plot_file, show=False
                     )
+    
+    print('Done!')
 
 if __name__ == '__main__':
     main()

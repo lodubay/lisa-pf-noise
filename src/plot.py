@@ -292,7 +292,7 @@ def save_time_slices(run, channel, summary, times, plot_file, show=True,
     if show: plt.show()
     else: plt.close()
 
-def linechain_scatter(summary, param, run, channel, plot_file=None, show=True):
+def linechain_scatter(summary, param, run, channel, plot_file=None, show=False):
     df = summary.loc[channel, :, :, param]
     # Get start date in UTC
     start_date = run.iso_dates[0]
@@ -326,6 +326,41 @@ def linechain_scatter(summary, param, run, channel, plot_file=None, show=True):
     plt.title(f'{run.name} channel {channel} spectral line {param} over time')
     if plot_file:
         plt.savefig(plot_file)
+    if show: plt.show()
+    else: plt.close()
+
+def linechain_cmap(counts, run, channel, plot_file=None, show=False):
+    ''' Plots a colormap of the spectral line counts over time '''
+    counts = counts.loc[channel]
+    # Get start date in UTC
+    start_date = run.iso_dates[0]
+    # Change GPS times to days elapsed
+    counts.index = pd.Series(run.gps2day(counts.index), name='TIME')
+    # Convert counts to fraction of total
+    counts = counts / sum(counts.iloc[0].dropna())
+    # Plot
+    fig, ax = plt.subplots(1, 1)
+    ax.title.set_text(
+        f'Line model frequency over time for {run.name} channel {channel}'
+    )
+    im = ax.pcolormesh(
+        list(counts.index) + [counts.index[-1] + run.dt / (60*60*24)],
+        list(counts.columns) + [int(counts.columns[-1]) + 1],
+        counts.to_numpy().T,
+        cmap='PuRd',
+        vmax=0.5
+    )
+    # Axis labels
+    ax.set_xlabel(f'Days elapsed since {start_date} UTC')
+    ax.set_ylabel('Modeled no. spectral lines')
+    # Put the major ticks at the middle of each cell
+    ax.set_yticks(counts.columns + 0.5, minor=False)
+    ax.set_yticklabels(counts.columns)
+    # Add and label colorbar
+    cbar = fig.colorbar(im, ax=ax)
+    cbar.set_label('Line model relative frequency', labelpad=15, rotation=270)
+    # Save figure and close
+    if plot_file: plt.savefig(plot_file)
     if show: plt.show()
     else: plt.close()
 

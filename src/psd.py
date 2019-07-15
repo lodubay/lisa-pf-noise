@@ -101,6 +101,7 @@ def save_summary(run, summary_file):
         p.update(i)
 
     summaries = pd.concat(summaries)
+    print(summaries)
 
     # Check for time gaps and fill with NaN DataFrames
     times = run.gps_times[:-1]
