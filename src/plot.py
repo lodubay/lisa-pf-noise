@@ -86,7 +86,7 @@ def colormap(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, center=None):
             name='shifted colormap'
         )
     im = ax.pcolormesh(
-        list(psd.columns) + [psd.columns[-1] + run.dt],
+        list(psd.columns) + [psd.columns[-1] + run.dt / (60*60*24)],
         list(psd.index) + [psd.index[-1] + df],
         psd,
         cmap=cmap,
