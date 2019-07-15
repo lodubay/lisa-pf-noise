@@ -101,8 +101,8 @@ def colormap(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, center=None):
     ax.set_ylabel('Frequency (Hz)')
     # Add and label colorbar
     cbar = fig.colorbar(im, ax=ax)
-    if not cbar_label: cbar_label = 'Fractional difference from reference PSD'
-    cbar.set_label(cbar_label, labelpad=15, rotation=270)
+    if cbar_label:
+        cbar.set_label(cbar_label, labelpad=15, rotation=270)
 
 def all_psds(fig, ax, time_dir, channel, xlim=None, ylim=None):
     '''
@@ -212,16 +212,15 @@ def save_colormaps(run, channel, summary, plot_file, show=True):
     median = unstacked.median(axis=1)
     # Set up figure
     fig, axs = plt.subplots(1, 2, figsize=(14, 6))
-    fig.suptitle(f'{run.name} channel {channel} colormap')
+    fig.suptitle(f'Colormap of {run.name} channel {channel} PSD over time')
     # Subplots
-    axs[0].title.set_text('PSD(t) - PSD_median')
+    axs[0].title.set_text('Absolute difference from median PSD')
     colormap(fig, axs[0], run,
         unstacked.sub(median, axis=0), 
         cmap=cm.get_cmap('coolwarm'),
-        center=0.0,
-        cbar_label='Absolute difference from reference PSD'
+        center=0.0
     )
-    axs[1].title.set_text('|PSD(t) - PSD_median| / PSD_median')
+    axs[1].title.set_text('Fractional difference from median PSD')
     colormap(fig, axs[1], run,
         abs(unstacked.sub(median, axis=0)).div(median, axis=0),
         cmap='PuRd',
@@ -238,7 +237,7 @@ def save_freq_slices(run, channel, summary, plot_file, show=True,
     nrows = int(np.floor(len(frequencies) ** 0.5))
     ncols = int(np.ceil(1. * len(frequencies) / nrows))
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(f'{run.name} channel {channel} PSDs at selected frequencies')
+    fig.suptitle(f'Selected frequencies for {run.name} channel {channel} PSDs')
     start_date = run.iso_dates[0]
     df = summary.loc[channel]
     # Subplots
@@ -270,12 +269,14 @@ def save_time_slices(run, channel, summary, times, plot_file, show=True,
     nrows = int(np.floor(float(len(times)) ** 0.5))
     ncols = int(np.ceil(1. * len(times) / nrows))
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(f'{run.name} channel {channel} PSDs at selected times')
+    fig.suptitle(f'Selected times for {run.name} channel {channel} PSDs')
     df = summary.loc[channel]
     # Subplots
     for i, time in enumerate(times):
         ax = fig.add_subplot(nrows, ncols, i+1)
         time_slice(fig, ax, times[i], df, logpsd=logpsd)
+        # Axis title
+        ax.title.set_text(f'PSD at GPS time {time}')
         # Vertical axis label on first plot in each row
         if i % ncols == 0:
             ax.set_ylabel('PSD')

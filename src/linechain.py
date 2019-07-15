@@ -226,7 +226,8 @@ def main():
     parser.add_argument('runs', type=str, nargs='*', 
         help='run directory name (default: all folders in "data/" directory)'
     )
-    parser.add_argument('--overwrite-all', dest='overwrite', action='store_true',
+    parser.add_argument('--overwrite-all', dest='overwrite', 
+        action='store_true',
         help='re-generate summary files even if they already exist (default: \
               ask for each run)'
     )
