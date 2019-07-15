@@ -364,3 +364,6 @@ def linechain_cmap(counts, run, channel, plot_file=None, show=False):
     if show: plt.show()
     else: plt.close()
 
+#def linechain_combined():
+    
+
