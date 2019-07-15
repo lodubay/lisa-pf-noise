@@ -101,7 +101,6 @@ def save_summary(run, summary_file):
         p.update(i)
 
     summaries = pd.concat(summaries)
-    print(summaries)
 
     # Check for time gaps and fill with NaN DataFrames
     times = run.gps_times[:-1]
@@ -185,11 +184,12 @@ def main():
 
         # Import / generate summary PSD DataFrame
         if overwrite:
-            df = save_summary(run, summary_file)
+            run.psd_summary = save_summary(run, summary_file)
         else:
-            df = pd.read_pickle(summary_file)
+            run.psd_summary = pd.read_pickle(summary_file)
 
         # Make plots
+        df = run.psd_summary
         for channel in run.channels:
             print('Plotting channel ' + str(channel) + '...')
             # Colormap
@@ -231,6 +231,7 @@ def main():
                 plot.save_time_slices(run, channel, df, line_times, tslice_file,
                     time_format='gps', exact=True, show=False, logpsd=True
                 )
+    
     print('Done!')
 
 if __name__ == '__main__':

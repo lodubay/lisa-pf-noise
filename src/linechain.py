@@ -282,24 +282,26 @@ def main():
         else: overwrite = True
         
         if overwrite:
-            counts, df = save_summary(run, counts_file, summary_file, log_file)
+            run.linecounts, run.lc_summary = save_summary(
+                run, counts_file, summary_file, log_file
+            )
         else:
-            df = pd.read_pickle(summary_file)
-            counts = pd.read_pickle(counts_file)
+            run.lc_summary = pd.read_pickle(summary_file)
+            run.linecounts = pd.read_pickle(counts_file)
         
         # Plot line parameters
         print('Plotting...')
-        for channel in df.index.unique(level='CHANNEL'):
+        # Plot linecount colormaps
+        for channel in run.channels:
             plot_file = os.path.join(plot_dir, f'linecounts{channel}.png')
-            plot.linechain_cmap(counts, run, channel, plot_file)
-            for param in df.index.unique(level='PARAMETER'):
-                # Only plot if more than 2 spectral lines
-                if df.loc[channel, :, :, param].shape[0] > 2:
+            plot.linechain_cmap(run, channel, plot_file)
+            if channel in run.lc_summary.index.unique(level='CHANNEL'):
+                for param in run.lc_summary.index.unique(level='PARAMETER'):
                     plot_file = os.path.join(
                         plot_dir, f'linechain_{param.lower()}{channel}.png'
                     )
                     plot.linechain_scatter(
-                        df, param, run, channel, 
+                        run.lc_summary, param, run, channel, 
                         plot_file=plot_file, show=False
                     )
     

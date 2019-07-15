@@ -204,7 +204,7 @@ def time_slice(fig, ax, time, summary, color='b', ylim=None, logpsd=False):
     if logpsd: ax.set_yscale('log')
     ax.title.set_text(str(time))
 
-def save_colormaps(run, channel, summary, plot_file, show=True):
+def save_colormaps(run, channel, summary, plot_file, show=False):
     df = summary.loc[channel]
     # Unstack psd, removing all columns except the median
     unstacked = df['MEDIAN'].unstack(level=0)
@@ -231,7 +231,7 @@ def save_colormaps(run, channel, summary, plot_file, show=True):
     if show: plt.show()
     else: plt.close()
 
-def save_freq_slices(run, channel, summary, plot_file, show=True,
+def save_freq_slices(run, channel, summary, plot_file, show=False,
         frequencies=[1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2]):
     # Automatically create grid of axes
     nrows = int(np.floor(len(frequencies) ** 0.5))
@@ -259,7 +259,7 @@ def save_freq_slices(run, channel, summary, plot_file, show=True,
     if show: plt.show()
     else: plt.close()
 
-def save_time_slices(run, channel, summary, times, plot_file, show=True,
+def save_time_slices(run, channel, summary, times, plot_file, show=False,
         time_format='gps', exact=True, logpsd=False):
     # Convert given times to gps if necessary
     if time_format == 'day': times = run.day2gps(times)
@@ -329,9 +329,9 @@ def linechain_scatter(summary, param, run, channel, plot_file=None, show=False):
     if show: plt.show()
     else: plt.close()
 
-def linechain_cmap(counts, run, channel, plot_file=None, show=False):
+def linechain_cmap(run, channel, plot_file=None, show=False):
     ''' Plots a colormap of the spectral line counts over time '''
-    counts = counts.loc[channel]
+    counts = run.linecounts.loc[channel]
     # Get start date in UTC
     start_date = run.iso_dates[0]
     # Change GPS times to days elapsed
