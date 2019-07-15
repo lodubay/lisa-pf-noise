@@ -3,6 +3,7 @@
 import os
 import sys
 import itertools
+import argparse
 
 import pandas as pd
 import numpy as np
@@ -218,12 +219,26 @@ def save_summary(run, summary_file, log_file=None):
     return summaries
             
 def main():
-    # Get all runs to use from the command line.
-    runs = sys.argv[1:]
-    # Defaults to all available runs
-    if len(runs) == 0:
-        runs = os.listdir('data')
-    for run in runs:
+    # Argument parser
+    parser = argparse.ArgumentParser(
+        description='Generate linechain summaries and plots.'
+    )
+    parser.add_argument('runs', type=str, nargs='*', 
+        help='run directory name (default: all folders in "data/" directory)'
+    )
+    parser.add_argument('--overwrite-all', dest='overwrite', action='store_true',
+        help='re-generate summary files even if they already exist (default: \
+              ask for each run)'
+    )
+    parser.add_argument('--keep-all', dest='keep', action='store_true',
+        help='do not generate summary file if it already exists (default: ask \
+              for each run)'
+    )
+    args = parser.parse_args()
+    # Add all runs in data directory if none are specified
+    if len(args.runs) == 0: args.runs = os.listdir('data')
+    
+    for run in args.runs:
         # Initialize Run object
         run = utils.Run(run)
         print(f'\n-- {run.name} --')
@@ -237,12 +252,14 @@ def main():
         log_file = os.path.join(output_dir, 'linechain.log')
         
         # Confirm to overwrite if summary already exists
-        gen_new = True
-        if os.path.exists(summary_file):
+        if args.keep: overwrite = False
+        elif args.overwrite: overwrite = True
+        elif os.path.exists(summary_file):
             over = input('Found linechain.pkl for this run. Overwrite? (y/N) ')
-            gen_new = True if over == 'y' else False
+            overwrite = True if over == 'y' else False
+        else: overwrite = True
         
-        if gen_new:
+        if overwrite:
             df = save_summary(run, summary_file, log_file)
         else:
             df = pd.read_pickle(summary_file)
@@ -256,7 +273,7 @@ def main():
                         plot_dir, f'linechain_{param.lower()}{channel}.png'
                     )
                     plot.linechain_scatter(
-                        df, param, run.name, channel, 
+                        df, param, run, channel, 
                         plot_file=plot_file, show=False
                     )
 

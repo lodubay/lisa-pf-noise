@@ -1,64 +1,65 @@
 linechain.py log file for drsCrutch_run_q
 
+
 -- 1176820755 CHANNEL 0 --
 Line model histogram:
 [83961 13668  2014   308    45     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176822393 CHANNEL 0 --
 Line model histogram:
 [84233 13347  1964   381    67     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176824031 CHANNEL 0 --
 Line model histogram:
 [83930 13669  2026   331    41     2     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176825670 CHANNEL 0 --
 Line model histogram:
 [84194 13353  2067   324    58     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176827308 CHANNEL 0 --
 Line model histogram:
 [74906 19669  4352   879   163    28     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176828947 CHANNEL 0 --
 Line model histogram:
 [82934 14290  2275   391    91    17     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176830585 CHANNEL 0 --
 Line model histogram:
 [83178 14267  2203   312    34     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176832223 CHANNEL 0 --
 Line model histogram:
 [83831 13609  2129   330    79    16     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176833862 CHANNEL 0 --
 Line model histogram:
 [82802 14353  2325   462    51     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176835500 CHANNEL 0 --
 Line model histogram:
 [81701 15078  2621   519    74     5     0     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176837139 CHANNEL 0 --
 Line model histogram:
 [82007 14838  2632   472    47     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176838777 CHANNEL 0 --
 Line model histogram:
 [40811 42771 12742  2846   685   122    18     5]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -69,12 +70,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176840415 CHANNEL 0 --
 Line model histogram:
 [81370 15295  2736   461   113    22     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176842054 CHANNEL 0 --
 Line model histogram:
 [20820 56288 17366  4239  1015   224    42     6]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -85,107 +86,107 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176843692 CHANNEL 0 --
 Line model histogram:
 [84550 13065  2070   261    48     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176845331 CHANNEL 0 --
 Line model histogram:
 [83891 13583  2112   367    37     9     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176846969 CHANNEL 0 --
 Line model histogram:
 [83821 13636  2153   344    31    14     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176848607 CHANNEL 0 --
 Line model histogram:
 [84272 13401  2033   244    41     8     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176850246 CHANNEL 0 --
 Line model histogram:
 [84347 13311  2007   295    35     3     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176851884 CHANNEL 0 --
 Line model histogram:
 [83838 13489  2160   437    70     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176853523 CHANNEL 0 --
 Line model histogram:
 [84437 13203  2005   300    47     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176855161 CHANNEL 0 --
 Line model histogram:
 [84332 13233  2064   321    43     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176856799 CHANNEL 0 --
 Line model histogram:
 [84316 13381  2007   273    19     3     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176858438 CHANNEL 0 --
 Line model histogram:
 [83810 13654  2169   320    46     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176860076 CHANNEL 0 --
 Line model histogram:
 [84412 13283  1992   266    44     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176861715 CHANNEL 0 --
 Line model histogram:
 [83822 13681  2065   360    59     7     5     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176863353 CHANNEL 0 --
 Line model histogram:
 [83851 13646  2129   317    47    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176864991 CHANNEL 0 --
 Line model histogram:
 [84054 13491  2117   300    34     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176866630 CHANNEL 0 --
 Line model histogram:
 [84421 13236  2057   250    33     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176868268 CHANNEL 0 --
 Line model histogram:
 [84220 13427  2019   291    36     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176869907 CHANNEL 0 --
 Line model histogram:
 [84141 13435  2010   339    59    12     2     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176871545 CHANNEL 0 --
 Line model histogram:
 [83991 13410  2108   377    88    21     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176873183 CHANNEL 0 --
 Line model histogram:
 [83516 13848  2226   348    48    11     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176874822 CHANNEL 0 --
 Line model histogram:
 [83641 13816  2124   359    37    22     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176876460 CHANNEL 0 --
 Line model histogram:
 [10322 62901 20147  5350  1079   174    23     3     0     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -196,79 +197,79 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176878099 CHANNEL 0 --
 Line model histogram:
 [84169 13457  1972   342    54     2     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176879737 CHANNEL 0 --
 Line model histogram:
 [71220 22315  5107  1126   214    18]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176881375 CHANNEL 0 --
 Line model histogram:
 [83862 13607  2119   355    54     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176883014 CHANNEL 0 --
 Line model histogram:
 [84333 13248  2020   329    59     8     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176884652 CHANNEL 0 --
 Line model histogram:
 [83979 13755  1935   287    40     3     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176886291 CHANNEL 0 --
 Line model histogram:
 [84296 13399  1994   264    44     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176887929 CHANNEL 0 --
 Line model histogram:
 [84522 13165  1966   303    42     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176889567 CHANNEL 0 --
 Line model histogram:
 [57159 31429  8931  1999   358    81    34     8     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176891206 CHANNEL 0 --
 Line model histogram:
 [84212 13338  2096   305    46     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176892844 CHANNEL 0 --
 Line model histogram:
 [82291 14695  2394   478   118    22     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176894483 CHANNEL 0 --
 Line model histogram:
 [83833 13671  2071   369    49     5     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176896121 CHANNEL 0 --
 Line model histogram:
 [84058 13566  1997   322    51     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176897759 CHANNEL 0 --
 Line model histogram:
 [84502 13072  2054   304    62     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176899398 CHANNEL 0 --
 Line model histogram:
 [83581 13758  2239   332    79    11]
-0 spectral lines found
+0 spectral lines found.
 
-Spectral line modal frequencies:
-[0.6411757  0.70962696]
 -- 1176901036 CHANNEL 0 --
 Line model histogram:
 [    0  6242 52361 27752 10036  2626   780   177    21     4     1]
-2 spectral lines found
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.6411757  0.70962696]
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -282,22 +283,22 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176902675 CHANNEL 0 --
 Line model histogram:
 [83765 13788  2053   335    50     8     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176904313 CHANNEL 0 --
 Line model histogram:
 [83973 13570  2082   345    23     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176905951 CHANNEL 0 --
 Line model histogram:
 [57950 30752  8621  2136   457    67    16     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176907590 CHANNEL 0 --
 Line model histogram:
 [  696 62507 26087  7902  2132   507   117    39     8     5]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -305,12 +306,12 @@ CHANNEL TIME       LINE PARAMETER
                         AMP        1.784636e-14  1.185980e-20  1.784636e-14  1.185980e-20  2.401024e-13
                         QF         9.352580e+02  1.000112e+02  9.352580e+02  1.000112e+02  3.349757e+03
 
-Spectral line modal frequencies:
-[0.64482551 0.70445317 0.71572385]
 -- 1176910428 CHANNEL 0 --
 Line model histogram:
 [    0   558  2089 46229 31495 13326  4474  1394   348    74    13]
-3 spectral lines found
+3 spectral lines found.
+Spectral line modal frequencies:
+[0.64482551 0.70445317 0.71572385]
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -327,87 +328,87 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176912067 CHANNEL 0 --
 Line model histogram:
 [84117 13524  2024   294    37     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176913705 CHANNEL 0 --
 Line model histogram:
 [84510 13242  1875   312    46    14     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176915344 CHANNEL 0 --
 Line model histogram:
 [82317 14695  2480   415    83     9     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176916982 CHANNEL 0 --
 Line model histogram:
 [84168 13401  2086   307    36     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176918620 CHANNEL 0 --
 Line model histogram:
 [70896 22345  5418  1064   220    50     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176920259 CHANNEL 0 --
 Line model histogram:
 [83685 13737  2164   324    77    13]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176921897 CHANNEL 0 --
 Line model histogram:
 [83078 14151  2316   376    65     9     3     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176923536 CHANNEL 0 --
 Line model histogram:
 [83845 13711  2088   317    39]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176925174 CHANNEL 0 --
 Line model histogram:
 [79316 16791  3187   574   109    21     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176926812 CHANNEL 0 --
 Line model histogram:
 [82325 14626  2522   446    69    11     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176928451 CHANNEL 0 --
 Line model histogram:
 [83699 13680  2174   361    64    18     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176930089 CHANNEL 0 --
 Line model histogram:
 [55531 32886  9218  1911   367    70    17]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176931728 CHANNEL 0 --
 Line model histogram:
 [71394 21772  5408  1182   209    32     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176933366 CHANNEL 0 --
 Line model histogram:
 [82536 14575  2414   402    57    14     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176935004 CHANNEL 0 --
 Line model histogram:
 [55500 23938 13241  5106  1531   513   132    26    12     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176936643 CHANNEL 0 --
 Line model histogram:
 [82241 14504  2712   458    71    14]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176938281 CHANNEL 0 --
 Line model histogram:
 [    1 68252 23793  6065  1470   298    88    27     6]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -418,12 +419,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176939920 CHANNEL 0 --
 Line model histogram:
 [83236 14102  2223   356    73     9     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176941558 CHANNEL 0 --
 Line model histogram:
 [  563 59539 27752  9188  2269   514   147    27     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -434,7 +435,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176943196 CHANNEL 0 --
 Line model histogram:
 [    0 69645 23014  5764  1263   219    62    24     8     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -445,19 +446,19 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176944835 CHANNEL 0 --
 Line model histogram:
 [83879 13691  2068   297    40    11     7     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176946473 CHANNEL 0 --
 Line model histogram:
 [80667 15704  3028   496    79    24     1     1]
-0 spectral lines found
+0 spectral lines found.
 
-Spectral line modal frequencies:
-[0.35550292 0.64368273]
 -- 1176948112 CHANNEL 0 --
 Line model histogram:
 [    0 15877 51009 23035  7603  1905   409   122    38     2]
-2 spectral lines found
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.35550292 0.64368273]
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -471,7 +472,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176949750 CHANNEL 0 --
 Line model histogram:
 [   20 70267 22945  5376  1130   176    61    17     5     0     2     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -482,19 +483,19 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176951388 CHANNEL 0 --
 Line model histogram:
 [82401 14798  2394   357    45     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176953027 CHANNEL 0 --
 Line model histogram:
 [83006 14256  2251   414    58    14     1]
-0 spectral lines found
+0 spectral lines found.
 
-Spectral line modal frequencies:
-[0.35025742 0.64975249]
 -- 1176954665 CHANNEL 0 --
 Line model histogram:
 [    0   215 59338 28018  9166  2497   613   132    17     4]
-2 spectral lines found
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.35025742 0.64975249]
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -508,52 +509,52 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176956304 CHANNEL 0 --
 Line model histogram:
 [82660 14525  2345   393    69     7     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176957942 CHANNEL 0 --
 Line model histogram:
 [58527 30114  8801  1955   509    70    18     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176959580 CHANNEL 0 --
 Line model histogram:
 [82958 14263  2381   337    54     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176961219 CHANNEL 0 --
 Line model histogram:
 [84511 13187  1957   295    47     2     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176962857 CHANNEL 0 --
 Line model histogram:
 [48065 37715 11059  2545   532    67    15     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176964496 CHANNEL 0 --
 Line model histogram:
 [84374 13239  2040   286    57     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176966134 CHANNEL 0 --
 Line model histogram:
 [82079 14891  2601   383    34     5     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176967772 CHANNEL 0 --
 Line model histogram:
 [83820 13589  2191   313    75    12]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176969411 CHANNEL 0 --
 Line model histogram:
 [81623 15327  2588   398    52    12]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176971049 CHANNEL 0 --
 Line model histogram:
 [    0 71042 22223  5426  1037   201    59     9     3]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -564,22 +565,22 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176972688 CHANNEL 0 --
 Line model histogram:
 [83825 13838  1994   295    40     6     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176974326 CHANNEL 0 --
 Line model histogram:
 [84010 13457  2132   347    44    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176975964 CHANNEL 0 --
 Line model histogram:
 [52979 34658  9634  2219   427    71    10     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176977603 CHANNEL 0 --
 Line model histogram:
 [ 1389 63952 25376  7127  1670   385    78    17     4     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -590,19 +591,19 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176979241 CHANNEL 0 --
 Line model histogram:
 [84201 13345  2079   297    65    10     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176980880 CHANNEL 0 --
 Line model histogram:
 [84388 13292  1987   282    48     3]
-0 spectral lines found
+0 spectral lines found.
 
-Spectral line modal frequencies:
-[0.20205844 0.65266566 0.71870613]
 -- 1176982518 CHANNEL 0 --
 Line model histogram:
 [    0    60 25528 33484 23176 11324  4531  1398   408    77     8     4     2]
-3 spectral lines found
+3 spectral lines found.
+Spectral line modal frequencies:
+[0.20205844 0.65266566 0.71870613]
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -619,7 +620,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176984156 CHANNEL 0 --
 Line model histogram:
 [  560 69735 22539  5592  1226   250    67    17     7     4     3]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -630,57 +631,57 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176985795 CHANNEL 0 --
 Line model histogram:
 [80533 15806  2954   601    92    14]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176987433 CHANNEL 0 --
 Line model histogram:
 [84612 13118  1980   261    28     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176989072 CHANNEL 0 --
 Line model histogram:
 [84489 13246  1858   335    56    14     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176990710 CHANNEL 0 --
 Line model histogram:
 [83692 13664  2239   367    29     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176992348 CHANNEL 0 --
 Line model histogram:
 [84242 13233  2123   322    69     6     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176993987 CHANNEL 0 --
 Line model histogram:
 [72494 12591  9439  3963  1161   274    68     8     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176995625 CHANNEL 0 --
 Line model histogram:
 [82282 14681  2501   444    72    15     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176997264 CHANNEL 0 --
 Line model histogram:
 [84391 13212  2028   309    56     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176998902 CHANNEL 0 --
 Line model histogram:
 [64209 27475  6695  1302   254    59     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177000540 CHANNEL 0 --
 Line model histogram:
 [84171 13407  2071   298    47     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177002179 CHANNEL 0 --
 Line model histogram:
 [37130 44188 14105  3562   838   157    19     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -691,114 +692,114 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177003817 CHANNEL 0 --
 Line model histogram:
 [84215 13341  2087   303    50     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177005456 CHANNEL 0 --
 Line model histogram:
 [84199 13389  2063   301    42     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177007094 CHANNEL 0 --
 Line model histogram:
 [56752 31953  8998  1840   382    67     7     0     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177009932 CHANNEL 0 --
 Line model histogram:
 [83092 14217  2261   321    79    25     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177011571 CHANNEL 0 --
 Line model histogram:
 [84013 13622  1986   301    68     7     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177013209 CHANNEL 0 --
 Line model histogram:
 [84106 13467  2064   309    50     3     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177014848 CHANNEL 0 --
 Line model histogram:
 [84185 13318  2063   354    70     6     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177016486 CHANNEL 0 --
 Line model histogram:
 [82815 14448  2323   336    67     9     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177018124 CHANNEL 0 --
 Line model histogram:
 [83893 13624  2076   350    47     8     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177019763 CHANNEL 0 --
 Line model histogram:
 [84195 13392  1976   377    53     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177021401 CHANNEL 0 --
 Line model histogram:
 [84315 13204  2046   360    57    12     4     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177023040 CHANNEL 0 --
 Line model histogram:
 [83817 13649  2131   351    42     6     2     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177024678 CHANNEL 0 --
 Line model histogram:
 [42699 41521 12250  2833   562   113    14     5     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177026316 CHANNEL 0 --
 Line model histogram:
 [84091 13482  2046   309    65     5     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177027955 CHANNEL 0 --
 Line model histogram:
 [84345 13147  2138   322    45     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177029593 CHANNEL 0 --
 Line model histogram:
 [84075 13493  2045   323    59     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177031232 CHANNEL 0 --
 Line model histogram:
 [83203 14016  2305   404    64     7     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177032870 CHANNEL 0 --
 Line model histogram:
 [84502 13257  1940   261    36     3     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177034508 CHANNEL 0 --
 Line model histogram:
 [63247 27282  7338  1735   349    30    19]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177036147 CHANNEL 0 --
 Line model histogram:
 [84026 13701  1964   273    30     5     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177037785 CHANNEL 0 --
 Line model histogram:
 [84175 13453  1973   353    42     4]
-0 spectral lines found
+0 spectral lines found.
 
-Spectral line modal frequencies:
-[0.36584531 0.63506165]
 -- 1177039424 CHANNEL 0 --
 Line model histogram:
 [    0  1520 49360 31010 12515  4027  1196   276    70    21     5]
-2 spectral lines found
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.36584531 0.63506165]
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -812,22 +813,22 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177041062 CHANNEL 0 --
 Line model histogram:
 [83851 13761  2030   307    46     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177042700 CHANNEL 0 --
 Line model histogram:
 [81654 15056  2716   440   116    17     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177044339 CHANNEL 0 --
 Line model histogram:
 [68810 23782  5749  1336   264    50     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177045977 CHANNEL 0 --
 Line model histogram:
 [28226 51126 15719  3863   883   164    17     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -838,22 +839,22 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177047616 CHANNEL 0 --
 Line model histogram:
 [83963 13450  2176   313    84    12     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177049254 CHANNEL 0 --
 Line model histogram:
 [84053 13607  1970   309    51    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177050892 CHANNEL 0 --
 Line model histogram:
 [83946 13527  2110   346    57    14]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177052531 CHANNEL 0 --
 Line model histogram:
 [  118 70998 22481  5114  1005   208    63     8     5]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -864,1102 +865,1102 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177054169 CHANNEL 0 --
 Line model histogram:
 [84093 13497  2064   309    34     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176820755 CHANNEL 1 --
 Line model histogram:
 [81239 15347  2818   458   114    22     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176822393 CHANNEL 1 --
 Line model histogram:
 [81159 15301  2854   570   101    15]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176824031 CHANNEL 1 --
 Line model histogram:
 [81025 15346  2868   623   122    14     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176825670 CHANNEL 1 --
 Line model histogram:
 [81526 15001  2898   494    68    13]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176827308 CHANNEL 1 --
 Line model histogram:
 [81218 15457  2732   521    63     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176828947 CHANNEL 1 --
 Line model histogram:
 [81030 15674  2764   443    66    21     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176830585 CHANNEL 1 --
 Line model histogram:
 [81379 15359  2629   513    89    26     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176832223 CHANNEL 1 --
 Line model histogram:
 [81118 15544  2733   520    84     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176833862 CHANNEL 1 --
 Line model histogram:
 [81317 15393  2703   494    83     7     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176835500 CHANNEL 1 --
 Line model histogram:
 [81267 15390  2752   504    76    11]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176837139 CHANNEL 1 --
 Line model histogram:
 [80310 15989  2995   572   115    19]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176838777 CHANNEL 1 --
 Line model histogram:
 [81342 15318  2834   427    74     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176840415 CHANNEL 1 --
 Line model histogram:
 [81167 15529  2693   499   105     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176842054 CHANNEL 1 --
 Line model histogram:
 [81272 15229  2903   502    74    16     2     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176843692 CHANNEL 1 --
 Line model histogram:
 [81051 15492  2805   543    95    14]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176845331 CHANNEL 1 --
 Line model histogram:
 [81213 15485  2732   479    77    12     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176846969 CHANNEL 1 --
 Line model histogram:
 [80485 15914  2953   555    78    13     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176848607 CHANNEL 1 --
 Line model histogram:
 [81378 15183  2712   585   114    12    15     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176850246 CHANNEL 1 --
 Line model histogram:
 [81643 15119  2619   519    95     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176851884 CHANNEL 1 --
 Line model histogram:
 [81021 15465  2908   494   107     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176853523 CHANNEL 1 --
 Line model histogram:
 [81209 15366  2820   492   104     8     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176855161 CHANNEL 1 --
 Line model histogram:
 [80849 15699  2829   511   104     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176856799 CHANNEL 1 --
 Line model histogram:
 [80844 15772  2856   449    69    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176858438 CHANNEL 1 --
 Line model histogram:
 [80679 15841  2841   516   111    12]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176860076 CHANNEL 1 --
 Line model histogram:
 [81420 15354  2677   476    66     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176861715 CHANNEL 1 --
 Line model histogram:
 [81164 15376  2790   579    80    11]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176863353 CHANNEL 1 --
 Line model histogram:
 [81290 15342  2759   497    92    18     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176864991 CHANNEL 1 --
 Line model histogram:
 [81355 15363  2731   430   104    17]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176866630 CHANNEL 1 --
 Line model histogram:
 [81478 15198  2773   464    68    19]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176868268 CHANNEL 1 --
 Line model histogram:
 [81472 15255  2718   481    63     9     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176869907 CHANNEL 1 --
 Line model histogram:
 [81385 15238  2744   525    90    12     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176871545 CHANNEL 1 --
 Line model histogram:
 [81221 15474  2692   501   101    10     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176873183 CHANNEL 1 --
 Line model histogram:
 [80977 15571  2809   527   109     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176874822 CHANNEL 1 --
 Line model histogram:
 [80110 16039  3092   617   122    14     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176876460 CHANNEL 1 --
 Line model histogram:
 [81356 15366  2696   471    89    19     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176878099 CHANNEL 1 --
 Line model histogram:
 [81420 15226  2785   474    87     6     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176879737 CHANNEL 1 --
 Line model histogram:
 [81204 15447  2681   545   108    14     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176881375 CHANNEL 1 --
 Line model histogram:
 [81124 15376  2809   570   107    14]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176883014 CHANNEL 1 --
 Line model histogram:
 [81270 15308  2803   509    97    11     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176884652 CHANNEL 1 --
 Line model histogram:
 [81413 15252  2771   478    71    14     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176886291 CHANNEL 1 --
 Line model histogram:
 [81147 15354  2822   546   108    23]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176887929 CHANNEL 1 --
 Line model histogram:
 [81474 15195  2785   460    72    12     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176889567 CHANNEL 1 --
 Line model histogram:
 [80895 15710  2775   508   101    11]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176891206 CHANNEL 1 --
 Line model histogram:
 [81178 15334  2902   519    60     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176892844 CHANNEL 1 --
 Line model histogram:
 [81278 15396  2731   491    95     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176894483 CHANNEL 1 --
 Line model histogram:
 [81436 15165  2765   515    95    24]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176896121 CHANNEL 1 --
 Line model histogram:
 [81225 15506  2696   452    85    34     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176897759 CHANNEL 1 --
 Line model histogram:
 [81379 15287  2763   458   101    12]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176899398 CHANNEL 1 --
 Line model histogram:
 [81759 14991  2624   527    90     8     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176901036 CHANNEL 1 --
 Line model histogram:
 [81560 15054  2752   504   119    11]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176902675 CHANNEL 1 --
 Line model histogram:
 [81419 15185  2689   590   105    10     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176904313 CHANNEL 1 --
 Line model histogram:
 [81402 15166  2839   506    79     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176905951 CHANNEL 1 --
 Line model histogram:
 [81087 15550  2770   494    84     8     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176907590 CHANNEL 1 --
 Line model histogram:
 [81342 15336  2759   466    84    12     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176910428 CHANNEL 1 --
 Line model histogram:
 [81042 15593  2751   493   109    11     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176912067 CHANNEL 1 --
 Line model histogram:
 [81492 15267  2659   494    74    13     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176913705 CHANNEL 1 --
 Line model histogram:
 [81052 15431  2855   514   115    32     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176915344 CHANNEL 1 --
 Line model histogram:
 [81181 15335  2896   484    96     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176916982 CHANNEL 1 --
 Line model histogram:
 [81142 15430  2830   469   100    28     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176918620 CHANNEL 1 --
 Line model histogram:
 [81311 15232  2803   540   106     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176920259 CHANNEL 1 --
 Line model histogram:
 [81541 15123  2765   462    94    15]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176921897 CHANNEL 1 --
 Line model histogram:
 [81266 15253  2783   563   123    12]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176923536 CHANNEL 1 --
 Line model histogram:
 [81432 15301  2688   470    89    19     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176925174 CHANNEL 1 --
 Line model histogram:
 [81496 15209  2725   487    73    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176926812 CHANNEL 1 --
 Line model histogram:
 [81265 15292  2824   506   100    11     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176928451 CHANNEL 1 --
 Line model histogram:
 [81062 15438  2834   543   114     8     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176930089 CHANNEL 1 --
 Line model histogram:
 [81373 15393  2655   488    82     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176931728 CHANNEL 1 --
 Line model histogram:
 [81143 15630  2607   535    75     8     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176933366 CHANNEL 1 --
 Line model histogram:
 [81115 15511  2760   519    93     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176935004 CHANNEL 1 --
 Line model histogram:
 [81508 15237  2704   470    70    10     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176936643 CHANNEL 1 --
 Line model histogram:
 [81509 15325  2641   431    88     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176938281 CHANNEL 1 --
 Line model histogram:
 [81367 15315  2703   483   123     8     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176939920 CHANNEL 1 --
 Line model histogram:
 [81510 15225  2733   456    68     7     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176941558 CHANNEL 1 --
 Line model histogram:
 [81442 15281  2701   485    80    10     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176943196 CHANNEL 1 --
 Line model histogram:
 [81537 15270  2550   498   127    17     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176944835 CHANNEL 1 --
 Line model histogram:
 [80923 15809  2735   446    80     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176946473 CHANNEL 1 --
 Line model histogram:
 [81659 15025  2729   516    67     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176948112 CHANNEL 1 --
 Line model histogram:
 [81262 15136  2910   598    88     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176949750 CHANNEL 1 --
 Line model histogram:
 [80876 15481  2884   568   156    33     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176951388 CHANNEL 1 --
 Line model histogram:
 [81359 15290  2752   478   104    17]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176953027 CHANNEL 1 --
 Line model histogram:
 [81471 15118  2814   474   112    10     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176954665 CHANNEL 1 --
 Line model histogram:
 [81268 15456  2703   464    95    14]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176956304 CHANNEL 1 --
 Line model histogram:
 [81367 15409  2696   441    80     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176957942 CHANNEL 1 --
 Line model histogram:
 [81217 15532  2696   480    66     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176959580 CHANNEL 1 --
 Line model histogram:
 [81281 15316  2791   506    93    13]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176961219 CHANNEL 1 --
 Line model histogram:
 [80604 15825  2981   522    64     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176962857 CHANNEL 1 --
 Line model histogram:
 [80774 15707  2865   555    89    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176964496 CHANNEL 1 --
 Line model histogram:
 [81355 15212  2683   567   157    25     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176966134 CHANNEL 1 --
 Line model histogram:
 [81104 15465  2803   525    81    21     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176967772 CHANNEL 1 --
 Line model histogram:
 [81321 15292  2756   515   106    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176969411 CHANNEL 1 --
 Line model histogram:
 [81365 15412  2688   444    82     7     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176971049 CHANNEL 1 --
 Line model histogram:
 [81356 15336  2749   471    72    16]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176972688 CHANNEL 1 --
 Line model histogram:
 [81163 15325  2784   562   142    19     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176974326 CHANNEL 1 --
 Line model histogram:
 [81253 15394  2730   512   108     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176975964 CHANNEL 1 --
 Line model histogram:
 [81203 15351  2836   495    93    22]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176977603 CHANNEL 1 --
 Line model histogram:
 [81498 15126  2669   558   125    24]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176979241 CHANNEL 1 --
 Line model histogram:
 [81450 15158  2768   514    91    18     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176980880 CHANNEL 1 --
 Line model histogram:
 [81304 15302  2854   430    98    12]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176982518 CHANNEL 1 --
 Line model histogram:
 [81599 15254  2621   420    90    14     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176984156 CHANNEL 1 --
 Line model histogram:
 [79775 16211  3294   586   115    19]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176985795 CHANNEL 1 --
 Line model histogram:
 [80667 15864  2858   485   109    12     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176987433 CHANNEL 1 --
 Line model histogram:
 [81249 15343  2782   531    83    11     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176989072 CHANNEL 1 --
 Line model histogram:
 [81123 15322  2860   545   124    26]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176990710 CHANNEL 1 --
 Line model histogram:
 [81602 15002  2788   502   100     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176992348 CHANNEL 1 --
 Line model histogram:
 [81219 15508  2681   498    80    14]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176993987 CHANNEL 1 --
 Line model histogram:
 [81232 15421  2754   480    95    14     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176995625 CHANNEL 1 --
 Line model histogram:
 [81120 15445  2762   545   107    21]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176997264 CHANNEL 1 --
 Line model histogram:
 [81054 15365  2983   504    81    12     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176998902 CHANNEL 1 --
 Line model histogram:
 [81423 15121  2805   548    96     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177000540 CHANNEL 1 --
 Line model histogram:
 [81248 15376  2748   499   107    18     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177002179 CHANNEL 1 --
 Line model histogram:
 [81301 15390  2664   512   117    13     1     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177003817 CHANNEL 1 --
 Line model histogram:
 [81313 15332  2712   507   102    25     7     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177005456 CHANNEL 1 --
 Line model histogram:
 [81273 15374  2715   544    86     7     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177007094 CHANNEL 1 --
 Line model histogram:
 [81228 15274  2840   543    98    13     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177009932 CHANNEL 1 --
 Line model histogram:
 [81365 15371  2660   514    87     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177011571 CHANNEL 1 --
 Line model histogram:
 [81407 15300  2645   517   116    11     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177013209 CHANNEL 1 --
 Line model histogram:
 [80936 15503  2880   552   112    15     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177014848 CHANNEL 1 --
 Line model histogram:
 [80905 15691  2769   529    95     9     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177016486 CHANNEL 1 --
 Line model histogram:
 [81241 15412  2757   504    74    10     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177018124 CHANNEL 1 --
 Line model histogram:
 [81790 14955  2676   512    61     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177019763 CHANNEL 1 --
 Line model histogram:
 [81285 15433  2673   475   116    16     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177021401 CHANNEL 1 --
 Line model histogram:
 [81286 15337  2812   475    78    11     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177023040 CHANNEL 1 --
 Line model histogram:
 [81330 15345  2766   477    69    11     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177024678 CHANNEL 1 --
 Line model histogram:
 [80603 15641  3069   580    87    14     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177026316 CHANNEL 1 --
 Line model histogram:
 [81023 15530  2739   572   124    12]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177027955 CHANNEL 1 --
 Line model histogram:
 [81330 15419  2662   457   115    16     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177029593 CHANNEL 1 --
 Line model histogram:
 [81198 15264  2923   494    97    24]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177031232 CHANNEL 1 --
 Line model histogram:
 [80997 15605  2788   512    81    15     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177032870 CHANNEL 1 --
 Line model histogram:
 [81205 15347  2740   575   111    21     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177034508 CHANNEL 1 --
 Line model histogram:
 [81486 15198  2750   488    69     8     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177036147 CHANNEL 1 --
 Line model histogram:
 [81341 15452  2635   473    90     8     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177037785 CHANNEL 1 --
 Line model histogram:
 [80453 15813  3001   606   110    15     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177039424 CHANNEL 1 --
 Line model histogram:
 [81398 15292  2743   478    80     7     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177041062 CHANNEL 1 --
 Line model histogram:
 [81200 15379  2808   506   100     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177042700 CHANNEL 1 --
 Line model histogram:
 [80964 15542  2958   454    77     3     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177044339 CHANNEL 1 --
 Line model histogram:
 [81073 15502  2734   571   105    14     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177045977 CHANNEL 1 --
 Line model histogram:
 [81556 15134  2710   504    82    13     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177047616 CHANNEL 1 --
 Line model histogram:
 [81119 15535  2740   488   109     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177049254 CHANNEL 1 --
 Line model histogram:
 [80596 15720  2968   560   136    17     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177050892 CHANNEL 1 --
 Line model histogram:
 [80991 15726  2732   457    86     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177052531 CHANNEL 1 --
 Line model histogram:
 [81593 15183  2677   429   101    12     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177054169 CHANNEL 1 --
 Line model histogram:
 [81355 15423  2670   483    66     2     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176820755 CHANNEL 2 --
 Line model histogram:
 [81465 15073  2755   562   119    16    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176822393 CHANNEL 2 --
 Line model histogram:
 [81300 15369  2728   513    88     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176824031 CHANNEL 2 --
 Line model histogram:
 [81074 15269  2941   579   114    16     4     2     0     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176825670 CHANNEL 2 --
 Line model histogram:
 [80349 15846  2977   668   128    19    11     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176827308 CHANNEL 2 --
 Line model histogram:
 [81257 15375  2766   506    80    14     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176828947 CHANNEL 2 --
 Line model histogram:
 [81170 15541  2696   508    70    15]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176830585 CHANNEL 2 --
 Line model histogram:
 [80705 15739  2932   521    96     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176832223 CHANNEL 2 --
 Line model histogram:
 [81246 15423  2741   493    87     9     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176833862 CHANNEL 2 --
 Line model histogram:
 [81301 15114  2929   525    90    28    11     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176835500 CHANNEL 2 --
 Line model histogram:
 [80343 15853  3180   531    87     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176837139 CHANNEL 2 --
 Line model histogram:
 [81587 15276  2548   489    81    17     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176838777 CHANNEL 2 --
 Line model histogram:
 [81061 15510  2919   437    69     3     0     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176840415 CHANNEL 2 --
 Line model histogram:
 [81223 15442  2804   450    70    11]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176842054 CHANNEL 2 --
 Line model histogram:
 [81436 15325  2693   444    98     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176843692 CHANNEL 2 --
 Line model histogram:
 [81433 15041  2856   519   120    23     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176845331 CHANNEL 2 --
 Line model histogram:
 [81518 15212  2779   420    68     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176846969 CHANNEL 2 --
 Line model histogram:
 [81010 15622  2740   549    70     5     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176848607 CHANNEL 2 --
 Line model histogram:
 [71122 13619  9116  4097  1436   462   121    18     5     3     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176850246 CHANNEL 2 --
 Line model histogram:
 [81321 15342  2752   452   113    12     7     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176851884 CHANNEL 2 --
 Line model histogram:
 [81397 15185  2831   498    80     8     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176853523 CHANNEL 2 --
 Line model histogram:
 [81241 15175  2965   511    93    13     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176855161 CHANNEL 2 --
 Line model histogram:
 [81464 15204  2748   495    82     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176856799 CHANNEL 2 --
 Line model histogram:
 [81041 15472  2804   562    95    10    14     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176858438 CHANNEL 2 --
 Line model histogram:
 [81207 15518  2743   430    91    11]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176860076 CHANNEL 2 --
 Line model histogram:
 [81107 15385  2932   450   102    18     5     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176861715 CHANNEL 2 --
 Line model histogram:
 [81397 15028  2883   545   126    18     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176863353 CHANNEL 2 --
 Line model histogram:
 [81438 15380  2618   478    68    16     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176864991 CHANNEL 2 --
 Line model histogram:
 [79270 16413  3348   766   156    40     6     0     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176866630 CHANNEL 2 --
 Line model histogram:
 [81240 15412  2789   435   114    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176868268 CHANNEL 2 --
 Line model histogram:
 [81486 15101  2710   550   114    25    12     0     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176869907 CHANNEL 2 --
 Line model histogram:
 [81191 15363  2830   510   100     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176871545 CHANNEL 2 --
 Line model histogram:
 [80988 15541  2837   519    99    16]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176873183 CHANNEL 2 --
 Line model histogram:
 [81231 15405  2770   498    85    10     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176874822 CHANNEL 2 --
 Line model histogram:
 [80800 15649  2906   544    96     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176876460 CHANNEL 2 --
 Line model histogram:
 [81378 15322  2721   471    90    18]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176878099 CHANNEL 2 --
 Line model histogram:
 [81541 15245  2655   473    83     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176879737 CHANNEL 2 --
 Line model histogram:
 [81797 15116  2558   457    62    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176881375 CHANNEL 2 --
 Line model histogram:
 [81194 15439  2750   520    84    11     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176883014 CHANNEL 2 --
 Line model histogram:
 [81161 15511  2773   454    96     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176884652 CHANNEL 2 --
 Line model histogram:
 [81413 15351  2694   438    86    15     1     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176886291 CHANNEL 2 --
 Line model histogram:
 [80641 15793  2952   510    95     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176887929 CHANNEL 2 --
 Line model histogram:
 [81396 15265  2661   521   132    25]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176889567 CHANNEL 2 --
 Line model histogram:
 [80504 15975  2929   534    52     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176891206 CHANNEL 2 --
 Line model histogram:
 [81589 15165  2657   499    85     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176892844 CHANNEL 2 --
 Line model histogram:
 [81308 15265  2797   525    97     4     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176894483 CHANNEL 2 --
 Line model histogram:
 [80873 15675  2855   514    72    11]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176896121 CHANNEL 2 --
 Line model histogram:
 [80481 15769  3024   583   122    18     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176897759 CHANNEL 2 --
 Line model histogram:
 [81170 15277  2915   532    90    15     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176899398 CHANNEL 2 --
 Line model histogram:
 [81417 15187  2759   550    86     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176901036 CHANNEL 2 --
 Line model histogram:
 [81373 15409  2689   431    90     7     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176902675 CHANNEL 2 --
 Line model histogram:
 [81686 14989  2748   457    97    16     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176904313 CHANNEL 2 --
 Line model histogram:
 [81311 15325  2666   553   129    12     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176905951 CHANNEL 2 --
 Line model histogram:
 [81245 15273  2811   547   104    13     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176907590 CHANNEL 2 --
 Line model histogram:
 [80760 15596  2924   587   114    17     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176910428 CHANNEL 2 --
 Line model histogram:
 [80204 16097  3065   533    87    14]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176912067 CHANNEL 2 --
 Line model histogram:
 [81423 15302  2677   497    88    10     2     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176913705 CHANNEL 2 --
 Line model histogram:
 [81273 15367  2778   511    66     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176915344 CHANNEL 2 --
 Line model histogram:
 [81532 15053  2732   530   126    23     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176916982 CHANNEL 2 --
 Line model histogram:
 [81009 15570  2771   517   118    14     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176918620 CHANNEL 2 --
 Line model histogram:
 [80950 15406  2866   633   130    13     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176920259 CHANNEL 2 --
 Line model histogram:
 [81302 15211  2787   570   114    13     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176921897 CHANNEL 2 --
 Line model histogram:
 [81529 14985  2791   530   134    24     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176923536 CHANNEL 2 --
 Line model histogram:
 [81598 15222  2646   412    95    23     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176925174 CHANNEL 2 --
 Line model histogram:
 [80560 15831  3023   502    75     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176926812 CHANNEL 2 --
 Line model histogram:
 [80809 15534  3078   475    95     8     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176928451 CHANNEL 2 --
 Line model histogram:
 [81147 15316  2819   606   103     8     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176930089 CHANNEL 2 --
 Line model histogram:
 [81586 15265  2610   460    69    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176931728 CHANNEL 2 --
 Line model histogram:
 [81647 14920  2816   490   101    21     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176933366 CHANNEL 2 --
 Line model histogram:
 [81284 15408  2752   462    82    10     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176935004 CHANNEL 2 --
 Line model histogram:
 [81550 14965  2890   480   105    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176936643 CHANNEL 2 --
 Line model histogram:
 [80781 15673  2880   526   122    15     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176938281 CHANNEL 2 --
 Line model histogram:
 [81160 15217  2930   541   113    27    10     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176939920 CHANNEL 2 --
 Line model histogram:
 [80806 15697  2814   570   101    12]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176941558 CHANNEL 2 --
 Line model histogram:
 [81316 15335  2767   480    89    12     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176943196 CHANNEL 2 --
 Line model histogram:
 [81077 15390  2773   619    97    28    13     1     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176944835 CHANNEL 2 --
 Line model histogram:
 [81442 15317  2632   494    86    24     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176946473 CHANNEL 2 --
 Line model histogram:
 [10229 59633 22397  5890  1409   345    67    29     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -1970,272 +1971,272 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176948112 CHANNEL 2 --
 Line model histogram:
 [80817 15639  2867   560    90    21     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176949750 CHANNEL 2 --
 Line model histogram:
 [81468 14944  2901   572   101     4     6     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176951388 CHANNEL 2 --
 Line model histogram:
 [80982 15622  2821   455   110     9     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176953027 CHANNEL 2 --
 Line model histogram:
 [80699 15773  2834   569   108    16     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176954665 CHANNEL 2 --
 Line model histogram:
 [81409 15319  2717   426   111    14     3     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176956304 CHANNEL 2 --
 Line model histogram:
 [81207 15254  2810   575   119    24     9     1     0     0     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176957942 CHANNEL 2 --
 Line model histogram:
 [81002 15479  2867   543    97    11     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176959580 CHANNEL 2 --
 Line model histogram:
 [81203 15382  2841   497    66    11]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176961219 CHANNEL 2 --
 Line model histogram:
 [79931 16202  3195   553   116     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176962857 CHANNEL 2 --
 Line model histogram:
 [81521 15206  2675   460   117    20     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176964496 CHANNEL 2 --
 Line model histogram:
 [80970 15547  2857   531    87     7     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176966134 CHANNEL 2 --
 Line model histogram:
 [81125 15489  2714   556   100    13     2     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176967772 CHANNEL 2 --
 Line model histogram:
 [80857 15516  2906   601    96    15     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176969411 CHANNEL 2 --
 Line model histogram:
 [81456 15261  2661   518    92    10     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176971049 CHANNEL 2 --
 Line model histogram:
 [81216 15292  2869   510   101    10     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176972688 CHANNEL 2 --
 Line model histogram:
 [80954 15626  2781   539    96     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176974326 CHANNEL 2 --
 Line model histogram:
 [81130 15460  2793   506   104     5     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176975964 CHANNEL 2 --
 Line model histogram:
 [81327 15073  2971   519    93     7     9     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176977603 CHANNEL 2 --
 Line model histogram:
 [81042 15487  2868   507    81    14     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176979241 CHANNEL 2 --
 Line model histogram:
 [81403 15300  2681   505   103     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176980880 CHANNEL 2 --
 Line model histogram:
 [80973 15573  2835   527    80    11     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176982518 CHANNEL 2 --
 Line model histogram:
 [81294 15226  2849   496   108    22     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176984156 CHANNEL 2 --
 Line model histogram:
 [81532 15038  2761   538   114    13     2     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176985795 CHANNEL 2 --
 Line model histogram:
 [81445 15187  2691   528   118    19     8     2     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176987433 CHANNEL 2 --
 Line model histogram:
 [80945 15627  2836   486    91    14     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176989072 CHANNEL 2 --
 Line model histogram:
 [80399 15951  2961   554   120    14     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176990710 CHANNEL 2 --
 Line model histogram:
 [81206 15354  2852   498    74    16]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176992348 CHANNEL 2 --
 Line model histogram:
 [80713 15513  2966   618   163    23     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176993987 CHANNEL 2 --
 Line model histogram:
 [81072 15452  2763   580   116    16     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176995625 CHANNEL 2 --
 Line model histogram:
 [81249 15371  2826   426   105    22     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176997264 CHANNEL 2 --
 Line model histogram:
 [80933 15254  3037   637   105    27     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176998902 CHANNEL 2 --
 Line model histogram:
 [81281 15305  2809   493    85    15    12]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177000540 CHANNEL 2 --
 Line model histogram:
 [81378 15207  2796   521    77    10    11]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177002179 CHANNEL 2 --
 Line model histogram:
 [81178 15444  2756   528    72    21     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177003817 CHANNEL 2 --
 Line model histogram:
 [80902 15518  2917   551   105     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177005456 CHANNEL 2 --
 Line model histogram:
 [81030 15417  2890   539   115     6     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177007094 CHANNEL 2 --
 Line model histogram:
 [81081 15382  2860   540   117    18     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177009932 CHANNEL 2 --
 Line model histogram:
 [81124 15470  2818   473   102    13]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177011571 CHANNEL 2 --
 Line model histogram:
 [81080 15514  2787   514    78    13     8     3     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177013209 CHANNEL 2 --
 Line model histogram:
 [80774 15618  2970   554    70    12     0     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177014848 CHANNEL 2 --
 Line model histogram:
 [81153 15343  2900   458   123    21     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177016486 CHANNEL 2 --
 Line model histogram:
 [81182 15351  2852   504   102     6     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177018124 CHANNEL 2 --
 Line model histogram:
 [81208 15451  2764   488    72    11     5     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177019763 CHANNEL 2 --
 Line model histogram:
 [80809 15608  2926   528   114    14     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177021401 CHANNEL 2 --
 Line model histogram:
 [81221 15359  2847   476    80    12     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177023040 CHANNEL 2 --
 Line model histogram:
 [81246 15143  2917   550   128    14     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177024678 CHANNEL 2 --
 Line model histogram:
 [81508 15287  2615   499    75    15     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177026316 CHANNEL 2 --
 Line model histogram:
 [81123 15426  2900   455    93     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177027955 CHANNEL 2 --
 Line model histogram:
 [81133 15484  2849   472    60     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177029593 CHANNEL 2 --
 Line model histogram:
 [80585 15862  2985   465    88    12     2     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177031232 CHANNEL 2 --
 Line model histogram:
 [81128 15475  2794   479   116     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177032870 CHANNEL 2 --
 Line model histogram:
 [81108 15631  2691   461    97    12]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177034508 CHANNEL 2 --
 Line model histogram:
 [81030 15591  2788   497    82     8     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177036147 CHANNEL 2 --
 Line model histogram:
 [18649 54614 19853  5363  1192   269    55     5]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -2246,192 +2247,192 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177037785 CHANNEL 2 --
 Line model histogram:
 [81257 15362  2788   532    56     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177039424 CHANNEL 2 --
 Line model histogram:
 [81214 15539  2706   454    73    10     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177041062 CHANNEL 2 --
 Line model histogram:
 [81453 15092  2814   527    95    16     2     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177042700 CHANNEL 2 --
 Line model histogram:
 [81170 15185  2935   563   128    11     6     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177044339 CHANNEL 2 --
 Line model histogram:
 [81572 15111  2756   453    92    11     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177045977 CHANNEL 2 --
 Line model histogram:
 [80787 15726  2839   536   102     5     2     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177047616 CHANNEL 2 --
 Line model histogram:
 [81151 15392  2776   588    78    13     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177049254 CHANNEL 2 --
 Line model histogram:
 [80967 15575  2816   528    99    15]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177050892 CHANNEL 2 --
 Line model histogram:
 [81159 15602  2724   425    83     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177052531 CHANNEL 2 --
 Line model histogram:
 [79348 16737  3137   603   148    18     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177054169 CHANNEL 2 --
 Line model histogram:
 [81185 15271  2879   552    94    13     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176820755 CHANNEL 3 --
 Line model histogram:
 [77557 17560  3744   902   198    32     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176822393 CHANNEL 3 --
 Line model histogram:
 [77660 17588  3688   849   192    21     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176824031 CHANNEL 3 --
 Line model histogram:
 [77833 17559  3643   748   180    35     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176825670 CHANNEL 3 --
 Line model histogram:
 [77773 17515  3663   813   210    21     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176827308 CHANNEL 3 --
 Line model histogram:
 [78062 17454  3583   740   145    16]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176828947 CHANNEL 3 --
 Line model histogram:
 [77937 17388  3738   777   115    40     2     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176830585 CHANNEL 3 --
 Line model histogram:
 [77911 17392  3642   856   178    19     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176832223 CHANNEL 3 --
 Line model histogram:
 [77755 17633  3686   706   152    50    13     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176833862 CHANNEL 3 --
 Line model histogram:
 [77893 17449  3642   789   180    43     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176835500 CHANNEL 3 --
 Line model histogram:
 [77811 17513  3629   835   175    36     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176837139 CHANNEL 3 --
 Line model histogram:
 [77427 17734  3862   767   178    28     1     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176838777 CHANNEL 3 --
 Line model histogram:
 [77404 17574  3904   842   210    50     4     7     3     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176840415 CHANNEL 3 --
 Line model histogram:
 [77639 17602  3690   822   209    33     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176842054 CHANNEL 3 --
 Line model histogram:
 [78148 17158  3669   770   210    36     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176843692 CHANNEL 3 --
 Line model histogram:
 [77703 17722  3552   804   176    39     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176845331 CHANNEL 3 --
 Line model histogram:
 [77821 17521  3640   782   174    51     8     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176846969 CHANNEL 3 --
 Line model histogram:
 [77667 17646  3692   761   179    54     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176848607 CHANNEL 3 --
 Line model histogram:
 [77700 17759  3599   714   187    40     0     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176850246 CHANNEL 3 --
 Line model histogram:
 [77736 17657  3670   727   167    37     5     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176851884 CHANNEL 3 --
 Line model histogram:
 [78015 17393  3640   752   177    22     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176853523 CHANNEL 3 --
 Line model histogram:
 [77318 17972  3713   747   189    58     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176855161 CHANNEL 3 --
 Line model histogram:
 [77845 17435  3719   788   178    30     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176856799 CHANNEL 3 --
 Line model histogram:
 [77632 17648  3679   824   177    38     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176858438 CHANNEL 3 --
 Line model histogram:
 [77683 17730  3547   794   205    36     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176860076 CHANNEL 3 --
 Line model histogram:
 [78085 17197  3710   764   203    32     7     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176861715 CHANNEL 3 --
 Line model histogram:
 [78012 17240  3711   842   163    29     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176863353 CHANNEL 3 --
 Line model histogram:
 [  240 61690 26440  8466  2361   599   161    35     6     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -2442,587 +2443,587 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176864991 CHANNEL 3 --
 Line model histogram:
 [78310 17318  3524   675   131    40     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176866630 CHANNEL 3 --
 Line model histogram:
 [77756 17540  3683   813   181    26     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176868268 CHANNEL 3 --
 Line model histogram:
 [77648 17560  3784   784   173    47     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176869907 CHANNEL 3 --
 Line model histogram:
 [77828 17436  3750   748   176    50    10     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176871545 CHANNEL 3 --
 Line model histogram:
 [78009 17328  3655   776   189    43]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176873183 CHANNEL 3 --
 Line model histogram:
 [77748 17489  3752   771   181    52     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176874822 CHANNEL 3 --
 Line model histogram:
 [77701 17425  3834   832   178    23     6     0     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176876460 CHANNEL 3 --
 Line model histogram:
 [77976 17511  3588   716   171    35     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176878099 CHANNEL 3 --
 Line model histogram:
 [78113 17294  3595   769   188    34     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176879737 CHANNEL 3 --
 Line model histogram:
 [78161 17216  3702   732   153    30     4     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176881375 CHANNEL 3 --
 Line model histogram:
 [77817 17380  3777   818   171    34     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176883014 CHANNEL 3 --
 Line model histogram:
 [77836 17401  3721   860   149    33]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176884652 CHANNEL 3 --
 Line model histogram:
 [77797 17451  3695   839   189    25     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176886291 CHANNEL 3 --
 Line model histogram:
 [77740 17516  3767   777   167    30     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176887929 CHANNEL 3 --
 Line model histogram:
 [77379 17742  3712   902   218    41     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176889567 CHANNEL 3 --
 Line model histogram:
 [77061 17941  4005   766   184    37     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176891206 CHANNEL 3 --
 Line model histogram:
 [77787 17401  3746   857   175    30     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176892844 CHANNEL 3 --
 Line model histogram:
 [77951 17501  3664   717   126    31     9     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176894483 CHANNEL 3 --
 Line model histogram:
 [77611 17658  3630   815   230    42    12     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176896121 CHANNEL 3 --
 Line model histogram:
 [77951 17423  3681   783   137    19     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176897759 CHANNEL 3 --
 Line model histogram:
 [77583 17731  3685   776   178    44     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176899398 CHANNEL 3 --
 Line model histogram:
 [78253 17000  3837   742   146    22]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176901036 CHANNEL 3 --
 Line model histogram:
 [77901 17349  3770   774   172    29     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176902675 CHANNEL 3 --
 Line model histogram:
 [77561 17619  3856   747   181    16    20]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176904313 CHANNEL 3 --
 Line model histogram:
 [78173 17338  3491   770   189    35     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176905951 CHANNEL 3 --
 Line model histogram:
 [77951 17336  3690   820   166    30     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176907590 CHANNEL 3 --
 Line model histogram:
 [78074 17455  3530   750   145    36    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176910428 CHANNEL 3 --
 Line model histogram:
 [78028 17201  3819   760   149    28    15]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176912067 CHANNEL 3 --
 Line model histogram:
 [77557 17721  3688   797   176    49    11     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176913705 CHANNEL 3 --
 Line model histogram:
 [77534 17507  3917   777   224    36     3     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176915344 CHANNEL 3 --
 Line model histogram:
 [77716 17571  3721   794   155    40     1     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176916982 CHANNEL 3 --
 Line model histogram:
 [77787 17659  3584   746   177    42     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176918620 CHANNEL 3 --
 Line model histogram:
 [78062 17326  3653   732   191    32     3     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176920259 CHANNEL 3 --
 Line model histogram:
 [77990 17293  3632   816   216    47     5     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176921897 CHANNEL 3 --
 Line model histogram:
 [78106 17186  3622   817   222    38     4     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176923536 CHANNEL 3 --
 Line model histogram:
 [78411 17132  3514   771   139    27     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176925174 CHANNEL 3 --
 Line model histogram:
 [77824 17481  3718   806   144    20     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176926812 CHANNEL 3 --
 Line model histogram:
 [77376 17768  3748   847   204    46    11]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176928451 CHANNEL 3 --
 Line model histogram:
 [77999 17350  3700   761   140    49     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176930089 CHANNEL 3 --
 Line model histogram:
 [73247 19946  5193  1249   283    64     7     9     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176931728 CHANNEL 3 --
 Line model histogram:
 [77764 17636  3573   827   176    20     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176933366 CHANNEL 3 --
 Line model histogram:
 [77826 17410  3748   790   185    33     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176935004 CHANNEL 3 --
 Line model histogram:
 [78086 17138  3674   853   194    49     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176936643 CHANNEL 3 --
 Line model histogram:
 [77782 17456  3634   816   238    68     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176938281 CHANNEL 3 --
 Line model histogram:
 [77921 17497  3756   663   131    27     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176939920 CHANNEL 3 --
 Line model histogram:
 [78019 17550  3502   748   165    16]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176941558 CHANNEL 3 --
 Line model histogram:
 [77934 17482  3604   748   174    53     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176943196 CHANNEL 3 --
 Line model histogram:
 [78034 17389  3531   791   196    53     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176944835 CHANNEL 3 --
 Line model histogram:
 [77980 17327  3718   782   160    26     2     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176946473 CHANNEL 3 --
 Line model histogram:
 [77952 17511  3637   740   137    23]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176948112 CHANNEL 3 --
 Line model histogram:
 [78028 17463  3570   720   175    41     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176949750 CHANNEL 3 --
 Line model histogram:
 [77618 17715  3732   768   141    20     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176951388 CHANNEL 3 --
 Line model histogram:
 [77832 17518  3697   704   195    52     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176953027 CHANNEL 3 --
 Line model histogram:
 [78017 17459  3493   782   207    37     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176954665 CHANNEL 3 --
 Line model histogram:
 [77500 17855  3671   770   149    48     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176956304 CHANNEL 3 --
 Line model histogram:
 [77808 17710  3574   683   188    32     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176957942 CHANNEL 3 --
 Line model histogram:
 [77824 17601  3516   794   209    50     4     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176959580 CHANNEL 3 --
 Line model histogram:
 [77694 17627  3714   761   179    23     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176961219 CHANNEL 3 --
 Line model histogram:
 [77821 17526  3697   785   138    24     7     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176962857 CHANNEL 3 --
 Line model histogram:
 [77629 17504  3878   818   133    33     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176964496 CHANNEL 3 --
 Line model histogram:
 [77922 17524  3625   734   179    15     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176966134 CHANNEL 3 --
 Line model histogram:
 [78355 17268  3484   703   162    27     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176967772 CHANNEL 3 --
 Line model histogram:
 [77906 17425  3619   814   185    42     8     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176969411 CHANNEL 3 --
 Line model histogram:
 [77638 17599  3767   732   220    43     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176971049 CHANNEL 3 --
 Line model histogram:
 [78188 17351  3504   752   153    44     6     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176972688 CHANNEL 3 --
 Line model histogram:
 [77697 17660  3657   775   165    44     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176974326 CHANNEL 3 --
 Line model histogram:
 [77997 17403  3680   737   146    35     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176975964 CHANNEL 3 --
 Line model histogram:
 [77879 17350  3746   787   192    31     9     2     3     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176977603 CHANNEL 3 --
 Line model histogram:
 [39633 39009 14895  4649  1284   420    91    19]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176979241 CHANNEL 3 --
 Line model histogram:
 [78032 17350  3625   791   175    27]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176980880 CHANNEL 3 --
 Line model histogram:
 [77701 17655  3618   777   221    27     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176982518 CHANNEL 3 --
 Line model histogram:
 [78263 17303  3494   745   161    33     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176984156 CHANNEL 3 --
 Line model histogram:
 [77876 17474  3617   812   183    35     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176985795 CHANNEL 3 --
 Line model histogram:
 [77777 17432  3809   777   160    40     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176987433 CHANNEL 3 --
 Line model histogram:
 [77900 17542  3654   734   154    14     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176989072 CHANNEL 3 --
 Line model histogram:
 [77490 17594  3851   841   184    40]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176990710 CHANNEL 3 --
 Line model histogram:
 [78046 17258  3640   818   191    41     3     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176992348 CHANNEL 3 --
 Line model histogram:
 [77918 17398  3687   766   195    35     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176993987 CHANNEL 3 --
 Line model histogram:
 [77530 17769  3786   731   155    25     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176995625 CHANNEL 3 --
 Line model histogram:
 [77715 17507  3831   729   186    30     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176997264 CHANNEL 3 --
 Line model histogram:
 [78226 17288  3501   764   170    47     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176998902 CHANNEL 3 --
 Line model histogram:
 [78094 17236  3664   792   177    34     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177000540 CHANNEL 3 --
 Line model histogram:
 [77775 17584  3620   758   217    42     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177002179 CHANNEL 3 --
 Line model histogram:
 [77972 17322  3733   767   175    26     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177003817 CHANNEL 3 --
 Line model histogram:
 [78043 17343  3625   756   184    46     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177005456 CHANNEL 3 --
 Line model histogram:
 [77770 17462  3786   757   182    30    13]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177007094 CHANNEL 3 --
 Line model histogram:
 [77490 17678  3838   794   179    18     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177009932 CHANNEL 3 --
 Line model histogram:
 [77895 17382  3577   874   209    57     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177011571 CHANNEL 3 --
 Line model histogram:
 [77816 17562  3661   755   166    34     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177013209 CHANNEL 3 --
 Line model histogram:
 [76426 18237  4057   970   254    44    12]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177014848 CHANNEL 3 --
 Line model histogram:
 [77304 17790  3814   853   188    48     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177016486 CHANNEL 3 --
 Line model histogram:
 [77737 17571  3713   780   157    31    11]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177018124 CHANNEL 3 --
 Line model histogram:
 [77680 17512  3838   764   188    17     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177019763 CHANNEL 3 --
 Line model histogram:
 [77760 17729  3580   740   171    17     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177021401 CHANNEL 3 --
 Line model histogram:
 [78060 17466  3551   738   150    34     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177023040 CHANNEL 3 --
 Line model histogram:
 [77727 17417  3715   892   182    50    15     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177024678 CHANNEL 3 --
 Line model histogram:
 [77889 17391  3661   828   199    29     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177026316 CHANNEL 3 --
 Line model histogram:
 [77582 17550  3845   771   209    40     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177027955 CHANNEL 3 --
 Line model histogram:
 [77800 17432  3776   778   180    28     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177029593 CHANNEL 3 --
 Line model histogram:
 [78091 17275  3641   767   188    35     2     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177031232 CHANNEL 3 --
 Line model histogram:
 [78185 17199  3620   758   156    54    17     6     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177032870 CHANNEL 3 --
 Line model histogram:
 [78093 17295  3653   744   175    39     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177034508 CHANNEL 3 --
 Line model histogram:
 [78023 17597  3494   711   144    29     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177036147 CHANNEL 3 --
 Line model histogram:
 [77773 17610  3586   803   171    51     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177037785 CHANNEL 3 --
 Line model histogram:
 [77783 17305  3753   914   199    36     7     1     0     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177039424 CHANNEL 3 --
 Line model histogram:
 [77644 17576  3713   864   171    26     5     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177041062 CHANNEL 3 --
 Line model histogram:
 [77731 17409  3737   783   267    61     9     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177042700 CHANNEL 3 --
 Line model histogram:
 [77786 17545  3718   701   195    52     2     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177044339 CHANNEL 3 --
 Line model histogram:
 [78008 17383  3610   769   186    35     8     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177045977 CHANNEL 3 --
 Line model histogram:
 [77842 17640  3591   722   176    29]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177047616 CHANNEL 3 --
 Line model histogram:
 [77949 17370  3661   826   166    18     9     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177049254 CHANNEL 3 --
 Line model histogram:
 [77885 17649  3567   712   151    35     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177050892 CHANNEL 3 --
 Line model histogram:
 [77638 17730  3636   788   175    33]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177052531 CHANNEL 3 --
 Line model histogram:
 [77547 17752  3653   813   171    54    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177054169 CHANNEL 3 --
 Line model histogram:
 [77658 17642  3684   809   167    35     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176820755 CHANNEL 4 --
 Line model histogram:
 [45308 38619 12120  3101   707   100    35     8     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176822393 CHANNEL 4 --
 Line model histogram:
 [    0 67786 24146  6307  1419   259    53    17    10     3]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3033,7 +3034,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176824031 CHANNEL 4 --
 Line model histogram:
 [10710 61291 20984  5440  1208   270    75    17     3     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3044,12 +3045,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176825670 CHANNEL 4 --
 Line model histogram:
 [82419 14546  2447   466   108     9     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176827308 CHANNEL 4 --
 Line model histogram:
 [   93 67638 23787  6354  1644   343    91    26     7     3    10     3     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3060,7 +3061,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176828947 CHANNEL 4 --
 Line model histogram:
 [32276 45934 16222  4253  1036   230    47     1     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3071,7 +3072,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176830585 CHANNEL 4 --
 Line model histogram:
 [  507 67632 23940  6066  1480   286    55    15    12     4     3]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3082,47 +3083,47 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176832223 CHANNEL 4 --
 Line model histogram:
 [82255 14786  2455   399    93    12]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176833862 CHANNEL 4 --
 Line model histogram:
 [57900 30174  8915  2220   591   135    44    19     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176835500 CHANNEL 4 --
 Line model histogram:
 [81811 15162  2471   474    68    12     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176837139 CHANNEL 4 --
 Line model histogram:
 [61895 26529  8259  2370   694   195    44    12     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176838777 CHANNEL 4 --
 Line model histogram:
 [71976 21041  5369  1272   270    55    17]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176840415 CHANNEL 4 --
 Line model histogram:
 [80218 16103  2975   570    93    28     6     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176842054 CHANNEL 4 --
 Line model histogram:
 [82212 14834  2475   391    68    14     3     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176843692 CHANNEL 4 --
 Line model histogram:
 [81546 15216  2666   492    68    12]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176845331 CHANNEL 4 --
 Line model histogram:
 [ 1159 67091 23975  5927  1450   302    65    16    10     5]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3133,7 +3134,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176846969 CHANNEL 4 --
 Line model histogram:
 [ 2109 64774 24367  6627  1655   385    74     7     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3144,7 +3145,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176848607 CHANNEL 4 --
 Line model histogram:
 [14955 58280 20166  5176  1139   220    45    10     5     4]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3155,7 +3156,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176850246 CHANNEL 4 --
 Line model histogram:
 [    0 67207 24522  6286  1540   355    66    19     5]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3166,7 +3167,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176851884 CHANNEL 4 --
 Line model histogram:
 [    0 52855 30847 11531  3630   865   198    49    11    12     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3177,12 +3178,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176853523 CHANNEL 4 --
 Line model histogram:
 [82306 14826  2341   444    73     7     1     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176855161 CHANNEL 4 --
 Line model histogram:
 [    2 67939 24090  6142  1450   279    82    12     4]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO       CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                       
@@ -3193,37 +3194,37 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176856799 CHANNEL 4 --
 Line model histogram:
 [81209 15434  2765   480    94    16     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176858438 CHANNEL 4 --
 Line model histogram:
 [76289 18682  3977   867   143    34     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176860076 CHANNEL 4 --
 Line model histogram:
 [80940 15715  2770   465    90    15     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176861715 CHANNEL 4 --
 Line model histogram:
 [79526 16430  3210   639   149    35     6     2     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176863353 CHANNEL 4 --
 Line model histogram:
 [75891 18794  4204   902   184    23     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176864991 CHANNEL 4 --
 Line model histogram:
 [78334 17210  3582   748   112    13     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176866630 CHANNEL 4 --
 Line model histogram:
 [19584 55229 19238  4667  1033   193    47     9]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3234,12 +3235,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176868268 CHANNEL 4 --
 Line model histogram:
 [68547 23665  5930  1437   323    78    19     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176869907 CHANNEL 4 --
 Line model histogram:
 [14741 53995 22327  6621  1794   409    83    25     4     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO       CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                       
@@ -3250,7 +3251,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176871545 CHANNEL 4 --
 Line model histogram:
 [ 1182 67307 23505  6132  1524   284    51    11     2     1     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3261,32 +3262,32 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176873183 CHANNEL 4 --
 Line model histogram:
 [82184 14751  2529   432    79    19     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176874822 CHANNEL 4 --
 Line model histogram:
 [81736 14890  2750   503   105    12     3     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176876460 CHANNEL 4 --
 Line model histogram:
 [82080 14824  2499   508    77    12]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176878099 CHANNEL 4 --
 Line model histogram:
 [42829 39446 13190  3446   841   218    28     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176879737 CHANNEL 4 --
 Line model histogram:
 [74064 20182  4618   908   179    36    12     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176881375 CHANNEL 4 --
 Line model histogram:
 [    0 67611 24392  6198  1370   300    85    23    11     3     7]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3297,17 +3298,17 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176883014 CHANNEL 4 --
 Line model histogram:
 [76164 18438  4314   897   174     9     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176884652 CHANNEL 4 --
 Line model histogram:
 [81583 15074  2687   513   122    17     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176886291 CHANNEL 4 --
 Line model histogram:
 [ 4037 63464 23799  6566  1623   406    92    11     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3318,17 +3319,17 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176887929 CHANNEL 4 --
 Line model histogram:
 [82270 14789  2454   409    74     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176889567 CHANNEL 4 --
 Line model histogram:
 [79686 16508  3062   598   117    25     3     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176891206 CHANNEL 4 --
 Line model histogram:
 [   37 67870 24054  6250  1430   282    49    13     7     4     2     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3336,12 +3337,12 @@ CHANNEL TIME       LINE PARAMETER
                         AMP        2.018023e-17  1.344322e-20  2.018742e-17  1.336714e-20  5.352716e-15
                         QF         1.124505e+03  1.000098e+02  1.124509e+03  1.000098e+02  8.154028e+03
 
-Spectral line modal frequencies:
-[0.00286016 0.0692624 ]
 -- 1176892844 CHANNEL 4 --
 Line model histogram:
 [20502 23511 33963 15123  5053  1332   395    95    11    13     2]
-2 spectral lines found
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.00286016 0.0692624 ]
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3355,7 +3356,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176894483 CHANNEL 4 --
 Line model histogram:
 [ 3024 65604 23530  6025  1441   306    54    14     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3366,12 +3367,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176896121 CHANNEL 4 --
 Line model histogram:
 [82682 14487  2343   418    60     8     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176897759 CHANNEL 4 --
 Line model histogram:
 [    0 61316 27489  8369  2150   504   143    22     6     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3382,7 +3383,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176899398 CHANNEL 4 --
 Line model histogram:
 [37274 41044 15525  4667  1186   248    47     9]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO       CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                       
@@ -3393,7 +3394,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176901036 CHANNEL 4 --
 Line model histogram:
 [15915 55384 21017  5807  1440   323    89    19     5     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3404,19 +3405,19 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176902675 CHANNEL 4 --
 Line model histogram:
 [80016 16161  3013   639   151    20]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176904313 CHANNEL 4 --
 Line model histogram:
 [77296 17970  3770   763   151    37    13]
-0 spectral lines found
+0 spectral lines found.
 
-Spectral line modal frequencies:
-[0.00291373 0.06953555]
 -- 1176905951 CHANNEL 4 --
 Line model histogram:
 [   35 15451 50088 23453  7993  2221   514   157    65    20     0     2     1]
-2 spectral lines found
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.00291373 0.06953555]
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3430,12 +3431,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176907590 CHANNEL 4 --
 Line model histogram:
 [47715 16473 21286  9953  3212   946   293   108    12     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176910428 CHANNEL 4 --
 Line model histogram:
 [11891 59976 20981  5483  1306   275    66    17     4     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3443,13 +3444,13 @@ CHANNEL TIME       LINE PARAMETER
                         AMP        3.813890e-18  5.571163e-20  3.850474e-18  1.015480e-20  1.952877e-16
                         QF         4.298183e+02  1.000063e+02  4.298275e+02  1.000036e+02  3.391754e+03
 
-Spectral line modal frequencies:
-[0.35977835 0.35984694]
 -- 1176912067 CHANNEL 4 --
 Line model histogram:
 [    3  6178 53431 27372  9304  2707   714   189    49    24     9     3     1
     13     3]
-2 spectral lines found
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.35977835 0.35984694]
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3463,17 +3464,17 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176913705 CHANNEL 4 --
 Line model histogram:
 [82003 14943  2462   503    69    20]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176915344 CHANNEL 4 --
 Line model histogram:
 [77459 17711  3893   756   151    24     5     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176916982 CHANNEL 4 --
 Line model histogram:
 [    0 68644 23564  5997  1401   287    68    31     7     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3484,12 +3485,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176918620 CHANNEL 4 --
 Line model histogram:
 [81962 14767  2652   488   107    18     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176920259 CHANNEL 4 --
 Line model histogram:
 [   11 66737 24471  6597  1679   388    91    18     5     2     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3500,12 +3501,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176921897 CHANNEL 4 --
 Line model histogram:
 [82120 14636  2660   482    84    12     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176923536 CHANNEL 4 --
 Line model histogram:
 [32859 39021 19149  6517  1854   469   113    17     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3516,12 +3517,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176925174 CHANNEL 4 --
 Line model histogram:
 [82233 14551  2617   499    83    13     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176926812 CHANNEL 4 --
 Line model histogram:
 [  347 67738 24113  5883  1504   304    89    12     4     5     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3532,12 +3533,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176928451 CHANNEL 4 --
 Line model histogram:
 [46102 38274 11996  2834   623   143    27     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176930089 CHANNEL 4 --
 Line model histogram:
 [40327 41694 13441  3469   832   188    41     8]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3548,17 +3549,17 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176931728 CHANNEL 4 --
 Line model histogram:
 [82312 14774  2452   371    70    16     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176933366 CHANNEL 4 --
 Line model histogram:
 [80988 15656  2653   513   127    47    12     2     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176935004 CHANNEL 4 --
 Line model histogram:
 [    0 59634 28185  8877  2552   614   111    20     3     1     1     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3566,12 +3567,12 @@ CHANNEL TIME       LINE PARAMETER
                         AMP        2.649231e-18  1.128075e-19  2.672012e-18  5.872128e-20  1.795752e-17
                         QF         2.714536e+02  1.000001e+02  2.714625e+02  1.000001e+02  6.852876e+02
 
-Spectral line modal frequencies:
-[0.00354842 0.07059117]
 -- 1176936643 CHANNEL 4 --
 Line model histogram:
 [21070 14086 37639 17973  6537  1959   492   201    35     8]
-2 spectral lines found
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.00354842 0.07059117]
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3585,7 +3586,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176938281 CHANNEL 4 --
 Line model histogram:
 [ 2706 66734 23058  5842  1335   260    50    10     4     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3596,17 +3597,17 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176939920 CHANNEL 4 --
 Line model histogram:
 [81875 14904  2619   486    86    12    14     3     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176941558 CHANNEL 4 --
 Line model histogram:
 [82124 14812  2495   455    94    13     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176943196 CHANNEL 4 --
 Line model histogram:
 [17471 55537 19914  5347  1323   312    61    14     8     4     9]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3617,22 +3618,22 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176944835 CHANNEL 4 --
 Line model histogram:
 [67952 23849  6351  1391   308   119    20     7     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176946473 CHANNEL 4 --
 Line model histogram:
 [81883 15009  2572   426    85    17     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176948112 CHANNEL 4 --
 Line model histogram:
 [79555 16613  3092   610   107    18     1     1     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176949750 CHANNEL 4 --
 Line model histogram:
 [40734 40969 13579  3674   796   197    48     3]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3643,17 +3644,17 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176951388 CHANNEL 4 --
 Line model histogram:
 [80413 15870  3013   570   104    20     8     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176953027 CHANNEL 4 --
 Line model histogram:
 [82087 14822  2468   477   103    31    11     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176954665 CHANNEL 4 --
 Line model histogram:
 [ 8611 55979 25217  7634  2001   446    74    31     7]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3664,17 +3665,17 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176956304 CHANNEL 4 --
 Line model histogram:
 [82434 14675  2417   399    70     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176957942 CHANNEL 4 --
 Line model histogram:
 [76190 18546  4023   960   223    47    11]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176959580 CHANNEL 4 --
 Line model histogram:
 [    0 60922 27292  8629  2355   597   135    47    21     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3685,7 +3686,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176961219 CHANNEL 4 --
 Line model histogram:
 [ 7001 61715 23185  6077  1543   393    67    15     4]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3693,13 +3694,13 @@ CHANNEL TIME       LINE PARAMETER
                         AMP        1.855079e-17  1.057597e-20  1.855079e-17  1.019466e-20  1.386977e-14
                         QF         8.253094e+02  1.000620e+02  8.253094e+02  1.000620e+02  1.969395e+04
 
-Spectral line modal frequencies:
-[0.07033757 0.27465559 0.72537051]
 -- 1176962857 CHANNEL 4 --
 Line model histogram:
 [    0  3368 32739 35176 18492  7190  2235   645   112    30     7     1     1
      2     2]
-3 spectral lines found
+3 spectral lines found.
+Spectral line modal frequencies:
+[0.07033757 0.27465559 0.72537051]
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3716,7 +3717,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176964496 CHANNEL 4 --
 Line model histogram:
 [36697 42843 15127  4145   950   177    55     2     3     0     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3727,12 +3728,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176966134 CHANNEL 4 --
 Line model histogram:
 [50537 35160 10957  2583   597   114    34    12     4     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176967772 CHANNEL 4 --
 Line model histogram:
 [    0 68458 24013  5737  1394   300    86    12]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3743,17 +3744,17 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176969411 CHANNEL 4 --
 Line model histogram:
 [77928 15530  4366  1486   508   144    37     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176971049 CHANNEL 4 --
 Line model histogram:
 [80982 15621  2716   506   127    31     8     6     2     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176972688 CHANNEL 4 --
 Line model histogram:
 [   32 67538 24423  6287  1363   266    52    24    10     5]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3764,7 +3765,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176974326 CHANNEL 4 --
 Line model histogram:
 [   56 67130 24578  6372  1390   308   108    28    19     9     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3775,12 +3776,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176975964 CHANNEL 4 --
 Line model histogram:
 [81911 14968  2567   458    81    15]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176977603 CHANNEL 4 --
 Line model histogram:
 [12650 59321 21123  5311  1235   285    60    10     3     1     0     0     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3791,7 +3792,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176979241 CHANNEL 4 --
 Line model histogram:
 [10422 60636 21457  5705  1441   259    61    10     5     3     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3802,14 +3803,14 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176980880 CHANNEL 4 --
 Line model histogram:
 [82430 14632  2387   417    97    31     6]
-0 spectral lines found
+0 spectral lines found.
 
-Spectral line modal frequencies:
-[0.06921569 0.71676604]
 -- 1176982518 CHANNEL 4 --
 Line model histogram:
 [    1  4067 52003 28749 10728  3307   891   191    53    10]
-2 spectral lines found
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.06921569 0.71676604]
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3823,12 +3824,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176984156 CHANNEL 4 --
 Line model histogram:
 [66085 23722  7452  1974   588   105    58    16]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176985795 CHANNEL 4 --
 Line model histogram:
 [    1 68370 23706  6074  1479   310    57     1     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3839,22 +3840,22 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176987433 CHANNEL 4 --
 Line model histogram:
 [81343 15273  2743   525    97    16     2     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176989072 CHANNEL 4 --
 Line model histogram:
 [81620 15194  2581   492   101    12]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176990710 CHANNEL 4 --
 Line model histogram:
 [81291 15209  2817   551   107    23     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176992348 CHANNEL 4 --
 Line model histogram:
 [  284 67544 23951  6444  1422   271    61    14     4     4     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3865,22 +3866,22 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176993987 CHANNEL 4 --
 Line model histogram:
 [82628 14273  2564   441    77    10     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176995625 CHANNEL 4 --
 Line model histogram:
 [82546 14350  2519   487    72    17     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176997264 CHANNEL 4 --
 Line model histogram:
 [82271 14644  2504   465    88    25     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176998902 CHANNEL 4 --
 Line model histogram:
 [ 7818 60746 23059  6517  1472   322    40    19     3     4]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3891,12 +3892,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177000540 CHANNEL 4 --
 Line model histogram:
 [81388 15200  2778   530    86    17     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177002179 CHANNEL 4 --
 Line model histogram:
 [23356 46017 21485  6702  1954   384    90    10     0     0     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3907,12 +3908,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177003817 CHANNEL 4 --
 Line model histogram:
 [81303 15339  2635   570   143     8     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177005456 CHANNEL 4 --
 Line model histogram:
 [   18 67445 24181  6453  1524   300    55    17     6     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3923,27 +3924,27 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177007094 CHANNEL 4 --
 Line model histogram:
 [82065 14925  2494   433    55    13    10     3     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177009932 CHANNEL 4 --
 Line model histogram:
 [81630 15182  2595   473   109     9     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177011571 CHANNEL 4 --
 Line model histogram:
 [81317 15362  2650   551   107    11     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177013209 CHANNEL 4 --
 Line model histogram:
 [71835 21455  5347  1148   175    24    11     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177014848 CHANNEL 4 --
 Line model histogram:
 [   60 67163 24074  6559  1671   346    74    21    16    16]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3954,7 +3955,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177016486 CHANNEL 4 --
 Line model histogram:
 [11098 49325 26872  9062  2777   680   161    17     8]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3965,7 +3966,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177018124 CHANNEL 4 --
 Line model histogram:
 [   20 66876 24279  6799  1619   315    78    12     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3973,13 +3974,13 @@ CHANNEL TIME       LINE PARAMETER
                         AMP        2.311770e-16  1.039100e-20  2.312090e-16  1.039100e-20  1.452678e-10
                         QF         3.142676e+03  1.000163e+02  3.143078e+03  1.000163e+02  2.238219e+05
 
-Spectral line modal frequencies:
-[0.00255918 0.06938462]
 -- 1177019763 CHANNEL 4 --
 Line model histogram:
 [12177  8100 45624 22996  8123  2220   560   128    29    11     5    11    15
      1]
-2 spectral lines found
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.00255918 0.06938462]
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -3993,7 +3994,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177021401 CHANNEL 4 --
 Line model histogram:
 [   24 68361 23487  6271  1437   322    79    13     4     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4004,7 +4005,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177023040 CHANNEL 4 --
 Line model histogram:
 [  755 64449 25182  7106  1912   422   120    34     8    10     1     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4015,27 +4016,27 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177024678 CHANNEL 4 --
 Line model histogram:
 [82304 14896  2318   391    78    10     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177026316 CHANNEL 4 --
 Line model histogram:
 [72229 21041  5190  1241   238    51     9     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177027955 CHANNEL 4 --
 Line model histogram:
 [82290 14673  2457   468    85    21     5     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177029593 CHANNEL 4 --
 Line model histogram:
 [82452 14659  2413   413    55     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177031232 CHANNEL 4 --
 Line model histogram:
 [    0 65571 25188  6945  1715   398   138    30    15]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4046,7 +4047,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177032870 CHANNEL 4 --
 Line model histogram:
 [33292 36132 20352  7268  2213   574   138    24     7]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4057,12 +4058,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177034508 CHANNEL 4 --
 Line model histogram:
 [81213 15326  2674   573   164    25    16     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177036147 CHANNEL 4 --
 Line model histogram:
 [ 1621 66742 23806  5991  1420   305    78    17    20]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4073,7 +4074,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177037785 CHANNEL 4 --
 Line model histogram:
 [23068 52654 18198  4569  1142   278    61    25     5]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4084,12 +4085,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177039424 CHANNEL 4 --
 Line model histogram:
 [81760 15120  2590   435    60    23     8     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177041062 CHANNEL 4 --
 Line model histogram:
 [   24 66343 24845  6680  1597   363   118    24     6]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4100,12 +4101,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177042700 CHANNEL 4 --
 Line model histogram:
 [49698 35571 11137  2729   683   149    23     7     2     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177044339 CHANNEL 4 --
 Line model histogram:
 [    0 66613 24686  6655  1586   349    78    20     8     2     2     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4116,12 +4117,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177045977 CHANNEL 4 --
 Line model histogram:
 [74521 19681  4373  1063   298    44    20]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177047616 CHANNEL 4 --
 Line model histogram:
 [   92 64839 25164  7362  1991   421   106    20     5]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4132,15 +4133,15 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177049254 CHANNEL 4 --
 Line model histogram:
 [81958 14905  2485   517   108    21     6]
-0 spectral lines found
+0 spectral lines found.
 
-Spectral line modal frequencies:
-[0.0699308  0.36713537]
 -- 1177050892 CHANNEL 4 --
 Line model histogram:
 [    0   150 56168 29521 10066  2941   803   207    75    19    14    22     7
      7]
-2 spectral lines found
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.0699308  0.36713537]
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4154,12 +4155,12 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177052531 CHANNEL 4 --
 Line model histogram:
 [80828 15603  2834   566   128    30     9     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177054169 CHANNEL 4 --
 Line model histogram:
 [    8 38405 38257 16230  5116  1419   390   119    45    10     0     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4170,47 +4171,47 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176820755 CHANNEL 5 --
 Line model histogram:
 [79393 16569  3166   720   118    33     0     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176822393 CHANNEL 5 --
 Line model histogram:
 [81793 15065  2545   499    86    11     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176824031 CHANNEL 5 --
 Line model histogram:
 [81272 15321  2788   514    98     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176825670 CHANNEL 5 --
 Line model histogram:
 [82289 14665  2455   478    91    16     5     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176827308 CHANNEL 5 --
 Line model histogram:
 [78672 17143  3348   647   162    27     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176828947 CHANNEL 5 --
 Line model histogram:
 [82033 14885  2585   445    47     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176830585 CHANNEL 5 --
 Line model histogram:
 [76632 18551  3931   727   137    21     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176832223 CHANNEL 5 --
 Line model histogram:
 [81557 15154  2695   483    95    15     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176833862 CHANNEL 5 --
 Line model histogram:
 [  512 67490 23993  6118  1466   300    85    28     7     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4221,7 +4222,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176835500 CHANNEL 5 --
 Line model histogram:
 [    0 66596 24546  6686  1705   348    88    18     8     5]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4232,17 +4233,17 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176837139 CHANNEL 5 --
 Line model histogram:
 [81680 15120  2591   506    82    12     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176838777 CHANNEL 5 --
 Line model histogram:
 [82001 14881  2555   453    88    18     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176840415 CHANNEL 5 --
 Line model histogram:
 [ 2949 61809 25241  7409  2029   449    79    20     9     4     2]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4253,27 +4254,27 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176842054 CHANNEL 5 --
 Line model histogram:
 [73355 20454  4873  1009   212    79    13     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176843692 CHANNEL 5 --
 Line model histogram:
 [82425 14743  2348   407    62     9     5     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176845331 CHANNEL 5 --
 Line model histogram:
 [82252 14630  2476   490   117    19    12     3     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176846969 CHANNEL 5 --
 Line model histogram:
 [81049 15491  2857   504    85    11     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176848607 CHANNEL 5 --
 Line model histogram:
 [20046 54132 18926  5135  1338   331    71    21]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4284,162 +4285,162 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176850246 CHANNEL 5 --
 Line model histogram:
 [82305 14730  2421   472    58    14]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176851884 CHANNEL 5 --
 Line model histogram:
 [81183 15510  2722   480    84    12     3     4     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176853523 CHANNEL 5 --
 Line model histogram:
 [82404 14666  2459   407    50     9     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176855161 CHANNEL 5 --
 Line model histogram:
 [81792 15058  2659   407    72    10     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176856799 CHANNEL 5 --
 Line model histogram:
 [81548 15196  2624   514    84    24    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176858438 CHANNEL 5 --
 Line model histogram:
 [82012 14925  2566   418    73     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176860076 CHANNEL 5 --
 Line model histogram:
 [81214 15175  2896   559   136    13     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176861715 CHANNEL 5 --
 Line model histogram:
 [76825 18237  3961   815   145    16     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176863353 CHANNEL 5 --
 Line model histogram:
 [82347 14598  2495   456    91    13]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176864991 CHANNEL 5 --
 Line model histogram:
 [80488 15940  2879   572   101    18     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176866630 CHANNEL 5 --
 Line model histogram:
 [81993 14897  2606   412    75    16     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176868268 CHANNEL 5 --
 Line model histogram:
 [82274 14684  2536   438    50    17     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176869907 CHANNEL 5 --
 Line model histogram:
 [82055 14837  2532   463    96    15     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176871545 CHANNEL 5 --
 Line model histogram:
 [82286 14617  2511   462    95    13    12     3     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176873183 CHANNEL 5 --
 Line model histogram:
 [81860 14877  2705   437    98     9    11     2     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176874822 CHANNEL 5 --
 Line model histogram:
 [82388 14695  2362   458    86    10     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176876460 CHANNEL 5 --
 Line model histogram:
 [82167 14895  2396   462    55    18     5     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176878099 CHANNEL 5 --
 Line model histogram:
 [81772 15099  2622   438    59     8     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176879737 CHANNEL 5 --
 Line model histogram:
 [81291 15141  2912   530   104    15     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176881375 CHANNEL 5 --
 Line model histogram:
 [81216 15344  2765   562    95    15     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176883014 CHANNEL 5 --
 Line model histogram:
 [82261 14730  2503   420    67    14     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176884652 CHANNEL 5 --
 Line model histogram:
 [82203 14718  2463   506    84    22     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176886291 CHANNEL 5 --
 Line model histogram:
 [81588 15088  2721   481   105    14     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176887929 CHANNEL 5 --
 Line model histogram:
 [82105 14748  2553   498    79    15     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176889567 CHANNEL 5 --
 Line model histogram:
 [81793 15057  2532   488   113    17]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176891206 CHANNEL 5 --
 Line model histogram:
 [82095 14723  2616   494    59    12     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176892844 CHANNEL 5 --
 Line model histogram:
 [73223 20640  4838  1054   190    32    14     7     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176894483 CHANNEL 5 --
 Line model histogram:
 [82347 14744  2384   446    63    10     3     2     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176896121 CHANNEL 5 --
 Line model histogram:
 [82074 14803  2597   455    67     2     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176897759 CHANNEL 5 --
 Line model histogram:
 [81127 15299  2860   592   107    15]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176899398 CHANNEL 5 --
 Line model histogram:
 [71445 21616  5434  1201   250    50     3     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176901036 CHANNEL 5 --
 Line model histogram:
 [ 2547 60975 26331  7638  1895   462   116    29     6     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4450,77 +4451,77 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176902675 CHANNEL 5 --
 Line model histogram:
 [81693 15003  2661   527    97    17     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176904313 CHANNEL 5 --
 Line model histogram:
 [81945 14972  2516   451    80    28     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176905951 CHANNEL 5 --
 Line model histogram:
 [81109 15573  2617   571   112    16     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176907590 CHANNEL 5 --
 Line model histogram:
 [76756 18465  3840   736   160    37     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176910428 CHANNEL 5 --
 Line model histogram:
 [82394 14725  2380   417    69    14     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176912067 CHANNEL 5 --
 Line model histogram:
 [80709 15551  3046   579    97    14     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176913705 CHANNEL 5 --
 Line model histogram:
 [82141 14851  2415   505    81     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176915344 CHANNEL 5 --
 Line model histogram:
 [82286 14677  2479   456    93     7     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176916982 CHANNEL 5 --
 Line model histogram:
 [81805 15125  2526   474    60    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176918620 CHANNEL 5 --
 Line model histogram:
 [81979 14836  2601   492    84     6     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176920259 CHANNEL 5 --
 Line model histogram:
 [82002 14855  2605   448    81     7     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176921897 CHANNEL 5 --
 Line model histogram:
 [80913 15551  2830   591    96    16     2     0     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176923536 CHANNEL 5 --
 Line model histogram:
 [81328 15254  2744   542    96    32     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176925174 CHANNEL 5 --
 Line model histogram:
 [65570 24903  7126  1941   393    59     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176926812 CHANNEL 5 --
 Line model histogram:
 [11854 57900 22105  6023  1607   393    91    24     3]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4531,17 +4532,17 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176928451 CHANNEL 5 --
 Line model histogram:
 [81645 15050  2650   539    91    22     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176930089 CHANNEL 5 --
 Line model histogram:
 [69613 22909  5824  1310   279    56     7     0     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176931728 CHANNEL 5 --
 Line model histogram:
 [ 1125 67810 23454  5979  1275   250    79    19     6     2     1]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4552,97 +4553,97 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176933366 CHANNEL 5 --
 Line model histogram:
 [81182 15394  2785   532    88    19]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176935004 CHANNEL 5 --
 Line model histogram:
 [79243 16634  3350   643   113    13     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176936643 CHANNEL 5 --
 Line model histogram:
 [82115 14928  2408   495    47     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176938281 CHANNEL 5 --
 Line model histogram:
 [81970 14951  2523   488    62     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176939920 CHANNEL 5 --
 Line model histogram:
 [82273 14672  2451   496    71    19    14     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176941558 CHANNEL 5 --
 Line model histogram:
 [78427 17270  3408   729   136    19     4     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176943196 CHANNEL 5 --
 Line model histogram:
 [81493 15297  2606   501    94     8     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176944835 CHANNEL 5 --
 Line model histogram:
 [82056 14749  2646   478    67     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176946473 CHANNEL 5 --
 Line model histogram:
 [81944 14975  2535   466    70    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176948112 CHANNEL 5 --
 Line model histogram:
 [82310 14559  2611   453    64     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176949750 CHANNEL 5 --
 Line model histogram:
 [80242 15946  3080   587   125    17     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176951388 CHANNEL 5 --
 Line model histogram:
 [78821 16965  3342   711   138    19     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176953027 CHANNEL 5 --
 Line model histogram:
 [82028 14897  2572   440    59     2     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176954665 CHANNEL 5 --
 Line model histogram:
 [81501 15197  2719   465    94    22     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176956304 CHANNEL 5 --
 Line model histogram:
 [82382 14699  2418   459    37     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176957942 CHANNEL 5 --
 Line model histogram:
 [81322 15368  2703   496   100    11]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176959580 CHANNEL 5 --
 Line model histogram:
 [82084 14968  2446   416    49    13    21     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176961219 CHANNEL 5 --
 Line model histogram:
 [81002 15605  2734   522    98    16     9     9     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176962857 CHANNEL 5 --
 Line model histogram:
 [ 2723 60670 25740  7686  2231   689   186    52    20     3]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4653,7 +4654,7 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176964496 CHANNEL 5 --
 Line model histogram:
 [  817 66932 24164  6301  1406   299    78     3]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4664,197 +4665,197 @@ CHANNEL TIME       LINE PARAMETER
 -- 1176966134 CHANNEL 5 --
 Line model histogram:
 [81957 14958  2529   470    75     9     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176967772 CHANNEL 5 --
 Line model histogram:
 [82466 14522  2502   403    85    18     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176969411 CHANNEL 5 --
 Line model histogram:
 [81742 15054  2564   531    86    21     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176971049 CHANNEL 5 --
 Line model histogram:
 [82289 14627  2603   420    54     4     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176972688 CHANNEL 5 --
 Line model histogram:
 [82221 14697  2520   460    82    19     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176974326 CHANNEL 5 --
 Line model histogram:
 [82010 15016  2465   409    83    12     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176975964 CHANNEL 5 --
 Line model histogram:
 [79484 16479  3194   693   133    16     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176977603 CHANNEL 5 --
 Line model histogram:
 [74124 20192  4569   901   155    48    11]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176979241 CHANNEL 5 --
 Line model histogram:
 [82286 14751  2435   452    68     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176980880 CHANNEL 5 --
 Line model histogram:
 [82035 14800  2576   488    88    13]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176982518 CHANNEL 5 --
 Line model histogram:
 [78277 17000  3681   824   188    28     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176984156 CHANNEL 5 --
 Line model histogram:
 [73849 19785  4797  1212   300    54     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176985795 CHANNEL 5 --
 Line model histogram:
 [78118 17271  3655   755   155    41     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176987433 CHANNEL 5 --
 Line model histogram:
 [82021 14820  2625   449    69    10     5     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176989072 CHANNEL 5 --
 Line model histogram:
 [81771 15086  2531   510    84    17     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176990710 CHANNEL 5 --
 Line model histogram:
 [69607 22840  5888  1344   272    47     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176992348 CHANNEL 5 --
 Line model histogram:
 [81317 15294  2721   549   105     9     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176993987 CHANNEL 5 --
 Line model histogram:
 [81651 15047  2646   556    85     9     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176995625 CHANNEL 5 --
 Line model histogram:
 [81692 15134  2603   487    76     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176997264 CHANNEL 5 --
 Line model histogram:
 [82031 14856  2538   462    88    21     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1176998902 CHANNEL 5 --
 Line model histogram:
 [82299 14511  2511   506   160    10     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177000540 CHANNEL 5 --
 Line model histogram:
 [80026 16289  2971   578   121    12     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177002179 CHANNEL 5 --
 Line model histogram:
 [82517 14619  2351   434    71     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177003817 CHANNEL 5 --
 Line model histogram:
 [82463 14514  2467   474    64    12     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177005456 CHANNEL 5 --
 Line model histogram:
 [81954 14801  2603   498   122    14     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177007094 CHANNEL 5 --
 Line model histogram:
 [81681 14777  2812   612   101    14     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177009932 CHANNEL 5 --
 Line model histogram:
 [80648 15558  2966   644   152    27     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177011571 CHANNEL 5 --
 Line model histogram:
 [81564 15265  2619   458    79     7     6     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177013209 CHANNEL 5 --
 Line model histogram:
 [82522 14524  2425   460    49    15     5]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177014848 CHANNEL 5 --
 Line model histogram:
 [82474 14362  2579   483    84    14     4]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177016486 CHANNEL 5 --
 Line model histogram:
 [82117 14777  2525   478    96     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177018124 CHANNEL 5 --
 Line model histogram:
 [82278 14537  2533   546    96     8     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177019763 CHANNEL 5 --
 Line model histogram:
 [82643 14518  2285   443   105     6]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177021401 CHANNEL 5 --
 Line model histogram:
 [82411 14567  2431   466   102    23]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177023040 CHANNEL 5 --
 Line model histogram:
 [81815 15073  2561   454    83     5     9]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177024678 CHANNEL 5 --
 Line model histogram:
 [82754 14281  2411   475    68     8     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177026316 CHANNEL 5 --
 Line model histogram:
 [82024 14750  2631   473    94    23     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177027955 CHANNEL 5 --
 Line model histogram:
 [81533 15348  2538   470    88    20     3]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177029593 CHANNEL 5 --
 Line model histogram:
 [ 9579 60854 22084  5789  1300   313    66    10     5]
-1 spectral lines found
+1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
@@ -4865,78 +4866,77 @@ CHANNEL TIME       LINE PARAMETER
 -- 1177031232 CHANNEL 5 --
 Line model histogram:
 [81950 14821  2587   520    99    21     2]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177032870 CHANNEL 5 --
 Line model histogram:
 [81641 15117  2694   466    79     1     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177034508 CHANNEL 5 --
 Line model histogram:
 [81829 15233  2448   424    61     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177036147 CHANNEL 5 --
 Line model histogram:
 [82036 14884  2538   446    72    17     6     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177037785 CHANNEL 5 --
 Line model histogram:
 [81733 15159  2491   476    92    26    10     8     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177039424 CHANNEL 5 --
 Line model histogram:
 [81659 15149  2566   496    97    18    15]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177041062 CHANNEL 5 --
 Line model histogram:
 [81225 15340  2810   527    84     9     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177042700 CHANNEL 5 --
 Line model histogram:
 [81612 15228  2571   491    88    10]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177044339 CHANNEL 5 --
 Line model histogram:
 [82257 14552  2640   451    77    18     4     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177045977 CHANNEL 5 --
 Line model histogram:
 [66507 24912  6721  1508   286    51    15]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177047616 CHANNEL 5 --
 Line model histogram:
 [81546 15130  2663   539    92    22     8]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177049254 CHANNEL 5 --
 Line model histogram:
 [82160 14638  2546   587    56    11     1     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177050892 CHANNEL 5 --
 Line model histogram:
 [82273 14563  2622   454    81     7]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177052531 CHANNEL 5 --
 Line model histogram:
 [81948 14805  2711   445    85     5     1]
-0 spectral lines found
+0 spectral lines found.
 
 -- 1177054169 CHANNEL 5 --
 Line model histogram:
 [81778 14962  2567   541   119    18    15]
-0 spectral lines found
-
+0 spectral lines found.
 All summaries:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      

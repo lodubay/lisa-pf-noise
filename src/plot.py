@@ -308,13 +308,13 @@ def linechain_scatter(summary, param, run, channel, plot_file=None, show=True):
     )
     '''
     # 90% error bars
-    plt.errorbar(run.days_elapsed, 
+    plt.errorbar(run.gps2day(df.index.get_level_values('TIME')), 
         df['MEDIAN'], 
         yerr=([df['MEDIAN'] - df['CI_90_LO'], df['CI_90_HI'] - df['MEDIAN']]), 
         ls='', marker='', capsize=3, alpha=0.2, ecolor='b'
     )
     # Median and 50% error bars
-    plt.errorbar(run.days_elapsed, 
+    plt.errorbar(run.gps2day(df.index.get_level_values('TIME')), 
         df['MEDIAN'], 
         yerr=([df['MEDIAN'] - df['CI_50_LO'], df['CI_50_HI'] - df['MEDIAN']]), 
         ls='', marker='.', capsize=5, ecolor='b'
