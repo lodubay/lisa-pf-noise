@@ -1,6 +1,14 @@
 # lisa-pf-noise
 
-Noise analysis scripts
+LISA Pathfinder noise analysis scripts
+
+## Setup
+
+1. Create a top-level `data/` directory.
+2. Move run data into `data/` with the structure:
+```
+data/*run_name*
+```
 
 ## PSD analysis
 
