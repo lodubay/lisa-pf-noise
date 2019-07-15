@@ -1,6 +1,6 @@
 # lisa-pf-noise
 
-LISA Pathfinder noise analysis scripts
+Noise analysis scripts for LISA Pathfinder data.
 
 ## Setup
 
