@@ -221,16 +221,12 @@ def main():
                 [run.gps_times[i] for i in indices]
             )
             # Plot
-            plot.save_time_slices(run, channel, df, slice_times, tslice_file,
-                time_format='gps', exact=True, show=False, logpsd=True
-            )
+            plot.save_time_slices(run, channel, slice_times, tslice_file)
             
             # Time slices - all spectral lines
             if len(line_times) > 0:
                 tslice_file = os.path.join(plot_dir, f'tslice_lines{channel}.png')
-                plot.save_time_slices(run, channel, df, line_times, tslice_file,
-                    time_format='gps', exact=True, show=False, logpsd=True
-                )
+                plot.save_time_slices(run, channel, line_times, tslice_file)
     
     print('Done!')
 

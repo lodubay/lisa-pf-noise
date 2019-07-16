@@ -67,8 +67,6 @@ def colormap(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, center=None):
       cbar_label : Color bar label
       center : The center value of a diverging colormap
     '''
-    # Get start date in UTC
-    start_date = run.iso_dates[0]
     # Change columns from GPS time to days elapsed from start of run
     psd.columns = pd.Series(run.gps2day(psd.columns), name='TIME')
     # Median frequency step
@@ -97,7 +95,7 @@ def colormap(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, center=None):
     ax.set_yscale('log')
     ax.set_ylim(bottom=1e-3, top=1.)
     # Axis labels
-    ax.set_xlabel(f'Days elapsed since {start_date} UTC')
+    ax.set_xlabel(f'Days elapsed since {run.start_date} UTC')
     ax.set_ylabel('Frequency (Hz)')
     # Add and label colorbar
     cbar = fig.colorbar(im, ax=ax)
@@ -238,7 +236,6 @@ def save_freq_slices(run, channel, summary, plot_file, show=False,
     ncols = int(np.ceil(1. * len(frequencies) / nrows))
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
     fig.suptitle(f'Selected frequencies for {run.name} channel {channel} PSDs')
-    start_date = run.iso_dates[0]
     df = summary.loc[channel]
     # Subplots
     for i, freq in enumerate(frequencies):
@@ -249,7 +246,7 @@ def save_freq_slices(run, channel, summary, plot_file, show=False,
             ax.set_ylabel('PSD')
         # Horizontal axis label on bottom plot in each column
         if i >= len(frequencies) - ncols:
-            ax.set_xlabel('Days elapsed since ' + str(start_date) + ' UTC')
+            ax.set_xlabel('Days elapsed since ' + str(run.start_date) + ' UTC')
     # Legend
     handles, labels = ax.get_legend_handles_labels()
     fig.legend(handles, labels)
@@ -259,8 +256,8 @@ def save_freq_slices(run, channel, summary, plot_file, show=False,
     if show: plt.show()
     else: plt.close()
 
-def save_time_slices(run, channel, summary, times, plot_file, show=False,
-        time_format='gps', exact=True, logpsd=False):
+def save_time_slices(run, channel, times, plot_file=None, show=False,
+        time_format='gps', exact=True, logpsd=True):
     # Convert given times to gps if necessary
     if time_format == 'day': times = run.day2gps(times)
     # Find exact times if necessary
@@ -270,7 +267,7 @@ def save_time_slices(run, channel, summary, times, plot_file, show=False,
     ncols = int(np.ceil(1. * len(times) / nrows))
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
     fig.suptitle(f'Selected times for {run.name} channel {channel} PSDs')
-    df = summary.loc[channel]
+    df = run.psd_summary.loc[channel]
     # Subplots
     for i, time in enumerate(times):
         ax = fig.add_subplot(nrows, ncols, i+1)
@@ -287,27 +284,14 @@ def save_time_slices(run, channel, summary, times, plot_file, show=False,
     handles, labels = ax.get_legend_handles_labels()
     fig.legend(handles, labels)
     fig.tight_layout(rect=[0, 0, 1, 0.92])
-    print(f'Saving frequency plot for {run.name} channel {channel}...')
-    plt.savefig(plot_file)
+    if plot_file: 
+        print(f'Saving frequency plot for {run.name} channel {channel}...')
+        plt.savefig(plot_file)
     if show: plt.show()
     else: plt.close()
 
-def linechain_scatter(summary, param, run, channel, plot_file=None, show=False):
-    df = summary.loc[channel, :, :, param]
-    # Get start date in UTC
-    start_date = run.iso_dates[0]
-    '''
-    # 90% error bars
-    plt.errorbar(dates, 
-        df[50], yerr=([df[50] - df[5], df[95] - df[50]]), 
-        ls='', marker='', capsize=3, alpha=0.2, ecolor='b'
-    )
-    # Median and 50% error bars
-    plt.errorbar(dates, 
-        df[50], yerr=([df[50] - df[25], df[75] - df[50]]),  
-        ls='', marker='.', capsize=5, ecolor='b'
-    )
-    '''
+def linechain_scatter(run, channel, param, plot_file=None, show=False):
+    df = run.lc_summary.loc[channel, :, :, param]
     # 90% error bars
     plt.errorbar(run.gps2day(df.index.get_level_values('TIME')), 
         df['MEDIAN'], 
@@ -320,7 +304,7 @@ def linechain_scatter(summary, param, run, channel, plot_file=None, show=False):
         yerr=([df['MEDIAN'] - df['CI_50_LO'], df['CI_50_HI'] - df['MEDIAN']]), 
         ls='', marker='.', capsize=5, ecolor='b'
     )
-    plt.xlabel(f'Days elapsed since {start_date} UTC')
+    plt.xlabel(f'Days elapsed since {run.start_date} UTC')
     plt.ylabel(param)
     plt.yscale('log')
     plt.title(f'{run.name} channel {channel} spectral line {param} over time')
@@ -332,8 +316,6 @@ def linechain_scatter(summary, param, run, channel, plot_file=None, show=False):
 def linechain_cmap(run, channel, plot_file=None, show=False):
     ''' Plots a colormap of the spectral line counts over time '''
     counts = run.linecounts.loc[channel]
-    # Get start date in UTC
-    start_date = run.iso_dates[0]
     # Change GPS times to days elapsed
     counts.index = pd.Series(run.gps2day(counts.index), name='TIME')
     # Convert counts to fraction of total
@@ -351,7 +333,7 @@ def linechain_cmap(run, channel, plot_file=None, show=False):
         vmax=0.5
     )
     # Axis labels
-    ax.set_xlabel(f'Days elapsed since {start_date} UTC')
+    ax.set_xlabel(f'Days elapsed since {run.start_date} UTC')
     ax.set_ylabel('Modeled no. spectral lines')
     # Put the major ticks at the middle of each cell
     ax.set_yticks(counts.columns + 0.5, minor=False)
@@ -364,6 +346,38 @@ def linechain_cmap(run, channel, plot_file=None, show=False):
     if show: plt.show()
     else: plt.close()
 
-#def linechain_combined():
-    
+def linechain_combined(runs, channel, plot_file=None, show=False):
+    ''' Plots a colormap of the spectral line counts over time for many runs '''
+    print([run.start_date for run in runs])
+    print(sorted([run.start_date for run in runs]))
+    counts = run.linecounts.loc[channel]
+    # Change GPS times to days elapsed
+    counts.index = pd.Series(run.gps2day(counts.index), name='TIME')
+    # Convert counts to fraction of total
+    counts = counts / sum(counts.iloc[0].dropna())
+    # Plot
+    fig, ax = plt.subplots(1, 1)
+    ax.title.set_text(
+        f'Line model frequency over time for {run.name} channel {channel}'
+    )
+    im = ax.pcolormesh(
+        list(counts.index) + [counts.index[-1] + run.dt / (60*60*24)],
+        list(counts.columns) + [int(counts.columns[-1]) + 1],
+        counts.to_numpy().T,
+        cmap='PuRd',
+        vmax=0.5
+    )
+    # Axis labels
+    ax.set_xlabel(f'Days elapsed since {run.start_date} UTC')
+    ax.set_ylabel('Modeled no. spectral lines')
+    # Put the major ticks at the middle of each cell
+    ax.set_yticks(counts.columns + 0.5, minor=False)
+    ax.set_yticklabels(counts.columns)
+    # Add and label colorbar
+    cbar = fig.colorbar(im, ax=ax)
+    cbar.set_label('Line model relative frequency', labelpad=15, rotation=270)
+    # Save figure and close
+    if plot_file: plt.savefig(plot_file)
+    if show: plt.show()
+    else: plt.close()
 

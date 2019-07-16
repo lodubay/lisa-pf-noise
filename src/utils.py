@@ -61,6 +61,8 @@ class Run:
             self.dt = np.median(np.diff(self.gps_times))
             # List of GPS times missing from the run
             self.missing_times = self.get_missing_times()
+            # Run start ISO date
+            self.start_date = self.iso_dates[0]
         else:
             print(f'Could not find {name} in {parent_dir}!')
         
@@ -85,16 +87,16 @@ class Run:
         )
         return self.gps_times[time_index]
     
-    def get_missing_times(self):
+    def get_missing_times(self, gps_times=None, dt=None):
         missing_times = []
-        for i in range(len(self.gps_times) - 1):
-            diff = self.gps_times[i+1] - self.gps_times[i]
-            if diff > self.dt + 1:
+        if not gps_times: gps_times = self.gps_times
+        if not dt: dt = self.dt
+        for i in range(len(gps_times) - 1):
+            diff = gps_times[i+1] - gps_times[i]
+            if diff >= 2 * dt:
                 # Number of new times to insert
-                n = int(np.floor(diff / self.dt))
+                n = int(np.floor(diff / dt))
                 # List of missing times, with same time interval
-                missing_times += [
-                    self.gps_times[i] + self.dt * k for k in range(1, n + 1)
-                ]
+                missing_times += [gps_times[i]+dt * k for k in range(1, n+1)]
         return missing_times
 

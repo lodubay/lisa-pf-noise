@@ -258,10 +258,9 @@ def main():
     args = parser.parse_args()
     # Add all runs in data directory if none are specified
     if len(args.runs) == 0: args.runs = os.listdir('data')
+    runs = [utils.Run(run) for run in args.runs]
     
-    for run in args.runs:
-        # Initialize Run object
-        run = utils.Run(run)
+    for run in runs:
         print(f'\n-- {run.name} --')
         # Directories
         output_dir = os.path.join('out', run.name, 'summaries')
@@ -290,6 +289,7 @@ def main():
             run.linecounts = pd.read_pickle(counts_file)
         
         # Plot line parameters
+        '''
         print('Plotting...')
         # Plot linecount colormaps
         for channel in run.channels:
@@ -301,9 +301,11 @@ def main():
                         plot_dir, f'linechain_{param.lower()}{channel}.png'
                     )
                     plot.linechain_scatter(
-                        run.lc_summary, param, run, channel, 
-                        plot_file=plot_file, show=False
+                        run, channel, param, plot_file=plot_file, show=False
                     )
+                    '''
+    for channel in runs[0].channels:
+        plot.linechain_combined(runs, channel)
     
     print('Done!')
 
