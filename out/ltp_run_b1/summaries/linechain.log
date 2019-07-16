@@ -1,0 +1,2502 @@
+linechain.py log file for ltp_run_b1
+
+
+-- 1143763317 CHANNEL 0 --
+Line model histogram:
+[84060 13428  2133   317    55     7]
+0 spectral lines found.
+
+-- 1143764956 CHANNEL 0 --
+Line model histogram:
+[84605 13170  1904   269    49     3]
+0 spectral lines found.
+
+-- 1143766594 CHANNEL 0 --
+Line model histogram:
+[84143 13533  1956   292    63    13]
+0 spectral lines found.
+
+-- 1143768233 CHANNEL 0 --
+Line model histogram:
+[64858 26774  6605  1372   305    74    11     1]
+0 spectral lines found.
+
+-- 1143769871 CHANNEL 0 --
+Line model histogram:
+[84459 13284  1901   315    36     5]
+0 spectral lines found.
+
+-- 1143771509 CHANNEL 0 --
+Line model histogram:
+[84092 13446  2111   276    67     7     1]
+0 spectral lines found.
+
+-- 1143773148 CHANNEL 0 --
+Line model histogram:
+[84537 13089  2009   311    47     5     2]
+0 spectral lines found.
+
+-- 1143774786 CHANNEL 0 --
+Line model histogram:
+[84748 12973  1940   298    32     9]
+0 spectral lines found.
+
+-- 1143776425 CHANNEL 0 --
+Line model histogram:
+[84394 13163  2055   337    45     6]
+0 spectral lines found.
+
+-- 1143778063 CHANNEL 0 --
+Line model histogram:
+[84482 13072  2061   313    53    19]
+0 spectral lines found.
+
+-- 1143779701 CHANNEL 0 --
+Line model histogram:
+[84508 13200  1984   281    25     2]
+0 spectral lines found.
+
+-- 1143781340 CHANNEL 0 --
+Line model histogram:
+[84670 13089  1864   302    59    12     4]
+0 spectral lines found.
+
+-- 1143782978 CHANNEL 0 --
+Line model histogram:
+[85144 12760  1829   220    34    13]
+0 spectral lines found.
+
+-- 1143784617 CHANNEL 0 --
+Line model histogram:
+[84256 13277  2069   329    62     7]
+0 spectral lines found.
+
+-- 1143786255 CHANNEL 0 --
+Line model histogram:
+[83490 13755  2281   382    81    11]
+0 spectral lines found.
+
+-- 1143787893 CHANNEL 0 --
+Line model histogram:
+[83700 13775  2061   384    72     8]
+0 spectral lines found.
+
+-- 1143789532 CHANNEL 0 --
+Line model histogram:
+[81620 15094  2676   485   103    18     4]
+0 spectral lines found.
+
+-- 1143791170 CHANNEL 0 --
+Line model histogram:
+[84201 13472  1928   323    64    11     1]
+0 spectral lines found.
+
+-- 1143792809 CHANNEL 0 --
+Line model histogram:
+[84031 13460  2129   319    58     3]
+0 spectral lines found.
+
+-- 1143794447 CHANNEL 0 --
+Line model histogram:
+[83556 13813  2209   354    58     9     1]
+0 spectral lines found.
+
+-- 1143796085 CHANNEL 0 --
+Line model histogram:
+[83872 13600  2109   361    52     5     1]
+0 spectral lines found.
+
+-- 1143797724 CHANNEL 0 --
+Line model histogram:
+[84089 13440  2056   348    58     9]
+0 spectral lines found.
+
+-- 1143799362 CHANNEL 0 --
+Line model histogram:
+[81857 15028  2619   417    66    13]
+0 spectral lines found.
+
+-- 1143801001 CHANNEL 0 --
+Line model histogram:
+[83911 13614  2105   316    52     2]
+0 spectral lines found.
+
+-- 1143802639 CHANNEL 0 --
+Line model histogram:
+[84068 13519  2022   310    68    11     2]
+0 spectral lines found.
+
+-- 1143804277 CHANNEL 0 --
+Line model histogram:
+[77369 17642  3983   838   143    24     1]
+0 spectral lines found.
+
+-- 1143805916 CHANNEL 0 --
+Line model histogram:
+[84216 13465  1950   308    54     7]
+0 spectral lines found.
+
+-- 1143807554 CHANNEL 0 --
+Line model histogram:
+[83899 13600  2126   330    43     2]
+0 spectral lines found.
+
+-- 1143809193 CHANNEL 0 --
+Line model histogram:
+[84060 13463  2090   341    40     6]
+0 spectral lines found.
+
+-- 1143810831 CHANNEL 0 --
+Line model histogram:
+[  599 71385 21804  4931  1008   229    41     3]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+0       1143810831 0    FREQ       3.394828e-03  3.383738e-03  3.652120e-03  3.149248e-03  3.662673e-03
+                        AMP        7.204460e-16  1.000018e-20  7.204460e-16  1.000018e-20  7.075480e-12
+                        QF         7.934848e+03  1.349910e+02  7.944802e+03  1.164192e+02  2.687583e+04
+
+-- 1143812469 CHANNEL 0 --
+Line model histogram:
+[84707 13067  1916   252    52     6]
+0 spectral lines found.
+
+-- 1143814108 CHANNEL 0 --
+Line model histogram:
+[73035 20815  4789  1114   192    55]
+0 spectral lines found.
+
+-- 1143815746 CHANNEL 0 --
+Line model histogram:
+[82014 14816  2671   431    55    13]
+0 spectral lines found.
+
+-- 1143817385 CHANNEL 0 --
+Line model histogram:
+[83388 13890  2302   361    52     7]
+0 spectral lines found.
+
+-- 1143819023 CHANNEL 0 --
+Line model histogram:
+[84348 13340  1971   297    42     1     1]
+0 spectral lines found.
+
+-- 1143820661 CHANNEL 0 --
+Line model histogram:
+[84343 13208  2060   322    57     8     2]
+0 spectral lines found.
+
+-- 1143822300 CHANNEL 0 --
+Line model histogram:
+[84310 13425  1931   296    35     3]
+0 spectral lines found.
+
+-- 1143823938 CHANNEL 0 --
+Line model histogram:
+[77513 17912  3737   687   118    30     3]
+0 spectral lines found.
+
+-- 1143825577 CHANNEL 0 --
+Line model histogram:
+[84039 13396  2192   315    55     3]
+0 spectral lines found.
+
+-- 1143827215 CHANNEL 0 --
+Line model histogram:
+[84252 13290  2078   310    62     8]
+0 spectral lines found.
+
+-- 1143828853 CHANNEL 0 --
+Line model histogram:
+[55750 33026  8844  1946   375    52     7]
+0 spectral lines found.
+
+-- 1143830492 CHANNEL 0 --
+Line model histogram:
+[84714 13173  1809   258    46]
+0 spectral lines found.
+
+-- 1143832130 CHANNEL 0 --
+Line model histogram:
+[76326 18833  3922   765   126    27     1]
+0 spectral lines found.
+
+-- 1143833769 CHANNEL 0 --
+Line model histogram:
+[84233 13345  2008   350    53    11]
+0 spectral lines found.
+
+-- 1143835407 CHANNEL 0 --
+Line model histogram:
+[84705 13017  1908   317    49     4]
+0 spectral lines found.
+
+-- 1143837045 CHANNEL 0 --
+Line model histogram:
+[84101 13287  2142   403    60     6     1]
+0 spectral lines found.
+
+-- 1143838684 CHANNEL 0 --
+Line model histogram:
+[84168 13481  2052   260    34     5]
+0 spectral lines found.
+
+-- 1143840322 CHANNEL 0 --
+Line model histogram:
+[84344 13284  2001   305    57     9]
+0 spectral lines found.
+
+-- 1143841961 CHANNEL 0 --
+Line model histogram:
+[84036 13408  2154   371    31]
+0 spectral lines found.
+
+-- 1143843599 CHANNEL 0 --
+Line model histogram:
+[84092 13465  2098   303    38     4]
+0 spectral lines found.
+
+-- 1143845237 CHANNEL 0 --
+Line model histogram:
+[83988 13493  2061   375    78     5]
+0 spectral lines found.
+
+-- 1143846876 CHANNEL 0 --
+Line model histogram:
+[84543 12974  2036   372    60    13     2]
+0 spectral lines found.
+
+-- 1143848514 CHANNEL 0 --
+Line model histogram:
+[79288 16753  3206   630    97    24     2]
+0 spectral lines found.
+
+-- 1143850153 CHANNEL 0 --
+Line model histogram:
+[ 3770 69526 20918  4651   908   191    29     5     2]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO       CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                       
+0       1143850153 0    FREQ       2.757564e-03  2.751404e-03  3.052341e-03  2.446783e-03       0.003004
+                        AMP        1.209897e-17  1.000018e-20  1.210092e-17  1.000018e-20       0.000431
+                        QF         5.189812e+03  1.054171e+02  5.193886e+03  1.018369e+02  194450.900000
+
+-- 1143851791 CHANNEL 0 --
+Line model histogram:
+[84264 13429  1959   312    34     2]
+0 spectral lines found.
+
+-- 1143853429 CHANNEL 0 --
+Line model histogram:
+[83578 13803  2208   346    64     1]
+0 spectral lines found.
+
+-- 1143855068 CHANNEL 0 --
+Line model histogram:
+[84134 13401  2034   352    71     8]
+0 spectral lines found.
+
+-- 1143856706 CHANNEL 0 --
+Line model histogram:
+[83737 13603  2188   379    85     8]
+0 spectral lines found.
+
+-- 1143858345 CHANNEL 0 --
+Line model histogram:
+[84256 13313  2053   309    58    11]
+0 spectral lines found.
+
+-- 1143859983 CHANNEL 0 --
+Line model histogram:
+[84228 13332  2010   343    68    19]
+0 spectral lines found.
+
+-- 1143763317 CHANNEL 1 --
+Line model histogram:
+[81233 15453  2736   481    92     5]
+0 spectral lines found.
+
+-- 1143764956 CHANNEL 1 --
+Line model histogram:
+[81156 15449  2831   459    97     5     2     1]
+0 spectral lines found.
+
+-- 1143766594 CHANNEL 1 --
+Line model histogram:
+[81397 15252  2771   476    87    15     2]
+0 spectral lines found.
+
+-- 1143768233 CHANNEL 1 --
+Line model histogram:
+[81006 15547  2803   542    90    11     1]
+0 spectral lines found.
+
+-- 1143769871 CHANNEL 1 --
+Line model histogram:
+[81043 15392  2900   541    96    25     3]
+0 spectral lines found.
+
+-- 1143771509 CHANNEL 1 --
+Line model histogram:
+[81602 15083  2765   463    77     9     1]
+0 spectral lines found.
+
+-- 1143773148 CHANNEL 1 --
+Line model histogram:
+[80628 15777  2969   517    98    10     1]
+0 spectral lines found.
+
+-- 1143774786 CHANNEL 1 --
+Line model histogram:
+[81406 15341  2655   476   102    19     1]
+0 spectral lines found.
+
+-- 1143776425 CHANNEL 1 --
+Line model histogram:
+[81076 15584  2739   482    95    21     3]
+0 spectral lines found.
+
+-- 1143778063 CHANNEL 1 --
+Line model histogram:
+[80829 15716  2793   538   102    22]
+0 spectral lines found.
+
+-- 1143779701 CHANNEL 1 --
+Line model histogram:
+[80778 15720  2859   541    88    13     1]
+0 spectral lines found.
+
+-- 1143781340 CHANNEL 1 --
+Line model histogram:
+[81344 15356  2768   441    80    10     1]
+0 spectral lines found.
+
+-- 1143782978 CHANNEL 1 --
+Line model histogram:
+[80987 15350  3030   492   117    22     2]
+0 spectral lines found.
+
+-- 1143784617 CHANNEL 1 --
+Line model histogram:
+[80941 15565  2883   520    82     9]
+0 spectral lines found.
+
+-- 1143786255 CHANNEL 1 --
+Line model histogram:
+[81120 15380  2904   509    69    18]
+0 spectral lines found.
+
+-- 1143787893 CHANNEL 1 --
+Line model histogram:
+[81059 15540  2735   539   105    15     6     1]
+0 spectral lines found.
+
+-- 1143789532 CHANNEL 1 --
+Line model histogram:
+[81141 15398  2852   518    83     7     1]
+0 spectral lines found.
+
+-- 1143791170 CHANNEL 1 --
+Line model histogram:
+[81183 15518  2753   444    88    13     1]
+0 spectral lines found.
+
+-- 1143792809 CHANNEL 1 --
+Line model histogram:
+[81401 15360  2649   495    92     3]
+0 spectral lines found.
+
+-- 1143794447 CHANNEL 1 --
+Line model histogram:
+[81016 15534  2806   542   100     2]
+0 spectral lines found.
+
+-- 1143796085 CHANNEL 1 --
+Line model histogram:
+[81101 15509  2775   508    94    11     1     1]
+0 spectral lines found.
+
+-- 1143797724 CHANNEL 1 --
+Line model histogram:
+[81143 15367  2936   457    82    14     1]
+0 spectral lines found.
+
+-- 1143799362 CHANNEL 1 --
+Line model histogram:
+[81237 15264  2822   520   106    31    17     3]
+0 spectral lines found.
+
+-- 1143801001 CHANNEL 1 --
+Line model histogram:
+[81402 15289  2648   515   123    19     4]
+0 spectral lines found.
+
+-- 1143802639 CHANNEL 1 --
+Line model histogram:
+[81325 15353  2677   541    95     7     2]
+0 spectral lines found.
+
+-- 1143804277 CHANNEL 1 --
+Line model histogram:
+[81024 15611  2771   477   101    16]
+0 spectral lines found.
+
+-- 1143805916 CHANNEL 1 --
+Line model histogram:
+[80858 15531  2965   547    87    11     1]
+0 spectral lines found.
+
+-- 1143807554 CHANNEL 1 --
+Line model histogram:
+[80990 15504  2887   506   100    12     0     1]
+0 spectral lines found.
+
+-- 1143809193 CHANNEL 1 --
+Line model histogram:
+[81287 15432  2716   471    84     8     2]
+0 spectral lines found.
+
+-- 1143810831 CHANNEL 1 --
+Line model histogram:
+[80934 15698  2733   537    89     8     1]
+0 spectral lines found.
+
+-- 1143812469 CHANNEL 1 --
+Line model histogram:
+[80815 15782  2764   508   113    18]
+0 spectral lines found.
+
+-- 1143814108 CHANNEL 1 --
+Line model histogram:
+[81595 15218  2642   437    93    15]
+0 spectral lines found.
+
+-- 1143815746 CHANNEL 1 --
+Line model histogram:
+[81050 15462  2958   441    68    18     3]
+0 spectral lines found.
+
+-- 1143817385 CHANNEL 1 --
+Line model histogram:
+[81222 15390  2740   569    66    11     2]
+0 spectral lines found.
+
+-- 1143819023 CHANNEL 1 --
+Line model histogram:
+[81135 15583  2707   490    78     7]
+0 spectral lines found.
+
+-- 1143820661 CHANNEL 1 --
+Line model histogram:
+[81216 15500  2694   498    79    13]
+0 spectral lines found.
+
+-- 1143822300 CHANNEL 1 --
+Line model histogram:
+[81067 15430  2864   542    91     5     1]
+0 spectral lines found.
+
+-- 1143823938 CHANNEL 1 --
+Line model histogram:
+[81157 15271  2880   569   104    19]
+0 spectral lines found.
+
+-- 1143825577 CHANNEL 1 --
+Line model histogram:
+[81439 15278  2678   493   101     8     3]
+0 spectral lines found.
+
+-- 1143827215 CHANNEL 1 --
+Line model histogram:
+[80679 15909  2802   524    82     4]
+0 spectral lines found.
+
+-- 1143828853 CHANNEL 1 --
+Line model histogram:
+[81309 15309  2749   522   106     5]
+0 spectral lines found.
+
+-- 1143830492 CHANNEL 1 --
+Line model histogram:
+[81210 15442  2717   501   109    21]
+0 spectral lines found.
+
+-- 1143832130 CHANNEL 1 --
+Line model histogram:
+[80944 15654  2810   489    86    15     2]
+0 spectral lines found.
+
+-- 1143833769 CHANNEL 1 --
+Line model histogram:
+[81157 15496  2719   493   123    11     1]
+0 spectral lines found.
+
+-- 1143835407 CHANNEL 1 --
+Line model histogram:
+[81211 15337  2822   519    93    15     3]
+0 spectral lines found.
+
+-- 1143837045 CHANNEL 1 --
+Line model histogram:
+[80943 15626  2825   492   104    10]
+0 spectral lines found.
+
+-- 1143838684 CHANNEL 1 --
+Line model histogram:
+[80883 15589  2921   503    98     5     1]
+0 spectral lines found.
+
+-- 1143840322 CHANNEL 1 --
+Line model histogram:
+[81377 15211  2815   503    88     4     2]
+0 spectral lines found.
+
+-- 1143841961 CHANNEL 1 --
+Line model histogram:
+[81318 15314  2726   554    74    14]
+0 spectral lines found.
+
+-- 1143843599 CHANNEL 1 --
+Line model histogram:
+[81109 15498  2812   460   110    11]
+0 spectral lines found.
+
+-- 1143845237 CHANNEL 1 --
+Line model histogram:
+[81449 15212  2788   440    97    10     3     1]
+0 spectral lines found.
+
+-- 1143846876 CHANNEL 1 --
+Line model histogram:
+[81122 15289  2854   621   101    13]
+0 spectral lines found.
+
+-- 1143848514 CHANNEL 1 --
+Line model histogram:
+[81021 15629  2781   482    77     9     1]
+0 spectral lines found.
+
+-- 1143850153 CHANNEL 1 --
+Line model histogram:
+[81300 15276  2848   457   100    18     0     1]
+0 spectral lines found.
+
+-- 1143851791 CHANNEL 1 --
+Line model histogram:
+[81335 15202  2877   481    96     8     1]
+0 spectral lines found.
+
+-- 1143853429 CHANNEL 1 --
+Line model histogram:
+[81091 15593  2787   438    74    15     2]
+0 spectral lines found.
+
+-- 1143855068 CHANNEL 1 --
+Line model histogram:
+[81309 15176  2883   513   105    14]
+0 spectral lines found.
+
+-- 1143856706 CHANNEL 1 --
+Line model histogram:
+[81065 15551  2775   475   118    16]
+0 spectral lines found.
+
+-- 1143858345 CHANNEL 1 --
+Line model histogram:
+[81262 15369  2753   511    94    11]
+0 spectral lines found.
+
+-- 1143859983 CHANNEL 1 --
+Line model histogram:
+[80772 15587  2989   548    98     6]
+0 spectral lines found.
+
+-- 1143763317 CHANNEL 2 --
+Line model histogram:
+[80005 16208  3115   553   113     6]
+0 spectral lines found.
+
+-- 1143764956 CHANNEL 2 --
+Line model histogram:
+[80858 15550  3000   489    90    13]
+0 spectral lines found.
+
+-- 1143766594 CHANNEL 2 --
+Line model histogram:
+[79776 16240  3177   650   135    21     1]
+0 spectral lines found.
+
+-- 1143768233 CHANNEL 2 --
+Line model histogram:
+[81155 15443  2779   513    99    11]
+0 spectral lines found.
+
+-- 1143769871 CHANNEL 2 --
+Line model histogram:
+[81097 15575  2718   483   115    12]
+0 spectral lines found.
+
+-- 1143771509 CHANNEL 2 --
+Line model histogram:
+[80792 15596  2927   571    90    16     8]
+0 spectral lines found.
+
+-- 1143773148 CHANNEL 2 --
+Line model histogram:
+[80940 15641  2842   492    83     2]
+0 spectral lines found.
+
+-- 1143774786 CHANNEL 2 --
+Line model histogram:
+[79696 16342  3188   634   121    17     2]
+0 spectral lines found.
+
+-- 1143776425 CHANNEL 2 --
+Line model histogram:
+[80964 15634  2727   516   132    24     3]
+0 spectral lines found.
+
+-- 1143778063 CHANNEL 2 --
+Line model histogram:
+[81179 15425  2808   479    96    13]
+0 spectral lines found.
+
+-- 1143779701 CHANNEL 2 --
+Line model histogram:
+[80861 15743  2837   479    71     9]
+0 spectral lines found.
+
+-- 1143781340 CHANNEL 2 --
+Line model histogram:
+[79317 16555  3240   683   150    39    12     4]
+0 spectral lines found.
+
+-- 1143782978 CHANNEL 2 --
+Line model histogram:
+[80788 15596  2963   539    99     3    10     2]
+0 spectral lines found.
+
+-- 1143784617 CHANNEL 2 --
+Line model histogram:
+[80846 15586  2892   548   120     8]
+0 spectral lines found.
+
+-- 1143786255 CHANNEL 2 --
+Line model histogram:
+[81026 15507  2786   582    87     8     4]
+0 spectral lines found.
+
+-- 1143787893 CHANNEL 2 --
+Line model histogram:
+[80538 15854  2944   559    96     9]
+0 spectral lines found.
+
+-- 1143789532 CHANNEL 2 --
+Line model histogram:
+[80952 15603  2804   535    89    12     5]
+0 spectral lines found.
+
+-- 1143791170 CHANNEL 2 --
+Line model histogram:
+[81055 15467  2828   564    68    16     2]
+0 spectral lines found.
+
+-- 1143792809 CHANNEL 2 --
+Line model histogram:
+[80235 15934  3165   563    96     5     2]
+0 spectral lines found.
+
+-- 1143794447 CHANNEL 2 --
+Line model histogram:
+[80449 15847  2947   629   112    16]
+0 spectral lines found.
+
+-- 1143796085 CHANNEL 2 --
+Line model histogram:
+[81045 15520  2839   486    90    20]
+0 spectral lines found.
+
+-- 1143797724 CHANNEL 2 --
+Line model histogram:
+[81179 15532  2730   457    90    11     1]
+0 spectral lines found.
+
+-- 1143799362 CHANNEL 2 --
+Line model histogram:
+[80370 15804  3088   642    87     8     1]
+0 spectral lines found.
+
+-- 1143801001 CHANNEL 2 --
+Line model histogram:
+[81053 15501  2857   497    79     8     4     1]
+0 spectral lines found.
+
+-- 1143802639 CHANNEL 2 --
+Line model histogram:
+[ 7324 61756 22917  6142  1496   305    52     8]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+2       1143802639 0    FREQ       5.568930e-02  5.555214e-02  5.596965e-02  5.518776e-02  5.613325e-02
+                        AMP        9.458753e-18  1.005911e-20  9.458874e-18  1.015521e-20  2.734326e-07
+                        QF         1.102884e+03  1.000101e+02  1.102909e+03  1.000389e+02  2.524684e+05
+
+-- 1143804277 CHANNEL 2 --
+Line model histogram:
+[80978 15449  2895   561    90    17     8     2]
+0 spectral lines found.
+
+-- 1143805916 CHANNEL 2 --
+Line model histogram:
+[80601 15652  3069   553    94    29     2]
+0 spectral lines found.
+
+-- 1143807554 CHANNEL 2 --
+Line model histogram:
+[38599 42537 14132  3673   825   161    69     3     1]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO       CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                       
+2       1143807554 0    FREQ       5.578181e-02  5.555620e-02  5.587271e-02  2.945154e-02       0.464109
+                        AMP        1.980275e-13  1.009478e-20  1.980275e-13  1.002033e-20       0.000013
+                        QF         8.718697e+04  1.000014e+02  8.718697e+04  1.007503e+02  831389.300000
+
+-- 1143809193 CHANNEL 2 --
+Line model histogram:
+[    7 65443 25151  7036  1787   439    87    34     8     8]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+2       1143809193 0    FREQ       5.534047e-02  5.518245e-02  5.540698e-02  5.508231e-02  5.583305e-02
+                        AMP        9.019541e-18  1.071777e-20  9.019541e-18  1.029439e-20  8.823716e-15
+                        QF         7.835340e+02  1.000506e+02  7.835503e+02  1.000177e+02  1.634380e+04
+
+-- 1143810831 CHANNEL 2 --
+Line model histogram:
+[79796 16260  3174   653   112     5]
+0 spectral lines found.
+
+-- 1143812469 CHANNEL 2 --
+Line model histogram:
+[80995 15462  2867   559    96    17     4]
+0 spectral lines found.
+
+-- 1143814108 CHANNEL 2 --
+Line model histogram:
+[80555 15752  2994   540   118    33     4     1     0     3]
+0 spectral lines found.
+
+-- 1143815746 CHANNEL 2 --
+Line model histogram:
+[80911 15283  3063   618   108    13     4]
+0 spectral lines found.
+
+-- 1143817385 CHANNEL 2 --
+Line model histogram:
+[ 1461 64872 24618  6734  1713   486    88    25     3]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO       CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                       
+2       1143817385 0    FREQ       5.573805e-02  5.555539e-02  5.579280e-02  5.550525e-02       0.056133
+                        AMP        4.273549e-13  1.002069e-20  4.273644e-13  1.002069e-20       0.000002
+                        QF         6.602818e+04  1.000857e+02  6.602939e+04  1.000857e+02  347827.600000
+
+-- 1143819023 CHANNEL 2 --
+Line model histogram:
+[80958 15614  2812   521    83    12]
+0 spectral lines found.
+
+-- 1143820661 CHANNEL 2 --
+Line model histogram:
+[81347 15342  2701   513    82    12     3]
+0 spectral lines found.
+
+-- 1143822300 CHANNEL 2 --
+Line model histogram:
+[80477 15856  3004   555    95    11     2]
+0 spectral lines found.
+
+-- 1143823938 CHANNEL 2 --
+Line model histogram:
+[80898 15694  2833   473    82    18     1     1]
+0 spectral lines found.
+
+-- 1143825577 CHANNEL 2 --
+Line model histogram:
+[81040 15542  2856   457    96     9]
+0 spectral lines found.
+
+-- 1143827215 CHANNEL 2 --
+Line model histogram:
+[81201 15506  2695   493    92    10     2     1]
+0 spectral lines found.
+
+-- 1143828853 CHANNEL 2 --
+Line model histogram:
+[80568 15848  2903   543   126    11     1]
+0 spectral lines found.
+
+-- 1143830492 CHANNEL 2 --
+Line model histogram:
+[80692 15776  2902   522    96    11     1]
+0 spectral lines found.
+
+-- 1143832130 CHANNEL 2 --
+Line model histogram:
+[81173 15428  2881   438    69    11]
+0 spectral lines found.
+
+-- 1143833769 CHANNEL 2 --
+Line model histogram:
+[81312 15332  2719   539    86    10     1     0     1]
+0 spectral lines found.
+
+-- 1143835407 CHANNEL 2 --
+Line model histogram:
+[81140 15523  2763   504    63     7]
+0 spectral lines found.
+
+-- 1143837045 CHANNEL 2 --
+Line model histogram:
+[80801 15731  2859   526    67    16]
+0 spectral lines found.
+
+-- 1143838684 CHANNEL 2 --
+Line model histogram:
+[81237 15288  2872   505    86    10     2]
+0 spectral lines found.
+
+-- 1143840322 CHANNEL 2 --
+Line model histogram:
+[80799 15453  3010   570   131    30     5     2]
+0 spectral lines found.
+
+-- 1143841961 CHANNEL 2 --
+Line model histogram:
+[81567 15245  2557   512   107    10     2]
+0 spectral lines found.
+
+-- 1143843599 CHANNEL 2 --
+Line model histogram:
+[80878 15633  2899   485    94    10     1]
+0 spectral lines found.
+
+-- 1143845237 CHANNEL 2 --
+Line model histogram:
+[80823 15393  3026   590   130    32     5     1]
+0 spectral lines found.
+
+-- 1143846876 CHANNEL 2 --
+Line model histogram:
+[81064 15393  2892   527   117     7]
+0 spectral lines found.
+
+-- 1143848514 CHANNEL 2 --
+Line model histogram:
+[81092 15471  2877   459    83    16     2]
+0 spectral lines found.
+
+-- 1143850153 CHANNEL 2 --
+Line model histogram:
+[80257 15958  3036   585   144    15     4     1]
+0 spectral lines found.
+
+-- 1143851791 CHANNEL 2 --
+Line model histogram:
+[80961 15556  2933   457    82    11]
+0 spectral lines found.
+
+-- 1143853429 CHANNEL 2 --
+Line model histogram:
+[81148 15680  2604   475    87     5     1]
+0 spectral lines found.
+
+-- 1143855068 CHANNEL 2 --
+Line model histogram:
+[80789 15782  2803   519    95    11     1]
+0 spectral lines found.
+
+-- 1143856706 CHANNEL 2 --
+Line model histogram:
+[80009 16129  3187   559   102    14]
+0 spectral lines found.
+
+-- 1143858345 CHANNEL 2 --
+Line model histogram:
+[80815 15724  2814   504   130    13]
+0 spectral lines found.
+
+-- 1143859983 CHANNEL 2 --
+Line model histogram:
+[81260 15275  2838   506    95    21     5]
+0 spectral lines found.
+
+-- 1143763317 CHANNEL 3 --
+Line model histogram:
+[78015 17423  3515   786   209    45     6     1]
+0 spectral lines found.
+
+-- 1143764956 CHANNEL 3 --
+Line model histogram:
+[77583 17830  3562   775   201    34    15]
+0 spectral lines found.
+
+-- 1143766594 CHANNEL 3 --
+Line model histogram:
+[77419 17615  3872   864   203    25     2]
+0 spectral lines found.
+
+-- 1143768233 CHANNEL 3 --
+Line model histogram:
+[77938 17485  3567   794   174    36     6]
+0 spectral lines found.
+
+-- 1143769871 CHANNEL 3 --
+Line model histogram:
+[77954 17464  3665   749   138    26     4]
+0 spectral lines found.
+
+-- 1143771509 CHANNEL 3 --
+Line model histogram:
+[77953 17386  3633   846   153    27     2]
+0 spectral lines found.
+
+-- 1143773148 CHANNEL 3 --
+Line model histogram:
+[77606 17527  3899   752   181    28     6     1]
+0 spectral lines found.
+
+-- 1143774786 CHANNEL 3 --
+Line model histogram:
+[78082 17325  3571   792   196    28     5     1]
+0 spectral lines found.
+
+-- 1143776425 CHANNEL 3 --
+Line model histogram:
+[78172 17111  3672   825   170    44     6]
+0 spectral lines found.
+
+-- 1143778063 CHANNEL 3 --
+Line model histogram:
+[77926 17406  3634   804   176    47     7]
+0 spectral lines found.
+
+-- 1143779701 CHANNEL 3 --
+Line model histogram:
+[77346 17726  3841   823   203    52     9]
+0 spectral lines found.
+
+-- 1143781340 CHANNEL 3 --
+Line model histogram:
+[77671 17741  3561   761   227    33     6]
+0 spectral lines found.
+
+-- 1143782978 CHANNEL 3 --
+Line model histogram:
+[77949 17540  3597   713   156    41     4]
+0 spectral lines found.
+
+-- 1143784617 CHANNEL 3 --
+Line model histogram:
+[77738 17601  3630   753   206    62     8     2]
+0 spectral lines found.
+
+-- 1143786255 CHANNEL 3 --
+Line model histogram:
+[77304 17690  3977   799   187    40     3]
+0 spectral lines found.
+
+-- 1143787893 CHANNEL 3 --
+Line model histogram:
+[78108 17432  3429   823   164    37     7]
+0 spectral lines found.
+
+-- 1143789532 CHANNEL 3 --
+Line model histogram:
+[77589 17524  3789   896   168    27     7]
+0 spectral lines found.
+
+-- 1143791170 CHANNEL 3 --
+Line model histogram:
+[77978 17464  3561   759   196    40     2]
+0 spectral lines found.
+
+-- 1143792809 CHANNEL 3 --
+Line model histogram:
+[77460 17706  3800   824   174    31     3     2]
+0 spectral lines found.
+
+-- 1143794447 CHANNEL 3 --
+Line model histogram:
+[77814 17641  3607   754   142    39     3]
+0 spectral lines found.
+
+-- 1143796085 CHANNEL 3 --
+Line model histogram:
+[78151 17176  3646   820   159    43     5]
+0 spectral lines found.
+
+-- 1143797724 CHANNEL 3 --
+Line model histogram:
+[77727 17399  3790   859   168    42     7     6     2]
+0 spectral lines found.
+
+-- 1143799362 CHANNEL 3 --
+Line model histogram:
+[77723 17448  3749   852   182    44     2]
+0 spectral lines found.
+
+-- 1143801001 CHANNEL 3 --
+Line model histogram:
+[77405 17604  3860   881   206    39     5]
+0 spectral lines found.
+
+-- 1143802639 CHANNEL 3 --
+Line model histogram:
+[77776 17511  3783   748   150    26     3     2     1]
+0 spectral lines found.
+
+-- 1143804277 CHANNEL 3 --
+Line model histogram:
+[77880 17441  3680   735   218    33    12     1]
+0 spectral lines found.
+
+-- 1143805916 CHANNEL 3 --
+Line model histogram:
+[77169 17937  3845   859   155    30     5]
+0 spectral lines found.
+
+-- 1143807554 CHANNEL 3 --
+Line model histogram:
+[77510 17641  3688   885   211    55     9     1]
+0 spectral lines found.
+
+-- 1143809193 CHANNEL 3 --
+Line model histogram:
+[77753 17551  3708   758   178    29     9     4     4     6]
+0 spectral lines found.
+
+-- 1143810831 CHANNEL 3 --
+Line model histogram:
+[77461 17743  3743   796   212    37     8]
+0 spectral lines found.
+
+-- 1143812469 CHANNEL 3 --
+Line model histogram:
+[77177 17928  3781   865   192    52     5]
+0 spectral lines found.
+
+-- 1143814108 CHANNEL 3 --
+Line model histogram:
+[77763 17431  3737   823   197    46     3]
+0 spectral lines found.
+
+-- 1143815746 CHANNEL 3 --
+Line model histogram:
+[77637 17571  3804   755   176    46    10     1]
+0 spectral lines found.
+
+-- 1143817385 CHANNEL 3 --
+Line model histogram:
+[77759 17365  3875   814   162    20     5]
+0 spectral lines found.
+
+-- 1143819023 CHANNEL 3 --
+Line model histogram:
+[77761 17548  3645   824   183    33     4     2]
+0 spectral lines found.
+
+-- 1143820661 CHANNEL 3 --
+Line model histogram:
+[77989 17401  3599   807   165    31     8]
+0 spectral lines found.
+
+-- 1143822300 CHANNEL 3 --
+Line model histogram:
+[77685 17457  3816   792   206    39     4     1]
+0 spectral lines found.
+
+-- 1143823938 CHANNEL 3 --
+Line model histogram:
+[77339 17835  3710   869   202    36     9]
+0 spectral lines found.
+
+-- 1143825577 CHANNEL 3 --
+Line model histogram:
+[77569 17697  3689   831   174    38     2]
+0 spectral lines found.
+
+-- 1143827215 CHANNEL 3 --
+Line model histogram:
+[78005 17331  3610   775   231    40     7     1]
+0 spectral lines found.
+
+-- 1143828853 CHANNEL 3 --
+Line model histogram:
+[78031 17395  3597   773   180    19     5]
+0 spectral lines found.
+
+-- 1143830492 CHANNEL 3 --
+Line model histogram:
+[77521 17683  3748   787   210    33    17     1]
+0 spectral lines found.
+
+-- 1143832130 CHANNEL 3 --
+Line model histogram:
+[77616 17646  3740   806   161    30     1]
+0 spectral lines found.
+
+-- 1143833769 CHANNEL 3 --
+Line model histogram:
+[77628 17767  3645   752   177    24     4     3]
+0 spectral lines found.
+
+-- 1143835407 CHANNEL 3 --
+Line model histogram:
+[78018 17348  3652   741   203    38]
+0 spectral lines found.
+
+-- 1143837045 CHANNEL 3 --
+Line model histogram:
+[78185 17263  3519   776   215    31    11]
+0 spectral lines found.
+
+-- 1143838684 CHANNEL 3 --
+Line model histogram:
+[77868 17534  3542   798   215    35     8]
+0 spectral lines found.
+
+-- 1143840322 CHANNEL 3 --
+Line model histogram:
+[77842 17571  3666   717   160    28    15     0     1]
+0 spectral lines found.
+
+-- 1143841961 CHANNEL 3 --
+Line model histogram:
+[77892 17388  3717   780   176    46     1]
+0 spectral lines found.
+
+-- 1143843599 CHANNEL 3 --
+Line model histogram:
+[78009 17241  3689   852   178    30     1]
+0 spectral lines found.
+
+-- 1143845237 CHANNEL 3 --
+Line model histogram:
+[77973 17185  3810   791   205    31     4     1]
+0 spectral lines found.
+
+-- 1143846876 CHANNEL 3 --
+Line model histogram:
+[77749 17457  3781   812   159    37     5]
+0 spectral lines found.
+
+-- 1143848514 CHANNEL 3 --
+Line model histogram:
+[77922 17212  3735   876   218    32     5]
+0 spectral lines found.
+
+-- 1143850153 CHANNEL 3 --
+Line model histogram:
+[77902 17456  3639   803   163    35     1     1]
+0 spectral lines found.
+
+-- 1143851791 CHANNEL 3 --
+Line model histogram:
+[78007 17206  3693   851   204    38     1]
+0 spectral lines found.
+
+-- 1143853429 CHANNEL 3 --
+Line model histogram:
+[78115 17404  3559   722   176    22     2]
+0 spectral lines found.
+
+-- 1143855068 CHANNEL 3 --
+Line model histogram:
+[77746 17385  3740   880   225    22     2]
+0 spectral lines found.
+
+-- 1143856706 CHANNEL 3 --
+Line model histogram:
+[77802 17387  3788   818   171    32     2]
+0 spectral lines found.
+
+-- 1143858345 CHANNEL 3 --
+Line model histogram:
+[78092 17330  3589   786   171    30     2]
+0 spectral lines found.
+
+-- 1143859983 CHANNEL 3 --
+Line model histogram:
+[77742 17576  3646   842   170    20     3     0     1]
+0 spectral lines found.
+
+-- 1143763317 CHANNEL 4 --
+Line model histogram:
+[82082 14725  2595   492    90    16]
+0 spectral lines found.
+
+-- 1143764956 CHANNEL 4 --
+Line model histogram:
+[80821 15769  2783   515    94    15     3]
+0 spectral lines found.
+
+-- 1143766594 CHANNEL 4 --
+Line model histogram:
+[21751 50159 20246  5780  1582   353   101    24     4]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143766594 0    FREQ       6.973536e-02  6.959695e-02  6.979118e-02  6.943570e-02  7.020653e-02
+                        AMP        7.981197e-15  1.000582e-20  7.981197e-15  1.002015e-20  1.889126e-07
+                        QF         5.249503e+04  1.000415e+02  5.249503e+04  1.003094e+02  9.136000e+05
+
+-- 1143768233 CHANNEL 4 --
+Line model histogram:
+[   39  1049 55057 29130 10474  3074   903   183    48    22    15     5     1]
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.00269151 0.0690337 ]
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143768233 0    FREQ       2.783198e-03  2.749417e-03  3.019706e-03  2.526640e-03  3.051642e-03
+                        AMP        4.968273e-19  1.002349e-20  4.968273e-19  1.003801e-20  9.769836e-15
+                        QF         1.483162e+03  1.000762e+02  1.483162e+03  1.000762e+02  1.037770e+04
+                   1    FREQ       6.913742e-02  6.898870e-02  6.927218e-02  6.882549e-02  6.958106e-02
+                        AMP        3.132364e-16  1.014287e-20  3.132364e-16  1.033717e-20  6.898484e-09
+                        QF         5.030621e+03  1.000929e+02  5.030621e+03  1.001338e+02  2.449473e+05
+
+-- 1143769871 CHANNEL 4 --
+Line model histogram:
+[51805 34620 10337  2463   636   111    22     2     2     2]
+0 spectral lines found.
+
+-- 1143771509 CHANNEL 4 --
+Line model histogram:
+[45404 38680 12122  2978   651   147    18]
+0 spectral lines found.
+
+-- 1143773148 CHANNEL 4 --
+Line model histogram:
+[  392 36138 39225 16999  5367  1410   361    93    15]
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.00270372 0.06925239]
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143773148 0    FREQ       2.865279e-03  2.469546e-03  2.866315e-03  2.244452e-03  6.826354e-01
+                        AMP        6.071507e-14  1.000205e-20  6.071507e-14  1.000205e-20  2.382774e-08
+                        QF         1.560672e+04  1.002404e+02  1.560672e+04  1.002404e+02  6.988046e+06
+                   1    FREQ       6.914155e-02  6.901383e-02  6.921772e-02  6.881896e-02  6.948278e-02
+                        AMP        8.885763e-15  1.020459e-20  8.885763e-15  1.020459e-20  3.651192e-08
+                        QF         3.501452e+04  1.000118e+02  3.501452e+04  1.000345e+02  3.357090e+05
+
+-- 1143774786 CHANNEL 4 --
+Line model histogram:
+[80572 15614  3063   589   132    24     6]
+0 spectral lines found.
+
+-- 1143776425 CHANNEL 4 --
+Line model histogram:
+[82003 15007  2498   425    56    11]
+0 spectral lines found.
+
+-- 1143778063 CHANNEL 4 --
+Line model histogram:
+[   87 65739 25172  6847  1663   360    78    23    22     5     4]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143778063 0    FREQ       6.904650e-02  6.881539e-02  6.915911e-02  6.864445e-02  6.940254e-02
+                        AMP        1.572872e-18  1.000256e-20  1.572872e-18  1.000256e-20  1.723270e-09
+                        QF         7.293407e+02  1.000025e+02  7.293407e+02  1.000087e+02  1.604707e+05
+
+-- 1143779701 CHANNEL 4 --
+Line model histogram:
+[26135 51145 17068  4410   941   206    47    28     4     2    10     4]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143779701 0    FREQ       3.325990e-03  3.056267e-03  3.327177e-03  3.055813e-03  3.656787e-03
+                        AMP        1.955651e-16  1.000132e-20  1.955651e-16  1.000353e-20  5.814104e-09
+                        QF         8.624372e+03  1.136630e+02  8.628354e+03  1.051682e+02  1.267925e+05
+
+-- 1143781340 CHANNEL 4 --
+Line model histogram:
+[70640 22542  5383  1163   239    30     3]
+0 spectral lines found.
+
+-- 1143782978 CHANNEL 4 --
+Line model histogram:
+[   25  3512 53964 28508 10042  2970   809   136    26     8]
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.00326407 0.06988875]
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143782978 0    FREQ       3.401070e-03  3.385137e-03  3.657379e-03  3.128147e-03  3.656613e-03
+                        AMP        6.422950e-19  1.000065e-20  6.422950e-19  1.000474e-20  2.208799e-11
+                        QF         1.962651e+03  1.146468e+02  1.964255e+03  1.016435e+02  2.129357e+04
+                   1    FREQ       6.970645e-02  6.959792e-02  6.975289e-02  6.959695e-02  7.020654e-02
+                        AMP        6.444472e-14  1.039744e-20  6.449748e-14  1.039744e-20  2.712317e-04
+                        QF         8.204420e+04  1.001700e+02  8.204420e+04  1.057560e+02  1.690576e+06
+
+-- 1143784617 CHANNEL 4 --
+Line model histogram:
+[31660 13310 32273 15350  5255  1608   457    70    13     4]
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.00324628 0.00539831]
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143784617 0    FREQ       3.466003e-03  3.428865e-03  3.662534e-03  3.121643e-03  3.656190e-03
+                        AMP        1.100973e-15  1.090890e-20  1.100973e-15  1.074922e-20  4.973818e-14
+                        QF         6.460399e+03  3.078169e+03  8.751532e+03  1.221275e+02  2.819769e+04
+                   1    FREQ       5.366866e-03  5.337974e-03  5.494348e-03  4.606377e-03  5.494348e-03
+                        AMP        4.242134e-18  1.285145e-20  4.243171e-18  1.033823e-20  1.900422e-15
+                        QF         1.202362e+03  1.926681e+02  1.234075e+03  1.000229e+02  6.777747e+03
+
+-- 1143786255 CHANNEL 4 --
+Line model histogram:
+[81749 15197  2548   406    82    15     3]
+0 spectral lines found.
+
+-- 1143787893 CHANNEL 4 --
+Line model histogram:
+[76801 18324  3920   769   136    41     7     2]
+0 spectral lines found.
+
+-- 1143789532 CHANNEL 4 --
+Line model histogram:
+[    1   694 56588 29262  9687  2832   735   159    26    15     1]
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.00317371 0.06950558]
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143789532 0    FREQ       3.375003e-03  3.151887e-03  3.430424e-03  3.122030e-03  3.633766e-03
+                        AMP        3.012225e-19  1.000924e-20  3.012225e-19  1.000924e-20  9.349041e-11
+                        QF         1.558916e+03  1.146880e+02  1.560898e+03  1.091132e+02  1.609921e+04
+                   1    FREQ       6.973015e-02  6.959689e-02  6.980325e-02  6.947024e-02  7.012974e-02
+                        AMP        7.029793e-15  1.000961e-20  7.029793e-15  1.001385e-20  4.287759e-09
+                        QF         5.139583e+04  1.001117e+02  5.139583e+04  1.001117e+02  3.163641e+05
+
+-- 1143791170 CHANNEL 4 --
+Line model histogram:
+[77575 17936  3610   683   164    31     1]
+0 spectral lines found.
+
+-- 1143792809 CHANNEL 4 --
+Line model histogram:
+[79953 16379  2970   537   134    23     4]
+0 spectral lines found.
+
+-- 1143794447 CHANNEL 4 --
+Line model histogram:
+[66195 15787 11261  4621  1481   467   140    41     7]
+0 spectral lines found.
+
+-- 1143796085 CHANNEL 4 --
+Line model histogram:
+[82517 14604  2373   419    71    15     1]
+0 spectral lines found.
+
+-- 1143797724 CHANNEL 4 --
+Line model histogram:
+[81646 15030  2680   509   115    17     3]
+0 spectral lines found.
+
+-- 1143799362 CHANNEL 4 --
+Line model histogram:
+[80293 15975  3041   541   134    16]
+0 spectral lines found.
+
+-- 1143801001 CHANNEL 4 --
+Line model histogram:
+[   12 68859 23318  6050  1367   308    61    19     4     2]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143801001 0    FREQ       3.356250e-03  3.100872e-03  3.386877e-03  3.095952e-03  3.625103e-03
+                        AMP        6.081185e-15  1.000115e-20  6.081185e-15  1.000115e-20  3.538611e-11
+                        QF         8.090708e+03  1.134674e+02  8.091407e+03  1.103655e+02  2.857521e+04
+
+-- 1143802639 CHANNEL 4 --
+Line model histogram:
+[74497 14337  7261  2810   831   211    44     7     2]
+0 spectral lines found.
+
+-- 1143804277 CHANNEL 4 --
+Line model histogram:
+[ 2682 64301 24428  6567  1600   325    88     9]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143804277 0    FREQ       3.354946e-03  3.101226e-03  3.375324e-03  3.099348e-03      0.003622
+                        AMP        5.705286e-14  1.000030e-20  5.705286e-14  1.000030e-20      0.000021
+                        QF         9.465326e+03  1.065676e+02  9.465326e+03  1.065676e+02  63672.730000
+
+-- 1143805916 CHANNEL 4 --
+Line model histogram:
+[73875 19225  5253  1228   319    73    20     7]
+0 spectral lines found.
+
+-- 1143807554 CHANNEL 4 --
+Line model histogram:
+[73634 20500  4667   935   230    29     5]
+0 spectral lines found.
+
+-- 1143809193 CHANNEL 4 --
+Line model histogram:
+[79492 14261  4340  1355   396    95    44    15     2]
+0 spectral lines found.
+
+-- 1143810831 CHANNEL 4 --
+Line model histogram:
+[81790 15182  2563   378    77     9     1]
+0 spectral lines found.
+
+-- 1143812469 CHANNEL 4 --
+Line model histogram:
+[82203 14844  2456   432    62     3]
+0 spectral lines found.
+
+-- 1143814108 CHANNEL 4 --
+Line model histogram:
+[79348 16652  3267   592   129    11     1]
+0 spectral lines found.
+
+-- 1143815746 CHANNEL 4 --
+Line model histogram:
+[31497 48211 15366  3741   982   179    23     1]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143815746 0    FREQ       3.430930e-03  3.309046e-03  3.603414e-03  3.061023e-03  1.259467e-01
+                        AMP        4.943024e-15  1.000006e-20  4.943024e-15  1.000006e-20  3.927827e-08
+                        QF         8.309970e+03  1.157636e+02  8.311376e+03  1.095166e+02  1.012939e+05
+
+-- 1143817385 CHANNEL 4 --
+Line model histogram:
+[70736 22290  5612  1074   237    45     5     1]
+0 spectral lines found.
+
+-- 1143819023 CHANNEL 4 --
+Line model histogram:
+[81779 15187  2429   468   121    14     2]
+0 spectral lines found.
+
+-- 1143820661 CHANNEL 4 --
+Line model histogram:
+[ 5335 64212 22610  5982  1426   355    60    14     5     1]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143820661 0    FREQ       3.368089e-03  3.250939e-03  3.509976e-03  3.133224e-03  3.655509e-03
+                        AMP        4.709945e-14  1.000068e-20  4.709945e-14  1.000068e-20  3.430222e-11
+                        QF         9.723667e+03  1.158997e+02  9.725915e+03  1.140553e+02  2.698062e+04
+
+-- 1143822300 CHANNEL 4 --
+Line model histogram:
+[35592 27644 23652  9352  2869   696   143    24    20     8]
+0 spectral lines found.
+
+-- 1143823938 CHANNEL 4 --
+Line model histogram:
+[    0   146 56714 29104 10259  2946   650   142    31     8]
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.00307123 0.00535065]
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143823938 0    FREQ       3.369833e-03  3.343040e-03  3.632809e-03  3.121738e-03  3.650387e-03
+                        AMP        1.370870e-13  1.000627e-20  1.371266e-13  1.000942e-20  3.798720e-10
+                        QF         9.455907e+03  1.174077e+02  9.458440e+03  1.138559e+02  3.531424e+04
+                   1    FREQ       5.269628e-03  5.268961e-03  5.494305e-03  4.980149e-03  5.494350e-03
+                        AMP        4.699053e-19  1.000227e-20  4.699722e-19  1.000130e-20  5.763851e-14
+                        QF         1.212441e+03  1.734168e+02  1.217655e+03  1.400681e+02  2.441252e+04
+
+-- 1143825577 CHANNEL 4 --
+Line model histogram:
+[80262 15603  3223   691   160    47    13     0     1]
+0 spectral lines found.
+
+-- 1143827215 CHANNEL 4 --
+Line model histogram:
+[75236 19357  4325   852   181    44     3     2]
+0 spectral lines found.
+
+-- 1143828853 CHANNEL 4 --
+Line model histogram:
+[54045 17269 17606  7757  2423   694   147    39    11     5     0     4]
+0 spectral lines found.
+
+-- 1143830492 CHANNEL 4 --
+Line model histogram:
+[81951 14820  2616   518    82    13]
+0 spectral lines found.
+
+-- 1143832130 CHANNEL 4 --
+Line model histogram:
+[75433 15286  6161  2181   709   180    44     4     1     1]
+0 spectral lines found.
+
+-- 1143833769 CHANNEL 4 --
+Line model histogram:
+[67294 15327 10875  4526  1445   386   100    44     3]
+0 spectral lines found.
+
+-- 1143835407 CHANNEL 4 --
+Line model histogram:
+[  385 67949 23724  6184  1345   307    89    13     3     1]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143835407 0    FREQ       2.754547e-03  2.611764e-03  2.886961e-03  2.527282e-03      0.003047
+                        AMP        8.388684e-16  1.000758e-20  8.388684e-16  1.000758e-20      0.016519
+                        QF         6.975153e+03  1.000064e+02  6.975153e+03  1.003540e+02  40489.350000
+
+-- 1143837045 CHANNEL 4 --
+Line model histogram:
+[82098 14892  2545   399    57     9]
+0 spectral lines found.
+
+-- 1143838684 CHANNEL 4 --
+Line model histogram:
+[42259 27999 19336  7460  2163   632   138    13]
+0 spectral lines found.
+
+-- 1143840322 CHANNEL 4 --
+Line model histogram:
+[51282 18255 18447  8373  2678   711   208    36    10]
+0 spectral lines found.
+
+-- 1143841961 CHANNEL 4 --
+Line model histogram:
+[29836 32519 24194  9388  2972   847   184    46    11     1     2]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143841961 0    FREQ       2.823334e-03  2.681059e-03  3.021813e-03  1.062535e-03  4.166084e-01
+                        AMP        3.548577e-17  1.004953e-20  3.548577e-17  1.000694e-20  2.906955e-10
+                        QF         5.120583e+03  1.004326e+02  5.120583e+03  1.004326e+02  6.775724e+05
+
+-- 1143843599 CHANNEL 4 --
+Line model histogram:
+[71947 18580  6550  2177   567   125    36     6     4     8]
+0 spectral lines found.
+
+-- 1143845237 CHANNEL 4 --
+Line model histogram:
+[68984 19567  7819  2674   711   186    43    12     4]
+0 spectral lines found.
+
+-- 1143846876 CHANNEL 4 --
+Line model histogram:
+[82405 14691  2478   351    61    11     3]
+0 spectral lines found.
+
+-- 1143848514 CHANNEL 4 --
+Line model histogram:
+[  251 65770 24693  7010  1658   462   119    31     4     0     1     1]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143848514 0    FREQ       2.752376e-03  2.701381e-03  2.998602e-03  2.443830e-03  2.987753e-03
+                        AMP        1.565177e-18  1.000131e-20  1.565664e-18  1.000131e-20  2.558564e-14
+                        QF         2.945556e+03  1.000341e+02  2.945625e+03  1.001816e+02  1.830660e+04
+
+-- 1143850153 CHANNEL 4 --
+Line model histogram:
+[77521 14371  5313  1950   581   196    50    18]
+0 spectral lines found.
+
+-- 1143851791 CHANNEL 4 --
+Line model histogram:
+[55078 30962 10463  2731   578   160    27     1]
+0 spectral lines found.
+
+-- 1143853429 CHANNEL 4 --
+Line model histogram:
+[77959 17549  3602   700   154    33     3]
+0 spectral lines found.
+
+-- 1143855068 CHANNEL 4 --
+Line model histogram:
+[  360 32436 41215 18220  5645  1600   433    64    22     5]
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.00296103 0.06891086]
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143855068 0    FREQ       2.836449e-03  2.679219e-03  3.027948e-03  2.392922e-03  4.908842e-01
+                        AMP        4.553576e-15  1.010009e-20  4.553576e-15  1.000718e-20  1.601360e-07
+                        QF         8.905037e+03  1.217607e+02  8.919278e+03  1.018823e+02  1.472205e+06
+                   1    FREQ       6.880895e-02  6.859049e-02  6.885762e-02  6.848327e-02  6.959666e-02
+                        AMP        1.299987e-17  1.004029e-20  1.299987e-17  1.028983e-20  9.776339e-13
+                        QF         1.401921e+03  1.000149e+02  1.401921e+03  1.000149e+02  1.276105e+05
+
+-- 1143856706 CHANNEL 4 --
+Line model histogram:
+[37454 44000 14088  3512   764   143    31     8]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+4       1143856706 0    FREQ       2.812847e-03  2.678639e-03  3.024940e-03  6.140237e-04  3.543662e-01
+                        AMP        1.110209e-13  1.002028e-20  1.110209e-13  1.003249e-20  5.349298e-09
+                        QF         1.244848e+04  1.584081e+02  1.246953e+04  1.051881e+02  4.174119e+05
+
+-- 1143858345 CHANNEL 4 --
+Line model histogram:
+[81667 14622  2911   632   136    23     5     3     1]
+0 spectral lines found.
+
+-- 1143859983 CHANNEL 4 --
+Line model histogram:
+[82361 14729  2388   443    69    10]
+0 spectral lines found.
+
+-- 1143763317 CHANNEL 5 --
+Line model histogram:
+[80547 16001  2885   489    73     5]
+0 spectral lines found.
+
+-- 1143764956 CHANNEL 5 --
+Line model histogram:
+[82580 14553  2405   383    71     6     2]
+0 spectral lines found.
+
+-- 1143766594 CHANNEL 5 --
+Line model histogram:
+[58269 28726  9453  2629   710   178    16    13     6]
+0 spectral lines found.
+
+-- 1143768233 CHANNEL 5 --
+Line model histogram:
+[82061 14887  2542   413    82    14     1]
+0 spectral lines found.
+
+-- 1143769871 CHANNEL 5 --
+Line model histogram:
+[67619 24209  6333  1445   286    73    18     7    10]
+0 spectral lines found.
+
+-- 1143771509 CHANNEL 5 --
+Line model histogram:
+[82013 14657  2678   512   120    18     2]
+0 spectral lines found.
+
+-- 1143773148 CHANNEL 5 --
+Line model histogram:
+[81715 14968  2588   594    99    31     5]
+0 spectral lines found.
+
+-- 1143774786 CHANNEL 5 --
+Line model histogram:
+[79079 16784  3214   754   127    34     8]
+0 spectral lines found.
+
+-- 1143776425 CHANNEL 5 --
+Line model histogram:
+[81844 15063  2569   426    88    10]
+0 spectral lines found.
+
+-- 1143778063 CHANNEL 5 --
+Line model histogram:
+[82503 14425  2552   427    83     9     1]
+0 spectral lines found.
+
+-- 1143779701 CHANNEL 5 --
+Line model histogram:
+[81037 15575  2744   516   111    14     3]
+0 spectral lines found.
+
+-- 1143781340 CHANNEL 5 --
+Line model histogram:
+[81712 15322  2496   399    62     9]
+0 spectral lines found.
+
+-- 1143782978 CHANNEL 5 --
+Line model histogram:
+[82190 14803  2534   416    53     3     1]
+0 spectral lines found.
+
+-- 1143784617 CHANNEL 5 --
+Line model histogram:
+[82356 14677  2413   459    89     6]
+0 spectral lines found.
+
+-- 1143786255 CHANNEL 5 --
+Line model histogram:
+[81653 15312  2536   442    49     8]
+0 spectral lines found.
+
+-- 1143787893 CHANNEL 5 --
+Line model histogram:
+[50737 35539 10528  2457   537   169    21     9     3]
+0 spectral lines found.
+
+-- 1143789532 CHANNEL 5 --
+Line model histogram:
+[82218 14782  2423   484    82    11]
+0 spectral lines found.
+
+-- 1143791170 CHANNEL 5 --
+Line model histogram:
+[76870 18281  3821   841   149    34     4]
+0 spectral lines found.
+
+-- 1143792809 CHANNEL 5 --
+Line model histogram:
+[80775 15633  2814   609   131    26    10     2]
+0 spectral lines found.
+
+-- 1143794447 CHANNEL 5 --
+Line model histogram:
+[82180 14853  2445   428    84     9     0     0     1]
+0 spectral lines found.
+
+-- 1143796085 CHANNEL 5 --
+Line model histogram:
+[82174 14911  2436   388    83     8]
+0 spectral lines found.
+
+-- 1143797724 CHANNEL 5 --
+Line model histogram:
+[82160 14876  2490   390    75     9]
+0 spectral lines found.
+
+-- 1143799362 CHANNEL 5 --
+Line model histogram:
+[12702 60079 20570  5101  1229   238    55    24     2]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+5       1143799362 0    FREQ       7.082539e-02  7.052360e-02  7.098856e-02  7.034442e-02  7.122989e-02
+                        AMP        6.456511e-18  1.002191e-20  6.456511e-18  1.002191e-20  4.004235e-13
+                        QF         6.675111e+02  1.000279e+02  6.675111e+02  1.000279e+02  1.275214e+05
+
+-- 1143801001 CHANNEL 5 --
+Line model histogram:
+[  137 67902 23837  6307  1424   306    70     9     6     2]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+5       1143801001 0    FREQ       6.985543e-02  6.976447e-02  6.994283e-02  6.931007e-02  7.009343e-02
+                        AMP        3.432926e-18  4.478156e-20  3.448653e-18  1.265599e-20  5.814111e-17
+                        QF         3.742169e+02  1.000078e+02  3.742195e+02  1.000078e+02  1.118479e+03
+
+-- 1143802639 CHANNEL 5 --
+Line model histogram:
+[82528 14510  2379   492    80     9     2]
+0 spectral lines found.
+
+-- 1143804277 CHANNEL 5 --
+Line model histogram:
+[82145 15038  2399   353    55     9     0     1]
+0 spectral lines found.
+
+-- 1143805916 CHANNEL 5 --
+Line model histogram:
+[82318 14790  2424   389    69    10]
+0 spectral lines found.
+
+-- 1143807554 CHANNEL 5 --
+Line model histogram:
+[81792 15029  2572   489    93    21     4]
+0 spectral lines found.
+
+-- 1143809193 CHANNEL 5 --
+Line model histogram:
+[36196 44771 14322  3689   836   130    42    14]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+5       1143809193 0    FREQ       7.101803e-02  7.081803e-02  7.109797e-02  7.819200e-04  3.283308e-01
+                        AMP        1.931543e-13  1.004599e-20  1.931543e-13  1.004599e-20  1.784258e-05
+                        QF         9.190810e+04  1.001121e+02  9.190810e+04  1.001312e+02  1.061993e+06
+
+-- 1143810831 CHANNEL 5 --
+Line model histogram:
+[80306 16120  2933   519    97    24     1]
+0 spectral lines found.
+
+-- 1143812469 CHANNEL 5 --
+Line model histogram:
+[74085 20326  4492   911   162    22     2]
+0 spectral lines found.
+
+-- 1143814108 CHANNEL 5 --
+Line model histogram:
+[81883 15100  2481   444    80     9     3]
+0 spectral lines found.
+
+-- 1143815746 CHANNEL 5 --
+Line model histogram:
+[81893 15051  2514   472    64     6]
+0 spectral lines found.
+
+-- 1143817385 CHANNEL 5 --
+Line model histogram:
+[74591 19705  4418   998   222    49    16     1]
+0 spectral lines found.
+
+-- 1143819023 CHANNEL 5 --
+Line model histogram:
+[81224 15461  2781   448    82     4]
+0 spectral lines found.
+
+-- 1143820661 CHANNEL 5 --
+Line model histogram:
+[82309 14694  2422   486    75    14]
+0 spectral lines found.
+
+-- 1143822300 CHANNEL 5 --
+Line model histogram:
+[81786 14900  2634   558   109     9     3     1]
+0 spectral lines found.
+
+-- 1143823938 CHANNEL 5 --
+Line model histogram:
+[81583 15163  2694   456    96     8]
+0 spectral lines found.
+
+-- 1143825577 CHANNEL 5 --
+Line model histogram:
+[82162 14686  2555   471   111    13     1     1]
+0 spectral lines found.
+
+-- 1143827215 CHANNEL 5 --
+Line model histogram:
+[80841 15791  2784   485    94     5]
+0 spectral lines found.
+
+-- 1143828853 CHANNEL 5 --
+Line model histogram:
+[81943 14889  2535   540    84     8     1]
+0 spectral lines found.
+
+-- 1143830492 CHANNEL 5 --
+Line model histogram:
+[76968 18236  3869   722   171    32     2]
+0 spectral lines found.
+
+-- 1143832130 CHANNEL 5 --
+Line model histogram:
+[82654 14265  2464   515    85    15     2]
+0 spectral lines found.
+
+-- 1143833769 CHANNEL 5 --
+Line model histogram:
+[82512 14622  2428   371    56    10     1]
+0 spectral lines found.
+
+-- 1143835407 CHANNEL 5 --
+Line model histogram:
+[82490 14502  2486   440    75     7]
+0 spectral lines found.
+
+-- 1143837045 CHANNEL 5 --
+Line model histogram:
+[80769 15666  2959   482   109    15]
+0 spectral lines found.
+
+-- 1143838684 CHANNEL 5 --
+Line model histogram:
+[    0   111 56188 29542 10189  2901   764   210    81    13     1]
+2 spectral lines found.
+Spectral line modal frequencies:
+[0.07031268 0.99891304]
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+5       1143838684 0    FREQ       7.027816e-02  7.020744e-02  7.033232e-02  7.006895e-02  7.068368e-02
+                        AMP        5.201682e-15  1.008395e-20  5.201741e-15  1.001140e-20  2.166705e-11
+                        QF         6.316272e+04  1.003052e+02  6.316272e+04  1.003052e+02  2.484895e+05
+                   1    FREQ       9.986209e-01  9.986208e-01  9.991454e-01  9.981706e-01  9.990995e-01
+                        AMP        1.590597e-12  7.790339e-16  1.590597e-12  7.790339e-16  4.007061e-09
+                        QF         2.302467e+03  1.000316e+02  2.302507e+03  1.000316e+02  1.030402e+05
+
+-- 1143840322 CHANNEL 5 --
+Line model histogram:
+[    0 67241 24532  6390  1459   287    60    23     8]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+5       1143840322 0    FREQ       7.025736e-02  7.020778e-02  7.048918e-02  6.986550e-02  7.058813e-02
+                        AMP        6.882653e-18  1.000925e-20  6.882653e-18  1.000925e-20  6.179218e-11
+                        QF         1.076432e+03  1.000418e+02  1.076453e+03  1.000418e+02  2.183572e+05
+
+-- 1143841961 CHANNEL 5 --
+Line model histogram:
+[82314 14806  2428   379    69     4]
+0 spectral lines found.
+
+-- 1143843599 CHANNEL 5 --
+Line model histogram:
+[82573 14479  2461   403    71    12     1]
+0 spectral lines found.
+
+-- 1143845237 CHANNEL 5 --
+Line model histogram:
+[80954 15613  2817   497   108    11]
+0 spectral lines found.
+
+-- 1143846876 CHANNEL 5 --
+Line model histogram:
+[82460 14560  2453   444    71    12]
+0 spectral lines found.
+
+-- 1143848514 CHANNEL 5 --
+Line model histogram:
+[82066 14948  2436   449    81    18     2]
+0 spectral lines found.
+
+-- 1143850153 CHANNEL 5 --
+Line model histogram:
+[61098 28337  8188  1926   374    64    11     2]
+0 spectral lines found.
+
+-- 1143851791 CHANNEL 5 --
+Line model histogram:
+[79643 16417  3115   654   154    17]
+0 spectral lines found.
+
+-- 1143853429 CHANNEL 5 --
+Line model histogram:
+[  506 66563 24402  6625  1534   309    49    11     1]
+1 spectral lines found.
+Line parameter summary:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO       CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                       
+5       1143853429 0    FREQ       7.037516e-02  7.020768e-02  7.042754e-02  7.013869e-02       0.070817
+                        AMP        4.861803e-13  1.105101e-20  4.861803e-13  1.097923e-20       0.000847
+                        QF         6.818358e+04  1.000297e+02  6.818358e+04  1.001204e+02  407543.300000
+
+-- 1143855068 CHANNEL 5 --
+Line model histogram:
+[77467 17807  3748   764   178    25     5     5     1]
+0 spectral lines found.
+
+-- 1143856706 CHANNEL 5 --
+Line model histogram:
+[80004 16161  3095   611   109    20]
+0 spectral lines found.
+
+-- 1143858345 CHANNEL 5 --
+Line model histogram:
+[80998 15604  2810   496    78    14]
+0 spectral lines found.
+
+-- 1143859983 CHANNEL 5 --
+Line model histogram:
+[82583 14656  2296   380    78     7]
+0 spectral lines found.
+All line counts:
+                         0        1        2        3        4       5      6      7     8     9     10   11   12
+CHANNEL TIME                                                                                                     
+0       1143763317  84060.0  13428.0   2133.0    317.0     55.0     7.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143764956  84605.0  13170.0   1904.0    269.0     49.0     3.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143766594  84143.0  13533.0   1956.0    292.0     63.0    13.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143768233  64858.0  26774.0   6605.0   1372.0    305.0    74.0   11.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143769871  84459.0  13284.0   1901.0    315.0     36.0     5.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143771509  84092.0  13446.0   2111.0    276.0     67.0     7.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143773148  84537.0  13089.0   2009.0    311.0     47.0     5.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143774786  84748.0  12973.0   1940.0    298.0     32.0     9.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143776425  84394.0  13163.0   2055.0    337.0     45.0     6.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143778063  84482.0  13072.0   2061.0    313.0     53.0    19.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143779701  84508.0  13200.0   1984.0    281.0     25.0     2.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143781340  84670.0  13089.0   1864.0    302.0     59.0    12.0    4.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143782978  85144.0  12760.0   1829.0    220.0     34.0    13.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143784617  84256.0  13277.0   2069.0    329.0     62.0     7.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143786255  83490.0  13755.0   2281.0    382.0     81.0    11.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143787893  83700.0  13775.0   2061.0    384.0     72.0     8.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143789532  81620.0  15094.0   2676.0    485.0    103.0    18.0    4.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143791170  84201.0  13472.0   1928.0    323.0     64.0    11.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143792809  84031.0  13460.0   2129.0    319.0     58.0     3.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143794447  83556.0  13813.0   2209.0    354.0     58.0     9.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143796085  83872.0  13600.0   2109.0    361.0     52.0     5.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143797724  84089.0  13440.0   2056.0    348.0     58.0     9.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143799362  81857.0  15028.0   2619.0    417.0     66.0    13.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143801001  83911.0  13614.0   2105.0    316.0     52.0     2.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143802639  84068.0  13519.0   2022.0    310.0     68.0    11.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143804277  77369.0  17642.0   3983.0    838.0    143.0    24.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143805916  84216.0  13465.0   1950.0    308.0     54.0     7.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143807554  83899.0  13600.0   2126.0    330.0     43.0     2.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143809193  84060.0  13463.0   2090.0    341.0     40.0     6.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143810831    599.0  71385.0  21804.0   4931.0   1008.0   229.0   41.0    3.0   NaN   NaN   NaN  NaN  NaN
+        1143812469  84707.0  13067.0   1916.0    252.0     52.0     6.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143814108  73035.0  20815.0   4789.0   1114.0    192.0    55.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143815746  82014.0  14816.0   2671.0    431.0     55.0    13.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143817385  83388.0  13890.0   2302.0    361.0     52.0     7.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143819023  84348.0  13340.0   1971.0    297.0     42.0     1.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143820661  84343.0  13208.0   2060.0    322.0     57.0     8.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143822300  84310.0  13425.0   1931.0    296.0     35.0     3.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143823938  77513.0  17912.0   3737.0    687.0    118.0    30.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143825577  84039.0  13396.0   2192.0    315.0     55.0     3.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143827215  84252.0  13290.0   2078.0    310.0     62.0     8.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143828853  55750.0  33026.0   8844.0   1946.0    375.0    52.0    7.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143830492  84714.0  13173.0   1809.0    258.0     46.0     NaN    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143832130  76326.0  18833.0   3922.0    765.0    126.0    27.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143833769  84233.0  13345.0   2008.0    350.0     53.0    11.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143835407  84705.0  13017.0   1908.0    317.0     49.0     4.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143837045  84101.0  13287.0   2142.0    403.0     60.0     6.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143838684  84168.0  13481.0   2052.0    260.0     34.0     5.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143840322  84344.0  13284.0   2001.0    305.0     57.0     9.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143841961  84036.0  13408.0   2154.0    371.0     31.0     NaN    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143843599  84092.0  13465.0   2098.0    303.0     38.0     4.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143845237  83988.0  13493.0   2061.0    375.0     78.0     5.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143846876  84543.0  12974.0   2036.0    372.0     60.0    13.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143848514  79288.0  16753.0   3206.0    630.0     97.0    24.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143850153   3770.0  69526.0  20918.0   4651.0    908.0   191.0   29.0    5.0   2.0   NaN   NaN  NaN  NaN
+        1143851791  84264.0  13429.0   1959.0    312.0     34.0     2.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143853429  83578.0  13803.0   2208.0    346.0     64.0     1.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143855068  84134.0  13401.0   2034.0    352.0     71.0     8.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143856706  83737.0  13603.0   2188.0    379.0     85.0     8.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143858345  84256.0  13313.0   2053.0    309.0     58.0    11.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143859983  84228.0  13332.0   2010.0    343.0     68.0    19.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+1       1143763317  81233.0  15453.0   2736.0    481.0     92.0     5.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143764956  81156.0  15449.0   2831.0    459.0     97.0     5.0    2.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143766594  81397.0  15252.0   2771.0    476.0     87.0    15.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143768233  81006.0  15547.0   2803.0    542.0     90.0    11.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143769871  81043.0  15392.0   2900.0    541.0     96.0    25.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143771509  81602.0  15083.0   2765.0    463.0     77.0     9.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143773148  80628.0  15777.0   2969.0    517.0     98.0    10.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143774786  81406.0  15341.0   2655.0    476.0    102.0    19.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143776425  81076.0  15584.0   2739.0    482.0     95.0    21.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143778063  80829.0  15716.0   2793.0    538.0    102.0    22.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143779701  80778.0  15720.0   2859.0    541.0     88.0    13.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143781340  81344.0  15356.0   2768.0    441.0     80.0    10.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143782978  80987.0  15350.0   3030.0    492.0    117.0    22.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143784617  80941.0  15565.0   2883.0    520.0     82.0     9.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143786255  81120.0  15380.0   2904.0    509.0     69.0    18.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143787893  81059.0  15540.0   2735.0    539.0    105.0    15.0    6.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143789532  81141.0  15398.0   2852.0    518.0     83.0     7.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143791170  81183.0  15518.0   2753.0    444.0     88.0    13.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143792809  81401.0  15360.0   2649.0    495.0     92.0     3.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143794447  81016.0  15534.0   2806.0    542.0    100.0     2.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143796085  81101.0  15509.0   2775.0    508.0     94.0    11.0    1.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143797724  81143.0  15367.0   2936.0    457.0     82.0    14.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143799362  81237.0  15264.0   2822.0    520.0    106.0    31.0   17.0    3.0   NaN   NaN   NaN  NaN  NaN
+        1143801001  81402.0  15289.0   2648.0    515.0    123.0    19.0    4.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143802639  81325.0  15353.0   2677.0    541.0     95.0     7.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143804277  81024.0  15611.0   2771.0    477.0    101.0    16.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143805916  80858.0  15531.0   2965.0    547.0     87.0    11.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143807554  80990.0  15504.0   2887.0    506.0    100.0    12.0    0.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143809193  81287.0  15432.0   2716.0    471.0     84.0     8.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143810831  80934.0  15698.0   2733.0    537.0     89.0     8.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143812469  80815.0  15782.0   2764.0    508.0    113.0    18.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143814108  81595.0  15218.0   2642.0    437.0     93.0    15.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143815746  81050.0  15462.0   2958.0    441.0     68.0    18.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143817385  81222.0  15390.0   2740.0    569.0     66.0    11.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143819023  81135.0  15583.0   2707.0    490.0     78.0     7.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143820661  81216.0  15500.0   2694.0    498.0     79.0    13.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143822300  81067.0  15430.0   2864.0    542.0     91.0     5.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143823938  81157.0  15271.0   2880.0    569.0    104.0    19.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143825577  81439.0  15278.0   2678.0    493.0    101.0     8.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143827215  80679.0  15909.0   2802.0    524.0     82.0     4.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143828853  81309.0  15309.0   2749.0    522.0    106.0     5.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143830492  81210.0  15442.0   2717.0    501.0    109.0    21.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143832130  80944.0  15654.0   2810.0    489.0     86.0    15.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143833769  81157.0  15496.0   2719.0    493.0    123.0    11.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143835407  81211.0  15337.0   2822.0    519.0     93.0    15.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143837045  80943.0  15626.0   2825.0    492.0    104.0    10.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143838684  80883.0  15589.0   2921.0    503.0     98.0     5.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143840322  81377.0  15211.0   2815.0    503.0     88.0     4.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143841961  81318.0  15314.0   2726.0    554.0     74.0    14.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143843599  81109.0  15498.0   2812.0    460.0    110.0    11.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143845237  81449.0  15212.0   2788.0    440.0     97.0    10.0    3.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143846876  81122.0  15289.0   2854.0    621.0    101.0    13.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143848514  81021.0  15629.0   2781.0    482.0     77.0     9.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143850153  81300.0  15276.0   2848.0    457.0    100.0    18.0    0.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143851791  81335.0  15202.0   2877.0    481.0     96.0     8.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143853429  81091.0  15593.0   2787.0    438.0     74.0    15.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143855068  81309.0  15176.0   2883.0    513.0    105.0    14.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143856706  81065.0  15551.0   2775.0    475.0    118.0    16.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143858345  81262.0  15369.0   2753.0    511.0     94.0    11.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143859983  80772.0  15587.0   2989.0    548.0     98.0     6.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+2       1143763317  80005.0  16208.0   3115.0    553.0    113.0     6.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143764956  80858.0  15550.0   3000.0    489.0     90.0    13.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143766594  79776.0  16240.0   3177.0    650.0    135.0    21.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143768233  81155.0  15443.0   2779.0    513.0     99.0    11.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143769871  81097.0  15575.0   2718.0    483.0    115.0    12.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143771509  80792.0  15596.0   2927.0    571.0     90.0    16.0    8.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143773148  80940.0  15641.0   2842.0    492.0     83.0     2.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143774786  79696.0  16342.0   3188.0    634.0    121.0    17.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143776425  80964.0  15634.0   2727.0    516.0    132.0    24.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143778063  81179.0  15425.0   2808.0    479.0     96.0    13.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143779701  80861.0  15743.0   2837.0    479.0     71.0     9.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143781340  79317.0  16555.0   3240.0    683.0    150.0    39.0   12.0    4.0   NaN   NaN   NaN  NaN  NaN
+        1143782978  80788.0  15596.0   2963.0    539.0     99.0     3.0   10.0    2.0   NaN   NaN   NaN  NaN  NaN
+        1143784617  80846.0  15586.0   2892.0    548.0    120.0     8.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143786255  81026.0  15507.0   2786.0    582.0     87.0     8.0    4.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143787893  80538.0  15854.0   2944.0    559.0     96.0     9.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143789532  80952.0  15603.0   2804.0    535.0     89.0    12.0    5.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143791170  81055.0  15467.0   2828.0    564.0     68.0    16.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143792809  80235.0  15934.0   3165.0    563.0     96.0     5.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143794447  80449.0  15847.0   2947.0    629.0    112.0    16.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143796085  81045.0  15520.0   2839.0    486.0     90.0    20.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143797724  81179.0  15532.0   2730.0    457.0     90.0    11.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143799362  80370.0  15804.0   3088.0    642.0     87.0     8.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143801001  81053.0  15501.0   2857.0    497.0     79.0     8.0    4.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143802639   7324.0  61756.0  22917.0   6142.0   1496.0   305.0   52.0    8.0   NaN   NaN   NaN  NaN  NaN
+        1143804277  80978.0  15449.0   2895.0    561.0     90.0    17.0    8.0    2.0   NaN   NaN   NaN  NaN  NaN
+        1143805916  80601.0  15652.0   3069.0    553.0     94.0    29.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143807554  38599.0  42537.0  14132.0   3673.0    825.0   161.0   69.0    3.0   1.0   NaN   NaN  NaN  NaN
+        1143809193      7.0  65443.0  25151.0   7036.0   1787.0   439.0   87.0   34.0   8.0   8.0   NaN  NaN  NaN
+        1143810831  79796.0  16260.0   3174.0    653.0    112.0     5.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143812469  80995.0  15462.0   2867.0    559.0     96.0    17.0    4.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143814108  80555.0  15752.0   2994.0    540.0    118.0    33.0    4.0    1.0   0.0   3.0   NaN  NaN  NaN
+        1143815746  80911.0  15283.0   3063.0    618.0    108.0    13.0    4.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143817385   1461.0  64872.0  24618.0   6734.0   1713.0   486.0   88.0   25.0   3.0   NaN   NaN  NaN  NaN
+        1143819023  80958.0  15614.0   2812.0    521.0     83.0    12.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143820661  81347.0  15342.0   2701.0    513.0     82.0    12.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143822300  80477.0  15856.0   3004.0    555.0     95.0    11.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143823938  80898.0  15694.0   2833.0    473.0     82.0    18.0    1.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143825577  81040.0  15542.0   2856.0    457.0     96.0     9.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143827215  81201.0  15506.0   2695.0    493.0     92.0    10.0    2.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143828853  80568.0  15848.0   2903.0    543.0    126.0    11.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143830492  80692.0  15776.0   2902.0    522.0     96.0    11.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143832130  81173.0  15428.0   2881.0    438.0     69.0    11.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143833769  81312.0  15332.0   2719.0    539.0     86.0    10.0    1.0    0.0   1.0   NaN   NaN  NaN  NaN
+        1143835407  81140.0  15523.0   2763.0    504.0     63.0     7.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143837045  80801.0  15731.0   2859.0    526.0     67.0    16.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143838684  81237.0  15288.0   2872.0    505.0     86.0    10.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143840322  80799.0  15453.0   3010.0    570.0    131.0    30.0    5.0    2.0   NaN   NaN   NaN  NaN  NaN
+        1143841961  81567.0  15245.0   2557.0    512.0    107.0    10.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143843599  80878.0  15633.0   2899.0    485.0     94.0    10.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143845237  80823.0  15393.0   3026.0    590.0    130.0    32.0    5.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143846876  81064.0  15393.0   2892.0    527.0    117.0     7.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143848514  81092.0  15471.0   2877.0    459.0     83.0    16.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143850153  80257.0  15958.0   3036.0    585.0    144.0    15.0    4.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143851791  80961.0  15556.0   2933.0    457.0     82.0    11.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143853429  81148.0  15680.0   2604.0    475.0     87.0     5.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143855068  80789.0  15782.0   2803.0    519.0     95.0    11.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143856706  80009.0  16129.0   3187.0    559.0    102.0    14.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143858345  80815.0  15724.0   2814.0    504.0    130.0    13.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143859983  81260.0  15275.0   2838.0    506.0     95.0    21.0    5.0    NaN   NaN   NaN   NaN  NaN  NaN
+3       1143763317  78015.0  17423.0   3515.0    786.0    209.0    45.0    6.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143764956  77583.0  17830.0   3562.0    775.0    201.0    34.0   15.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143766594  77419.0  17615.0   3872.0    864.0    203.0    25.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143768233  77938.0  17485.0   3567.0    794.0    174.0    36.0    6.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143769871  77954.0  17464.0   3665.0    749.0    138.0    26.0    4.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143771509  77953.0  17386.0   3633.0    846.0    153.0    27.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143773148  77606.0  17527.0   3899.0    752.0    181.0    28.0    6.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143774786  78082.0  17325.0   3571.0    792.0    196.0    28.0    5.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143776425  78172.0  17111.0   3672.0    825.0    170.0    44.0    6.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143778063  77926.0  17406.0   3634.0    804.0    176.0    47.0    7.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143779701  77346.0  17726.0   3841.0    823.0    203.0    52.0    9.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143781340  77671.0  17741.0   3561.0    761.0    227.0    33.0    6.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143782978  77949.0  17540.0   3597.0    713.0    156.0    41.0    4.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143784617  77738.0  17601.0   3630.0    753.0    206.0    62.0    8.0    2.0   NaN   NaN   NaN  NaN  NaN
+        1143786255  77304.0  17690.0   3977.0    799.0    187.0    40.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143787893  78108.0  17432.0   3429.0    823.0    164.0    37.0    7.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143789532  77589.0  17524.0   3789.0    896.0    168.0    27.0    7.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143791170  77978.0  17464.0   3561.0    759.0    196.0    40.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143792809  77460.0  17706.0   3800.0    824.0    174.0    31.0    3.0    2.0   NaN   NaN   NaN  NaN  NaN
+        1143794447  77814.0  17641.0   3607.0    754.0    142.0    39.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143796085  78151.0  17176.0   3646.0    820.0    159.0    43.0    5.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143797724  77727.0  17399.0   3790.0    859.0    168.0    42.0    7.0    6.0   2.0   NaN   NaN  NaN  NaN
+        1143799362  77723.0  17448.0   3749.0    852.0    182.0    44.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143801001  77405.0  17604.0   3860.0    881.0    206.0    39.0    5.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143802639  77776.0  17511.0   3783.0    748.0    150.0    26.0    3.0    2.0   1.0   NaN   NaN  NaN  NaN
+        1143804277  77880.0  17441.0   3680.0    735.0    218.0    33.0   12.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143805916  77169.0  17937.0   3845.0    859.0    155.0    30.0    5.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143807554  77510.0  17641.0   3688.0    885.0    211.0    55.0    9.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143809193  77753.0  17551.0   3708.0    758.0    178.0    29.0    9.0    4.0   4.0   6.0   NaN  NaN  NaN
+        1143810831  77461.0  17743.0   3743.0    796.0    212.0    37.0    8.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143812469  77177.0  17928.0   3781.0    865.0    192.0    52.0    5.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143814108  77763.0  17431.0   3737.0    823.0    197.0    46.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143815746  77637.0  17571.0   3804.0    755.0    176.0    46.0   10.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143817385  77759.0  17365.0   3875.0    814.0    162.0    20.0    5.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143819023  77761.0  17548.0   3645.0    824.0    183.0    33.0    4.0    2.0   NaN   NaN   NaN  NaN  NaN
+        1143820661  77989.0  17401.0   3599.0    807.0    165.0    31.0    8.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143822300  77685.0  17457.0   3816.0    792.0    206.0    39.0    4.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143823938  77339.0  17835.0   3710.0    869.0    202.0    36.0    9.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143825577  77569.0  17697.0   3689.0    831.0    174.0    38.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143827215  78005.0  17331.0   3610.0    775.0    231.0    40.0    7.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143828853  78031.0  17395.0   3597.0    773.0    180.0    19.0    5.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143830492  77521.0  17683.0   3748.0    787.0    210.0    33.0   17.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143832130  77616.0  17646.0   3740.0    806.0    161.0    30.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143833769  77628.0  17767.0   3645.0    752.0    177.0    24.0    4.0    3.0   NaN   NaN   NaN  NaN  NaN
+        1143835407  78018.0  17348.0   3652.0    741.0    203.0    38.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143837045  78185.0  17263.0   3519.0    776.0    215.0    31.0   11.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143838684  77868.0  17534.0   3542.0    798.0    215.0    35.0    8.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143840322  77842.0  17571.0   3666.0    717.0    160.0    28.0   15.0    0.0   1.0   NaN   NaN  NaN  NaN
+        1143841961  77892.0  17388.0   3717.0    780.0    176.0    46.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143843599  78009.0  17241.0   3689.0    852.0    178.0    30.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143845237  77973.0  17185.0   3810.0    791.0    205.0    31.0    4.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143846876  77749.0  17457.0   3781.0    812.0    159.0    37.0    5.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143848514  77922.0  17212.0   3735.0    876.0    218.0    32.0    5.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143850153  77902.0  17456.0   3639.0    803.0    163.0    35.0    1.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143851791  78007.0  17206.0   3693.0    851.0    204.0    38.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143853429  78115.0  17404.0   3559.0    722.0    176.0    22.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143855068  77746.0  17385.0   3740.0    880.0    225.0    22.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143856706  77802.0  17387.0   3788.0    818.0    171.0    32.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143858345  78092.0  17330.0   3589.0    786.0    171.0    30.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143859983  77742.0  17576.0   3646.0    842.0    170.0    20.0    3.0    0.0   1.0   NaN   NaN  NaN  NaN
+4       1143763317  82082.0  14725.0   2595.0    492.0     90.0    16.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143764956  80821.0  15769.0   2783.0    515.0     94.0    15.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143766594  21751.0  50159.0  20246.0   5780.0   1582.0   353.0  101.0   24.0   4.0   NaN   NaN  NaN  NaN
+        1143768233     39.0   1049.0  55057.0  29130.0  10474.0  3074.0  903.0  183.0  48.0  22.0  15.0  5.0  1.0
+        1143769871  51805.0  34620.0  10337.0   2463.0    636.0   111.0   22.0    2.0   2.0   2.0   NaN  NaN  NaN
+        1143771509  45404.0  38680.0  12122.0   2978.0    651.0   147.0   18.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143773148    392.0  36138.0  39225.0  16999.0   5367.0  1410.0  361.0   93.0  15.0   NaN   NaN  NaN  NaN
+        1143774786  80572.0  15614.0   3063.0    589.0    132.0    24.0    6.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143776425  82003.0  15007.0   2498.0    425.0     56.0    11.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143778063     87.0  65739.0  25172.0   6847.0   1663.0   360.0   78.0   23.0  22.0   5.0   4.0  NaN  NaN
+        1143779701  26135.0  51145.0  17068.0   4410.0    941.0   206.0   47.0   28.0   4.0   2.0  10.0  4.0  NaN
+        1143781340  70640.0  22542.0   5383.0   1163.0    239.0    30.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143782978     25.0   3512.0  53964.0  28508.0  10042.0  2970.0  809.0  136.0  26.0   8.0   NaN  NaN  NaN
+        1143784617  31660.0  13310.0  32273.0  15350.0   5255.0  1608.0  457.0   70.0  13.0   4.0   NaN  NaN  NaN
+        1143786255  81749.0  15197.0   2548.0    406.0     82.0    15.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143787893  76801.0  18324.0   3920.0    769.0    136.0    41.0    7.0    2.0   NaN   NaN   NaN  NaN  NaN
+        1143789532      1.0    694.0  56588.0  29262.0   9687.0  2832.0  735.0  159.0  26.0  15.0   1.0  NaN  NaN
+        1143791170  77575.0  17936.0   3610.0    683.0    164.0    31.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143792809  79953.0  16379.0   2970.0    537.0    134.0    23.0    4.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143794447  66195.0  15787.0  11261.0   4621.0   1481.0   467.0  140.0   41.0   7.0   NaN   NaN  NaN  NaN
+        1143796085  82517.0  14604.0   2373.0    419.0     71.0    15.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143797724  81646.0  15030.0   2680.0    509.0    115.0    17.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143799362  80293.0  15975.0   3041.0    541.0    134.0    16.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143801001     12.0  68859.0  23318.0   6050.0   1367.0   308.0   61.0   19.0   4.0   2.0   NaN  NaN  NaN
+        1143802639  74497.0  14337.0   7261.0   2810.0    831.0   211.0   44.0    7.0   2.0   NaN   NaN  NaN  NaN
+        1143804277   2682.0  64301.0  24428.0   6567.0   1600.0   325.0   88.0    9.0   NaN   NaN   NaN  NaN  NaN
+        1143805916  73875.0  19225.0   5253.0   1228.0    319.0    73.0   20.0    7.0   NaN   NaN   NaN  NaN  NaN
+        1143807554  73634.0  20500.0   4667.0    935.0    230.0    29.0    5.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143809193  79492.0  14261.0   4340.0   1355.0    396.0    95.0   44.0   15.0   2.0   NaN   NaN  NaN  NaN
+        1143810831  81790.0  15182.0   2563.0    378.0     77.0     9.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143812469  82203.0  14844.0   2456.0    432.0     62.0     3.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143814108  79348.0  16652.0   3267.0    592.0    129.0    11.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143815746  31497.0  48211.0  15366.0   3741.0    982.0   179.0   23.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143817385  70736.0  22290.0   5612.0   1074.0    237.0    45.0    5.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143819023  81779.0  15187.0   2429.0    468.0    121.0    14.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143820661   5335.0  64212.0  22610.0   5982.0   1426.0   355.0   60.0   14.0   5.0   1.0   NaN  NaN  NaN
+        1143822300  35592.0  27644.0  23652.0   9352.0   2869.0   696.0  143.0   24.0  20.0   8.0   NaN  NaN  NaN
+        1143823938      0.0    146.0  56714.0  29104.0  10259.0  2946.0  650.0  142.0  31.0   8.0   NaN  NaN  NaN
+        1143825577  80262.0  15603.0   3223.0    691.0    160.0    47.0   13.0    0.0   1.0   NaN   NaN  NaN  NaN
+        1143827215  75236.0  19357.0   4325.0    852.0    181.0    44.0    3.0    2.0   NaN   NaN   NaN  NaN  NaN
+        1143828853  54045.0  17269.0  17606.0   7757.0   2423.0   694.0  147.0   39.0  11.0   5.0   0.0  4.0  NaN
+        1143830492  81951.0  14820.0   2616.0    518.0     82.0    13.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143832130  75433.0  15286.0   6161.0   2181.0    709.0   180.0   44.0    4.0   1.0   1.0   NaN  NaN  NaN
+        1143833769  67294.0  15327.0  10875.0   4526.0   1445.0   386.0  100.0   44.0   3.0   NaN   NaN  NaN  NaN
+        1143835407    385.0  67949.0  23724.0   6184.0   1345.0   307.0   89.0   13.0   3.0   1.0   NaN  NaN  NaN
+        1143837045  82098.0  14892.0   2545.0    399.0     57.0     9.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143838684  42259.0  27999.0  19336.0   7460.0   2163.0   632.0  138.0   13.0   NaN   NaN   NaN  NaN  NaN
+        1143840322  51282.0  18255.0  18447.0   8373.0   2678.0   711.0  208.0   36.0  10.0   NaN   NaN  NaN  NaN
+        1143841961  29836.0  32519.0  24194.0   9388.0   2972.0   847.0  184.0   46.0  11.0   1.0   2.0  NaN  NaN
+        1143843599  71947.0  18580.0   6550.0   2177.0    567.0   125.0   36.0    6.0   4.0   8.0   NaN  NaN  NaN
+        1143845237  68984.0  19567.0   7819.0   2674.0    711.0   186.0   43.0   12.0   4.0   NaN   NaN  NaN  NaN
+        1143846876  82405.0  14691.0   2478.0    351.0     61.0    11.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143848514    251.0  65770.0  24693.0   7010.0   1658.0   462.0  119.0   31.0   4.0   0.0   1.0  1.0  NaN
+        1143850153  77521.0  14371.0   5313.0   1950.0    581.0   196.0   50.0   18.0   NaN   NaN   NaN  NaN  NaN
+        1143851791  55078.0  30962.0  10463.0   2731.0    578.0   160.0   27.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143853429  77959.0  17549.0   3602.0    700.0    154.0    33.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143855068    360.0  32436.0  41215.0  18220.0   5645.0  1600.0  433.0   64.0  22.0   5.0   NaN  NaN  NaN
+        1143856706  37454.0  44000.0  14088.0   3512.0    764.0   143.0   31.0    8.0   NaN   NaN   NaN  NaN  NaN
+        1143858345  81667.0  14622.0   2911.0    632.0    136.0    23.0    5.0    3.0   1.0   NaN   NaN  NaN  NaN
+        1143859983  82361.0  14729.0   2388.0    443.0     69.0    10.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+5       1143763317  80547.0  16001.0   2885.0    489.0     73.0     5.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143764956  82580.0  14553.0   2405.0    383.0     71.0     6.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143766594  58269.0  28726.0   9453.0   2629.0    710.0   178.0   16.0   13.0   6.0   NaN   NaN  NaN  NaN
+        1143768233  82061.0  14887.0   2542.0    413.0     82.0    14.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143769871  67619.0  24209.0   6333.0   1445.0    286.0    73.0   18.0    7.0  10.0   NaN   NaN  NaN  NaN
+        1143771509  82013.0  14657.0   2678.0    512.0    120.0    18.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143773148  81715.0  14968.0   2588.0    594.0     99.0    31.0    5.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143774786  79079.0  16784.0   3214.0    754.0    127.0    34.0    8.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143776425  81844.0  15063.0   2569.0    426.0     88.0    10.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143778063  82503.0  14425.0   2552.0    427.0     83.0     9.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143779701  81037.0  15575.0   2744.0    516.0    111.0    14.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143781340  81712.0  15322.0   2496.0    399.0     62.0     9.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143782978  82190.0  14803.0   2534.0    416.0     53.0     3.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143784617  82356.0  14677.0   2413.0    459.0     89.0     6.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143786255  81653.0  15312.0   2536.0    442.0     49.0     8.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143787893  50737.0  35539.0  10528.0   2457.0    537.0   169.0   21.0    9.0   3.0   NaN   NaN  NaN  NaN
+        1143789532  82218.0  14782.0   2423.0    484.0     82.0    11.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143791170  76870.0  18281.0   3821.0    841.0    149.0    34.0    4.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143792809  80775.0  15633.0   2814.0    609.0    131.0    26.0   10.0    2.0   NaN   NaN   NaN  NaN  NaN
+        1143794447  82180.0  14853.0   2445.0    428.0     84.0     9.0    0.0    0.0   1.0   NaN   NaN  NaN  NaN
+        1143796085  82174.0  14911.0   2436.0    388.0     83.0     8.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143797724  82160.0  14876.0   2490.0    390.0     75.0     9.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143799362  12702.0  60079.0  20570.0   5101.0   1229.0   238.0   55.0   24.0   2.0   NaN   NaN  NaN  NaN
+        1143801001    137.0  67902.0  23837.0   6307.0   1424.0   306.0   70.0    9.0   6.0   2.0   NaN  NaN  NaN
+        1143802639  82528.0  14510.0   2379.0    492.0     80.0     9.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143804277  82145.0  15038.0   2399.0    353.0     55.0     9.0    0.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143805916  82318.0  14790.0   2424.0    389.0     69.0    10.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143807554  81792.0  15029.0   2572.0    489.0     93.0    21.0    4.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143809193  36196.0  44771.0  14322.0   3689.0    836.0   130.0   42.0   14.0   NaN   NaN   NaN  NaN  NaN
+        1143810831  80306.0  16120.0   2933.0    519.0     97.0    24.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143812469  74085.0  20326.0   4492.0    911.0    162.0    22.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143814108  81883.0  15100.0   2481.0    444.0     80.0     9.0    3.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143815746  81893.0  15051.0   2514.0    472.0     64.0     6.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143817385  74591.0  19705.0   4418.0    998.0    222.0    49.0   16.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143819023  81224.0  15461.0   2781.0    448.0     82.0     4.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143820661  82309.0  14694.0   2422.0    486.0     75.0    14.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143822300  81786.0  14900.0   2634.0    558.0    109.0     9.0    3.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143823938  81583.0  15163.0   2694.0    456.0     96.0     8.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143825577  82162.0  14686.0   2555.0    471.0    111.0    13.0    1.0    1.0   NaN   NaN   NaN  NaN  NaN
+        1143827215  80841.0  15791.0   2784.0    485.0     94.0     5.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143828853  81943.0  14889.0   2535.0    540.0     84.0     8.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143830492  76968.0  18236.0   3869.0    722.0    171.0    32.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143832130  82654.0  14265.0   2464.0    515.0     85.0    15.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143833769  82512.0  14622.0   2428.0    371.0     56.0    10.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143835407  82490.0  14502.0   2486.0    440.0     75.0     7.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143837045  80769.0  15666.0   2959.0    482.0    109.0    15.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143838684      0.0    111.0  56188.0  29542.0  10189.0  2901.0  764.0  210.0  81.0  13.0   1.0  NaN  NaN
+        1143840322      0.0  67241.0  24532.0   6390.0   1459.0   287.0   60.0   23.0   8.0   NaN   NaN  NaN  NaN
+        1143841961  82314.0  14806.0   2428.0    379.0     69.0     4.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143843599  82573.0  14479.0   2461.0    403.0     71.0    12.0    1.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143845237  80954.0  15613.0   2817.0    497.0    108.0    11.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143846876  82460.0  14560.0   2453.0    444.0     71.0    12.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143848514  82066.0  14948.0   2436.0    449.0     81.0    18.0    2.0    NaN   NaN   NaN   NaN  NaN  NaN
+        1143850153  61098.0  28337.0   8188.0   1926.0    374.0    64.0   11.0    2.0   NaN   NaN   NaN  NaN  NaN
+        1143851791  79643.0  16417.0   3115.0    654.0    154.0    17.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143853429    506.0  66563.0  24402.0   6625.0   1534.0   309.0   49.0   11.0   1.0   NaN   NaN  NaN  NaN
+        1143855068  77467.0  17807.0   3748.0    764.0    178.0    25.0    5.0    5.0   1.0   NaN   NaN  NaN  NaN
+        1143856706  80004.0  16161.0   3095.0    611.0    109.0    20.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143858345  80998.0  15604.0   2810.0    496.0     78.0    14.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+        1143859983  82583.0  14656.0   2296.0    380.0     78.0     7.0    NaN    NaN   NaN   NaN   NaN  NaN  NaN
+All summaries:
+                                         MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
+CHANNEL TIME       LINE PARAMETER                                                                      
+0       1143810831 0    FREQ       3.394828e-03  3.383738e-03  3.652120e-03  3.149248e-03  3.662673e-03
+                        AMP        7.204460e-16  1.000018e-20  7.204460e-16  1.000018e-20  7.075480e-12
+                        QF         7.934848e+03  1.349910e+02  7.944802e+03  1.164192e+02  2.687583e+04
+        1143850153 0    FREQ       2.757564e-03  2.751404e-03  3.052341e-03  2.446783e-03  3.004346e-03
+                        AMP        1.209897e-17  1.000018e-20  1.210092e-17  1.000018e-20  4.312144e-04
+                        QF         5.189812e+03  1.054171e+02  5.193886e+03  1.018369e+02  1.944509e+05
+2       1143802639 0    FREQ       5.568930e-02  5.555214e-02  5.596965e-02  5.518776e-02  5.613325e-02
+                        AMP        9.458753e-18  1.005911e-20  9.458874e-18  1.015521e-20  2.734326e-07
+                        QF         1.102884e+03  1.000101e+02  1.102909e+03  1.000389e+02  2.524684e+05
+        1143807554 0    FREQ       5.578181e-02  5.555620e-02  5.587271e-02  2.945154e-02  4.641088e-01
+                        AMP        1.980275e-13  1.009478e-20  1.980275e-13  1.002033e-20  1.284374e-05
+                        QF         8.718697e+04  1.000014e+02  8.718697e+04  1.007503e+02  8.313893e+05
+        1143809193 0    FREQ       5.534047e-02  5.518245e-02  5.540698e-02  5.508231e-02  5.583305e-02
+                        AMP        9.019541e-18  1.071777e-20  9.019541e-18  1.029439e-20  8.823716e-15
+                        QF         7.835340e+02  1.000506e+02  7.835503e+02  1.000177e+02  1.634380e+04
+        1143817385 0    FREQ       5.573805e-02  5.555539e-02  5.579280e-02  5.550525e-02  5.613301e-02
+                        AMP        4.273549e-13  1.002069e-20  4.273644e-13  1.002069e-20  2.223349e-06
+                        QF         6.602818e+04  1.000857e+02  6.602939e+04  1.000857e+02  3.478276e+05
+4       1143766594 0    FREQ       6.973536e-02  6.959695e-02  6.979118e-02  6.943570e-02  7.020653e-02
+                        AMP        7.981197e-15  1.000582e-20  7.981197e-15  1.002015e-20  1.889126e-07
+                        QF         5.249503e+04  1.000415e+02  5.249503e+04  1.003094e+02  9.136000e+05
+        1143768233 0    FREQ       2.783198e-03  2.749417e-03  3.019706e-03  2.526640e-03  3.051642e-03
+                        AMP        4.968273e-19  1.002349e-20  4.968273e-19  1.003801e-20  9.769836e-15
+                        QF         1.483162e+03  1.000762e+02  1.483162e+03  1.000762e+02  1.037770e+04
+                   1    FREQ       6.913742e-02  6.898870e-02  6.927218e-02  6.882549e-02  6.958106e-02
+                        AMP        3.132364e-16  1.014287e-20  3.132364e-16  1.033717e-20  6.898484e-09
+                        QF         5.030621e+03  1.000929e+02  5.030621e+03  1.001338e+02  2.449473e+05
+        1143773148 0    FREQ       2.865279e-03  2.469546e-03  2.866315e-03  2.244452e-03  6.826354e-01
+                        AMP        6.071507e-14  1.000205e-20  6.071507e-14  1.000205e-20  2.382774e-08
+                        QF         1.560672e+04  1.002404e+02  1.560672e+04  1.002404e+02  6.988046e+06
+                   1    FREQ       6.914155e-02  6.901383e-02  6.921772e-02  6.881896e-02  6.948278e-02
+                        AMP        8.885763e-15  1.020459e-20  8.885763e-15  1.020459e-20  3.651192e-08
+                        QF         3.501452e+04  1.000118e+02  3.501452e+04  1.000345e+02  3.357090e+05
+        1143778063 0    FREQ       6.904650e-02  6.881539e-02  6.915911e-02  6.864445e-02  6.940254e-02
+                        AMP        1.572872e-18  1.000256e-20  1.572872e-18  1.000256e-20  1.723270e-09
+                        QF         7.293407e+02  1.000025e+02  7.293407e+02  1.000087e+02  1.604707e+05
+        1143779701 0    FREQ       3.325990e-03  3.056267e-03  3.327177e-03  3.055813e-03  3.656787e-03
+                        AMP        1.955651e-16  1.000132e-20  1.955651e-16  1.000353e-20  5.814104e-09
+                        QF         8.624372e+03  1.136630e+02  8.628354e+03  1.051682e+02  1.267925e+05
+        1143782978 0    FREQ       3.401070e-03  3.385137e-03  3.657379e-03  3.128147e-03  3.656613e-03
+                        AMP        6.422950e-19  1.000065e-20  6.422950e-19  1.000474e-20  2.208799e-11
+                        QF         1.962651e+03  1.146468e+02  1.964255e+03  1.016435e+02  2.129357e+04
+                   1    FREQ       6.970645e-02  6.959792e-02  6.975289e-02  6.959695e-02  7.020654e-02
+                        AMP        6.444472e-14  1.039744e-20  6.449748e-14  1.039744e-20  2.712317e-04
+                        QF         8.204420e+04  1.001700e+02  8.204420e+04  1.057560e+02  1.690576e+06
+        1143784617 0    FREQ       3.466003e-03  3.428865e-03  3.662534e-03  3.121643e-03  3.656190e-03
+                        AMP        1.100973e-15  1.090890e-20  1.100973e-15  1.074922e-20  4.973818e-14
+                        QF         6.460399e+03  3.078169e+03  8.751532e+03  1.221275e+02  2.819769e+04
+                   1    FREQ       5.366866e-03  5.337974e-03  5.494348e-03  4.606377e-03  5.494348e-03
+                        AMP        4.242134e-18  1.285145e-20  4.243171e-18  1.033823e-20  1.900422e-15
+                        QF         1.202362e+03  1.926681e+02  1.234075e+03  1.000229e+02  6.777747e+03
+        1143789532 0    FREQ       3.375003e-03  3.151887e-03  3.430424e-03  3.122030e-03  3.633766e-03
+                        AMP        3.012225e-19  1.000924e-20  3.012225e-19  1.000924e-20  9.349041e-11
+                        QF         1.558916e+03  1.146880e+02  1.560898e+03  1.091132e+02  1.609921e+04
+                   1    FREQ       6.973015e-02  6.959689e-02  6.980325e-02  6.947024e-02  7.012974e-02
+                        AMP        7.029793e-15  1.000961e-20  7.029793e-15  1.001385e-20  4.287759e-09
+                        QF         5.139583e+04  1.001117e+02  5.139583e+04  1.001117e+02  3.163641e+05
+        1143801001 0    FREQ       3.356250e-03  3.100872e-03  3.386877e-03  3.095952e-03  3.625103e-03
+                        AMP        6.081185e-15  1.000115e-20  6.081185e-15  1.000115e-20  3.538611e-11
+                        QF         8.090708e+03  1.134674e+02  8.091407e+03  1.103655e+02  2.857521e+04
+        1143804277 0    FREQ       3.354946e-03  3.101226e-03  3.375324e-03  3.099348e-03  3.622345e-03
+                        AMP        5.705286e-14  1.000030e-20  5.705286e-14  1.000030e-20  2.121624e-05
+                        QF         9.465326e+03  1.065676e+02  9.465326e+03  1.065676e+02  6.367273e+04
+        1143815746 0    FREQ       3.430930e-03  3.309046e-03  3.603414e-03  3.061023e-03  1.259467e-01
+                        AMP        4.943024e-15  1.000006e-20  4.943024e-15  1.000006e-20  3.927827e-08
+                        QF         8.309970e+03  1.157636e+02  8.311376e+03  1.095166e+02  1.012939e+05
+        1143820661 0    FREQ       3.368089e-03  3.250939e-03  3.509976e-03  3.133224e-03  3.655509e-03
+                        AMP        4.709945e-14  1.000068e-20  4.709945e-14  1.000068e-20  3.430222e-11
+                        QF         9.723667e+03  1.158997e+02  9.725915e+03  1.140553e+02  2.698062e+04
+        1143823938 0    FREQ       3.369833e-03  3.343040e-03  3.632809e-03  3.121738e-03  3.650387e-03
+                        AMP        1.370870e-13  1.000627e-20  1.371266e-13  1.000942e-20  3.798720e-10
+                        QF         9.455907e+03  1.174077e+02  9.458440e+03  1.138559e+02  3.531424e+04
+                   1    FREQ       5.269628e-03  5.268961e-03  5.494305e-03  4.980149e-03  5.494350e-03
+                        AMP        4.699053e-19  1.000227e-20  4.699722e-19  1.000130e-20  5.763851e-14
+                        QF         1.212441e+03  1.734168e+02  1.217655e+03  1.400681e+02  2.441252e+04
+        1143835407 0    FREQ       2.754547e-03  2.611764e-03  2.886961e-03  2.527282e-03  3.047059e-03
+                        AMP        8.388684e-16  1.000758e-20  8.388684e-16  1.000758e-20  1.651909e-02
+                        QF         6.975153e+03  1.000064e+02  6.975153e+03  1.003540e+02  4.048935e+04
+        1143841961 0    FREQ       2.823334e-03  2.681059e-03  3.021813e-03  1.062535e-03  4.166084e-01
+                        AMP        3.548577e-17  1.004953e-20  3.548577e-17  1.000694e-20  2.906955e-10
+                        QF         5.120583e+03  1.004326e+02  5.120583e+03  1.004326e+02  6.775724e+05
+        1143848514 0    FREQ       2.752376e-03  2.701381e-03  2.998602e-03  2.443830e-03  2.987753e-03
+                        AMP        1.565177e-18  1.000131e-20  1.565664e-18  1.000131e-20  2.558564e-14
+                        QF         2.945556e+03  1.000341e+02  2.945625e+03  1.001816e+02  1.830660e+04
+        1143855068 0    FREQ       2.836449e-03  2.679219e-03  3.027948e-03  2.392922e-03  4.908842e-01
+                        AMP        4.553576e-15  1.010009e-20  4.553576e-15  1.000718e-20  1.601360e-07
+                        QF         8.905037e+03  1.217607e+02  8.919278e+03  1.018823e+02  1.472205e+06
+                   1    FREQ       6.880895e-02  6.859049e-02  6.885762e-02  6.848327e-02  6.959666e-02
+                        AMP        1.299987e-17  1.004029e-20  1.299987e-17  1.028983e-20  9.776339e-13
+                        QF         1.401921e+03  1.000149e+02  1.401921e+03  1.000149e+02  1.276105e+05
+        1143856706 0    FREQ       2.812847e-03  2.678639e-03  3.024940e-03  6.140237e-04  3.543662e-01
+                        AMP        1.110209e-13  1.002028e-20  1.110209e-13  1.003249e-20  5.349298e-09
+                        QF         1.244848e+04  1.584081e+02  1.246953e+04  1.051881e+02  4.174119e+05
+5       1143799362 0    FREQ       7.082539e-02  7.052360e-02  7.098856e-02  7.034442e-02  7.122989e-02
+                        AMP        6.456511e-18  1.002191e-20  6.456511e-18  1.002191e-20  4.004235e-13
+                        QF         6.675111e+02  1.000279e+02  6.675111e+02  1.000279e+02  1.275214e+05
+        1143801001 0    FREQ       6.985543e-02  6.976447e-02  6.994283e-02  6.931007e-02  7.009343e-02
+                        AMP        3.432926e-18  4.478156e-20  3.448653e-18  1.265599e-20  5.814111e-17
+                        QF         3.742169e+02  1.000078e+02  3.742195e+02  1.000078e+02  1.118479e+03
+        1143809193 0    FREQ       7.101803e-02  7.081803e-02  7.109797e-02  7.819200e-04  3.283308e-01
+                        AMP        1.931543e-13  1.004599e-20  1.931543e-13  1.004599e-20  1.784258e-05
+                        QF         9.190810e+04  1.001121e+02  9.190810e+04  1.001312e+02  1.061993e+06
+        1143838684 0    FREQ       7.027816e-02  7.020744e-02  7.033232e-02  7.006895e-02  7.068368e-02
+                        AMP        5.201682e-15  1.008395e-20  5.201741e-15  1.001140e-20  2.166705e-11
+                        QF         6.316272e+04  1.003052e+02  6.316272e+04  1.003052e+02  2.484895e+05
+                   1    FREQ       9.986209e-01  9.986208e-01  9.991454e-01  9.981706e-01  9.990995e-01
+                        AMP        1.590597e-12  7.790339e-16  1.590597e-12  7.790339e-16  4.007061e-09
+                        QF         2.302467e+03  1.000316e+02  2.302507e+03  1.000316e+02  1.030402e+05
+        1143840322 0    FREQ       7.025736e-02  7.020778e-02  7.048918e-02  6.986550e-02  7.058813e-02
+                        AMP        6.882653e-18  1.000925e-20  6.882653e-18  1.000925e-20  6.179218e-11
+                        QF         1.076432e+03  1.000418e+02  1.076453e+03  1.000418e+02  2.183572e+05
+        1143853429 0    FREQ       7.037516e-02  7.020768e-02  7.042754e-02  7.013869e-02  7.081676e-02
+                        AMP        4.861803e-13  1.105101e-20  4.861803e-13  1.097923e-20  8.469197e-04
+                        QF         6.818358e+04  1.000297e+02  6.818358e+04  1.001204e+02  4.075433e+05

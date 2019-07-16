@@ -313,7 +313,7 @@ def linechain_scatter(run, channel, param, plot_file=None, show=False):
     if show: plt.show()
     else: plt.close()
 
-def linechain_cmap(run, channel, plot_file=None, show=False):
+def linecounts_cmap(run, channel, plot_file=None, show=False):
     ''' Plots a colormap of the spectral line counts over time '''
     counts = run.linecounts.loc[channel]
     # Change GPS times to days elapsed
@@ -346,29 +346,46 @@ def linechain_cmap(run, channel, plot_file=None, show=False):
     if show: plt.show()
     else: plt.close()
 
-def linechain_combined(runs, channel, plot_file=None, show=False):
+def linecounts_combined(runs, channel, plot_file=None, show=False):
     ''' Plots a colormap of the spectral line counts over time for many runs '''
-    print([run.start_date for run in runs])
-    print(sorted([run.start_date for run in runs]))
-    counts = run.linecounts.loc[channel]
+    # Sort runs by start date
+    runs.sort(key=lambda run: run.start_date)
+    # Fill missing times, if the gap between runs isn't too big
+    for i in range(len(runs) - 1):
+        diff = runs[i+1].gps_times[0] - runs[i].gps_times[-1]
+        # If the gap is less than 3 days
+        if diff < 3 * (24*60*60):
+            all_times = runs[i].gps_times + runs[i+1].gps_times
+            missing_times = runs[i].get_missing_times(all_times)
+            missing_midx = pd.MultiIndex.from_product(
+                    [run[i].channels, missing_times], names=['CHANNEL', 'TIME']
+            )
+            missing_df = pd.DataFrame(columns=run[i].linecounts.columns,
+                    index=missing_midx
+            )
+            runs[i].linecounts = pd.concat(
+                    [runs[i].linecounts, missing_df]
+            ).sort_index(level=[0,1])
+    counts = pd.concat([run.linecounts for run in runs]).loc[channel]
+    print(counts[counts.isna()])
     # Change GPS times to days elapsed
-    counts.index = pd.Series(run.gps2day(counts.index), name='TIME')
+    counts.index = pd.Series(runs[0].gps2day(counts.index), name='TIME')
     # Convert counts to fraction of total
     counts = counts / sum(counts.iloc[0].dropna())
     # Plot
     fig, ax = plt.subplots(1, 1)
     ax.title.set_text(
-        f'Line model frequency over time for {run.name} channel {channel}'
+        f'Line model frequency over time for all runs, channel {channel}'
     )
     im = ax.pcolormesh(
-        list(counts.index) + [counts.index[-1] + run.dt / (60*60*24)],
+        list(counts.index) + [counts.index[-1] + runs[0].dt / (60*60*24)],
         list(counts.columns) + [int(counts.columns[-1]) + 1],
         counts.to_numpy().T,
         cmap='PuRd',
         vmax=0.5
     )
     # Axis labels
-    ax.set_xlabel(f'Days elapsed since {run.start_date} UTC')
+    ax.set_xlabel(f'Days elapsed since {runs[0].start_date} UTC')
     ax.set_ylabel('Modeled no. spectral lines')
     # Put the major ticks at the middle of each cell
     ax.set_yticks(counts.columns + 0.5, minor=False)

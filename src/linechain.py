@@ -294,7 +294,7 @@ def main():
         # Plot linecount colormaps
         for channel in run.channels:
             plot_file = os.path.join(plot_dir, f'linecounts{channel}.png')
-            plot.linechain_cmap(run, channel, plot_file)
+            plot.linecounts_cmap(run, channel, plot_file)
             if channel in run.lc_summary.index.unique(level='CHANNEL'):
                 for param in run.lc_summary.index.unique(level='PARAMETER'):
                     plot_file = os.path.join(
@@ -305,7 +305,7 @@ def main():
                     )
                     '''
     for channel in runs[0].channels:
-        plot.linechain_combined(runs, channel)
+        plot.linecounts_combined(runs, channel, show=True)
     
     print('Done!')
 
