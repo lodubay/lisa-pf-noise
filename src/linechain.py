@@ -38,15 +38,16 @@ def gen_model_df(run, model_file):
     '''
     all_lc = list(itertools.product(range(len(run.time_dirs)), run.channels))
     # Create empty DataFrame
-    df = pd.DataFrame(index=gps_times, columns=run.channels)
+    df = pd.DataFrame(index=run.gps_times, columns=run.channels)
     p = utils.Progress(all_lc, 'Generating best model DataFrame...')
-    for i, tup in enumerate(lc):
-        t, c = tup
+    for i, tup in enumerate(all_lc):
+        t, channel = tup
+        c = run.get_channel_index(channel)
         # linechain file name
         lc_file = os.path.join(run.time_dirs[t], f'linechain_channel{c}.dat')
         # Find the mode
         model = get_counts(lc_file).argmax()
-        df.loc[run.gps_times[t], c] = model
+        df.loc[run.gps_times[t], channel] = model
         # Update progress
         p.update(i)
     # Write to CSV
@@ -121,22 +122,23 @@ def sort_params(params, log):
 
     return params
 
-def summarize_linechain(time_dir, channel, time_counts, log):
+def summarize_linechain(run, time_dir, channel, time_counts, log):
     '''
     Returns DataFrame of percentile values for each parameter.
     
     Input
     -----
       time_dir : string, time directory
-      channel : int, channel index
+      channel : str, channel name
       time_counts : histogram of the number of times each model was chosen for 
                     this time and channel
       log : utils.Log object
     '''
     time = int(time_dir[-11:-1])
+    ch_idx = run.get_channel_index(channel)
     log.log(f'\n-- {time} CHANNEL {channel} --')
     # Import linechain
-    lc_file = time_dir + 'linechain_channel' + str(channel) + '.dat'
+    lc_file = f'{time_dir}linechain_channel{ch_idx}.dat'
     # Get preferred model
     model = time_counts.argmax()
     
@@ -194,13 +196,14 @@ def save_summary(run, counts_file, summary_file, log_file=None):
     p = utils.Progress(all_lc, f'Importing {run.name} linechain...')
     for i, t in enumerate(all_lc):
         channel, time_dir = t
+        ch_idx = run.get_channel_index(channel)
         # Counts for each viable model
-        lc_file = os.path.join(time_dir, f'linechain_channel{channel}.dat')
+        lc_file = os.path.join(time_dir, f'linechain_channel{ch_idx}.dat')
         time_counts = get_counts(lc_file)
         counts.append(time_counts)
         # Spectral line summary statistics
         summaries.append(
-            summarize_linechain(time_dir, channel, time_counts, log)
+            summarize_linechain(run, time_dir, channel, time_counts, log)
         )
         # Update progress indicator
         p.update(i)
@@ -288,24 +291,24 @@ def main():
             run.lc_summary = pd.read_pickle(summary_file)
             run.linecounts = pd.read_pickle(counts_file)
         
-        # Plot line parameters
-        '''
+        # Plot line parameters\
         print('Plotting...')
         # Plot linecount colormaps
-        for channel in run.channels:
-            plot_file = os.path.join(plot_dir, f'linecounts{channel}.png')
+        for i, channel in enumerate(run.channels):
+            plot_file = os.path.join(plot_dir, f'linecounts{i}.png')
             plot.linecounts_cmap(run, channel, plot_file)
             if channel in run.lc_summary.index.unique(level='CHANNEL'):
                 for param in run.lc_summary.index.unique(level='PARAMETER'):
                     plot_file = os.path.join(
-                        plot_dir, f'linechain_{param.lower()}{channel}.png'
+                        plot_dir, f'linechain_{param.lower()}{i}.png'
                     )
                     plot.linechain_scatter(
                         run, channel, param, plot_file=plot_file, show=False
                     )
-                    '''
+    '''
     for channel in runs[0].channels:
         plot.linecounts_combined(runs, channel, show=True)
+    '''
     
     print('Done!')
 

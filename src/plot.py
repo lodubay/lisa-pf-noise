@@ -346,6 +346,10 @@ def linecounts_cmap(run, channel, plot_file=None, show=False):
     if show: plt.show()
     else: plt.close()
 
+'''
+DANGER - UNDER CONSTRUCTION
+'''
+
 def linecounts_combined(runs, channel, plot_file=None, show=False):
     ''' Plots a colormap of the spectral line counts over time for many runs '''
     # Sort runs by start date

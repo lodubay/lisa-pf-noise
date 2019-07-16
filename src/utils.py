@@ -45,7 +45,7 @@ class Log:
 
 class Run:
     ''' A class to store information about a given run '''
-    channels = np.array(range(6))
+    channels = np.array(['x', 'y', 'z', 'θ', 'η', 'ϕ'])
     
     def __init__(self, name, parent_dir='data'):
         self.name = name
@@ -99,4 +99,7 @@ class Run:
                 # List of missing times, with same time interval
                 missing_times += [gps_times[i]+dt * k for k in range(1, n+1)]
         return missing_times
+    
+    def get_channel_index(self, channel):
+        return self.channels.tolist().index(channel)
 

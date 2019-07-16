@@ -190,19 +190,19 @@ def main():
 
         # Make plots
         df = run.psd_summary
-        for channel in run.channels:
+        for i, channel in enumerate(run.channels):
             print('Plotting channel ' + str(channel) + '...')
             # Colormap
-            cmap_file = os.path.join(plot_dir, f'colormap{channel}.png')
+            cmap_file = os.path.join(plot_dir, f'colormap{i}.png')
             plot.save_colormaps(run, channel, df, cmap_file, show=False)
 
             # Frequency slices
-            fslice_file = os.path.join(plot_dir, f'fslice{channel}.png')
+            fslice_file = os.path.join(plot_dir, f'fslice{i}.png')
             plot.save_freq_slices(run, channel, df, fslice_file, show=False)
             
             # Time slices - representative sample
             # Time plot file name
-            tslice_file = os.path.join(plot_dir, f'tslice{channel}.png')
+            tslice_file = os.path.join(plot_dir, f'tslice{i}.png')
             
             # Generate / import DataFrame of all times with spectral lines
             if os.path.exists(model_file):
@@ -212,7 +212,7 @@ def main():
                 print('No line evidence file found. Generating...')
                 line_df = lc.gen_model_df(run, model_file)
             # Return list of times
-            line_times = line_df[line_df.iloc[:,channel] > 0].index
+            line_times = line_df[line_df.loc[:,channel] > 0].index
             
             # Choose 6 times: beginning, end, and 4 evenly drawn from list
             l = len(run.gps_times)
