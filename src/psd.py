@@ -225,7 +225,7 @@ def main():
             
             # Time slices - all spectral lines
             if len(line_times) > 0:
-                tslice_file = os.path.join(plot_dir, f'tslice_lines{channel}.png')
+                tslice_file = os.path.join(plot_dir, f'tslice_lines{i}.png')
                 plot.save_time_slices(run, channel, line_times, tslice_file)
     
     print('Done!')

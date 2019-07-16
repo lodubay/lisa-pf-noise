@@ -1,2421 +1,2415 @@
 linechain.py log file for drs_run_q
 
 
--- 1159575586 CHANNEL 0 --
+-- 1159575586 CHANNEL x --
 Line model histogram:
 [84355 13280  2003   321    31    10]
 0 spectral lines found.
 
--- 1159577224 CHANNEL 0 --
+-- 1159577224 CHANNEL x --
 Line model histogram:
 [84089 13443  2059   351    45    13]
 0 spectral lines found.
 
--- 1159578862 CHANNEL 0 --
+-- 1159578862 CHANNEL x --
 Line model histogram:
 [83695 13720  2151   350    68    16]
 0 spectral lines found.
 
--- 1159580501 CHANNEL 0 --
+-- 1159580501 CHANNEL x --
 Line model histogram:
 [83803 13567  2158   378    83    11]
 0 spectral lines found.
 
--- 1159582139 CHANNEL 0 --
+-- 1159582139 CHANNEL x --
 Line model histogram:
 [84284 13288  2052   320    48     8]
 0 spectral lines found.
 
--- 1159583778 CHANNEL 0 --
+-- 1159583778 CHANNEL x --
 Line model histogram:
 [79926 16172  3216   546    95    25    20]
 0 spectral lines found.
 
--- 1159585416 CHANNEL 0 --
+-- 1159585416 CHANNEL x --
 Line model histogram:
 [83181 14119  2266   342    64    26     0     2]
 0 spectral lines found.
 
--- 1159587054 CHANNEL 0 --
+-- 1159587054 CHANNEL x --
 Line model histogram:
 [83965 13505  2102   349    71     8]
 0 spectral lines found.
 
--- 1159588693 CHANNEL 0 --
+-- 1159588693 CHANNEL x --
 Line model histogram:
 [83991 13475  2094   372    64     4]
 0 spectral lines found.
 
--- 1159590331 CHANNEL 0 --
+-- 1159590331 CHANNEL x --
 Line model histogram:
 [83905 13667  2068   307    40    12     1]
 0 spectral lines found.
 
--- 1159591970 CHANNEL 0 --
+-- 1159591970 CHANNEL x --
 Line model histogram:
 [84126 13432  2083   293    60     5     1]
 0 spectral lines found.
 
--- 1159593608 CHANNEL 0 --
+-- 1159593608 CHANNEL x --
 Line model histogram:
 [84341 13214  2132   284    23     6]
 0 spectral lines found.
 
--- 1159595246 CHANNEL 0 --
+-- 1159595246 CHANNEL x --
 Line model histogram:
 [84247 13450  1932   302    55    14]
 0 spectral lines found.
 
--- 1159596885 CHANNEL 0 --
+-- 1159596885 CHANNEL x --
 Line model histogram:
 [84138 13383  2080   333    62     4]
 0 spectral lines found.
 
--- 1159598523 CHANNEL 0 --
+-- 1159598523 CHANNEL x --
 Line model histogram:
 [84078 13373  2163   315    61    10]
 0 spectral lines found.
 
--- 1159600162 CHANNEL 0 --
+-- 1159600162 CHANNEL x --
 Line model histogram:
 [83480 13960  2152   342    57     8     1]
 0 spectral lines found.
 
--- 1159601800 CHANNEL 0 --
+-- 1159601800 CHANNEL x --
 Line model histogram:
 [83909 13604  2097   325    51     9     5]
 0 spectral lines found.
 
--- 1159603438 CHANNEL 0 --
+-- 1159603438 CHANNEL x --
 Line model histogram:
 [83952 13485  2158   345    57     2     1]
 0 spectral lines found.
 
--- 1159605077 CHANNEL 0 --
+-- 1159605077 CHANNEL x --
 Line model histogram:
 [83930 13603  2102   310    48     7]
 0 spectral lines found.
 
--- 1159606715 CHANNEL 0 --
+-- 1159606715 CHANNEL x --
 Line model histogram:
 [83927 13551  2105   347    59     6     5]
 0 spectral lines found.
 
--- 1159608354 CHANNEL 0 --
+-- 1159608354 CHANNEL x --
 Line model histogram:
 [83759 13666  2081   421    62    11]
 0 spectral lines found.
 
--- 1159609992 CHANNEL 0 --
+-- 1159609992 CHANNEL x --
 Line model histogram:
 [84360 13378  1951   267    40     4]
 0 spectral lines found.
 
--- 1159611630 CHANNEL 0 --
+-- 1159611630 CHANNEL x --
 Line model histogram:
 [84296 13330  1996   333    37     6     2]
 0 spectral lines found.
 
--- 1159613269 CHANNEL 0 --
+-- 1159613269 CHANNEL x --
 Line model histogram:
 [83656 13722  2171   370    74     6     1]
 0 spectral lines found.
 
--- 1159614907 CHANNEL 0 --
+-- 1159614907 CHANNEL x --
 Line model histogram:
 [84236 13384  2054   281    40     5]
 0 spectral lines found.
 
--- 1159616546 CHANNEL 0 --
+-- 1159616546 CHANNEL x --
 Line model histogram:
 [83527 13867  2178   334    81    10     3]
 0 spectral lines found.
 
--- 1159618184 CHANNEL 0 --
+-- 1159618184 CHANNEL x --
 Line model histogram:
 [84138 13313  2114   369    46     8     8     3     1]
 0 spectral lines found.
 
--- 1159621022 CHANNEL 0 --
+-- 1159621022 CHANNEL x --
 Line model histogram:
 [84286 13378  1994   304    29     8     1]
 0 spectral lines found.
 
--- 1159622661 CHANNEL 0 --
+-- 1159622661 CHANNEL x --
 Line model histogram:
 [84105 13440  2030   356    43     7    18     1]
 0 spectral lines found.
 
--- 1159624299 CHANNEL 0 --
+-- 1159624299 CHANNEL x --
 Line model histogram:
 [84002 13446  2081   394    59    15     0     1     2]
 0 spectral lines found.
 
--- 1159625938 CHANNEL 0 --
+-- 1159625938 CHANNEL x --
 Line model histogram:
 [83757 13636  2193   348    52    14]
 0 spectral lines found.
 
--- 1159627576 CHANNEL 0 --
+-- 1159627576 CHANNEL x --
 Line model histogram:
 [84034 13510  2078   334    39     5]
 0 spectral lines found.
 
--- 1159629214 CHANNEL 0 --
+-- 1159629214 CHANNEL x --
 Line model histogram:
 [84204 13321  2088   326    54     7]
 0 spectral lines found.
 
--- 1159630853 CHANNEL 0 --
+-- 1159630853 CHANNEL x --
 Line model histogram:
 [84039 13451  2127   344    33     6]
 0 spectral lines found.
 
--- 1159632491 CHANNEL 0 --
+-- 1159632491 CHANNEL x --
 Line model histogram:
 [83856 13724  2055   293    57    15]
 0 spectral lines found.
 
--- 1159634130 CHANNEL 0 --
+-- 1159634130 CHANNEL x --
 Line model histogram:
 [84128 13487  2049   282    46     7     1]
 0 spectral lines found.
 
--- 1159635768 CHANNEL 0 --
+-- 1159635768 CHANNEL x --
 Line model histogram:
 [83477 13954  2125   365    66    13]
 0 spectral lines found.
 
--- 1159637406 CHANNEL 0 --
+-- 1159637406 CHANNEL x --
 Line model histogram:
 [83836 13667  2093   357    41     5     1]
 0 spectral lines found.
 
--- 1159639045 CHANNEL 0 --
+-- 1159639045 CHANNEL x --
 Line model histogram:
 [84292 13296  2009   313    85     4     1]
 0 spectral lines found.
 
--- 1159640683 CHANNEL 0 --
+-- 1159640683 CHANNEL x --
 Line model histogram:
 [84130 13453  2047   317    46     7]
 0 spectral lines found.
 
--- 1159642322 CHANNEL 0 --
+-- 1159642322 CHANNEL x --
 Line model histogram:
 [83971 13541  2139   279    57    13]
 0 spectral lines found.
 
--- 1159643960 CHANNEL 0 --
+-- 1159643960 CHANNEL x --
 Line model histogram:
 [84303 13190  2105   328    70     3     1]
 0 spectral lines found.
 
--- 1159645598 CHANNEL 0 --
+-- 1159645598 CHANNEL x --
 Line model histogram:
 [83754 13671  2090   410    70     4     1]
 0 spectral lines found.
 
--- 1159647237 CHANNEL 0 --
+-- 1159647237 CHANNEL x --
 Line model histogram:
 [83897 13749  2050   262    35     3     4]
 0 spectral lines found.
 
--- 1159648875 CHANNEL 0 --
+-- 1159648875 CHANNEL x --
 Line model histogram:
 [84008 13487  2078   362    56     9]
 0 spectral lines found.
 
--- 1159650514 CHANNEL 0 --
+-- 1159650514 CHANNEL x --
 Line model histogram:
 [83946 13664  2095   266    29]
 0 spectral lines found.
 
--- 1159652152 CHANNEL 0 --
+-- 1159652152 CHANNEL x --
 Line model histogram:
 [83843 13715  2084   318    36     4]
 0 spectral lines found.
 
--- 1159653790 CHANNEL 0 --
+-- 1159653790 CHANNEL x --
 Line model histogram:
 [84158 13419  2030   335    53     5]
 0 spectral lines found.
 
--- 1159655429 CHANNEL 0 --
+-- 1159655429 CHANNEL x --
 Line model histogram:
 [83322 13938  2251   387    85    14     3]
 0 spectral lines found.
 
--- 1159657067 CHANNEL 0 --
+-- 1159657067 CHANNEL x --
 Line model histogram:
 [83458 13947  2178   358    54     5]
 0 spectral lines found.
 
--- 1159658706 CHANNEL 0 --
+-- 1159658706 CHANNEL x --
 Line model histogram:
 [83923 13484  2218   310    55    10]
 0 spectral lines found.
 
--- 1159660344 CHANNEL 0 --
+-- 1159660344 CHANNEL x --
 Line model histogram:
 [84277 13357  1992   322    45     5     2]
 0 spectral lines found.
 
--- 1159661982 CHANNEL 0 --
+-- 1159661982 CHANNEL x --
 Line model histogram:
 [84316 13371  1956   299    48    10]
 0 spectral lines found.
 
--- 1159663621 CHANNEL 0 --
+-- 1159663621 CHANNEL x --
 Line model histogram:
 [83971 13611  2074   291    48     5]
 0 spectral lines found.
 
--- 1159665259 CHANNEL 0 --
+-- 1159665259 CHANNEL x --
 Line model histogram:
 [84186 13448  2070   240    54     2]
 0 spectral lines found.
 
--- 1159666898 CHANNEL 0 --
+-- 1159666898 CHANNEL x --
 Line model histogram:
 [84364 13291  1992   293    50    10]
 0 spectral lines found.
 
--- 1159668536 CHANNEL 0 --
+-- 1159668536 CHANNEL x --
 Line model histogram:
 [84032 13452  2099   344    62    10     1]
 0 spectral lines found.
 
--- 1159670174 CHANNEL 0 --
+-- 1159670174 CHANNEL x --
 Line model histogram:
 [83946 13537  2107   354    51     3     2]
 0 spectral lines found.
 
--- 1159671813 CHANNEL 0 --
+-- 1159671813 CHANNEL x --
 Line model histogram:
 [83682 13741  2159   362    54     2]
 0 spectral lines found.
 
--- 1159673451 CHANNEL 0 --
+-- 1159673451 CHANNEL x --
 Line model histogram:
 [84367 13298  1986   300    41     8]
 0 spectral lines found.
 
--- 1159675090 CHANNEL 0 --
+-- 1159675090 CHANNEL x --
 Line model histogram:
 [83324 13986  2204   396    80    10]
 0 spectral lines found.
 
--- 1159676728 CHANNEL 0 --
+-- 1159676728 CHANNEL x --
 Line model histogram:
 [83980 13615  2007   325    61    12]
 0 spectral lines found.
 
--- 1159678366 CHANNEL 0 --
+-- 1159678366 CHANNEL x --
 Line model histogram:
 [83989 13502  2114   341    48     4     2]
 0 spectral lines found.
 
--- 1159680005 CHANNEL 0 --
+-- 1159680005 CHANNEL x --
 Line model histogram:
 [84024 13543  2062   312    54     5]
 0 spectral lines found.
 
--- 1159681643 CHANNEL 0 --
+-- 1159681643 CHANNEL x --
 Line model histogram:
 [83874 13739  2039   305    36     7]
 0 spectral lines found.
 
--- 1159683282 CHANNEL 0 --
+-- 1159683282 CHANNEL x --
 Line model histogram:
 [83996 13502  2109   343    48     2]
 0 spectral lines found.
 
--- 1159575586 CHANNEL 1 --
+-- 1159575586 CHANNEL y --
 Line model histogram:
 [81219 15278  2826   576    98     3]
 0 spectral lines found.
 
--- 1159577224 CHANNEL 1 --
+-- 1159577224 CHANNEL y --
 Line model histogram:
 [81333 15383  2670   496   104    13     1]
 0 spectral lines found.
 
--- 1159578862 CHANNEL 1 --
+-- 1159578862 CHANNEL y --
 Line model histogram:
 [81603 15066  2698   520   106     7]
 0 spectral lines found.
 
--- 1159580501 CHANNEL 1 --
+-- 1159580501 CHANNEL y --
 Line model histogram:
 [81419 15231  2776   493    68    13]
 0 spectral lines found.
 
--- 1159582139 CHANNEL 1 --
+-- 1159582139 CHANNEL y --
 Line model histogram:
 [81281 15365  2792   473    77    11     1]
 0 spectral lines found.
 
--- 1159583778 CHANNEL 1 --
+-- 1159583778 CHANNEL y --
 Line model histogram:
 [81037 15495  2802   563   100     3]
 0 spectral lines found.
 
--- 1159585416 CHANNEL 1 --
+-- 1159585416 CHANNEL y --
 Line model histogram:
 [81246 15401  2692   540   105    10     6]
 0 spectral lines found.
 
--- 1159587054 CHANNEL 1 --
+-- 1159587054 CHANNEL y --
 Line model histogram:
 [81209 15248  2910   507   102    23     1]
 0 spectral lines found.
 
--- 1159588693 CHANNEL 1 --
+-- 1159588693 CHANNEL y --
 Line model histogram:
 [81423 15307  2651   494   100    22     3]
 0 spectral lines found.
 
--- 1159590331 CHANNEL 1 --
+-- 1159590331 CHANNEL y --
 Line model histogram:
 [81572 15213  2611   498    87    17     2]
 0 spectral lines found.
 
--- 1159591970 CHANNEL 1 --
+-- 1159591970 CHANNEL y --
 Line model histogram:
 [81399 15271  2762   472    81    11     2     2]
 0 spectral lines found.
 
--- 1159593608 CHANNEL 1 --
+-- 1159593608 CHANNEL y --
 Line model histogram:
 [81443 15306  2649   506    84    12]
 0 spectral lines found.
 
--- 1159595246 CHANNEL 1 --
+-- 1159595246 CHANNEL y --
 Line model histogram:
 [81405 15222  2780   461   117    14     1]
 0 spectral lines found.
 
--- 1159596885 CHANNEL 1 --
+-- 1159596885 CHANNEL y --
 Line model histogram:
 [81468 15096  2819   505   100    12]
 0 spectral lines found.
 
--- 1159598523 CHANNEL 1 --
+-- 1159598523 CHANNEL y --
 Line model histogram:
 [81227 15369  2797   509    90     8]
 0 spectral lines found.
 
--- 1159600162 CHANNEL 1 --
+-- 1159600162 CHANNEL y --
 Line model histogram:
 [81324 15295  2765   510    90    15     1]
 0 spectral lines found.
 
--- 1159601800 CHANNEL 1 --
+-- 1159601800 CHANNEL y --
 Line model histogram:
 [80832 15559  2936   527   117    26     3]
 0 spectral lines found.
 
--- 1159603438 CHANNEL 1 --
+-- 1159603438 CHANNEL y --
 Line model histogram:
 [80999 15454  2962   483    90    12]
 0 spectral lines found.
 
--- 1159605077 CHANNEL 1 --
+-- 1159605077 CHANNEL y --
 Line model histogram:
 [80135 16126  3002   584   111    26    15     1]
 0 spectral lines found.
 
--- 1159606715 CHANNEL 1 --
+-- 1159606715 CHANNEL y --
 Line model histogram:
 [81171 15378  2866   494    75    14     2]
 0 spectral lines found.
 
--- 1159608354 CHANNEL 1 --
+-- 1159608354 CHANNEL y --
 Line model histogram:
 [81317 15388  2709   490    80    12     0     4]
 0 spectral lines found.
 
--- 1159609992 CHANNEL 1 --
+-- 1159609992 CHANNEL y --
 Line model histogram:
 [81249 15314  2771   532   103    22     7     2]
 0 spectral lines found.
 
--- 1159611630 CHANNEL 1 --
+-- 1159611630 CHANNEL y --
 Line model histogram:
 [80968 15600  2824   481   102    19     5     1]
 0 spectral lines found.
 
--- 1159613269 CHANNEL 1 --
+-- 1159613269 CHANNEL y --
 Line model histogram:
 [81520 15304  2656   430    76    14]
 0 spectral lines found.
 
--- 1159614907 CHANNEL 1 --
+-- 1159614907 CHANNEL y --
 Line model histogram:
 [81589 15055  2757   473   114    12]
 0 spectral lines found.
 
--- 1159616546 CHANNEL 1 --
+-- 1159616546 CHANNEL y --
 Line model histogram:
 [80918 15607  2823   532   102    15     3]
 0 spectral lines found.
 
--- 1159618184 CHANNEL 1 --
+-- 1159618184 CHANNEL y --
 Line model histogram:
 [81523 15308  2662   404    90    13]
 0 spectral lines found.
 
--- 1159621022 CHANNEL 1 --
+-- 1159621022 CHANNEL y --
 Line model histogram:
 [80710 15604  3044   550    83     9]
 0 spectral lines found.
 
--- 1159622661 CHANNEL 1 --
+-- 1159622661 CHANNEL y --
 Line model histogram:
 [81375 15198  2774   520   105    27     1]
 0 spectral lines found.
 
--- 1159624299 CHANNEL 1 --
+-- 1159624299 CHANNEL y --
 Line model histogram:
 [81263 15382  2705   536    93    20     1]
 0 spectral lines found.
 
--- 1159625938 CHANNEL 1 --
+-- 1159625938 CHANNEL y --
 Line model histogram:
 [81370 15312  2704   503    88    21     2]
 0 spectral lines found.
 
--- 1159627576 CHANNEL 1 --
+-- 1159627576 CHANNEL y --
 Line model histogram:
 [81255 15330  2780   503   117    13     2]
 0 spectral lines found.
 
--- 1159629214 CHANNEL 1 --
+-- 1159629214 CHANNEL y --
 Line model histogram:
 [81268 15360  2723   526    88    23    11     1]
 0 spectral lines found.
 
--- 1159630853 CHANNEL 1 --
+-- 1159630853 CHANNEL y --
 Line model histogram:
 [81524 15197  2707   475    85    11     0     1]
 0 spectral lines found.
 
--- 1159632491 CHANNEL 1 --
+-- 1159632491 CHANNEL y --
 Line model histogram:
 [81387 15226  2749   525    94    19]
 0 spectral lines found.
 
--- 1159634130 CHANNEL 1 --
+-- 1159634130 CHANNEL y --
 Line model histogram:
 [81121 15371  2849   541    92    25     1]
 0 spectral lines found.
 
--- 1159635768 CHANNEL 1 --
+-- 1159635768 CHANNEL y --
 Line model histogram:
 [81081 15211  2986   575   127    20]
 0 spectral lines found.
 
--- 1159637406 CHANNEL 1 --
+-- 1159637406 CHANNEL y --
 Line model histogram:
 [81011 15588  2796   504    95     6]
 0 spectral lines found.
 
--- 1159639045 CHANNEL 1 --
+-- 1159639045 CHANNEL y --
 Line model histogram:
 [81191 15411  2815   466   106    11]
 0 spectral lines found.
 
--- 1159640683 CHANNEL 1 --
+-- 1159640683 CHANNEL y --
 Line model histogram:
 [81238 15486  2627   523   110    16]
 0 spectral lines found.
 
--- 1159642322 CHANNEL 1 --
+-- 1159642322 CHANNEL y --
 Line model histogram:
 [81632 15183  2661   437    76     6     1     4]
 0 spectral lines found.
 
--- 1159643960 CHANNEL 1 --
+-- 1159643960 CHANNEL y --
 Line model histogram:
 [81427 15305  2692   464   102     8     2]
 0 spectral lines found.
 
--- 1159645598 CHANNEL 1 --
+-- 1159645598 CHANNEL y --
 Line model histogram:
 [81245 15373  2756   526    92     6     2]
 0 spectral lines found.
 
--- 1159647237 CHANNEL 1 --
+-- 1159647237 CHANNEL y --
 Line model histogram:
 [81168 15259  2919   542    99    11     2]
 0 spectral lines found.
 
--- 1159648875 CHANNEL 1 --
+-- 1159648875 CHANNEL y --
 Line model histogram:
 [81465 15277  2627   537    88     4     2]
 0 spectral lines found.
 
--- 1159650514 CHANNEL 1 --
+-- 1159650514 CHANNEL y --
 Line model histogram:
 [81214 15464  2765   473    73     8     3]
 0 spectral lines found.
 
--- 1159652152 CHANNEL 1 --
+-- 1159652152 CHANNEL y --
 Line model histogram:
 [81597 15178  2652   479    91     3]
 0 spectral lines found.
 
--- 1159653790 CHANNEL 1 --
+-- 1159653790 CHANNEL y --
 Line model histogram:
 [81002 15572  2767   538   108    13]
 0 spectral lines found.
 
--- 1159655429 CHANNEL 1 --
+-- 1159655429 CHANNEL y --
 Line model histogram:
 [81565 15239  2709   398    69    20]
 0 spectral lines found.
 
--- 1159657067 CHANNEL 1 --
+-- 1159657067 CHANNEL y --
 Line model histogram:
 [81103 15423  2794   566    97    13     4]
 0 spectral lines found.
 
--- 1159658706 CHANNEL 1 --
+-- 1159658706 CHANNEL y --
 Line model histogram:
 [81031 15431  2849   559   112    18]
 0 spectral lines found.
 
--- 1159660344 CHANNEL 1 --
+-- 1159660344 CHANNEL y --
 Line model histogram:
 [80894 15710  2769   489   123    13     2]
 0 spectral lines found.
 
--- 1159661982 CHANNEL 1 --
+-- 1159661982 CHANNEL y --
 Line model histogram:
 [81088 15455  2857   481    92    14    12     1]
 0 spectral lines found.
 
--- 1159663621 CHANNEL 1 --
+-- 1159663621 CHANNEL y --
 Line model histogram:
 [81043 15519  2782   546    97    12     1]
 0 spectral lines found.
 
--- 1159665259 CHANNEL 1 --
+-- 1159665259 CHANNEL y --
 Line model histogram:
 [80886 15621  2811   562   108    12]
 0 spectral lines found.
 
--- 1159666898 CHANNEL 1 --
+-- 1159666898 CHANNEL y --
 Line model histogram:
 [81336 15278  2707   536   121    14     3     5]
 0 spectral lines found.
 
--- 1159668536 CHANNEL 1 --
+-- 1159668536 CHANNEL y --
 Line model histogram:
 [81713 15118  2568   516    79     6]
 0 spectral lines found.
 
--- 1159670174 CHANNEL 1 --
+-- 1159670174 CHANNEL y --
 Line model histogram:
 [81107 15526  2741   533    82    10     1]
 0 spectral lines found.
 
--- 1159671813 CHANNEL 1 --
+-- 1159671813 CHANNEL y --
 Line model histogram:
 [81172 15539  2651   525   100    12     1]
 0 spectral lines found.
 
--- 1159673451 CHANNEL 1 --
+-- 1159673451 CHANNEL y --
 Line model histogram:
 [81299 15434  2635   504   112    15     1]
 0 spectral lines found.
 
--- 1159675090 CHANNEL 1 --
+-- 1159675090 CHANNEL y --
 Line model histogram:
 [81006 15608  2769   513    98     6]
 0 spectral lines found.
 
--- 1159676728 CHANNEL 1 --
+-- 1159676728 CHANNEL y --
 Line model histogram:
 [81175 15391  2742   573   110     8     1]
 0 spectral lines found.
 
--- 1159678366 CHANNEL 1 --
+-- 1159678366 CHANNEL y --
 Line model histogram:
 [81326 15333  2699   554    79     9]
 0 spectral lines found.
 
--- 1159680005 CHANNEL 1 --
+-- 1159680005 CHANNEL y --
 Line model histogram:
 [81313 15404  2590   580   109     4]
 0 spectral lines found.
 
--- 1159681643 CHANNEL 1 --
+-- 1159681643 CHANNEL y --
 Line model histogram:
 [81058 15509  2774   538   104    17]
 0 spectral lines found.
 
--- 1159683282 CHANNEL 1 --
+-- 1159683282 CHANNEL y --
 Line model histogram:
 [80967 15637  2819   478    93     5     1]
 0 spectral lines found.
 
--- 1159575586 CHANNEL 2 --
+-- 1159575586 CHANNEL z --
 Line model histogram:
 [81125 15544  2692   525    91    21     2]
 0 spectral lines found.
 
--- 1159577224 CHANNEL 2 --
+-- 1159577224 CHANNEL z --
 Line model histogram:
 [81097 15492  2767   553    77    11     2     1]
 0 spectral lines found.
 
--- 1159578862 CHANNEL 2 --
+-- 1159578862 CHANNEL z --
 Line model histogram:
 [81283 15412  2752   468    73    12]
 0 spectral lines found.
 
--- 1159580501 CHANNEL 2 --
+-- 1159580501 CHANNEL z --
 Line model histogram:
 [81006 15570  2833   467   116     8]
 0 spectral lines found.
 
--- 1159582139 CHANNEL 2 --
+-- 1159582139 CHANNEL z --
 Line model histogram:
 [81147 15463  2808   495    79     8]
 0 spectral lines found.
 
--- 1159583778 CHANNEL 2 --
+-- 1159583778 CHANNEL z --
 Line model histogram:
 [81403 15171  2764   546   102    13     1]
 0 spectral lines found.
 
--- 1159585416 CHANNEL 2 --
+-- 1159585416 CHANNEL z --
 Line model histogram:
 [81006 15614  2762   497   106    12     1     1     1]
 0 spectral lines found.
 
--- 1159587054 CHANNEL 2 --
+-- 1159587054 CHANNEL z --
 Line model histogram:
 [81146 15556  2664   504   113    16     1]
 0 spectral lines found.
 
--- 1159588693 CHANNEL 2 --
+-- 1159588693 CHANNEL z --
 Line model histogram:
 [81186 15472  2714   511    95    20     2]
 0 spectral lines found.
 
--- 1159590331 CHANNEL 2 --
+-- 1159590331 CHANNEL z --
 Line model histogram:
 [81347 15227  2845   469    97    13     1     1]
 0 spectral lines found.
 
--- 1159591970 CHANNEL 2 --
+-- 1159591970 CHANNEL z --
 Line model histogram:
 [81473 15218  2747   441    94    16    11]
 0 spectral lines found.
 
--- 1159593608 CHANNEL 2 --
+-- 1159593608 CHANNEL z --
 Line model histogram:
 [81607 15045  2743   500    97     7     1]
 0 spectral lines found.
 
--- 1159595246 CHANNEL 2 --
+-- 1159595246 CHANNEL z --
 Line model histogram:
 [81355 15283  2764   497    89     7     5]
 0 spectral lines found.
 
--- 1159596885 CHANNEL 2 --
+-- 1159596885 CHANNEL z --
 Line model histogram:
 [81369 15216  2808   507    84    16]
 0 spectral lines found.
 
--- 1159598523 CHANNEL 2 --
+-- 1159598523 CHANNEL z --
 Line model histogram:
 [81269 15435  2696   522    64    14]
 0 spectral lines found.
 
--- 1159600162 CHANNEL 2 --
+-- 1159600162 CHANNEL z --
 Line model histogram:
 [81238 15389  2762   487   111    13]
 0 spectral lines found.
 
--- 1159601800 CHANNEL 2 --
+-- 1159601800 CHANNEL z --
 Line model histogram:
 [81089 15469  2854   466   115     6     1]
 0 spectral lines found.
 
--- 1159603438 CHANNEL 2 --
+-- 1159603438 CHANNEL z --
 Line model histogram:
 [80880 15761  2760   486    84    26     3]
 0 spectral lines found.
 
--- 1159605077 CHANNEL 2 --
+-- 1159605077 CHANNEL z --
 Line model histogram:
 [81563 15157  2720   467    78    11     2     2]
 0 spectral lines found.
 
--- 1159606715 CHANNEL 2 --
+-- 1159606715 CHANNEL z --
 Line model histogram:
 [81095 15401  2822   533   106    30    10     3]
 0 spectral lines found.
 
--- 1159608354 CHANNEL 2 --
+-- 1159608354 CHANNEL z --
 Line model histogram:
 [80803 15666  2886   525   106    11     2     1]
 0 spectral lines found.
 
--- 1159609992 CHANNEL 2 --
+-- 1159609992 CHANNEL z --
 Line model histogram:
 [81241 15542  2645   475    90     6     1]
 0 spectral lines found.
 
--- 1159611630 CHANNEL 2 --
+-- 1159611630 CHANNEL z --
 Line model histogram:
 [81013 15571  2861   475    73     7]
 0 spectral lines found.
 
--- 1159613269 CHANNEL 2 --
+-- 1159613269 CHANNEL z --
 Line model histogram:
 [80895 15555  2910   518    89    28     4     1]
 0 spectral lines found.
 
--- 1159614907 CHANNEL 2 --
+-- 1159614907 CHANNEL z --
 Line model histogram:
 [81086 15486  2840   493    79    12     1     3]
 0 spectral lines found.
 
--- 1159616546 CHANNEL 2 --
+-- 1159616546 CHANNEL z --
 Line model histogram:
 [81356 15413  2635   483    83    25     5]
 0 spectral lines found.
 
--- 1159618184 CHANNEL 2 --
+-- 1159618184 CHANNEL z --
 Line model histogram:
 [80350 15833  3174   522   109    12]
 0 spectral lines found.
 
--- 1159621022 CHANNEL 2 --
+-- 1159621022 CHANNEL z --
 Line model histogram:
 [81175 15344  2910   485    70    16]
 0 spectral lines found.
 
--- 1159622661 CHANNEL 2 --
+-- 1159622661 CHANNEL z --
 Line model histogram:
 [81029 15418  2936   517    86    12     2]
 0 spectral lines found.
 
--- 1159624299 CHANNEL 2 --
+-- 1159624299 CHANNEL z --
 Line model histogram:
 [80873 15728  2822   498    74     3     2]
 0 spectral lines found.
 
--- 1159625938 CHANNEL 2 --
+-- 1159625938 CHANNEL z --
 Line model histogram:
 [81144 15521  2731   496    97    10     1]
 0 spectral lines found.
 
--- 1159627576 CHANNEL 2 --
+-- 1159627576 CHANNEL z --
 Line model histogram:
 [81368 15436  2627   473    87     9]
 0 spectral lines found.
 
--- 1159629214 CHANNEL 2 --
+-- 1159629214 CHANNEL z --
 Line model histogram:
 [81039 15408  2885   541   110    17]
 0 spectral lines found.
 
--- 1159630853 CHANNEL 2 --
+-- 1159630853 CHANNEL z --
 Line model histogram:
 [80643 15794  2921   522   113     7]
 0 spectral lines found.
 
--- 1159632491 CHANNEL 2 --
+-- 1159632491 CHANNEL z --
 Line model histogram:
 [81273 15373  2744   493   102    12     3]
 0 spectral lines found.
 
--- 1159634130 CHANNEL 2 --
+-- 1159634130 CHANNEL z --
 Line model histogram:
 [81077 15599  2690   513   113     8]
 0 spectral lines found.
 
--- 1159635768 CHANNEL 2 --
+-- 1159635768 CHANNEL z --
 Line model histogram:
 [81217 15379  2770   491   116    26     1]
 0 spectral lines found.
 
--- 1159637406 CHANNEL 2 --
+-- 1159637406 CHANNEL z --
 Line model histogram:
 [81228 15452  2706   485   122     7]
 0 spectral lines found.
 
--- 1159639045 CHANNEL 2 --
+-- 1159639045 CHANNEL z --
 Line model histogram:
 [81252 15456  2722   471    91     8]
 0 spectral lines found.
 
--- 1159640683 CHANNEL 2 --
+-- 1159640683 CHANNEL z --
 Line model histogram:
 [81245 15478  2673   506    87    11]
 0 spectral lines found.
 
--- 1159642322 CHANNEL 2 --
+-- 1159642322 CHANNEL z --
 Line model histogram:
 [81192 15378  2830   490    84    24     2]
 0 spectral lines found.
 
--- 1159643960 CHANNEL 2 --
+-- 1159643960 CHANNEL z --
 Line model histogram:
 [81022 15475  2891   509    90    12     1]
 0 spectral lines found.
 
--- 1159645598 CHANNEL 2 --
+-- 1159645598 CHANNEL z --
 Line model histogram:
 [81119 15558  2737   473   101    12]
 0 spectral lines found.
 
--- 1159647237 CHANNEL 2 --
+-- 1159647237 CHANNEL z --
 Line model histogram:
 [80975 15570  2827   499   118     9     2]
 0 spectral lines found.
 
--- 1159648875 CHANNEL 2 --
+-- 1159648875 CHANNEL z --
 Line model histogram:
 [81371 15410  2610   505    87    13     4]
 0 spectral lines found.
 
--- 1159650514 CHANNEL 2 --
+-- 1159650514 CHANNEL z --
 Line model histogram:
 [81245 15422  2760   504    66     3]
 0 spectral lines found.
 
--- 1159652152 CHANNEL 2 --
+-- 1159652152 CHANNEL z --
 Line model histogram:
 [81110 15439  2879   443   100    27     2]
 0 spectral lines found.
 
--- 1159653790 CHANNEL 2 --
+-- 1159653790 CHANNEL z --
 Line model histogram:
 [81566 15319  2593   443    69    10]
 0 spectral lines found.
 
--- 1159655429 CHANNEL 2 --
+-- 1159655429 CHANNEL z --
 Line model histogram:
 [80988 15700  2735   490    74    10     3]
 0 spectral lines found.
 
--- 1159657067 CHANNEL 2 --
+-- 1159657067 CHANNEL z --
 Line model histogram:
 [81595 15054  2754   514    74     7     2]
 0 spectral lines found.
 
--- 1159658706 CHANNEL 2 --
+-- 1159658706 CHANNEL z --
 Line model histogram:
 [81244 15399  2792   479    81     5]
 0 spectral lines found.
 
--- 1159660344 CHANNEL 2 --
+-- 1159660344 CHANNEL z --
 Line model histogram:
 [81192 15436  2762   494    99    14     3]
 0 spectral lines found.
 
--- 1159661982 CHANNEL 2 --
+-- 1159661982 CHANNEL z --
 Line model histogram:
 [81280 15419  2679   511   102     9]
 0 spectral lines found.
 
--- 1159663621 CHANNEL 2 --
+-- 1159663621 CHANNEL z --
 Line model histogram:
 [80984 15601  2776   554    77     5     1     2]
 0 spectral lines found.
 
--- 1159665259 CHANNEL 2 --
+-- 1159665259 CHANNEL z --
 Line model histogram:
 [81256 15411  2707   535    75    13     3]
 0 spectral lines found.
 
--- 1159666898 CHANNEL 2 --
+-- 1159666898 CHANNEL z --
 Line model histogram:
 [80981 15668  2792   469    82     8]
 0 spectral lines found.
 
--- 1159668536 CHANNEL 2 --
+-- 1159668536 CHANNEL z --
 Line model histogram:
 [80932 15742  2726   472   115    13]
 0 spectral lines found.
 
--- 1159670174 CHANNEL 2 --
+-- 1159670174 CHANNEL z --
 Line model histogram:
 [81474 15256  2626   545    89     7     3]
 0 spectral lines found.
 
--- 1159671813 CHANNEL 2 --
+-- 1159671813 CHANNEL z --
 Line model histogram:
 [79120 16604  3420   662   153    33     8]
 0 spectral lines found.
 
--- 1159673451 CHANNEL 2 --
+-- 1159673451 CHANNEL z --
 Line model histogram:
 [80887 15676  2869   470    94     3     1]
 0 spectral lines found.
 
--- 1159675090 CHANNEL 2 --
+-- 1159675090 CHANNEL z --
 Line model histogram:
 [81191 15548  2729   449    75     8]
 0 spectral lines found.
 
--- 1159676728 CHANNEL 2 --
+-- 1159676728 CHANNEL z --
 Line model histogram:
 [81102 15595  2734   455   101    13]
 0 spectral lines found.
 
--- 1159678366 CHANNEL 2 --
+-- 1159678366 CHANNEL z --
 Line model histogram:
 [80985 15480  2932   520    81     2]
 0 spectral lines found.
 
--- 1159680005 CHANNEL 2 --
+-- 1159680005 CHANNEL z --
 Line model histogram:
 [81088 15398  2838   540   121    13     2]
 0 spectral lines found.
 
--- 1159681643 CHANNEL 2 --
+-- 1159681643 CHANNEL z --
 Line model histogram:
 [81206 15425  2790   498    76     4     1]
 0 spectral lines found.
 
--- 1159683282 CHANNEL 2 --
+-- 1159683282 CHANNEL z --
 Line model histogram:
 [81184 15407  2816   473   108    11     1]
 0 spectral lines found.
 
--- 1159575586 CHANNEL 3 --
+-- 1159575586 CHANNEL θ --
 Line model histogram:
 [77675 17639  3695   778   177    29     3     3     1]
 0 spectral lines found.
 
--- 1159577224 CHANNEL 3 --
+-- 1159577224 CHANNEL θ --
 Line model histogram:
 [77098 17967  3936   817   143    35     4]
 0 spectral lines found.
 
--- 1159578862 CHANNEL 3 --
+-- 1159578862 CHANNEL θ --
 Line model histogram:
 [77901 17542  3583   779   163    30     2]
 0 spectral lines found.
 
--- 1159580501 CHANNEL 3 --
+-- 1159580501 CHANNEL θ --
 Line model histogram:
 [77774 17714  3641   703   137    22     7     0     2]
 0 spectral lines found.
 
--- 1159582139 CHANNEL 3 --
+-- 1159582139 CHANNEL θ --
 Line model histogram:
 [78103 17344  3569   786   157    38     3]
 0 spectral lines found.
 
--- 1159583778 CHANNEL 3 --
+-- 1159583778 CHANNEL θ --
 Line model histogram:
 [77556 17684  3761   794   177    24     4]
 0 spectral lines found.
 
--- 1159585416 CHANNEL 3 --
+-- 1159585416 CHANNEL θ --
 Line model histogram:
 [77426 17764  3835   777   166    27     4     1]
 0 spectral lines found.
 
--- 1159587054 CHANNEL 3 --
+-- 1159587054 CHANNEL θ --
 Line model histogram:
 [78024 17349  3650   769   157    36    12     3]
 0 spectral lines found.
 
--- 1159588693 CHANNEL 3 --
+-- 1159588693 CHANNEL θ --
 Line model histogram:
 [77669 17542  3819   773   182    15]
 0 spectral lines found.
 
--- 1159590331 CHANNEL 3 --
+-- 1159590331 CHANNEL θ --
 Line model histogram:
 [77960 17349  3636   825   171    45    14]
 0 spectral lines found.
 
--- 1159591970 CHANNEL 3 --
+-- 1159591970 CHANNEL θ --
 Line model histogram:
 [77912 17599  3570   720   153    33    11     1     1]
 0 spectral lines found.
 
--- 1159593608 CHANNEL 3 --
+-- 1159593608 CHANNEL θ --
 Line model histogram:
 [77846 17577  3584   759   159    60     9     4     2]
 0 spectral lines found.
 
--- 1159595246 CHANNEL 3 --
+-- 1159595246 CHANNEL θ --
 Line model histogram:
 [77792 17376  3699   870   183    58    20     2]
 0 spectral lines found.
 
--- 1159596885 CHANNEL 3 --
+-- 1159596885 CHANNEL θ --
 Line model histogram:
 [78084 17292  3630   737   199    49     7     2]
 0 spectral lines found.
 
--- 1159598523 CHANNEL 3 --
+-- 1159598523 CHANNEL θ --
 Line model histogram:
 [77853 17413  3784   788   143    18     1]
 0 spectral lines found.
 
--- 1159600162 CHANNEL 3 --
+-- 1159600162 CHANNEL θ --
 Line model histogram:
 [77595 17609  3802   737   197    48    10     2]
 0 spectral lines found.
 
--- 1159601800 CHANNEL 3 --
+-- 1159601800 CHANNEL θ --
 Line model histogram:
 [77749 17565  3687   777   168    49     5]
 0 spectral lines found.
 
--- 1159603438 CHANNEL 3 --
+-- 1159603438 CHANNEL θ --
 Line model histogram:
 [77596 17541  3738   883   195    41     6]
 0 spectral lines found.
 
--- 1159605077 CHANNEL 3 --
+-- 1159605077 CHANNEL θ --
 Line model histogram:
 [77728 17640  3623   794   159    37    16     3]
 0 spectral lines found.
 
--- 1159606715 CHANNEL 3 --
+-- 1159606715 CHANNEL θ --
 Line model histogram:
 [78126 17349  3571   748   177    27     2]
 0 spectral lines found.
 
--- 1159608354 CHANNEL 3 --
+-- 1159608354 CHANNEL θ --
 Line model histogram:
 [77894 17362  3830   725   144    36     8     1]
 0 spectral lines found.
 
--- 1159609992 CHANNEL 3 --
+-- 1159609992 CHANNEL θ --
 Line model histogram:
 [77726 17516  3745   799   159    41    14]
 0 spectral lines found.
 
--- 1159611630 CHANNEL 3 --
+-- 1159611630 CHANNEL θ --
 Line model histogram:
 [78215 17360  3487   725   185    26     2]
 0 spectral lines found.
 
--- 1159613269 CHANNEL 3 --
+-- 1159613269 CHANNEL θ --
 Line model histogram:
 [77688 17665  3726   709   175    34     3]
 0 spectral lines found.
 
--- 1159614907 CHANNEL 3 --
+-- 1159614907 CHANNEL θ --
 Line model histogram:
 [77323 17803  3777   818   224    38    13     2     2]
 0 spectral lines found.
 
--- 1159616546 CHANNEL 3 --
+-- 1159616546 CHANNEL θ --
 Line model histogram:
 [77610 17566  3742   867   163    41    10     1]
 0 spectral lines found.
 
--- 1159618184 CHANNEL 3 --
+-- 1159618184 CHANNEL θ --
 Line model histogram:
 [77952 17389  3639   798   181    35     6]
 0 spectral lines found.
 
--- 1159621022 CHANNEL 3 --
+-- 1159621022 CHANNEL θ --
 Line model histogram:
 [77932 17354  3697   792   194    30     0     1]
 0 spectral lines found.
 
--- 1159622661 CHANNEL 3 --
+-- 1159622661 CHANNEL θ --
 Line model histogram:
 [77777 17465  3776   787   165    30]
 0 spectral lines found.
 
--- 1159624299 CHANNEL 3 --
+-- 1159624299 CHANNEL θ --
 Line model histogram:
 [76977 17870  4045   862   191    51     3     1]
 0 spectral lines found.
 
--- 1159625938 CHANNEL 3 --
+-- 1159625938 CHANNEL θ --
 Line model histogram:
 [77654 17528  3795   819   159    38     4     1     2]
 0 spectral lines found.
 
--- 1159627576 CHANNEL 3 --
+-- 1159627576 CHANNEL θ --
 Line model histogram:
 [77917 17297  3779   849   146    11     1]
 0 spectral lines found.
 
--- 1159629214 CHANNEL 3 --
+-- 1159629214 CHANNEL θ --
 Line model histogram:
 [78372 17259  3478   671   165    42    11     2]
 0 spectral lines found.
 
--- 1159630853 CHANNEL 3 --
+-- 1159630853 CHANNEL θ --
 Line model histogram:
 [77731 17505  3736   842   159    20     2     3     2]
 0 spectral lines found.
 
--- 1159632491 CHANNEL 3 --
+-- 1159632491 CHANNEL θ --
 Line model histogram:
 [78048 17374  3661   762   126    28     1]
 0 spectral lines found.
 
--- 1159634130 CHANNEL 3 --
+-- 1159634130 CHANNEL θ --
 Line model histogram:
 [76787 18115  4051   810   190    40     7]
 0 spectral lines found.
 
--- 1159635768 CHANNEL 3 --
+-- 1159635768 CHANNEL θ --
 Line model histogram:
 [78006 17267  3696   828   177    23     2     1]
 0 spectral lines found.
 
--- 1159637406 CHANNEL 3 --
+-- 1159637406 CHANNEL θ --
 Line model histogram:
 [77728 17540  3681   840   178    26     5     2]
 0 spectral lines found.
 
--- 1159639045 CHANNEL 3 --
+-- 1159639045 CHANNEL θ --
 Line model histogram:
 [78148 17091  3786   741   185    45     3     1]
 0 spectral lines found.
 
--- 1159640683 CHANNEL 3 --
+-- 1159640683 CHANNEL θ --
 Line model histogram:
 [77806 17584  3625   769   169    36     8     3]
 0 spectral lines found.
 
--- 1159642322 CHANNEL 3 --
+-- 1159642322 CHANNEL θ --
 Line model histogram:
 [78303 16906  3830   745   162    42     8     1     3]
 0 spectral lines found.
 
--- 1159643960 CHANNEL 3 --
+-- 1159643960 CHANNEL θ --
 Line model histogram:
 [78113 17335  3651   713   144    44]
 0 spectral lines found.
 
--- 1159645598 CHANNEL 3 --
+-- 1159645598 CHANNEL θ --
 Line model histogram:
 [77600 17592  3685   827   228    60     8]
 0 spectral lines found.
 
--- 1159647237 CHANNEL 3 --
+-- 1159647237 CHANNEL θ --
 Line model histogram:
 [77703 17689  3620   740   191    48     9]
 0 spectral lines found.
 
--- 1159648875 CHANNEL 3 --
+-- 1159648875 CHANNEL θ --
 Line model histogram:
 [77742 17500  3736   799   175    48]
 0 spectral lines found.
 
--- 1159650514 CHANNEL 3 --
+-- 1159650514 CHANNEL θ --
 Line model histogram:
 [77507 17757  3820   734   161    21]
 0 spectral lines found.
 
--- 1159652152 CHANNEL 3 --
+-- 1159652152 CHANNEL θ --
 Line model histogram:
 [77749 17398  3767   824   236    26]
 0 spectral lines found.
 
--- 1159653790 CHANNEL 3 --
+-- 1159653790 CHANNEL θ --
 Line model histogram:
 [77612 17639  3692   831   175    37     8     4     2]
 0 spectral lines found.
 
--- 1159655429 CHANNEL 3 --
+-- 1159655429 CHANNEL θ --
 Line model histogram:
 [77654 17593  3769   782   170    30     1     0     0     1]
 0 spectral lines found.
 
--- 1159657067 CHANNEL 3 --
+-- 1159657067 CHANNEL θ --
 Line model histogram:
 [77773 17527  3644   785   229    39     3]
 0 spectral lines found.
 
--- 1159658706 CHANNEL 3 --
+-- 1159658706 CHANNEL θ --
 Line model histogram:
 [77679 17663  3575   844   199    31     8     1]
 0 spectral lines found.
 
--- 1159660344 CHANNEL 3 --
+-- 1159660344 CHANNEL θ --
 Line model histogram:
 [77684 17599  3609   852   208    26    10     9     3]
 0 spectral lines found.
 
--- 1159661982 CHANNEL 3 --
+-- 1159661982 CHANNEL θ --
 Line model histogram:
 [77745 17691  3636   747   157    24]
 0 spectral lines found.
 
--- 1159663621 CHANNEL 3 --
+-- 1159663621 CHANNEL θ --
 Line model histogram:
 [77706 17598  3736   747   173    39     1]
 0 spectral lines found.
 
--- 1159665259 CHANNEL 3 --
+-- 1159665259 CHANNEL θ --
 Line model histogram:
 [77857 17595  3558   773   164    41    11     1]
 0 spectral lines found.
 
--- 1159666898 CHANNEL 3 --
+-- 1159666898 CHANNEL θ --
 Line model histogram:
 [77978 17437  3712   703   151    15     3     1]
 0 spectral lines found.
 
--- 1159668536 CHANNEL 3 --
+-- 1159668536 CHANNEL θ --
 Line model histogram:
 [77815 17428  3788   765   167    35     2]
 0 spectral lines found.
 
--- 1159670174 CHANNEL 3 --
+-- 1159670174 CHANNEL θ --
 Line model histogram:
 [77924 17342  3869   698   139    22     6]
 0 spectral lines found.
 
--- 1159671813 CHANNEL 3 --
+-- 1159671813 CHANNEL θ --
 Line model histogram:
 [77423 17655  3884   801   177    44    16]
 0 spectral lines found.
 
--- 1159673451 CHANNEL 3 --
+-- 1159673451 CHANNEL θ --
 Line model histogram:
 [76755 18124  3986   898   197    36     3     1]
 0 spectral lines found.
 
--- 1159675090 CHANNEL 3 --
+-- 1159675090 CHANNEL θ --
 Line model histogram:
 [77786 17484  3684   806   192    32     4     9     3]
 0 spectral lines found.
 
--- 1159676728 CHANNEL 3 --
+-- 1159676728 CHANNEL θ --
 Line model histogram:
 [77864 17497  3619   786   172    58     3     1]
 0 spectral lines found.
 
--- 1159678366 CHANNEL 3 --
+-- 1159678366 CHANNEL θ --
 Line model histogram:
 [77861 17338  3700   822   209    61     9]
 0 spectral lines found.
 
--- 1159680005 CHANNEL 3 --
+-- 1159680005 CHANNEL θ --
 Line model histogram:
 [77860 17576  3615   765   149    33     2]
 0 spectral lines found.
 
--- 1159681643 CHANNEL 3 --
+-- 1159681643 CHANNEL θ --
 Line model histogram:
 [77789 17432  3700   799   232    46     2]
 0 spectral lines found.
 
--- 1159683282 CHANNEL 3 --
+-- 1159683282 CHANNEL θ --
 Line model histogram:
 [76909 18058  3972   868   167    23     3]
 0 spectral lines found.
 
--- 1159575586 CHANNEL 4 --
+-- 1159575586 CHANNEL η --
 Line model histogram:
 [82616 14516  2318   426    95    18     8     3]
 0 spectral lines found.
 
--- 1159577224 CHANNEL 4 --
+-- 1159577224 CHANNEL η --
 Line model histogram:
 [82442 14685  2394   398    65    15     1]
 0 spectral lines found.
 
--- 1159578862 CHANNEL 4 --
+-- 1159578862 CHANNEL η --
 Line model histogram:
 [82223 14885  2383   410    84    14     1]
 0 spectral lines found.
 
--- 1159580501 CHANNEL 4 --
+-- 1159580501 CHANNEL η --
 Line model histogram:
 [82296 14625  2537   460    74     6     2]
 0 spectral lines found.
 
--- 1159582139 CHANNEL 4 --
+-- 1159582139 CHANNEL η --
 Line model histogram:
 [82727 14408  2354   410    89    12]
 0 spectral lines found.
 
--- 1159583778 CHANNEL 4 --
+-- 1159583778 CHANNEL η --
 Line model histogram:
 [82501 14589  2383   425    81    20     1]
 0 spectral lines found.
 
--- 1159585416 CHANNEL 4 --
+-- 1159585416 CHANNEL η --
 Line model histogram:
 [82724 14404  2368   421    57    18     8]
 0 spectral lines found.
 
--- 1159587054 CHANNEL 4 --
+-- 1159587054 CHANNEL η --
 Line model histogram:
 [82491 14487  2395   486    96    19    13     5     8]
 0 spectral lines found.
 
--- 1159588693 CHANNEL 4 --
+-- 1159588693 CHANNEL η --
 Line model histogram:
 [82580 14370  2501   436    85    20     8]
 0 spectral lines found.
 
--- 1159590331 CHANNEL 4 --
+-- 1159590331 CHANNEL η --
 Line model histogram:
 [82436 14583  2415   461    95     8     2]
 0 spectral lines found.
 
--- 1159591970 CHANNEL 4 --
+-- 1159591970 CHANNEL η --
 Line model histogram:
 [82382 14576  2508   444    80     9     1]
 0 spectral lines found.
 
--- 1159593608 CHANNEL 4 --
+-- 1159593608 CHANNEL η --
 Line model histogram:
 [82493 14512  2457   438    86    12     2]
 0 spectral lines found.
 
--- 1159595246 CHANNEL 4 --
+-- 1159595246 CHANNEL η --
 Line model histogram:
 [82674 14397  2394   444    80    10     1]
 0 spectral lines found.
 
--- 1159596885 CHANNEL 4 --
+-- 1159596885 CHANNEL η --
 Line model histogram:
 [82620 14494  2342   441    81    17     5]
 0 spectral lines found.
 
--- 1159598523 CHANNEL 4 --
+-- 1159598523 CHANNEL η --
 Line model histogram:
 [82518 14439  2476   472    79     8     2     1     0     5]
 0 spectral lines found.
 
--- 1159600162 CHANNEL 4 --
+-- 1159600162 CHANNEL η --
 Line model histogram:
 [82555 14464  2481   390    85    23     2]
 0 spectral lines found.
 
--- 1159601800 CHANNEL 4 --
+-- 1159601800 CHANNEL η --
 Line model histogram:
 [82776 14360  2375   411    69     9]
 0 spectral lines found.
 
--- 1159603438 CHANNEL 4 --
+-- 1159603438 CHANNEL η --
 Line model histogram:
 [82444 14590  2427   455    73     9     0     1     1]
 0 spectral lines found.
 
--- 1159605077 CHANNEL 4 --
+-- 1159605077 CHANNEL η --
 Line model histogram:
 [81344 15360  2643   539    96    18]
 0 spectral lines found.
 
--- 1159606715 CHANNEL 4 --
+-- 1159606715 CHANNEL η --
 Line model histogram:
 [82992 14152  2316   449    77    10     4]
 0 spectral lines found.
 
--- 1159608354 CHANNEL 4 --
+-- 1159608354 CHANNEL η --
 Line model histogram:
 [82805 14257  2445   416    65    11     1]
 0 spectral lines found.
 
--- 1159609992 CHANNEL 4 --
+-- 1159609992 CHANNEL η --
 Line model histogram:
 [81968 14944  2491   464   101    31     1]
 0 spectral lines found.
 
--- 1159611630 CHANNEL 4 --
+-- 1159611630 CHANNEL η --
 Line model histogram:
 [82793 14338  2337   451    67    14]
 0 spectral lines found.
 
--- 1159613269 CHANNEL 4 --
+-- 1159613269 CHANNEL η --
 Line model histogram:
 [82173 14748  2478   504    75    14     8]
 0 spectral lines found.
 
--- 1159614907 CHANNEL 4 --
+-- 1159614907 CHANNEL η --
 Line model histogram:
 [82898 14265  2292   431   103     7     1     3]
 0 spectral lines found.
 
--- 1159616546 CHANNEL 4 --
+-- 1159616546 CHANNEL η --
 Line model histogram:
 [82640 14411  2431   422    92     3     1]
 0 spectral lines found.
 
--- 1159618184 CHANNEL 4 --
+-- 1159618184 CHANNEL η --
 Line model histogram:
 [82471 14494  2539   418    60    11     7]
 0 spectral lines found.
 
--- 1159621022 CHANNEL 4 --
+-- 1159621022 CHANNEL η --
 Line model histogram:
 [82578 14682  2264   405    65     6]
 0 spectral lines found.
 
--- 1159622661 CHANNEL 4 --
+-- 1159622661 CHANNEL η --
 Line model histogram:
 [82529 14589  2325   477    73     2     5]
 0 spectral lines found.
 
--- 1159624299 CHANNEL 4 --
+-- 1159624299 CHANNEL η --
 Line model histogram:
 [82200 14724  2484   489    75    25     3]
 0 spectral lines found.
 
--- 1159625938 CHANNEL 4 --
+-- 1159625938 CHANNEL η --
 Line model histogram:
 [82705 14366  2414   409    92     8     4     2]
 0 spectral lines found.
 
--- 1159627576 CHANNEL 4 --
+-- 1159627576 CHANNEL η --
 Line model histogram:
 [82351 14618  2487   462    74     6     2]
 0 spectral lines found.
 
--- 1159629214 CHANNEL 4 --
+-- 1159629214 CHANNEL η --
 Line model histogram:
 [82414 14627  2476   394    74    13     2]
 0 spectral lines found.
 
--- 1159630853 CHANNEL 4 --
+-- 1159630853 CHANNEL η --
 Line model histogram:
 [82650 14484  2408   407    44     7]
 0 spectral lines found.
 
--- 1159632491 CHANNEL 4 --
+-- 1159632491 CHANNEL η --
 Line model histogram:
 [81938 14918  2591   454    89     7     3]
 0 spectral lines found.
 
--- 1159634130 CHANNEL 4 --
+-- 1159634130 CHANNEL η --
 Line model histogram:
 [82484 14615  2400   406    89     2     4]
 0 spectral lines found.
 
--- 1159635768 CHANNEL 4 --
+-- 1159635768 CHANNEL η --
 Line model histogram:
 [82689 14457  2346   433    65     9     1]
 0 spectral lines found.
 
--- 1159637406 CHANNEL 4 --
+-- 1159637406 CHANNEL η --
 Line model histogram:
 [82672 14437  2344   453    89     4     1]
 0 spectral lines found.
 
--- 1159639045 CHANNEL 4 --
+-- 1159639045 CHANNEL η --
 Line model histogram:
 [82913 14346  2244   438    57     1     0     0     0     1]
 0 spectral lines found.
 
--- 1159640683 CHANNEL 4 --
+-- 1159640683 CHANNEL η --
 Line model histogram:
 [81303 15428  2652   491   102    20     4]
 0 spectral lines found.
 
--- 1159642322 CHANNEL 4 --
+-- 1159642322 CHANNEL η --
 Line model histogram:
 [82239 14710  2541   420    79    11]
 0 spectral lines found.
 
--- 1159643960 CHANNEL 4 --
+-- 1159643960 CHANNEL η --
 Line model histogram:
 [82498 14607  2400   418    56    16     4     0     1]
 0 spectral lines found.
 
--- 1159645598 CHANNEL 4 --
+-- 1159645598 CHANNEL η --
 Line model histogram:
 [82906 14352  2247   396    89     9     1]
 0 spectral lines found.
 
--- 1159647237 CHANNEL 4 --
+-- 1159647237 CHANNEL η --
 Line model histogram:
 [81618 15189  2588   489   100    13     3]
 0 spectral lines found.
 
--- 1159648875 CHANNEL 4 --
+-- 1159648875 CHANNEL η --
 Line model histogram:
 [82725 14419  2356   417    72     7     4]
 0 spectral lines found.
 
--- 1159650514 CHANNEL 4 --
+-- 1159650514 CHANNEL η --
 Line model histogram:
 [82695 14587  2226   414    69     8     1]
 0 spectral lines found.
 
--- 1159652152 CHANNEL 4 --
+-- 1159652152 CHANNEL η --
 Line model histogram:
 [  144 68206 23977  5885  1412   303    60     8     5]
 1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
-4       1159652152 0    FREQ       1.212189e-01  1.210192e-01  1.213370e-01  1.205947e-01  1.218616e-01
+η       1159652152 0    FREQ       1.212189e-01  1.210192e-01  1.213370e-01  1.205947e-01  1.218616e-01
                         AMP        3.193353e-17  4.733239e-19  3.197337e-17  1.114986e-20  1.388181e-14
                         QF         3.582324e+02  1.000006e+02  3.582382e+02  1.000006e+02  5.627496e+03
 
--- 1159653790 CHANNEL 4 --
+-- 1159653790 CHANNEL η --
 Line model histogram:
 [82168 14819  2518   416    69     7     3]
 0 spectral lines found.
 
--- 1159655429 CHANNEL 4 --
+-- 1159655429 CHANNEL η --
 Line model histogram:
 [82505 14623  2369   391    84    16    12]
 0 spectral lines found.
 
--- 1159657067 CHANNEL 4 --
+-- 1159657067 CHANNEL η --
 Line model histogram:
 [82803 14506  2149   446    82    12     2]
 0 spectral lines found.
 
--- 1159658706 CHANNEL 4 --
+-- 1159658706 CHANNEL η --
 Line model histogram:
 [82197 14792  2518   405    64     8     8     2     2     1     2     1]
 0 spectral lines found.
 
--- 1159660344 CHANNEL 4 --
+-- 1159660344 CHANNEL η --
 Line model histogram:
 [82250 14786  2498   412    49     4     1]
 0 spectral lines found.
 
--- 1159661982 CHANNEL 4 --
+-- 1159661982 CHANNEL η --
 Line model histogram:
 [82705 14510  2328   381    54    13     5     4]
 0 spectral lines found.
 
--- 1159663621 CHANNEL 4 --
+-- 1159663621 CHANNEL η --
 Line model histogram:
 [82695 14348  2419   457    68    10     3]
 0 spectral lines found.
 
--- 1159665259 CHANNEL 4 --
+-- 1159665259 CHANNEL η --
 Line model histogram:
 [82690 14500  2332   405    65     6     2]
 0 spectral lines found.
 
--- 1159666898 CHANNEL 4 --
+-- 1159666898 CHANNEL η --
 Line model histogram:
 [82569 14624  2350   374    76     5     1     1]
 0 spectral lines found.
 
--- 1159668536 CHANNEL 4 --
+-- 1159668536 CHANNEL η --
 Line model histogram:
 [82639 14510  2369   376    82    15     6     3]
 0 spectral lines found.
 
--- 1159670174 CHANNEL 4 --
+-- 1159670174 CHANNEL η --
 Line model histogram:
 [81713 15017  2601   544   105    17     3]
 0 spectral lines found.
 
--- 1159671813 CHANNEL 4 --
+-- 1159671813 CHANNEL η --
 Line model histogram:
 [82471 14447  2513   463    88    12     6]
 0 spectral lines found.
 
--- 1159673451 CHANNEL 4 --
+-- 1159673451 CHANNEL η --
 Line model histogram:
 [82614 14425  2463   432    56     9     1]
 0 spectral lines found.
 
--- 1159675090 CHANNEL 4 --
+-- 1159675090 CHANNEL η --
 Line model histogram:
 [82330 14590  2481   500    89    10]
 0 spectral lines found.
 
--- 1159676728 CHANNEL 4 --
+-- 1159676728 CHANNEL η --
 Line model histogram:
 [82262 14765  2432   454    60    18     2     4     0     3]
 0 spectral lines found.
 
--- 1159678366 CHANNEL 4 --
+-- 1159678366 CHANNEL η --
 Line model histogram:
 [82733 14509  2318   374    54    10     2]
 0 spectral lines found.
 
--- 1159680005 CHANNEL 4 --
+-- 1159680005 CHANNEL η --
 Line model histogram:
 [82728 14509  2335   373    48     5     2]
 0 spectral lines found.
 
--- 1159681643 CHANNEL 4 --
+-- 1159681643 CHANNEL η --
 Line model histogram:
 [82390 14627  2505   406    57    11     2     2]
 0 spectral lines found.
 
--- 1159683282 CHANNEL 4 --
+-- 1159683282 CHANNEL η --
 Line model histogram:
 [82486 14629  2433   377    55    18     2]
 0 spectral lines found.
 
--- 1159575586 CHANNEL 5 --
+-- 1159575586 CHANNEL ϕ --
 Line model histogram:
 [81528 15105  2811   480    69     6     1]
 0 spectral lines found.
 
--- 1159577224 CHANNEL 5 --
+-- 1159577224 CHANNEL ϕ --
 Line model histogram:
 [80282 16102  2979   550    82     5]
 0 spectral lines found.
 
--- 1159578862 CHANNEL 5 --
+-- 1159578862 CHANNEL ϕ --
 Line model histogram:
 [82214 14846  2402   430    91    15     2]
 0 spectral lines found.
 
--- 1159580501 CHANNEL 5 --
+-- 1159580501 CHANNEL ϕ --
 Line model histogram:
 [81241 15254  2857   555    77    15     1]
 0 spectral lines found.
 
--- 1159582139 CHANNEL 5 --
+-- 1159582139 CHANNEL ϕ --
 Line model histogram:
 [74699 19874  4333   888   155    42     8     1]
 0 spectral lines found.
 
--- 1159583778 CHANNEL 5 --
+-- 1159583778 CHANNEL ϕ --
 Line model histogram:
 [77416 17646  3893   867   153    20     5]
 0 spectral lines found.
 
--- 1159585416 CHANNEL 5 --
+-- 1159585416 CHANNEL ϕ --
 Line model histogram:
 [82131 14757  2509   510    77    13     2     1]
 0 spectral lines found.
 
--- 1159587054 CHANNEL 5 --
+-- 1159587054 CHANNEL ϕ --
 Line model histogram:
 [44945 38652 12449  3066   730   123    30     5]
 0 spectral lines found.
 
--- 1159588693 CHANNEL 5 --
+-- 1159588693 CHANNEL ϕ --
 Line model histogram:
 [82027 14833  2522   477   126    10     3     2]
 0 spectral lines found.
 
--- 1159590331 CHANNEL 5 --
+-- 1159590331 CHANNEL ϕ --
 Line model histogram:
 [81902 14848  2709   458    71    10     2]
 0 spectral lines found.
 
--- 1159591970 CHANNEL 5 --
+-- 1159591970 CHANNEL ϕ --
 Line model histogram:
 [  760 68605 23224  5710  1232   363    83    22     1]
 1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
-5       1159591970 0    FREQ       9.987222e-01  9.986565e-01  9.990680e-01  9.982647e-01  9.991101e-01
+ϕ       1159591970 0    FREQ       9.987222e-01  9.986565e-01  9.990680e-01  9.982647e-01  9.991101e-01
                         AMP        3.140322e-12  1.067498e-20  3.140322e-12  1.067498e-20  3.030660e-08
                         QF         4.235756e+03  1.000083e+02  4.235756e+03  1.000083e+02  2.945388e+05
 
--- 1159593608 CHANNEL 5 --
+-- 1159593608 CHANNEL ϕ --
 Line model histogram:
 [79979 16100  3149   634   107    24     4     2     1]
 0 spectral lines found.
 
--- 1159595246 CHANNEL 5 --
+-- 1159595246 CHANNEL ϕ --
 Line model histogram:
 [76215 18399  4161   957   218    45     5]
 0 spectral lines found.
 
--- 1159596885 CHANNEL 5 --
+-- 1159596885 CHANNEL ϕ --
 Line model histogram:
 [81577 15093  2654   543   101    30     2]
 0 spectral lines found.
 
--- 1159598523 CHANNEL 5 --
+-- 1159598523 CHANNEL ϕ --
 Line model histogram:
 [81297 15238  2787   549   105    22     2]
 0 spectral lines found.
 
--- 1159600162 CHANNEL 5 --
+-- 1159600162 CHANNEL ϕ --
 Line model histogram:
 [81073 15404  2764   595   137    21     6]
 0 spectral lines found.
 
--- 1159601800 CHANNEL 5 --
+-- 1159601800 CHANNEL ϕ --
 Line model histogram:
 [82235 14730  2547   406    77     5]
 0 spectral lines found.
 
--- 1159603438 CHANNEL 5 --
+-- 1159603438 CHANNEL ϕ --
 Line model histogram:
 [82188 14878  2417   440    66    11]
 0 spectral lines found.
 
--- 1159605077 CHANNEL 5 --
+-- 1159605077 CHANNEL ϕ --
 Line model histogram:
 [82038 14776  2591   473    90    22    10]
 0 spectral lines found.
 
--- 1159606715 CHANNEL 5 --
+-- 1159606715 CHANNEL ϕ --
 Line model histogram:
 [52134 34224 10479  2493   562    92    14     2]
 0 spectral lines found.
 
--- 1159608354 CHANNEL 5 --
+-- 1159608354 CHANNEL ϕ --
 Line model histogram:
 [82586 14487  2383   442    90    11     1]
 0 spectral lines found.
 
--- 1159609992 CHANNEL 5 --
+-- 1159609992 CHANNEL ϕ --
 Line model histogram:
 [78542 17204  3312   759   164    18     0     0     1]
 0 spectral lines found.
 
--- 1159611630 CHANNEL 5 --
+-- 1159611630 CHANNEL ϕ --
 Line model histogram:
 [82156 14786  2485   464    95    10     4]
 0 spectral lines found.
 
--- 1159613269 CHANNEL 5 --
+-- 1159613269 CHANNEL ϕ --
 Line model histogram:
 [81438 15251  2716   484    87    22     2]
 0 spectral lines found.
 
--- 1159614907 CHANNEL 5 --
+-- 1159614907 CHANNEL ϕ --
 Line model histogram:
 [81785 14910  2613   544   121    27]
 0 spectral lines found.
 
--- 1159616546 CHANNEL 5 --
+-- 1159616546 CHANNEL ϕ --
 Line model histogram:
 [81475 15192  2712   513   100     7     1]
 0 spectral lines found.
 
--- 1159618184 CHANNEL 5 --
+-- 1159618184 CHANNEL ϕ --
 Line model histogram:
 [82490 14576  2473   403    55     3]
 0 spectral lines found.
 
--- 1159621022 CHANNEL 5 --
+-- 1159621022 CHANNEL ϕ --
 Line model histogram:
 [82509 14579  2420   412    62    11     6     1]
 0 spectral lines found.
 
--- 1159622661 CHANNEL 5 --
+-- 1159622661 CHANNEL ϕ --
 Line model histogram:
 [82347 14693  2468   411    70    11]
 0 spectral lines found.
 
--- 1159624299 CHANNEL 5 --
+-- 1159624299 CHANNEL ϕ --
 Line model histogram:
 [81273 15332  2759   515   105    15     1]
 0 spectral lines found.
 
--- 1159625938 CHANNEL 5 --
+-- 1159625938 CHANNEL ϕ --
 Line model histogram:
 [82105 14845  2492   445    90    20     2     1]
 0 spectral lines found.
 
--- 1159627576 CHANNEL 5 --
+-- 1159627576 CHANNEL ϕ --
 Line model histogram:
 [81092 15680  2636   498    93     0     1]
 0 spectral lines found.
 
--- 1159629214 CHANNEL 5 --
+-- 1159629214 CHANNEL ϕ --
 Line model histogram:
 [82163 14711  2495   506   107    12     2     3     1]
 0 spectral lines found.
 
--- 1159630853 CHANNEL 5 --
+-- 1159630853 CHANNEL ϕ --
 Line model histogram:
 [82144 14672  2562   535    65    16     5     1]
 0 spectral lines found.
 
--- 1159632491 CHANNEL 5 --
+-- 1159632491 CHANNEL ϕ --
 Line model histogram:
 [81821 14889  2724   464    82    17     3]
 0 spectral lines found.
 
--- 1159634130 CHANNEL 5 --
+-- 1159634130 CHANNEL ϕ --
 Line model histogram:
 [78371 17177  3470   808   137    31     6]
 0 spectral lines found.
 
--- 1159635768 CHANNEL 5 --
+-- 1159635768 CHANNEL ϕ --
 Line model histogram:
 [ 9751 61095 21769  5647  1297   335    77    18    10     1]
 1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
-5       1159635768 0    FREQ       2.382126e-01  2.380953e-01  2.383359e-01  2.378102e-01  2.386503e-01
+ϕ       1159635768 0    FREQ       2.382126e-01  2.380953e-01  2.383359e-01  2.378102e-01  2.386503e-01
                         AMP        8.102179e-14  1.000684e-20  8.102179e-14  1.000684e-20  2.658343e-04
                         QF         2.218611e+04  1.000187e+02  2.218611e+04  1.000289e+02  1.048573e+06
 
--- 1159637406 CHANNEL 5 --
+-- 1159637406 CHANNEL ϕ --
 Line model histogram:
 [82129 14710  2606   450    75    13     7     8     2]
 0 spectral lines found.
 
--- 1159639045 CHANNEL 5 --
+-- 1159639045 CHANNEL ϕ --
 Line model histogram:
 [81764 15243  2454   454    76     6     3]
 0 spectral lines found.
 
--- 1159640683 CHANNEL 5 --
+-- 1159640683 CHANNEL ϕ --
 Line model histogram:
 [81007 15596  2763   543    79    10     2]
 0 spectral lines found.
 
--- 1159642322 CHANNEL 5 --
+-- 1159642322 CHANNEL ϕ --
 Line model histogram:
 [81652 15209  2573   468    78    19     1]
 0 spectral lines found.
 
--- 1159643960 CHANNEL 5 --
+-- 1159643960 CHANNEL ϕ --
 Line model histogram:
 [82439 14710  2386   389    70     2     4]
 0 spectral lines found.
 
--- 1159645598 CHANNEL 5 --
+-- 1159645598 CHANNEL ϕ --
 Line model histogram:
 [81773 15035  2600   481   100    11]
 0 spectral lines found.
 
--- 1159647237 CHANNEL 5 --
+-- 1159647237 CHANNEL ϕ --
 Line model histogram:
 [80867 15636  2854   522   114     6     1]
 0 spectral lines found.
 
--- 1159648875 CHANNEL 5 --
+-- 1159648875 CHANNEL ϕ --
 Line model histogram:
 [82044 14737  2609   510    81    18     1]
 0 spectral lines found.
 
--- 1159650514 CHANNEL 5 --
+-- 1159650514 CHANNEL ϕ --
 Line model histogram:
 [79954 16300  3082   552    84    16    10     2]
 0 spectral lines found.
 
--- 1159652152 CHANNEL 5 --
+-- 1159652152 CHANNEL ϕ --
 Line model histogram:
 [81187 15457  2717   540    88    11]
 0 spectral lines found.
 
--- 1159653790 CHANNEL 5 --
+-- 1159653790 CHANNEL ϕ --
 Line model histogram:
 [81814 15084  2468   496   102    26     9     0     1]
 0 spectral lines found.
 
--- 1159655429 CHANNEL 5 --
+-- 1159655429 CHANNEL ϕ --
 Line model histogram:
 [80932 15378  2990   592    93    13     2]
 0 spectral lines found.
 
--- 1159657067 CHANNEL 5 --
+-- 1159657067 CHANNEL ϕ --
 Line model histogram:
 [81751 15009  2564   545   117     9     5]
 0 spectral lines found.
 
--- 1159658706 CHANNEL 5 --
+-- 1159658706 CHANNEL ϕ --
 Line model histogram:
 [81163 15367  2825   562    71    10     2]
 0 spectral lines found.
 
--- 1159660344 CHANNEL 5 --
+-- 1159660344 CHANNEL ϕ --
 Line model histogram:
 [81580 15285  2584   449    79    13     7     3]
 0 spectral lines found.
 
--- 1159661982 CHANNEL 5 --
+-- 1159661982 CHANNEL ϕ --
 Line model histogram:
 [82461 14582  2424   434    81    17     1]
 0 spectral lines found.
 
--- 1159663621 CHANNEL 5 --
+-- 1159663621 CHANNEL ϕ --
 Line model histogram:
 [82306 14724  2450   417    89    11     3]
 0 spectral lines found.
 
--- 1159665259 CHANNEL 5 --
+-- 1159665259 CHANNEL ϕ --
 Line model histogram:
 [82081 14939  2472   424    74     9     1]
 0 spectral lines found.
 
--- 1159666898 CHANNEL 5 --
+-- 1159666898 CHANNEL ϕ --
 Line model histogram:
 [81894 14952  2610   440    90    14]
 0 spectral lines found.
 
--- 1159668536 CHANNEL 5 --
+-- 1159668536 CHANNEL ϕ --
 Line model histogram:
 [80759 15617  2857   609   139    16     3]
 0 spectral lines found.
 
--- 1159670174 CHANNEL 5 --
+-- 1159670174 CHANNEL ϕ --
 Line model histogram:
 [82675 14442  2375   410    76    21     1]
 0 spectral lines found.
 
--- 1159671813 CHANNEL 5 --
+-- 1159671813 CHANNEL ϕ --
 Line model histogram:
 [75713 18967  4193   922   174    31]
 0 spectral lines found.
 
--- 1159673451 CHANNEL 5 --
+-- 1159673451 CHANNEL ϕ --
 Line model histogram:
 [81810 15191  2513   422    59     5]
 0 spectral lines found.
 
--- 1159675090 CHANNEL 5 --
+-- 1159675090 CHANNEL ϕ --
 Line model histogram:
 [33803 45149 15665  4082   982   254    51    14]
 1 spectral lines found.
 Line parameter summary:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
-5       1159675090 0    FREQ       2.357200e-01  2.354462e-01  2.358188e-01  8.248134e-02  3.747505e-01
+ϕ       1159675090 0    FREQ       2.357200e-01  2.354462e-01  2.358188e-01  8.248134e-02  3.747505e-01
                         AMP        2.976590e-14  1.014245e-20  2.976590e-14  1.011887e-20  5.744993e-08
                         QF         1.824065e+04  1.000916e+02  1.824071e+04  1.000053e+02  1.015000e+06
 
--- 1159676728 CHANNEL 5 --
+-- 1159676728 CHANNEL ϕ --
 Line model histogram:
 [81831 15081  2589   421    72     5     1]
 0 spectral lines found.
 
--- 1159678366 CHANNEL 5 --
+-- 1159678366 CHANNEL ϕ --
 Line model histogram:
 [70358 22559  5477  1258   262    70    15     1]
 0 spectral lines found.
 
--- 1159680005 CHANNEL 5 --
+-- 1159680005 CHANNEL ϕ --
 Line model histogram:
 [76020 18714  3970   982   264    45     5]
 0 spectral lines found.
 
--- 1159681643 CHANNEL 5 --
+-- 1159681643 CHANNEL ϕ --
 Line model histogram:
 [82205 14774  2511   440    55    11     4]
 0 spectral lines found.
 
--- 1159683282 CHANNEL 5 --
+-- 1159683282 CHANNEL ϕ --
 Line model histogram:
 [81225 15304  2830   533    92    13     3]
 0 spectral lines found.
 All line counts:
-                           0        1        2       3       4      5     6     7     8    9    10   11
-CHANNEL TIME                                                                                           
-0       1.159576e+09  84355.0  13280.0   2003.0   321.0    31.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159577e+09  84089.0  13443.0   2059.0   351.0    45.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159579e+09  83695.0  13720.0   2151.0   350.0    68.0   16.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159581e+09  83803.0  13567.0   2158.0   378.0    83.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159582e+09  84284.0  13288.0   2052.0   320.0    48.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159584e+09  79926.0  16172.0   3216.0   546.0    95.0   25.0  20.0   NaN   NaN  NaN  NaN  NaN
-        1.159585e+09  83181.0  14119.0   2266.0   342.0    64.0   26.0   0.0   2.0   NaN  NaN  NaN  NaN
-        1.159587e+09  83965.0  13505.0   2102.0   349.0    71.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159589e+09  83991.0  13475.0   2094.0   372.0    64.0    4.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159590e+09  83905.0  13667.0   2068.0   307.0    40.0   12.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159592e+09  84126.0  13432.0   2083.0   293.0    60.0    5.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159594e+09  84341.0  13214.0   2132.0   284.0    23.0    6.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159595e+09  84247.0  13450.0   1932.0   302.0    55.0   14.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159597e+09  84138.0  13383.0   2080.0   333.0    62.0    4.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159599e+09  84078.0  13373.0   2163.0   315.0    61.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159600e+09  83480.0  13960.0   2152.0   342.0    57.0    8.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159602e+09  83909.0  13604.0   2097.0   325.0    51.0    9.0   5.0   NaN   NaN  NaN  NaN  NaN
-        1.159603e+09  83952.0  13485.0   2158.0   345.0    57.0    2.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159605e+09  83930.0  13603.0   2102.0   310.0    48.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159607e+09  83927.0  13551.0   2105.0   347.0    59.0    6.0   5.0   NaN   NaN  NaN  NaN  NaN
-        1.159608e+09  83759.0  13666.0   2081.0   421.0    62.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159610e+09  84360.0  13378.0   1951.0   267.0    40.0    4.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159612e+09  84296.0  13330.0   1996.0   333.0    37.0    6.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159613e+09  83656.0  13722.0   2171.0   370.0    74.0    6.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159615e+09  84236.0  13384.0   2054.0   281.0    40.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159617e+09  83527.0  13867.0   2178.0   334.0    81.0   10.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159618e+09  84138.0  13313.0   2114.0   369.0    46.0    8.0   8.0   3.0   1.0  NaN  NaN  NaN
-        1.159620e+09      NaN      NaN      NaN     NaN     NaN    NaN   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159621e+09  84286.0  13378.0   1994.0   304.0    29.0    8.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159623e+09  84105.0  13440.0   2030.0   356.0    43.0    7.0  18.0   1.0   NaN  NaN  NaN  NaN
-        1.159624e+09  84002.0  13446.0   2081.0   394.0    59.0   15.0   0.0   1.0   2.0  NaN  NaN  NaN
-        1.159626e+09  83757.0  13636.0   2193.0   348.0    52.0   14.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159628e+09  84034.0  13510.0   2078.0   334.0    39.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159629e+09  84204.0  13321.0   2088.0   326.0    54.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159631e+09  84039.0  13451.0   2127.0   344.0    33.0    6.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159632e+09  83856.0  13724.0   2055.0   293.0    57.0   15.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159634e+09  84128.0  13487.0   2049.0   282.0    46.0    7.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159636e+09  83477.0  13954.0   2125.0   365.0    66.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159637e+09  83836.0  13667.0   2093.0   357.0    41.0    5.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159639e+09  84292.0  13296.0   2009.0   313.0    85.0    4.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159641e+09  84130.0  13453.0   2047.0   317.0    46.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159642e+09  83971.0  13541.0   2139.0   279.0    57.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159644e+09  84303.0  13190.0   2105.0   328.0    70.0    3.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159646e+09  83754.0  13671.0   2090.0   410.0    70.0    4.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159647e+09  83897.0  13749.0   2050.0   262.0    35.0    3.0   4.0   NaN   NaN  NaN  NaN  NaN
-        1.159649e+09  84008.0  13487.0   2078.0   362.0    56.0    9.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159651e+09  83946.0  13664.0   2095.0   266.0    29.0    NaN   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159652e+09  83843.0  13715.0   2084.0   318.0    36.0    4.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159654e+09  84158.0  13419.0   2030.0   335.0    53.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159655e+09  83322.0  13938.0   2251.0   387.0    85.0   14.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159657e+09  83458.0  13947.0   2178.0   358.0    54.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159659e+09  83923.0  13484.0   2218.0   310.0    55.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159660e+09  84277.0  13357.0   1992.0   322.0    45.0    5.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159662e+09  84316.0  13371.0   1956.0   299.0    48.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159664e+09  83971.0  13611.0   2074.0   291.0    48.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159665e+09  84186.0  13448.0   2070.0   240.0    54.0    2.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159667e+09  84364.0  13291.0   1992.0   293.0    50.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159669e+09  84032.0  13452.0   2099.0   344.0    62.0   10.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159670e+09  83946.0  13537.0   2107.0   354.0    51.0    3.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159672e+09  83682.0  13741.0   2159.0   362.0    54.0    2.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159673e+09  84367.0  13298.0   1986.0   300.0    41.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159675e+09  83324.0  13986.0   2204.0   396.0    80.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159677e+09  83980.0  13615.0   2007.0   325.0    61.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159678e+09  83989.0  13502.0   2114.0   341.0    48.0    4.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159680e+09  84024.0  13543.0   2062.0   312.0    54.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159682e+09  83874.0  13739.0   2039.0   305.0    36.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159683e+09  83996.0  13502.0   2109.0   343.0    48.0    2.0   NaN   NaN   NaN  NaN  NaN  NaN
-1       1.159576e+09  81219.0  15278.0   2826.0   576.0    98.0    3.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159577e+09  81333.0  15383.0   2670.0   496.0   104.0   13.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159579e+09  81603.0  15066.0   2698.0   520.0   106.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159581e+09  81419.0  15231.0   2776.0   493.0    68.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159582e+09  81281.0  15365.0   2792.0   473.0    77.0   11.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159584e+09  81037.0  15495.0   2802.0   563.0   100.0    3.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159585e+09  81246.0  15401.0   2692.0   540.0   105.0   10.0   6.0   NaN   NaN  NaN  NaN  NaN
-        1.159587e+09  81209.0  15248.0   2910.0   507.0   102.0   23.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159589e+09  81423.0  15307.0   2651.0   494.0   100.0   22.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159590e+09  81572.0  15213.0   2611.0   498.0    87.0   17.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159592e+09  81399.0  15271.0   2762.0   472.0    81.0   11.0   2.0   2.0   NaN  NaN  NaN  NaN
-        1.159594e+09  81443.0  15306.0   2649.0   506.0    84.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159595e+09  81405.0  15222.0   2780.0   461.0   117.0   14.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159597e+09  81468.0  15096.0   2819.0   505.0   100.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159599e+09  81227.0  15369.0   2797.0   509.0    90.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159600e+09  81324.0  15295.0   2765.0   510.0    90.0   15.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159602e+09  80832.0  15559.0   2936.0   527.0   117.0   26.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159603e+09  80999.0  15454.0   2962.0   483.0    90.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159605e+09  80135.0  16126.0   3002.0   584.0   111.0   26.0  15.0   1.0   NaN  NaN  NaN  NaN
-        1.159607e+09  81171.0  15378.0   2866.0   494.0    75.0   14.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159608e+09  81317.0  15388.0   2709.0   490.0    80.0   12.0   0.0   4.0   NaN  NaN  NaN  NaN
-        1.159610e+09  81249.0  15314.0   2771.0   532.0   103.0   22.0   7.0   2.0   NaN  NaN  NaN  NaN
-        1.159612e+09  80968.0  15600.0   2824.0   481.0   102.0   19.0   5.0   1.0   NaN  NaN  NaN  NaN
-        1.159613e+09  81520.0  15304.0   2656.0   430.0    76.0   14.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159615e+09  81589.0  15055.0   2757.0   473.0   114.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159617e+09  80918.0  15607.0   2823.0   532.0   102.0   15.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159618e+09  81523.0  15308.0   2662.0   404.0    90.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159620e+09      NaN      NaN      NaN     NaN     NaN    NaN   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159621e+09  80710.0  15604.0   3044.0   550.0    83.0    9.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159623e+09  81375.0  15198.0   2774.0   520.0   105.0   27.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159624e+09  81263.0  15382.0   2705.0   536.0    93.0   20.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159626e+09  81370.0  15312.0   2704.0   503.0    88.0   21.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159628e+09  81255.0  15330.0   2780.0   503.0   117.0   13.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159629e+09  81268.0  15360.0   2723.0   526.0    88.0   23.0  11.0   1.0   NaN  NaN  NaN  NaN
-        1.159631e+09  81524.0  15197.0   2707.0   475.0    85.0   11.0   0.0   1.0   NaN  NaN  NaN  NaN
-        1.159632e+09  81387.0  15226.0   2749.0   525.0    94.0   19.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159634e+09  81121.0  15371.0   2849.0   541.0    92.0   25.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159636e+09  81081.0  15211.0   2986.0   575.0   127.0   20.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159637e+09  81011.0  15588.0   2796.0   504.0    95.0    6.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159639e+09  81191.0  15411.0   2815.0   466.0   106.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159641e+09  81238.0  15486.0   2627.0   523.0   110.0   16.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159642e+09  81632.0  15183.0   2661.0   437.0    76.0    6.0   1.0   4.0   NaN  NaN  NaN  NaN
-        1.159644e+09  81427.0  15305.0   2692.0   464.0   102.0    8.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159646e+09  81245.0  15373.0   2756.0   526.0    92.0    6.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159647e+09  81168.0  15259.0   2919.0   542.0    99.0   11.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159649e+09  81465.0  15277.0   2627.0   537.0    88.0    4.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159651e+09  81214.0  15464.0   2765.0   473.0    73.0    8.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159652e+09  81597.0  15178.0   2652.0   479.0    91.0    3.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159654e+09  81002.0  15572.0   2767.0   538.0   108.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159655e+09  81565.0  15239.0   2709.0   398.0    69.0   20.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159657e+09  81103.0  15423.0   2794.0   566.0    97.0   13.0   4.0   NaN   NaN  NaN  NaN  NaN
-        1.159659e+09  81031.0  15431.0   2849.0   559.0   112.0   18.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159660e+09  80894.0  15710.0   2769.0   489.0   123.0   13.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159662e+09  81088.0  15455.0   2857.0   481.0    92.0   14.0  12.0   1.0   NaN  NaN  NaN  NaN
-        1.159664e+09  81043.0  15519.0   2782.0   546.0    97.0   12.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159665e+09  80886.0  15621.0   2811.0   562.0   108.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159667e+09  81336.0  15278.0   2707.0   536.0   121.0   14.0   3.0   5.0   NaN  NaN  NaN  NaN
-        1.159669e+09  81713.0  15118.0   2568.0   516.0    79.0    6.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159670e+09  81107.0  15526.0   2741.0   533.0    82.0   10.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159672e+09  81172.0  15539.0   2651.0   525.0   100.0   12.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159673e+09  81299.0  15434.0   2635.0   504.0   112.0   15.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159675e+09  81006.0  15608.0   2769.0   513.0    98.0    6.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159677e+09  81175.0  15391.0   2742.0   573.0   110.0    8.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159678e+09  81326.0  15333.0   2699.0   554.0    79.0    9.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159680e+09  81313.0  15404.0   2590.0   580.0   109.0    4.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159682e+09  81058.0  15509.0   2774.0   538.0   104.0   17.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159683e+09  80967.0  15637.0   2819.0   478.0    93.0    5.0   1.0   NaN   NaN  NaN  NaN  NaN
-2       1.159576e+09  81125.0  15544.0   2692.0   525.0    91.0   21.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159577e+09  81097.0  15492.0   2767.0   553.0    77.0   11.0   2.0   1.0   NaN  NaN  NaN  NaN
-        1.159579e+09  81283.0  15412.0   2752.0   468.0    73.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159581e+09  81006.0  15570.0   2833.0   467.0   116.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159582e+09  81147.0  15463.0   2808.0   495.0    79.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159584e+09  81403.0  15171.0   2764.0   546.0   102.0   13.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159585e+09  81006.0  15614.0   2762.0   497.0   106.0   12.0   1.0   1.0   1.0  NaN  NaN  NaN
-        1.159587e+09  81146.0  15556.0   2664.0   504.0   113.0   16.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159589e+09  81186.0  15472.0   2714.0   511.0    95.0   20.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159590e+09  81347.0  15227.0   2845.0   469.0    97.0   13.0   1.0   1.0   NaN  NaN  NaN  NaN
-        1.159592e+09  81473.0  15218.0   2747.0   441.0    94.0   16.0  11.0   NaN   NaN  NaN  NaN  NaN
-        1.159594e+09  81607.0  15045.0   2743.0   500.0    97.0    7.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159595e+09  81355.0  15283.0   2764.0   497.0    89.0    7.0   5.0   NaN   NaN  NaN  NaN  NaN
-        1.159597e+09  81369.0  15216.0   2808.0   507.0    84.0   16.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159599e+09  81269.0  15435.0   2696.0   522.0    64.0   14.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159600e+09  81238.0  15389.0   2762.0   487.0   111.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159602e+09  81089.0  15469.0   2854.0   466.0   115.0    6.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159603e+09  80880.0  15761.0   2760.0   486.0    84.0   26.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159605e+09  81563.0  15157.0   2720.0   467.0    78.0   11.0   2.0   2.0   NaN  NaN  NaN  NaN
-        1.159607e+09  81095.0  15401.0   2822.0   533.0   106.0   30.0  10.0   3.0   NaN  NaN  NaN  NaN
-        1.159608e+09  80803.0  15666.0   2886.0   525.0   106.0   11.0   2.0   1.0   NaN  NaN  NaN  NaN
-        1.159610e+09  81241.0  15542.0   2645.0   475.0    90.0    6.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159612e+09  81013.0  15571.0   2861.0   475.0    73.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159613e+09  80895.0  15555.0   2910.0   518.0    89.0   28.0   4.0   1.0   NaN  NaN  NaN  NaN
-        1.159615e+09  81086.0  15486.0   2840.0   493.0    79.0   12.0   1.0   3.0   NaN  NaN  NaN  NaN
-        1.159617e+09  81356.0  15413.0   2635.0   483.0    83.0   25.0   5.0   NaN   NaN  NaN  NaN  NaN
-        1.159618e+09  80350.0  15833.0   3174.0   522.0   109.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159620e+09      NaN      NaN      NaN     NaN     NaN    NaN   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159621e+09  81175.0  15344.0   2910.0   485.0    70.0   16.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159623e+09  81029.0  15418.0   2936.0   517.0    86.0   12.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159624e+09  80873.0  15728.0   2822.0   498.0    74.0    3.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159626e+09  81144.0  15521.0   2731.0   496.0    97.0   10.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159628e+09  81368.0  15436.0   2627.0   473.0    87.0    9.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159629e+09  81039.0  15408.0   2885.0   541.0   110.0   17.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159631e+09  80643.0  15794.0   2921.0   522.0   113.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159632e+09  81273.0  15373.0   2744.0   493.0   102.0   12.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159634e+09  81077.0  15599.0   2690.0   513.0   113.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159636e+09  81217.0  15379.0   2770.0   491.0   116.0   26.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159637e+09  81228.0  15452.0   2706.0   485.0   122.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159639e+09  81252.0  15456.0   2722.0   471.0    91.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159641e+09  81245.0  15478.0   2673.0   506.0    87.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159642e+09  81192.0  15378.0   2830.0   490.0    84.0   24.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159644e+09  81022.0  15475.0   2891.0   509.0    90.0   12.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159646e+09  81119.0  15558.0   2737.0   473.0   101.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159647e+09  80975.0  15570.0   2827.0   499.0   118.0    9.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159649e+09  81371.0  15410.0   2610.0   505.0    87.0   13.0   4.0   NaN   NaN  NaN  NaN  NaN
-        1.159651e+09  81245.0  15422.0   2760.0   504.0    66.0    3.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159652e+09  81110.0  15439.0   2879.0   443.0   100.0   27.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159654e+09  81566.0  15319.0   2593.0   443.0    69.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159655e+09  80988.0  15700.0   2735.0   490.0    74.0   10.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159657e+09  81595.0  15054.0   2754.0   514.0    74.0    7.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159659e+09  81244.0  15399.0   2792.0   479.0    81.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159660e+09  81192.0  15436.0   2762.0   494.0    99.0   14.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159662e+09  81280.0  15419.0   2679.0   511.0   102.0    9.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159664e+09  80984.0  15601.0   2776.0   554.0    77.0    5.0   1.0   2.0   NaN  NaN  NaN  NaN
-        1.159665e+09  81256.0  15411.0   2707.0   535.0    75.0   13.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159667e+09  80981.0  15668.0   2792.0   469.0    82.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159669e+09  80932.0  15742.0   2726.0   472.0   115.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159670e+09  81474.0  15256.0   2626.0   545.0    89.0    7.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159672e+09  79120.0  16604.0   3420.0   662.0   153.0   33.0   8.0   NaN   NaN  NaN  NaN  NaN
-        1.159673e+09  80887.0  15676.0   2869.0   470.0    94.0    3.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159675e+09  81191.0  15548.0   2729.0   449.0    75.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159677e+09  81102.0  15595.0   2734.0   455.0   101.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159678e+09  80985.0  15480.0   2932.0   520.0    81.0    2.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159680e+09  81088.0  15398.0   2838.0   540.0   121.0   13.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159682e+09  81206.0  15425.0   2790.0   498.0    76.0    4.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159683e+09  81184.0  15407.0   2816.0   473.0   108.0   11.0   1.0   NaN   NaN  NaN  NaN  NaN
-3       1.159576e+09  77675.0  17639.0   3695.0   778.0   177.0   29.0   3.0   3.0   1.0  NaN  NaN  NaN
-        1.159577e+09  77098.0  17967.0   3936.0   817.0   143.0   35.0   4.0   NaN   NaN  NaN  NaN  NaN
-        1.159579e+09  77901.0  17542.0   3583.0   779.0   163.0   30.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159581e+09  77774.0  17714.0   3641.0   703.0   137.0   22.0   7.0   0.0   2.0  NaN  NaN  NaN
-        1.159582e+09  78103.0  17344.0   3569.0   786.0   157.0   38.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159584e+09  77556.0  17684.0   3761.0   794.0   177.0   24.0   4.0   NaN   NaN  NaN  NaN  NaN
-        1.159585e+09  77426.0  17764.0   3835.0   777.0   166.0   27.0   4.0   1.0   NaN  NaN  NaN  NaN
-        1.159587e+09  78024.0  17349.0   3650.0   769.0   157.0   36.0  12.0   3.0   NaN  NaN  NaN  NaN
-        1.159589e+09  77669.0  17542.0   3819.0   773.0   182.0   15.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159590e+09  77960.0  17349.0   3636.0   825.0   171.0   45.0  14.0   NaN   NaN  NaN  NaN  NaN
-        1.159592e+09  77912.0  17599.0   3570.0   720.0   153.0   33.0  11.0   1.0   1.0  NaN  NaN  NaN
-        1.159594e+09  77846.0  17577.0   3584.0   759.0   159.0   60.0   9.0   4.0   2.0  NaN  NaN  NaN
-        1.159595e+09  77792.0  17376.0   3699.0   870.0   183.0   58.0  20.0   2.0   NaN  NaN  NaN  NaN
-        1.159597e+09  78084.0  17292.0   3630.0   737.0   199.0   49.0   7.0   2.0   NaN  NaN  NaN  NaN
-        1.159599e+09  77853.0  17413.0   3784.0   788.0   143.0   18.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159600e+09  77595.0  17609.0   3802.0   737.0   197.0   48.0  10.0   2.0   NaN  NaN  NaN  NaN
-        1.159602e+09  77749.0  17565.0   3687.0   777.0   168.0   49.0   5.0   NaN   NaN  NaN  NaN  NaN
-        1.159603e+09  77596.0  17541.0   3738.0   883.0   195.0   41.0   6.0   NaN   NaN  NaN  NaN  NaN
-        1.159605e+09  77728.0  17640.0   3623.0   794.0   159.0   37.0  16.0   3.0   NaN  NaN  NaN  NaN
-        1.159607e+09  78126.0  17349.0   3571.0   748.0   177.0   27.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159608e+09  77894.0  17362.0   3830.0   725.0   144.0   36.0   8.0   1.0   NaN  NaN  NaN  NaN
-        1.159610e+09  77726.0  17516.0   3745.0   799.0   159.0   41.0  14.0   NaN   NaN  NaN  NaN  NaN
-        1.159612e+09  78215.0  17360.0   3487.0   725.0   185.0   26.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159613e+09  77688.0  17665.0   3726.0   709.0   175.0   34.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159615e+09  77323.0  17803.0   3777.0   818.0   224.0   38.0  13.0   2.0   2.0  NaN  NaN  NaN
-        1.159617e+09  77610.0  17566.0   3742.0   867.0   163.0   41.0  10.0   1.0   NaN  NaN  NaN  NaN
-        1.159618e+09  77952.0  17389.0   3639.0   798.0   181.0   35.0   6.0   NaN   NaN  NaN  NaN  NaN
-        1.159620e+09      NaN      NaN      NaN     NaN     NaN    NaN   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159621e+09  77932.0  17354.0   3697.0   792.0   194.0   30.0   0.0   1.0   NaN  NaN  NaN  NaN
-        1.159623e+09  77777.0  17465.0   3776.0   787.0   165.0   30.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159624e+09  76977.0  17870.0   4045.0   862.0   191.0   51.0   3.0   1.0   NaN  NaN  NaN  NaN
-        1.159626e+09  77654.0  17528.0   3795.0   819.0   159.0   38.0   4.0   1.0   2.0  NaN  NaN  NaN
-        1.159628e+09  77917.0  17297.0   3779.0   849.0   146.0   11.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159629e+09  78372.0  17259.0   3478.0   671.0   165.0   42.0  11.0   2.0   NaN  NaN  NaN  NaN
-        1.159631e+09  77731.0  17505.0   3736.0   842.0   159.0   20.0   2.0   3.0   2.0  NaN  NaN  NaN
-        1.159632e+09  78048.0  17374.0   3661.0   762.0   126.0   28.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159634e+09  76787.0  18115.0   4051.0   810.0   190.0   40.0   7.0   NaN   NaN  NaN  NaN  NaN
-        1.159636e+09  78006.0  17267.0   3696.0   828.0   177.0   23.0   2.0   1.0   NaN  NaN  NaN  NaN
-        1.159637e+09  77728.0  17540.0   3681.0   840.0   178.0   26.0   5.0   2.0   NaN  NaN  NaN  NaN
-        1.159639e+09  78148.0  17091.0   3786.0   741.0   185.0   45.0   3.0   1.0   NaN  NaN  NaN  NaN
-        1.159641e+09  77806.0  17584.0   3625.0   769.0   169.0   36.0   8.0   3.0   NaN  NaN  NaN  NaN
-        1.159642e+09  78303.0  16906.0   3830.0   745.0   162.0   42.0   8.0   1.0   3.0  NaN  NaN  NaN
-        1.159644e+09  78113.0  17335.0   3651.0   713.0   144.0   44.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159646e+09  77600.0  17592.0   3685.0   827.0   228.0   60.0   8.0   NaN   NaN  NaN  NaN  NaN
-        1.159647e+09  77703.0  17689.0   3620.0   740.0   191.0   48.0   9.0   NaN   NaN  NaN  NaN  NaN
-        1.159649e+09  77742.0  17500.0   3736.0   799.0   175.0   48.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159651e+09  77507.0  17757.0   3820.0   734.0   161.0   21.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159652e+09  77749.0  17398.0   3767.0   824.0   236.0   26.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159654e+09  77612.0  17639.0   3692.0   831.0   175.0   37.0   8.0   4.0   2.0  NaN  NaN  NaN
-        1.159655e+09  77654.0  17593.0   3769.0   782.0   170.0   30.0   1.0   0.0   0.0  1.0  NaN  NaN
-        1.159657e+09  77773.0  17527.0   3644.0   785.0   229.0   39.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159659e+09  77679.0  17663.0   3575.0   844.0   199.0   31.0   8.0   1.0   NaN  NaN  NaN  NaN
-        1.159660e+09  77684.0  17599.0   3609.0   852.0   208.0   26.0  10.0   9.0   3.0  NaN  NaN  NaN
-        1.159662e+09  77745.0  17691.0   3636.0   747.0   157.0   24.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159664e+09  77706.0  17598.0   3736.0   747.0   173.0   39.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159665e+09  77857.0  17595.0   3558.0   773.0   164.0   41.0  11.0   1.0   NaN  NaN  NaN  NaN
-        1.159667e+09  77978.0  17437.0   3712.0   703.0   151.0   15.0   3.0   1.0   NaN  NaN  NaN  NaN
-        1.159669e+09  77815.0  17428.0   3788.0   765.0   167.0   35.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159670e+09  77924.0  17342.0   3869.0   698.0   139.0   22.0   6.0   NaN   NaN  NaN  NaN  NaN
-        1.159672e+09  77423.0  17655.0   3884.0   801.0   177.0   44.0  16.0   NaN   NaN  NaN  NaN  NaN
-        1.159673e+09  76755.0  18124.0   3986.0   898.0   197.0   36.0   3.0   1.0   NaN  NaN  NaN  NaN
-        1.159675e+09  77786.0  17484.0   3684.0   806.0   192.0   32.0   4.0   9.0   3.0  NaN  NaN  NaN
-        1.159677e+09  77864.0  17497.0   3619.0   786.0   172.0   58.0   3.0   1.0   NaN  NaN  NaN  NaN
-        1.159678e+09  77861.0  17338.0   3700.0   822.0   209.0   61.0   9.0   NaN   NaN  NaN  NaN  NaN
-        1.159680e+09  77860.0  17576.0   3615.0   765.0   149.0   33.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159682e+09  77789.0  17432.0   3700.0   799.0   232.0   46.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159683e+09  76909.0  18058.0   3972.0   868.0   167.0   23.0   3.0   NaN   NaN  NaN  NaN  NaN
-4       1.159576e+09  82616.0  14516.0   2318.0   426.0    95.0   18.0   8.0   3.0   NaN  NaN  NaN  NaN
-        1.159577e+09  82442.0  14685.0   2394.0   398.0    65.0   15.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159579e+09  82223.0  14885.0   2383.0   410.0    84.0   14.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159581e+09  82296.0  14625.0   2537.0   460.0    74.0    6.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159582e+09  82727.0  14408.0   2354.0   410.0    89.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159584e+09  82501.0  14589.0   2383.0   425.0    81.0   20.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159585e+09  82724.0  14404.0   2368.0   421.0    57.0   18.0   8.0   NaN   NaN  NaN  NaN  NaN
-        1.159587e+09  82491.0  14487.0   2395.0   486.0    96.0   19.0  13.0   5.0   8.0  NaN  NaN  NaN
-        1.159589e+09  82580.0  14370.0   2501.0   436.0    85.0   20.0   8.0   NaN   NaN  NaN  NaN  NaN
-        1.159590e+09  82436.0  14583.0   2415.0   461.0    95.0    8.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159592e+09  82382.0  14576.0   2508.0   444.0    80.0    9.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159594e+09  82493.0  14512.0   2457.0   438.0    86.0   12.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159595e+09  82674.0  14397.0   2394.0   444.0    80.0   10.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159597e+09  82620.0  14494.0   2342.0   441.0    81.0   17.0   5.0   NaN   NaN  NaN  NaN  NaN
-        1.159599e+09  82518.0  14439.0   2476.0   472.0    79.0    8.0   2.0   1.0   0.0  5.0  NaN  NaN
-        1.159600e+09  82555.0  14464.0   2481.0   390.0    85.0   23.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159602e+09  82776.0  14360.0   2375.0   411.0    69.0    9.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159603e+09  82444.0  14590.0   2427.0   455.0    73.0    9.0   0.0   1.0   1.0  NaN  NaN  NaN
-        1.159605e+09  81344.0  15360.0   2643.0   539.0    96.0   18.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159607e+09  82992.0  14152.0   2316.0   449.0    77.0   10.0   4.0   NaN   NaN  NaN  NaN  NaN
-        1.159608e+09  82805.0  14257.0   2445.0   416.0    65.0   11.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159610e+09  81968.0  14944.0   2491.0   464.0   101.0   31.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159612e+09  82793.0  14338.0   2337.0   451.0    67.0   14.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159613e+09  82173.0  14748.0   2478.0   504.0    75.0   14.0   8.0   NaN   NaN  NaN  NaN  NaN
-        1.159615e+09  82898.0  14265.0   2292.0   431.0   103.0    7.0   1.0   3.0   NaN  NaN  NaN  NaN
-        1.159617e+09  82640.0  14411.0   2431.0   422.0    92.0    3.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159618e+09  82471.0  14494.0   2539.0   418.0    60.0   11.0   7.0   NaN   NaN  NaN  NaN  NaN
-        1.159620e+09      NaN      NaN      NaN     NaN     NaN    NaN   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159621e+09  82578.0  14682.0   2264.0   405.0    65.0    6.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159623e+09  82529.0  14589.0   2325.0   477.0    73.0    2.0   5.0   NaN   NaN  NaN  NaN  NaN
-        1.159624e+09  82200.0  14724.0   2484.0   489.0    75.0   25.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159626e+09  82705.0  14366.0   2414.0   409.0    92.0    8.0   4.0   2.0   NaN  NaN  NaN  NaN
-        1.159628e+09  82351.0  14618.0   2487.0   462.0    74.0    6.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159629e+09  82414.0  14627.0   2476.0   394.0    74.0   13.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159631e+09  82650.0  14484.0   2408.0   407.0    44.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159632e+09  81938.0  14918.0   2591.0   454.0    89.0    7.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159634e+09  82484.0  14615.0   2400.0   406.0    89.0    2.0   4.0   NaN   NaN  NaN  NaN  NaN
-        1.159636e+09  82689.0  14457.0   2346.0   433.0    65.0    9.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159637e+09  82672.0  14437.0   2344.0   453.0    89.0    4.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159639e+09  82913.0  14346.0   2244.0   438.0    57.0    1.0   0.0   0.0   0.0  1.0  NaN  NaN
-        1.159641e+09  81303.0  15428.0   2652.0   491.0   102.0   20.0   4.0   NaN   NaN  NaN  NaN  NaN
-        1.159642e+09  82239.0  14710.0   2541.0   420.0    79.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159644e+09  82498.0  14607.0   2400.0   418.0    56.0   16.0   4.0   0.0   1.0  NaN  NaN  NaN
-        1.159646e+09  82906.0  14352.0   2247.0   396.0    89.0    9.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159647e+09  81618.0  15189.0   2588.0   489.0   100.0   13.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159649e+09  82725.0  14419.0   2356.0   417.0    72.0    7.0   4.0   NaN   NaN  NaN  NaN  NaN
-        1.159651e+09  82695.0  14587.0   2226.0   414.0    69.0    8.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159652e+09    144.0  68206.0  23977.0  5885.0  1412.0  303.0  60.0   8.0   5.0  NaN  NaN  NaN
-        1.159654e+09  82168.0  14819.0   2518.0   416.0    69.0    7.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159655e+09  82505.0  14623.0   2369.0   391.0    84.0   16.0  12.0   NaN   NaN  NaN  NaN  NaN
-        1.159657e+09  82803.0  14506.0   2149.0   446.0    82.0   12.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159659e+09  82197.0  14792.0   2518.0   405.0    64.0    8.0   8.0   2.0   2.0  1.0  2.0  1.0
-        1.159660e+09  82250.0  14786.0   2498.0   412.0    49.0    4.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159662e+09  82705.0  14510.0   2328.0   381.0    54.0   13.0   5.0   4.0   NaN  NaN  NaN  NaN
-        1.159664e+09  82695.0  14348.0   2419.0   457.0    68.0   10.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159665e+09  82690.0  14500.0   2332.0   405.0    65.0    6.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159667e+09  82569.0  14624.0   2350.0   374.0    76.0    5.0   1.0   1.0   NaN  NaN  NaN  NaN
-        1.159669e+09  82639.0  14510.0   2369.0   376.0    82.0   15.0   6.0   3.0   NaN  NaN  NaN  NaN
-        1.159670e+09  81713.0  15017.0   2601.0   544.0   105.0   17.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159672e+09  82471.0  14447.0   2513.0   463.0    88.0   12.0   6.0   NaN   NaN  NaN  NaN  NaN
-        1.159673e+09  82614.0  14425.0   2463.0   432.0    56.0    9.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159675e+09  82330.0  14590.0   2481.0   500.0    89.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159677e+09  82262.0  14765.0   2432.0   454.0    60.0   18.0   2.0   4.0   0.0  3.0  NaN  NaN
-        1.159678e+09  82733.0  14509.0   2318.0   374.0    54.0   10.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159680e+09  82728.0  14509.0   2335.0   373.0    48.0    5.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159682e+09  82390.0  14627.0   2505.0   406.0    57.0   11.0   2.0   2.0   NaN  NaN  NaN  NaN
-        1.159683e+09  82486.0  14629.0   2433.0   377.0    55.0   18.0   2.0   NaN   NaN  NaN  NaN  NaN
-5       1.159576e+09  81528.0  15105.0   2811.0   480.0    69.0    6.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159577e+09  80282.0  16102.0   2979.0   550.0    82.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159579e+09  82214.0  14846.0   2402.0   430.0    91.0   15.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159581e+09  81241.0  15254.0   2857.0   555.0    77.0   15.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159582e+09  74699.0  19874.0   4333.0   888.0   155.0   42.0   8.0   1.0   NaN  NaN  NaN  NaN
-        1.159584e+09  77416.0  17646.0   3893.0   867.0   153.0   20.0   5.0   NaN   NaN  NaN  NaN  NaN
-        1.159585e+09  82131.0  14757.0   2509.0   510.0    77.0   13.0   2.0   1.0   NaN  NaN  NaN  NaN
-        1.159587e+09  44945.0  38652.0  12449.0  3066.0   730.0  123.0  30.0   5.0   NaN  NaN  NaN  NaN
-        1.159589e+09  82027.0  14833.0   2522.0   477.0   126.0   10.0   3.0   2.0   NaN  NaN  NaN  NaN
-        1.159590e+09  81902.0  14848.0   2709.0   458.0    71.0   10.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159592e+09    760.0  68605.0  23224.0  5710.0  1232.0  363.0  83.0  22.0   1.0  NaN  NaN  NaN
-        1.159594e+09  79979.0  16100.0   3149.0   634.0   107.0   24.0   4.0   2.0   1.0  NaN  NaN  NaN
-        1.159595e+09  76215.0  18399.0   4161.0   957.0   218.0   45.0   5.0   NaN   NaN  NaN  NaN  NaN
-        1.159597e+09  81577.0  15093.0   2654.0   543.0   101.0   30.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159599e+09  81297.0  15238.0   2787.0   549.0   105.0   22.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159600e+09  81073.0  15404.0   2764.0   595.0   137.0   21.0   6.0   NaN   NaN  NaN  NaN  NaN
-        1.159602e+09  82235.0  14730.0   2547.0   406.0    77.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159603e+09  82188.0  14878.0   2417.0   440.0    66.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159605e+09  82038.0  14776.0   2591.0   473.0    90.0   22.0  10.0   NaN   NaN  NaN  NaN  NaN
-        1.159607e+09  52134.0  34224.0  10479.0  2493.0   562.0   92.0  14.0   2.0   NaN  NaN  NaN  NaN
-        1.159608e+09  82586.0  14487.0   2383.0   442.0    90.0   11.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159610e+09  78542.0  17204.0   3312.0   759.0   164.0   18.0   0.0   0.0   1.0  NaN  NaN  NaN
-        1.159612e+09  82156.0  14786.0   2485.0   464.0    95.0   10.0   4.0   NaN   NaN  NaN  NaN  NaN
-        1.159613e+09  81438.0  15251.0   2716.0   484.0    87.0   22.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159615e+09  81785.0  14910.0   2613.0   544.0   121.0   27.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159617e+09  81475.0  15192.0   2712.0   513.0   100.0    7.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159618e+09  82490.0  14576.0   2473.0   403.0    55.0    3.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159620e+09      NaN      NaN      NaN     NaN     NaN    NaN   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159621e+09  82509.0  14579.0   2420.0   412.0    62.0   11.0   6.0   1.0   NaN  NaN  NaN  NaN
-        1.159623e+09  82347.0  14693.0   2468.0   411.0    70.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159624e+09  81273.0  15332.0   2759.0   515.0   105.0   15.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159626e+09  82105.0  14845.0   2492.0   445.0    90.0   20.0   2.0   1.0   NaN  NaN  NaN  NaN
-        1.159628e+09  81092.0  15680.0   2636.0   498.0    93.0    0.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159629e+09  82163.0  14711.0   2495.0   506.0   107.0   12.0   2.0   3.0   1.0  NaN  NaN  NaN
-        1.159631e+09  82144.0  14672.0   2562.0   535.0    65.0   16.0   5.0   1.0   NaN  NaN  NaN  NaN
-        1.159632e+09  81821.0  14889.0   2724.0   464.0    82.0   17.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159634e+09  78371.0  17177.0   3470.0   808.0   137.0   31.0   6.0   NaN   NaN  NaN  NaN  NaN
-        1.159636e+09   9751.0  61095.0  21769.0  5647.0  1297.0  335.0  77.0  18.0  10.0  1.0  NaN  NaN
-        1.159637e+09  82129.0  14710.0   2606.0   450.0    75.0   13.0   7.0   8.0   2.0  NaN  NaN  NaN
-        1.159639e+09  81764.0  15243.0   2454.0   454.0    76.0    6.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159641e+09  81007.0  15596.0   2763.0   543.0    79.0   10.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159642e+09  81652.0  15209.0   2573.0   468.0    78.0   19.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159644e+09  82439.0  14710.0   2386.0   389.0    70.0    2.0   4.0   NaN   NaN  NaN  NaN  NaN
-        1.159646e+09  81773.0  15035.0   2600.0   481.0   100.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159647e+09  80867.0  15636.0   2854.0   522.0   114.0    6.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159649e+09  82044.0  14737.0   2609.0   510.0    81.0   18.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159651e+09  79954.0  16300.0   3082.0   552.0    84.0   16.0  10.0   2.0   NaN  NaN  NaN  NaN
-        1.159652e+09  81187.0  15457.0   2717.0   540.0    88.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159654e+09  81814.0  15084.0   2468.0   496.0   102.0   26.0   9.0   0.0   1.0  NaN  NaN  NaN
-        1.159655e+09  80932.0  15378.0   2990.0   592.0    93.0   13.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159657e+09  81751.0  15009.0   2564.0   545.0   117.0    9.0   5.0   NaN   NaN  NaN  NaN  NaN
-        1.159659e+09  81163.0  15367.0   2825.0   562.0    71.0   10.0   2.0   NaN   NaN  NaN  NaN  NaN
-        1.159660e+09  81580.0  15285.0   2584.0   449.0    79.0   13.0   7.0   3.0   NaN  NaN  NaN  NaN
-        1.159662e+09  82461.0  14582.0   2424.0   434.0    81.0   17.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159664e+09  82306.0  14724.0   2450.0   417.0    89.0   11.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159665e+09  82081.0  14939.0   2472.0   424.0    74.0    9.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159667e+09  81894.0  14952.0   2610.0   440.0    90.0   14.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159669e+09  80759.0  15617.0   2857.0   609.0   139.0   16.0   3.0   NaN   NaN  NaN  NaN  NaN
-        1.159670e+09  82675.0  14442.0   2375.0   410.0    76.0   21.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159672e+09  75713.0  18967.0   4193.0   922.0   174.0   31.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159673e+09  81810.0  15191.0   2513.0   422.0    59.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
-        1.159675e+09  33803.0  45149.0  15665.0  4082.0   982.0  254.0  51.0  14.0   NaN  NaN  NaN  NaN
-        1.159677e+09  81831.0  15081.0   2589.0   421.0    72.0    5.0   1.0   NaN   NaN  NaN  NaN  NaN
-        1.159678e+09  70358.0  22559.0   5477.0  1258.0   262.0   70.0  15.0   1.0   NaN  NaN  NaN  NaN
-        1.159680e+09  76020.0  18714.0   3970.0   982.0   264.0   45.0   5.0   NaN   NaN  NaN  NaN  NaN
-        1.159682e+09  82205.0  14774.0   2511.0   440.0    55.0   11.0   4.0   NaN   NaN  NaN  NaN  NaN
-        1.159683e+09  81225.0  15304.0   2830.0   533.0    92.0   13.0   3.0   NaN   NaN  NaN  NaN  NaN
+                         0        1        2       3       4      5     6     7     8    9    10   11
+CHANNEL TIME                                                                                         
+x       1159575586  84355.0  13280.0   2003.0   321.0    31.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159577224  84089.0  13443.0   2059.0   351.0    45.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159578862  83695.0  13720.0   2151.0   350.0    68.0   16.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159580501  83803.0  13567.0   2158.0   378.0    83.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159582139  84284.0  13288.0   2052.0   320.0    48.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159583778  79926.0  16172.0   3216.0   546.0    95.0   25.0  20.0   NaN   NaN  NaN  NaN  NaN
+        1159585416  83181.0  14119.0   2266.0   342.0    64.0   26.0   0.0   2.0   NaN  NaN  NaN  NaN
+        1159587054  83965.0  13505.0   2102.0   349.0    71.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159588693  83991.0  13475.0   2094.0   372.0    64.0    4.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159590331  83905.0  13667.0   2068.0   307.0    40.0   12.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159591970  84126.0  13432.0   2083.0   293.0    60.0    5.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159593608  84341.0  13214.0   2132.0   284.0    23.0    6.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159595246  84247.0  13450.0   1932.0   302.0    55.0   14.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159596885  84138.0  13383.0   2080.0   333.0    62.0    4.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159598523  84078.0  13373.0   2163.0   315.0    61.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159600162  83480.0  13960.0   2152.0   342.0    57.0    8.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159601800  83909.0  13604.0   2097.0   325.0    51.0    9.0   5.0   NaN   NaN  NaN  NaN  NaN
+        1159603438  83952.0  13485.0   2158.0   345.0    57.0    2.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159605077  83930.0  13603.0   2102.0   310.0    48.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159606715  83927.0  13551.0   2105.0   347.0    59.0    6.0   5.0   NaN   NaN  NaN  NaN  NaN
+        1159608354  83759.0  13666.0   2081.0   421.0    62.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159609992  84360.0  13378.0   1951.0   267.0    40.0    4.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159611630  84296.0  13330.0   1996.0   333.0    37.0    6.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159613269  83656.0  13722.0   2171.0   370.0    74.0    6.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159614907  84236.0  13384.0   2054.0   281.0    40.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159616546  83527.0  13867.0   2178.0   334.0    81.0   10.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159618184  84138.0  13313.0   2114.0   369.0    46.0    8.0   8.0   3.0   1.0  NaN  NaN  NaN
+        1159621022  84286.0  13378.0   1994.0   304.0    29.0    8.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159622661  84105.0  13440.0   2030.0   356.0    43.0    7.0  18.0   1.0   NaN  NaN  NaN  NaN
+        1159624299  84002.0  13446.0   2081.0   394.0    59.0   15.0   0.0   1.0   2.0  NaN  NaN  NaN
+        1159625938  83757.0  13636.0   2193.0   348.0    52.0   14.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159627576  84034.0  13510.0   2078.0   334.0    39.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159629214  84204.0  13321.0   2088.0   326.0    54.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159630853  84039.0  13451.0   2127.0   344.0    33.0    6.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159632491  83856.0  13724.0   2055.0   293.0    57.0   15.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159634130  84128.0  13487.0   2049.0   282.0    46.0    7.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159635768  83477.0  13954.0   2125.0   365.0    66.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159637406  83836.0  13667.0   2093.0   357.0    41.0    5.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159639045  84292.0  13296.0   2009.0   313.0    85.0    4.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159640683  84130.0  13453.0   2047.0   317.0    46.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159642322  83971.0  13541.0   2139.0   279.0    57.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159643960  84303.0  13190.0   2105.0   328.0    70.0    3.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159645598  83754.0  13671.0   2090.0   410.0    70.0    4.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159647237  83897.0  13749.0   2050.0   262.0    35.0    3.0   4.0   NaN   NaN  NaN  NaN  NaN
+        1159648875  84008.0  13487.0   2078.0   362.0    56.0    9.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159650514  83946.0  13664.0   2095.0   266.0    29.0    NaN   NaN   NaN   NaN  NaN  NaN  NaN
+        1159652152  83843.0  13715.0   2084.0   318.0    36.0    4.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159653790  84158.0  13419.0   2030.0   335.0    53.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159655429  83322.0  13938.0   2251.0   387.0    85.0   14.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159657067  83458.0  13947.0   2178.0   358.0    54.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159658706  83923.0  13484.0   2218.0   310.0    55.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159660344  84277.0  13357.0   1992.0   322.0    45.0    5.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159661982  84316.0  13371.0   1956.0   299.0    48.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159663621  83971.0  13611.0   2074.0   291.0    48.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159665259  84186.0  13448.0   2070.0   240.0    54.0    2.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159666898  84364.0  13291.0   1992.0   293.0    50.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159668536  84032.0  13452.0   2099.0   344.0    62.0   10.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159670174  83946.0  13537.0   2107.0   354.0    51.0    3.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159671813  83682.0  13741.0   2159.0   362.0    54.0    2.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159673451  84367.0  13298.0   1986.0   300.0    41.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159675090  83324.0  13986.0   2204.0   396.0    80.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159676728  83980.0  13615.0   2007.0   325.0    61.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159678366  83989.0  13502.0   2114.0   341.0    48.0    4.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159680005  84024.0  13543.0   2062.0   312.0    54.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159681643  83874.0  13739.0   2039.0   305.0    36.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159683282  83996.0  13502.0   2109.0   343.0    48.0    2.0   NaN   NaN   NaN  NaN  NaN  NaN
+y       1159575586  81219.0  15278.0   2826.0   576.0    98.0    3.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159577224  81333.0  15383.0   2670.0   496.0   104.0   13.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159578862  81603.0  15066.0   2698.0   520.0   106.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159580501  81419.0  15231.0   2776.0   493.0    68.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159582139  81281.0  15365.0   2792.0   473.0    77.0   11.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159583778  81037.0  15495.0   2802.0   563.0   100.0    3.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159585416  81246.0  15401.0   2692.0   540.0   105.0   10.0   6.0   NaN   NaN  NaN  NaN  NaN
+        1159587054  81209.0  15248.0   2910.0   507.0   102.0   23.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159588693  81423.0  15307.0   2651.0   494.0   100.0   22.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159590331  81572.0  15213.0   2611.0   498.0    87.0   17.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159591970  81399.0  15271.0   2762.0   472.0    81.0   11.0   2.0   2.0   NaN  NaN  NaN  NaN
+        1159593608  81443.0  15306.0   2649.0   506.0    84.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159595246  81405.0  15222.0   2780.0   461.0   117.0   14.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159596885  81468.0  15096.0   2819.0   505.0   100.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159598523  81227.0  15369.0   2797.0   509.0    90.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159600162  81324.0  15295.0   2765.0   510.0    90.0   15.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159601800  80832.0  15559.0   2936.0   527.0   117.0   26.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159603438  80999.0  15454.0   2962.0   483.0    90.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159605077  80135.0  16126.0   3002.0   584.0   111.0   26.0  15.0   1.0   NaN  NaN  NaN  NaN
+        1159606715  81171.0  15378.0   2866.0   494.0    75.0   14.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159608354  81317.0  15388.0   2709.0   490.0    80.0   12.0   0.0   4.0   NaN  NaN  NaN  NaN
+        1159609992  81249.0  15314.0   2771.0   532.0   103.0   22.0   7.0   2.0   NaN  NaN  NaN  NaN
+        1159611630  80968.0  15600.0   2824.0   481.0   102.0   19.0   5.0   1.0   NaN  NaN  NaN  NaN
+        1159613269  81520.0  15304.0   2656.0   430.0    76.0   14.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159614907  81589.0  15055.0   2757.0   473.0   114.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159616546  80918.0  15607.0   2823.0   532.0   102.0   15.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159618184  81523.0  15308.0   2662.0   404.0    90.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159621022  80710.0  15604.0   3044.0   550.0    83.0    9.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159622661  81375.0  15198.0   2774.0   520.0   105.0   27.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159624299  81263.0  15382.0   2705.0   536.0    93.0   20.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159625938  81370.0  15312.0   2704.0   503.0    88.0   21.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159627576  81255.0  15330.0   2780.0   503.0   117.0   13.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159629214  81268.0  15360.0   2723.0   526.0    88.0   23.0  11.0   1.0   NaN  NaN  NaN  NaN
+        1159630853  81524.0  15197.0   2707.0   475.0    85.0   11.0   0.0   1.0   NaN  NaN  NaN  NaN
+        1159632491  81387.0  15226.0   2749.0   525.0    94.0   19.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159634130  81121.0  15371.0   2849.0   541.0    92.0   25.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159635768  81081.0  15211.0   2986.0   575.0   127.0   20.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159637406  81011.0  15588.0   2796.0   504.0    95.0    6.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159639045  81191.0  15411.0   2815.0   466.0   106.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159640683  81238.0  15486.0   2627.0   523.0   110.0   16.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159642322  81632.0  15183.0   2661.0   437.0    76.0    6.0   1.0   4.0   NaN  NaN  NaN  NaN
+        1159643960  81427.0  15305.0   2692.0   464.0   102.0    8.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159645598  81245.0  15373.0   2756.0   526.0    92.0    6.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159647237  81168.0  15259.0   2919.0   542.0    99.0   11.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159648875  81465.0  15277.0   2627.0   537.0    88.0    4.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159650514  81214.0  15464.0   2765.0   473.0    73.0    8.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159652152  81597.0  15178.0   2652.0   479.0    91.0    3.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159653790  81002.0  15572.0   2767.0   538.0   108.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159655429  81565.0  15239.0   2709.0   398.0    69.0   20.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159657067  81103.0  15423.0   2794.0   566.0    97.0   13.0   4.0   NaN   NaN  NaN  NaN  NaN
+        1159658706  81031.0  15431.0   2849.0   559.0   112.0   18.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159660344  80894.0  15710.0   2769.0   489.0   123.0   13.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159661982  81088.0  15455.0   2857.0   481.0    92.0   14.0  12.0   1.0   NaN  NaN  NaN  NaN
+        1159663621  81043.0  15519.0   2782.0   546.0    97.0   12.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159665259  80886.0  15621.0   2811.0   562.0   108.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159666898  81336.0  15278.0   2707.0   536.0   121.0   14.0   3.0   5.0   NaN  NaN  NaN  NaN
+        1159668536  81713.0  15118.0   2568.0   516.0    79.0    6.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159670174  81107.0  15526.0   2741.0   533.0    82.0   10.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159671813  81172.0  15539.0   2651.0   525.0   100.0   12.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159673451  81299.0  15434.0   2635.0   504.0   112.0   15.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159675090  81006.0  15608.0   2769.0   513.0    98.0    6.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159676728  81175.0  15391.0   2742.0   573.0   110.0    8.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159678366  81326.0  15333.0   2699.0   554.0    79.0    9.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159680005  81313.0  15404.0   2590.0   580.0   109.0    4.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159681643  81058.0  15509.0   2774.0   538.0   104.0   17.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159683282  80967.0  15637.0   2819.0   478.0    93.0    5.0   1.0   NaN   NaN  NaN  NaN  NaN
+z       1159575586  81125.0  15544.0   2692.0   525.0    91.0   21.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159577224  81097.0  15492.0   2767.0   553.0    77.0   11.0   2.0   1.0   NaN  NaN  NaN  NaN
+        1159578862  81283.0  15412.0   2752.0   468.0    73.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159580501  81006.0  15570.0   2833.0   467.0   116.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159582139  81147.0  15463.0   2808.0   495.0    79.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159583778  81403.0  15171.0   2764.0   546.0   102.0   13.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159585416  81006.0  15614.0   2762.0   497.0   106.0   12.0   1.0   1.0   1.0  NaN  NaN  NaN
+        1159587054  81146.0  15556.0   2664.0   504.0   113.0   16.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159588693  81186.0  15472.0   2714.0   511.0    95.0   20.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159590331  81347.0  15227.0   2845.0   469.0    97.0   13.0   1.0   1.0   NaN  NaN  NaN  NaN
+        1159591970  81473.0  15218.0   2747.0   441.0    94.0   16.0  11.0   NaN   NaN  NaN  NaN  NaN
+        1159593608  81607.0  15045.0   2743.0   500.0    97.0    7.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159595246  81355.0  15283.0   2764.0   497.0    89.0    7.0   5.0   NaN   NaN  NaN  NaN  NaN
+        1159596885  81369.0  15216.0   2808.0   507.0    84.0   16.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159598523  81269.0  15435.0   2696.0   522.0    64.0   14.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159600162  81238.0  15389.0   2762.0   487.0   111.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159601800  81089.0  15469.0   2854.0   466.0   115.0    6.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159603438  80880.0  15761.0   2760.0   486.0    84.0   26.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159605077  81563.0  15157.0   2720.0   467.0    78.0   11.0   2.0   2.0   NaN  NaN  NaN  NaN
+        1159606715  81095.0  15401.0   2822.0   533.0   106.0   30.0  10.0   3.0   NaN  NaN  NaN  NaN
+        1159608354  80803.0  15666.0   2886.0   525.0   106.0   11.0   2.0   1.0   NaN  NaN  NaN  NaN
+        1159609992  81241.0  15542.0   2645.0   475.0    90.0    6.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159611630  81013.0  15571.0   2861.0   475.0    73.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159613269  80895.0  15555.0   2910.0   518.0    89.0   28.0   4.0   1.0   NaN  NaN  NaN  NaN
+        1159614907  81086.0  15486.0   2840.0   493.0    79.0   12.0   1.0   3.0   NaN  NaN  NaN  NaN
+        1159616546  81356.0  15413.0   2635.0   483.0    83.0   25.0   5.0   NaN   NaN  NaN  NaN  NaN
+        1159618184  80350.0  15833.0   3174.0   522.0   109.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159621022  81175.0  15344.0   2910.0   485.0    70.0   16.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159622661  81029.0  15418.0   2936.0   517.0    86.0   12.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159624299  80873.0  15728.0   2822.0   498.0    74.0    3.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159625938  81144.0  15521.0   2731.0   496.0    97.0   10.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159627576  81368.0  15436.0   2627.0   473.0    87.0    9.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159629214  81039.0  15408.0   2885.0   541.0   110.0   17.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159630853  80643.0  15794.0   2921.0   522.0   113.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159632491  81273.0  15373.0   2744.0   493.0   102.0   12.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159634130  81077.0  15599.0   2690.0   513.0   113.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159635768  81217.0  15379.0   2770.0   491.0   116.0   26.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159637406  81228.0  15452.0   2706.0   485.0   122.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159639045  81252.0  15456.0   2722.0   471.0    91.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159640683  81245.0  15478.0   2673.0   506.0    87.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159642322  81192.0  15378.0   2830.0   490.0    84.0   24.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159643960  81022.0  15475.0   2891.0   509.0    90.0   12.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159645598  81119.0  15558.0   2737.0   473.0   101.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159647237  80975.0  15570.0   2827.0   499.0   118.0    9.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159648875  81371.0  15410.0   2610.0   505.0    87.0   13.0   4.0   NaN   NaN  NaN  NaN  NaN
+        1159650514  81245.0  15422.0   2760.0   504.0    66.0    3.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159652152  81110.0  15439.0   2879.0   443.0   100.0   27.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159653790  81566.0  15319.0   2593.0   443.0    69.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159655429  80988.0  15700.0   2735.0   490.0    74.0   10.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159657067  81595.0  15054.0   2754.0   514.0    74.0    7.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159658706  81244.0  15399.0   2792.0   479.0    81.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159660344  81192.0  15436.0   2762.0   494.0    99.0   14.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159661982  81280.0  15419.0   2679.0   511.0   102.0    9.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159663621  80984.0  15601.0   2776.0   554.0    77.0    5.0   1.0   2.0   NaN  NaN  NaN  NaN
+        1159665259  81256.0  15411.0   2707.0   535.0    75.0   13.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159666898  80981.0  15668.0   2792.0   469.0    82.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159668536  80932.0  15742.0   2726.0   472.0   115.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159670174  81474.0  15256.0   2626.0   545.0    89.0    7.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159671813  79120.0  16604.0   3420.0   662.0   153.0   33.0   8.0   NaN   NaN  NaN  NaN  NaN
+        1159673451  80887.0  15676.0   2869.0   470.0    94.0    3.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159675090  81191.0  15548.0   2729.0   449.0    75.0    8.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159676728  81102.0  15595.0   2734.0   455.0   101.0   13.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159678366  80985.0  15480.0   2932.0   520.0    81.0    2.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159680005  81088.0  15398.0   2838.0   540.0   121.0   13.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159681643  81206.0  15425.0   2790.0   498.0    76.0    4.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159683282  81184.0  15407.0   2816.0   473.0   108.0   11.0   1.0   NaN   NaN  NaN  NaN  NaN
+η       1159575586  82616.0  14516.0   2318.0   426.0    95.0   18.0   8.0   3.0   NaN  NaN  NaN  NaN
+        1159577224  82442.0  14685.0   2394.0   398.0    65.0   15.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159578862  82223.0  14885.0   2383.0   410.0    84.0   14.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159580501  82296.0  14625.0   2537.0   460.0    74.0    6.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159582139  82727.0  14408.0   2354.0   410.0    89.0   12.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159583778  82501.0  14589.0   2383.0   425.0    81.0   20.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159585416  82724.0  14404.0   2368.0   421.0    57.0   18.0   8.0   NaN   NaN  NaN  NaN  NaN
+        1159587054  82491.0  14487.0   2395.0   486.0    96.0   19.0  13.0   5.0   8.0  NaN  NaN  NaN
+        1159588693  82580.0  14370.0   2501.0   436.0    85.0   20.0   8.0   NaN   NaN  NaN  NaN  NaN
+        1159590331  82436.0  14583.0   2415.0   461.0    95.0    8.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159591970  82382.0  14576.0   2508.0   444.0    80.0    9.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159593608  82493.0  14512.0   2457.0   438.0    86.0   12.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159595246  82674.0  14397.0   2394.0   444.0    80.0   10.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159596885  82620.0  14494.0   2342.0   441.0    81.0   17.0   5.0   NaN   NaN  NaN  NaN  NaN
+        1159598523  82518.0  14439.0   2476.0   472.0    79.0    8.0   2.0   1.0   0.0  5.0  NaN  NaN
+        1159600162  82555.0  14464.0   2481.0   390.0    85.0   23.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159601800  82776.0  14360.0   2375.0   411.0    69.0    9.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159603438  82444.0  14590.0   2427.0   455.0    73.0    9.0   0.0   1.0   1.0  NaN  NaN  NaN
+        1159605077  81344.0  15360.0   2643.0   539.0    96.0   18.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159606715  82992.0  14152.0   2316.0   449.0    77.0   10.0   4.0   NaN   NaN  NaN  NaN  NaN
+        1159608354  82805.0  14257.0   2445.0   416.0    65.0   11.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159609992  81968.0  14944.0   2491.0   464.0   101.0   31.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159611630  82793.0  14338.0   2337.0   451.0    67.0   14.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159613269  82173.0  14748.0   2478.0   504.0    75.0   14.0   8.0   NaN   NaN  NaN  NaN  NaN
+        1159614907  82898.0  14265.0   2292.0   431.0   103.0    7.0   1.0   3.0   NaN  NaN  NaN  NaN
+        1159616546  82640.0  14411.0   2431.0   422.0    92.0    3.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159618184  82471.0  14494.0   2539.0   418.0    60.0   11.0   7.0   NaN   NaN  NaN  NaN  NaN
+        1159621022  82578.0  14682.0   2264.0   405.0    65.0    6.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159622661  82529.0  14589.0   2325.0   477.0    73.0    2.0   5.0   NaN   NaN  NaN  NaN  NaN
+        1159624299  82200.0  14724.0   2484.0   489.0    75.0   25.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159625938  82705.0  14366.0   2414.0   409.0    92.0    8.0   4.0   2.0   NaN  NaN  NaN  NaN
+        1159627576  82351.0  14618.0   2487.0   462.0    74.0    6.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159629214  82414.0  14627.0   2476.0   394.0    74.0   13.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159630853  82650.0  14484.0   2408.0   407.0    44.0    7.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159632491  81938.0  14918.0   2591.0   454.0    89.0    7.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159634130  82484.0  14615.0   2400.0   406.0    89.0    2.0   4.0   NaN   NaN  NaN  NaN  NaN
+        1159635768  82689.0  14457.0   2346.0   433.0    65.0    9.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159637406  82672.0  14437.0   2344.0   453.0    89.0    4.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159639045  82913.0  14346.0   2244.0   438.0    57.0    1.0   0.0   0.0   0.0  1.0  NaN  NaN
+        1159640683  81303.0  15428.0   2652.0   491.0   102.0   20.0   4.0   NaN   NaN  NaN  NaN  NaN
+        1159642322  82239.0  14710.0   2541.0   420.0    79.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159643960  82498.0  14607.0   2400.0   418.0    56.0   16.0   4.0   0.0   1.0  NaN  NaN  NaN
+        1159645598  82906.0  14352.0   2247.0   396.0    89.0    9.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159647237  81618.0  15189.0   2588.0   489.0   100.0   13.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159648875  82725.0  14419.0   2356.0   417.0    72.0    7.0   4.0   NaN   NaN  NaN  NaN  NaN
+        1159650514  82695.0  14587.0   2226.0   414.0    69.0    8.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159652152    144.0  68206.0  23977.0  5885.0  1412.0  303.0  60.0   8.0   5.0  NaN  NaN  NaN
+        1159653790  82168.0  14819.0   2518.0   416.0    69.0    7.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159655429  82505.0  14623.0   2369.0   391.0    84.0   16.0  12.0   NaN   NaN  NaN  NaN  NaN
+        1159657067  82803.0  14506.0   2149.0   446.0    82.0   12.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159658706  82197.0  14792.0   2518.0   405.0    64.0    8.0   8.0   2.0   2.0  1.0  2.0  1.0
+        1159660344  82250.0  14786.0   2498.0   412.0    49.0    4.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159661982  82705.0  14510.0   2328.0   381.0    54.0   13.0   5.0   4.0   NaN  NaN  NaN  NaN
+        1159663621  82695.0  14348.0   2419.0   457.0    68.0   10.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159665259  82690.0  14500.0   2332.0   405.0    65.0    6.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159666898  82569.0  14624.0   2350.0   374.0    76.0    5.0   1.0   1.0   NaN  NaN  NaN  NaN
+        1159668536  82639.0  14510.0   2369.0   376.0    82.0   15.0   6.0   3.0   NaN  NaN  NaN  NaN
+        1159670174  81713.0  15017.0   2601.0   544.0   105.0   17.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159671813  82471.0  14447.0   2513.0   463.0    88.0   12.0   6.0   NaN   NaN  NaN  NaN  NaN
+        1159673451  82614.0  14425.0   2463.0   432.0    56.0    9.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159675090  82330.0  14590.0   2481.0   500.0    89.0   10.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159676728  82262.0  14765.0   2432.0   454.0    60.0   18.0   2.0   4.0   0.0  3.0  NaN  NaN
+        1159678366  82733.0  14509.0   2318.0   374.0    54.0   10.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159680005  82728.0  14509.0   2335.0   373.0    48.0    5.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159681643  82390.0  14627.0   2505.0   406.0    57.0   11.0   2.0   2.0   NaN  NaN  NaN  NaN
+        1159683282  82486.0  14629.0   2433.0   377.0    55.0   18.0   2.0   NaN   NaN  NaN  NaN  NaN
+θ       1159575586  77675.0  17639.0   3695.0   778.0   177.0   29.0   3.0   3.0   1.0  NaN  NaN  NaN
+        1159577224  77098.0  17967.0   3936.0   817.0   143.0   35.0   4.0   NaN   NaN  NaN  NaN  NaN
+        1159578862  77901.0  17542.0   3583.0   779.0   163.0   30.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159580501  77774.0  17714.0   3641.0   703.0   137.0   22.0   7.0   0.0   2.0  NaN  NaN  NaN
+        1159582139  78103.0  17344.0   3569.0   786.0   157.0   38.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159583778  77556.0  17684.0   3761.0   794.0   177.0   24.0   4.0   NaN   NaN  NaN  NaN  NaN
+        1159585416  77426.0  17764.0   3835.0   777.0   166.0   27.0   4.0   1.0   NaN  NaN  NaN  NaN
+        1159587054  78024.0  17349.0   3650.0   769.0   157.0   36.0  12.0   3.0   NaN  NaN  NaN  NaN
+        1159588693  77669.0  17542.0   3819.0   773.0   182.0   15.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159590331  77960.0  17349.0   3636.0   825.0   171.0   45.0  14.0   NaN   NaN  NaN  NaN  NaN
+        1159591970  77912.0  17599.0   3570.0   720.0   153.0   33.0  11.0   1.0   1.0  NaN  NaN  NaN
+        1159593608  77846.0  17577.0   3584.0   759.0   159.0   60.0   9.0   4.0   2.0  NaN  NaN  NaN
+        1159595246  77792.0  17376.0   3699.0   870.0   183.0   58.0  20.0   2.0   NaN  NaN  NaN  NaN
+        1159596885  78084.0  17292.0   3630.0   737.0   199.0   49.0   7.0   2.0   NaN  NaN  NaN  NaN
+        1159598523  77853.0  17413.0   3784.0   788.0   143.0   18.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159600162  77595.0  17609.0   3802.0   737.0   197.0   48.0  10.0   2.0   NaN  NaN  NaN  NaN
+        1159601800  77749.0  17565.0   3687.0   777.0   168.0   49.0   5.0   NaN   NaN  NaN  NaN  NaN
+        1159603438  77596.0  17541.0   3738.0   883.0   195.0   41.0   6.0   NaN   NaN  NaN  NaN  NaN
+        1159605077  77728.0  17640.0   3623.0   794.0   159.0   37.0  16.0   3.0   NaN  NaN  NaN  NaN
+        1159606715  78126.0  17349.0   3571.0   748.0   177.0   27.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159608354  77894.0  17362.0   3830.0   725.0   144.0   36.0   8.0   1.0   NaN  NaN  NaN  NaN
+        1159609992  77726.0  17516.0   3745.0   799.0   159.0   41.0  14.0   NaN   NaN  NaN  NaN  NaN
+        1159611630  78215.0  17360.0   3487.0   725.0   185.0   26.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159613269  77688.0  17665.0   3726.0   709.0   175.0   34.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159614907  77323.0  17803.0   3777.0   818.0   224.0   38.0  13.0   2.0   2.0  NaN  NaN  NaN
+        1159616546  77610.0  17566.0   3742.0   867.0   163.0   41.0  10.0   1.0   NaN  NaN  NaN  NaN
+        1159618184  77952.0  17389.0   3639.0   798.0   181.0   35.0   6.0   NaN   NaN  NaN  NaN  NaN
+        1159621022  77932.0  17354.0   3697.0   792.0   194.0   30.0   0.0   1.0   NaN  NaN  NaN  NaN
+        1159622661  77777.0  17465.0   3776.0   787.0   165.0   30.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159624299  76977.0  17870.0   4045.0   862.0   191.0   51.0   3.0   1.0   NaN  NaN  NaN  NaN
+        1159625938  77654.0  17528.0   3795.0   819.0   159.0   38.0   4.0   1.0   2.0  NaN  NaN  NaN
+        1159627576  77917.0  17297.0   3779.0   849.0   146.0   11.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159629214  78372.0  17259.0   3478.0   671.0   165.0   42.0  11.0   2.0   NaN  NaN  NaN  NaN
+        1159630853  77731.0  17505.0   3736.0   842.0   159.0   20.0   2.0   3.0   2.0  NaN  NaN  NaN
+        1159632491  78048.0  17374.0   3661.0   762.0   126.0   28.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159634130  76787.0  18115.0   4051.0   810.0   190.0   40.0   7.0   NaN   NaN  NaN  NaN  NaN
+        1159635768  78006.0  17267.0   3696.0   828.0   177.0   23.0   2.0   1.0   NaN  NaN  NaN  NaN
+        1159637406  77728.0  17540.0   3681.0   840.0   178.0   26.0   5.0   2.0   NaN  NaN  NaN  NaN
+        1159639045  78148.0  17091.0   3786.0   741.0   185.0   45.0   3.0   1.0   NaN  NaN  NaN  NaN
+        1159640683  77806.0  17584.0   3625.0   769.0   169.0   36.0   8.0   3.0   NaN  NaN  NaN  NaN
+        1159642322  78303.0  16906.0   3830.0   745.0   162.0   42.0   8.0   1.0   3.0  NaN  NaN  NaN
+        1159643960  78113.0  17335.0   3651.0   713.0   144.0   44.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159645598  77600.0  17592.0   3685.0   827.0   228.0   60.0   8.0   NaN   NaN  NaN  NaN  NaN
+        1159647237  77703.0  17689.0   3620.0   740.0   191.0   48.0   9.0   NaN   NaN  NaN  NaN  NaN
+        1159648875  77742.0  17500.0   3736.0   799.0   175.0   48.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159650514  77507.0  17757.0   3820.0   734.0   161.0   21.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159652152  77749.0  17398.0   3767.0   824.0   236.0   26.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159653790  77612.0  17639.0   3692.0   831.0   175.0   37.0   8.0   4.0   2.0  NaN  NaN  NaN
+        1159655429  77654.0  17593.0   3769.0   782.0   170.0   30.0   1.0   0.0   0.0  1.0  NaN  NaN
+        1159657067  77773.0  17527.0   3644.0   785.0   229.0   39.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159658706  77679.0  17663.0   3575.0   844.0   199.0   31.0   8.0   1.0   NaN  NaN  NaN  NaN
+        1159660344  77684.0  17599.0   3609.0   852.0   208.0   26.0  10.0   9.0   3.0  NaN  NaN  NaN
+        1159661982  77745.0  17691.0   3636.0   747.0   157.0   24.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159663621  77706.0  17598.0   3736.0   747.0   173.0   39.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159665259  77857.0  17595.0   3558.0   773.0   164.0   41.0  11.0   1.0   NaN  NaN  NaN  NaN
+        1159666898  77978.0  17437.0   3712.0   703.0   151.0   15.0   3.0   1.0   NaN  NaN  NaN  NaN
+        1159668536  77815.0  17428.0   3788.0   765.0   167.0   35.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159670174  77924.0  17342.0   3869.0   698.0   139.0   22.0   6.0   NaN   NaN  NaN  NaN  NaN
+        1159671813  77423.0  17655.0   3884.0   801.0   177.0   44.0  16.0   NaN   NaN  NaN  NaN  NaN
+        1159673451  76755.0  18124.0   3986.0   898.0   197.0   36.0   3.0   1.0   NaN  NaN  NaN  NaN
+        1159675090  77786.0  17484.0   3684.0   806.0   192.0   32.0   4.0   9.0   3.0  NaN  NaN  NaN
+        1159676728  77864.0  17497.0   3619.0   786.0   172.0   58.0   3.0   1.0   NaN  NaN  NaN  NaN
+        1159678366  77861.0  17338.0   3700.0   822.0   209.0   61.0   9.0   NaN   NaN  NaN  NaN  NaN
+        1159680005  77860.0  17576.0   3615.0   765.0   149.0   33.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159681643  77789.0  17432.0   3700.0   799.0   232.0   46.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159683282  76909.0  18058.0   3972.0   868.0   167.0   23.0   3.0   NaN   NaN  NaN  NaN  NaN
+ϕ       1159575586  81528.0  15105.0   2811.0   480.0    69.0    6.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159577224  80282.0  16102.0   2979.0   550.0    82.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159578862  82214.0  14846.0   2402.0   430.0    91.0   15.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159580501  81241.0  15254.0   2857.0   555.0    77.0   15.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159582139  74699.0  19874.0   4333.0   888.0   155.0   42.0   8.0   1.0   NaN  NaN  NaN  NaN
+        1159583778  77416.0  17646.0   3893.0   867.0   153.0   20.0   5.0   NaN   NaN  NaN  NaN  NaN
+        1159585416  82131.0  14757.0   2509.0   510.0    77.0   13.0   2.0   1.0   NaN  NaN  NaN  NaN
+        1159587054  44945.0  38652.0  12449.0  3066.0   730.0  123.0  30.0   5.0   NaN  NaN  NaN  NaN
+        1159588693  82027.0  14833.0   2522.0   477.0   126.0   10.0   3.0   2.0   NaN  NaN  NaN  NaN
+        1159590331  81902.0  14848.0   2709.0   458.0    71.0   10.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159591970    760.0  68605.0  23224.0  5710.0  1232.0  363.0  83.0  22.0   1.0  NaN  NaN  NaN
+        1159593608  79979.0  16100.0   3149.0   634.0   107.0   24.0   4.0   2.0   1.0  NaN  NaN  NaN
+        1159595246  76215.0  18399.0   4161.0   957.0   218.0   45.0   5.0   NaN   NaN  NaN  NaN  NaN
+        1159596885  81577.0  15093.0   2654.0   543.0   101.0   30.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159598523  81297.0  15238.0   2787.0   549.0   105.0   22.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159600162  81073.0  15404.0   2764.0   595.0   137.0   21.0   6.0   NaN   NaN  NaN  NaN  NaN
+        1159601800  82235.0  14730.0   2547.0   406.0    77.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159603438  82188.0  14878.0   2417.0   440.0    66.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159605077  82038.0  14776.0   2591.0   473.0    90.0   22.0  10.0   NaN   NaN  NaN  NaN  NaN
+        1159606715  52134.0  34224.0  10479.0  2493.0   562.0   92.0  14.0   2.0   NaN  NaN  NaN  NaN
+        1159608354  82586.0  14487.0   2383.0   442.0    90.0   11.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159609992  78542.0  17204.0   3312.0   759.0   164.0   18.0   0.0   0.0   1.0  NaN  NaN  NaN
+        1159611630  82156.0  14786.0   2485.0   464.0    95.0   10.0   4.0   NaN   NaN  NaN  NaN  NaN
+        1159613269  81438.0  15251.0   2716.0   484.0    87.0   22.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159614907  81785.0  14910.0   2613.0   544.0   121.0   27.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159616546  81475.0  15192.0   2712.0   513.0   100.0    7.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159618184  82490.0  14576.0   2473.0   403.0    55.0    3.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159621022  82509.0  14579.0   2420.0   412.0    62.0   11.0   6.0   1.0   NaN  NaN  NaN  NaN
+        1159622661  82347.0  14693.0   2468.0   411.0    70.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159624299  81273.0  15332.0   2759.0   515.0   105.0   15.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159625938  82105.0  14845.0   2492.0   445.0    90.0   20.0   2.0   1.0   NaN  NaN  NaN  NaN
+        1159627576  81092.0  15680.0   2636.0   498.0    93.0    0.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159629214  82163.0  14711.0   2495.0   506.0   107.0   12.0   2.0   3.0   1.0  NaN  NaN  NaN
+        1159630853  82144.0  14672.0   2562.0   535.0    65.0   16.0   5.0   1.0   NaN  NaN  NaN  NaN
+        1159632491  81821.0  14889.0   2724.0   464.0    82.0   17.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159634130  78371.0  17177.0   3470.0   808.0   137.0   31.0   6.0   NaN   NaN  NaN  NaN  NaN
+        1159635768   9751.0  61095.0  21769.0  5647.0  1297.0  335.0  77.0  18.0  10.0  1.0  NaN  NaN
+        1159637406  82129.0  14710.0   2606.0   450.0    75.0   13.0   7.0   8.0   2.0  NaN  NaN  NaN
+        1159639045  81764.0  15243.0   2454.0   454.0    76.0    6.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159640683  81007.0  15596.0   2763.0   543.0    79.0   10.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159642322  81652.0  15209.0   2573.0   468.0    78.0   19.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159643960  82439.0  14710.0   2386.0   389.0    70.0    2.0   4.0   NaN   NaN  NaN  NaN  NaN
+        1159645598  81773.0  15035.0   2600.0   481.0   100.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159647237  80867.0  15636.0   2854.0   522.0   114.0    6.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159648875  82044.0  14737.0   2609.0   510.0    81.0   18.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159650514  79954.0  16300.0   3082.0   552.0    84.0   16.0  10.0   2.0   NaN  NaN  NaN  NaN
+        1159652152  81187.0  15457.0   2717.0   540.0    88.0   11.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159653790  81814.0  15084.0   2468.0   496.0   102.0   26.0   9.0   0.0   1.0  NaN  NaN  NaN
+        1159655429  80932.0  15378.0   2990.0   592.0    93.0   13.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159657067  81751.0  15009.0   2564.0   545.0   117.0    9.0   5.0   NaN   NaN  NaN  NaN  NaN
+        1159658706  81163.0  15367.0   2825.0   562.0    71.0   10.0   2.0   NaN   NaN  NaN  NaN  NaN
+        1159660344  81580.0  15285.0   2584.0   449.0    79.0   13.0   7.0   3.0   NaN  NaN  NaN  NaN
+        1159661982  82461.0  14582.0   2424.0   434.0    81.0   17.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159663621  82306.0  14724.0   2450.0   417.0    89.0   11.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159665259  82081.0  14939.0   2472.0   424.0    74.0    9.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159666898  81894.0  14952.0   2610.0   440.0    90.0   14.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159668536  80759.0  15617.0   2857.0   609.0   139.0   16.0   3.0   NaN   NaN  NaN  NaN  NaN
+        1159670174  82675.0  14442.0   2375.0   410.0    76.0   21.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159671813  75713.0  18967.0   4193.0   922.0   174.0   31.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159673451  81810.0  15191.0   2513.0   422.0    59.0    5.0   NaN   NaN   NaN  NaN  NaN  NaN
+        1159675090  33803.0  45149.0  15665.0  4082.0   982.0  254.0  51.0  14.0   NaN  NaN  NaN  NaN
+        1159676728  81831.0  15081.0   2589.0   421.0    72.0    5.0   1.0   NaN   NaN  NaN  NaN  NaN
+        1159678366  70358.0  22559.0   5477.0  1258.0   262.0   70.0  15.0   1.0   NaN  NaN  NaN  NaN
+        1159680005  76020.0  18714.0   3970.0   982.0   264.0   45.0   5.0   NaN   NaN  NaN  NaN  NaN
+        1159681643  82205.0  14774.0   2511.0   440.0    55.0   11.0   4.0   NaN   NaN  NaN  NaN  NaN
+        1159683282  81225.0  15304.0   2830.0   533.0    92.0   13.0   3.0   NaN   NaN  NaN  NaN  NaN
 All summaries:
                                          MEDIAN      CI_50_LO      CI_50_HI      CI_90_LO      CI_90_HI
 CHANNEL TIME       LINE PARAMETER                                                                      
-4       1159652152 0    FREQ       1.212189e-01  1.210192e-01  1.213370e-01  1.205947e-01  1.218616e-01
+η       1159652152 0    FREQ       1.212189e-01  1.210192e-01  1.213370e-01  1.205947e-01  1.218616e-01
                         AMP        3.193353e-17  4.733239e-19  3.197337e-17  1.114986e-20  1.388181e-14
                         QF         3.582324e+02  1.000006e+02  3.582382e+02  1.000006e+02  5.627496e+03
-5       1159591970 0    FREQ       9.987222e-01  9.986565e-01  9.990680e-01  9.982647e-01  9.991101e-01
+ϕ       1159591970 0    FREQ       9.987222e-01  9.986565e-01  9.990680e-01  9.982647e-01  9.991101e-01
                         AMP        3.140322e-12  1.067498e-20  3.140322e-12  1.067498e-20  3.030660e-08
                         QF         4.235756e+03  1.000083e+02  4.235756e+03  1.000083e+02  2.945388e+05
         1159635768 0    FREQ       2.382126e-01  2.380953e-01  2.383359e-01  2.378102e-01  2.386503e-01
