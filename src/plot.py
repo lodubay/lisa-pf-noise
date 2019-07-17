@@ -138,9 +138,9 @@ def freq_slice(fig, ax, run, freq, summary, ylim=None):
     fslice = summary.xs(freq, level='FREQ')
     # Scale PSD
     med = fslice['MEDIAN'].median()
-    exp = int(np.log10(med))
-    ylabel = r'$\times 10^{%s}$' % exp
-    summary = summary / (10 ** exp)
+    exp = int(np.floor(np.log10(med)))
+    ylabel = r'PSD [$\times 10^{%s}$]' % exp
+    fslice = fslice / (10 ** exp)
     # Date stuff
     days_elapsed = run.gps2day(fslice.index)
     # Plot 90% credible interval
@@ -157,9 +157,11 @@ def freq_slice(fig, ax, run, freq, summary, ylim=None):
         label='50% credible interval')
     # Plot median
     ax.plot(days_elapsed, fslice['MEDIAN'], label='Median PSD', color='#88419d')
+    
     # Vertical scale
     if not ylim:
         # Smart-ish limits
+        med = fslice['MEDIAN'].median()
         std = fslice['MEDIAN'].std()
         hi = min(
             2 * (fslice['CI_90_HI'].quantile(0.95) - med), 
@@ -173,8 +175,12 @@ def freq_slice(fig, ax, run, freq, summary, ylim=None):
     # Vertical axis limits
     ax.set_ylim(ylim)
     ax.spines['left'].set_bounds(ylim[0], ylim[1])
+    
     # Vertical axis label
     ax.set_ylabel(ylabel)
+    # Vertical axis tick labels
+    ax.yaxis.set_major_formatter(tkr.FormatStrFormatter('%.1f'))
+    ax.yaxis.set_minor_locator(tkr.AutoMinorLocator())
     # Horizontal axis limits
     ax.set_xlim((min(days_elapsed), max(days_elapsed)))
     ax.spines['bottom'].set_bounds(min(days_elapsed), max(days_elapsed))
@@ -270,12 +276,25 @@ def save_freq_grid(run, channel, plot_file, show=False,
     if show: plt.show()
     else: plt.close()
 
-def save_freq_slices(run, channel, plot_file, show=False,
-        frequencies=[1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2]):
-    frequencies.sort(reverse=True)
+def save_freq_slices(run, channel, frequencies, plot_file=None, show=False):
+    '''
+    Input
+    -----
+      run : utils.Run object
+      channel : string, channel name
+      frequencies : 1D Numpy array, approximate frequencies to slice along
+      plot_file : string, path to plot output file if any
+      show : whether to display figure
+    '''
+    # Plot highest frequency on top
+    frequencies = np.flip(np.sort(frequencies))
+    # Set up figure, axes
     fig, axes = plt.subplots(len(frequencies), sharex=True, figsize=(8, 8))
-    fig.suptitle(f'Selected frequencies for {run.mode} {run.name} channel {channel}')
+    fig.suptitle(f'Selected frequencies for {run.mode} {run.name} {channel}')
+    fig.subplots_adjust(hspace=0.4)
+    # Isolate given channel
     df = run.psd_summary.loc[channel]
+    
     # Subplots
     spine_pad = 10
     for i, ax in enumerate(axes):
@@ -286,25 +305,19 @@ def save_freq_slices(run, channel, plot_file, show=False,
         ax.spines['top'].set_visible(False)
         ax.spines['bottom'].set_visible(False)
         ax.tick_params(bottom=False)
-        ax.yaxis.offsetText.set_visible(False)
+        # Remove exponents
         ax.spines['left'].set_position(('outward', spine_pad))
-        # Vertical axis label on first plot in each row
-        #ax.set_ylabel('PSD')
-        #ax.yaxis.set_label_text('PSD ' + formatter.get_offset())
-    # Legend
-    formatter = tkr.ScalarFormatter(useMathText=True)
-    axes[0].yaxis.offsetText.set_visible(True)
-    axes[0].yaxis.set_major_formatter(formatter)
+    
+    # Horizontal axis for bottom plot
     ax.set_xlabel(f'Days elapsed since {run.start_date} UTC')
     ax.spines['bottom'].set_visible(True)
     ax.spines['bottom'].set_position(('outward', spine_pad))
     ax.tick_params(bottom=True)
-    fig.subplots_adjust(hspace=0.4)
-    #ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
+    # Make legend
     handles, labels = ax.get_legend_handles_labels()
     fig.legend(handles, labels)
-    #fig.tight_layout(w_pad=-1.0, rect=[0, 0, 1, 0.92])
-    plt.savefig(plot_file, bbox_inches='tight')
+    # Save / display figure
+    if plot_file: plt.savefig(plot_file, bbox_inches='tight')
     if show: plt.show()
     else: plt.close()
 
