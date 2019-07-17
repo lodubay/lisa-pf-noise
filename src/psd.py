@@ -198,18 +198,13 @@ def main():
         
         # Make plots
         df = run.psd_summary
-        # Test
-        channel = run.channels[0]
-        i = 0
         # Frequency slices
         plot_frequencies = np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2])
-        fslice_file = os.path.join(plot_dir, f'fslice{i}.png')
-        plot.save_freq_slices(run, channel, plot_frequencies, plot_file=fslice_file)
-        
-        '''
         p = utils.Progress(run.channels, 'Plotting...')
-        
         for i, channel in enumerate(run.channels):
+            fslice_file = os.path.join(plot_dir, f'fslice{i}.png')
+            plot.save_freq_slices(run, channel, plot_frequencies, plot_file=fslice_file)
+            '''
             # Colormap
             cmap_file = os.path.join(plot_dir, f'colormap{i}.png')
             plot.save_colormaps(run, channel, cmap_file)
