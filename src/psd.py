@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-import glob
+from glob import glob
 import sys
 import argparse
 
@@ -25,12 +25,12 @@ def import_time(run, time_dir):
     -----
       time_dir : relative path to the time directory
     '''
-    time = int(time_dir[-11:-1])
+    time = run.get_time(time_dir)
     # Column names
     cols = ['FREQ'] + list(run.channels)
     # Sort so that (for example) psd.dat.2 is sorted before psd.dat.19
-    psd_files = sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9]'))) + \
-        sorted(glob.glob(os.path.join(time_dir, 'psd.dat.[0-9][0-9]')))
+    psd_files = sorted(glob(os.path.join(time_dir, 'psd.dat.[0-9]'))) + \
+        sorted(glob(os.path.join(time_dir, 'psd.dat.[0-9][0-9]')))
     # Import PSD files into DataFrame
     time_data = []
     for pf in psd_files:
@@ -160,15 +160,16 @@ def main():
     )
     args = parser.parse_args()
     # Add all runs in data directory if none are specified
-    if len(args.runs) == 0: args.runs = os.listdir('data')
+    if len(args.runs) == 0: 
+        args.runs = glob(f'data{os.sep}*{os.sep}*{os.sep}')
+    runs = [utils.Run(run) for run in args.runs]
     
-    for run in args.runs:
-        run = utils.Run(run)
-        print(f'\n-- {run.name} --')
+    for run in runs:
+        print(f'\n-- {run.mode} {run.name} --')
         # Directories
-        output_dir = os.path.join('out', run.name, 'summaries')
+        output_dir = os.path.join('out', run.mode, run.name, 'summaries')
         if not os.path.exists(output_dir): os.makedirs(output_dir)
-        plot_dir = os.path.join('out', run.name, 'psd_plots')
+        plot_dir = os.path.join('out', run.mode, run.name, 'psd_plots')
         if not os.path.exists(plot_dir): os.makedirs(plot_dir)
         # Output files
         summary_file = os.path.join(output_dir, 'psd.pkl')
@@ -187,23 +188,34 @@ def main():
             run.psd_summary = save_summary(run, summary_file)
         else:
             run.psd_summary = pd.read_pickle(summary_file)
-
+        
+        # Get even slice of n times (for plotting purposes)
+        n = 6
+        indices = [int(i / (n-1) * len(run.gps_times)) for i in range(1,n-1)]
+        slice_times = sorted([run.gps_times[0], run.gps_times[-1]] +
+            [run.gps_times[i] for i in indices]
+        )
+        
         # Make plots
         df = run.psd_summary
+        p = utils.Progress(run.channels, 'Plotting...')
         for i, channel in enumerate(run.channels):
-            print('Plotting channel ' + str(channel) + '...')
             # Colormap
             cmap_file = os.path.join(plot_dir, f'colormap{i}.png')
-            plot.save_colormaps(run, channel, df, cmap_file, show=False)
+            plot.save_colormaps(run, channel, cmap_file)
 
             # Frequency slices
             fslice_file = os.path.join(plot_dir, f'fslice{i}.png')
-            plot.save_freq_slices(run, channel, df, fslice_file, show=False)
+            plot.save_freq_slices(run, channel, fslice_file)
             
-            # Time slices - representative sample
-            # Time plot file name
+            # Time slices
             tslice_file = os.path.join(plot_dir, f'tslice{i}.png')
+            plot.save_time_slices(run, channel, slice_times, tslice_file)
             
+            # Update progress
+            p.update(i)
+            
+            '''
             # Generate / import DataFrame of all times with spectral lines
             if os.path.exists(model_file):
                 print('Line evidence file found. Reading...')
@@ -214,19 +226,11 @@ def main():
             # Return list of times
             line_times = line_df[line_df.loc[:,channel] > 0].index
             
-            # Choose 6 times: beginning, end, and 4 evenly drawn from list
-            l = len(run.gps_times)
-            indices = [int(i / 5 * l) for i in range(1,5)]
-            slice_times = sorted([run.gps_times[0], run.gps_times[-1]] +
-                [run.gps_times[i] for i in indices]
-            )
-            # Plot
-            plot.save_time_slices(run, channel, slice_times, tslice_file)
-            
             # Time slices - all spectral lines
             if len(line_times) > 0:
                 tslice_file = os.path.join(plot_dir, f'tslice_lines{i}.png')
                 plot.save_time_slices(run, channel, line_times, tslice_file)
+            '''
     
     print('Done!')
 

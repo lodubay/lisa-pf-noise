@@ -1,5 +1,5 @@
 import sys
-import glob
+from glob import glob
 import os
 
 import numpy as np
@@ -47,14 +47,19 @@ class Run:
     ''' A class to store information about a given run '''
     channels = np.array(['x', 'y', 'z', 'θ', 'η', 'ϕ'])
     
-    def __init__(self, name, parent_dir='data'):
-        self.name = name
-        run_dir = os.path.join(parent_dir, name)
-        if os.path.exists(run_dir):
+    def __init__(self, path, name=None):
+        self.path = path
+        split_path = path.split(os.sep)
+        self.parent_dir = split_path[0]
+        self.mode = split_path[1]
+        self.name = split_path[2]
+        if os.path.exists(path):
             # Get time directories which contain the data
-            self.time_dirs = sorted(glob.glob(os.path.join(run_dir, '*/')))
+            self.time_dirs = sorted(glob(os.path.join(path, '*'+os.sep)))
             # Various time formats
-            self.gps_times = np.array([int(d[-11:-1]) for d in self.time_dirs])
+            self.gps_times = np.array(
+                sorted([self.get_time(d) for d in self.time_dirs])
+            )
             self.days_elapsed = self.gps2day(self.gps_times)
             self.iso_dates = self.gps2iso(self.gps_times)
             # Median time step in seconds
@@ -64,7 +69,10 @@ class Run:
             # Run start ISO date
             self.start_date = self.iso_dates[0]
         else:
-            print(f'Could not find {name} in {parent_dir}!')
+            print(f'Could not find {self.name} in {self.parent_dir}!')
+    
+    def get_time(self, time_dir):
+        return int(time_dir[-11:-1])
         
     def gps2day(self, gps_time):
         ''' Convert GPS time to days elapsed since run start '''

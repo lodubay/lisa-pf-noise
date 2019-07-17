@@ -202,15 +202,15 @@ def time_slice(fig, ax, time, summary, color='b', ylim=None, logpsd=False):
     if logpsd: ax.set_yscale('log')
     ax.title.set_text(str(time))
 
-def save_colormaps(run, channel, summary, plot_file, show=False):
-    df = summary.loc[channel]
+def save_colormaps(run, channel, plot_file, show=False):
+    df = run.psd_summary.loc[channel]
     # Unstack psd, removing all columns except the median
     unstacked = df['MEDIAN'].unstack(level=0)
     # Find median across all times
     median = unstacked.median(axis=1)
     # Set up figure
     fig, axs = plt.subplots(1, 2, figsize=(14, 6))
-    fig.suptitle(f'Colormap of {run.name} channel {channel} PSD over time')
+    fig.suptitle(f'Colormap of {run.mode} {run.name} channel {channel} PSD over time')
     # Subplots
     axs[0].title.set_text('Absolute difference from median PSD')
     colormap(fig, axs[0], run,
@@ -224,19 +224,18 @@ def save_colormaps(run, channel, summary, plot_file, show=False):
         cmap='PuRd',
         vlims=(0,1)
     )
-    print(f'Saving color plot for {run.name} channel {channel}...')
     plt.savefig(plot_file)
     if show: plt.show()
     else: plt.close()
 
-def save_freq_slices(run, channel, summary, plot_file, show=False,
+def save_freq_slices(run, channel, plot_file, show=False,
         frequencies=[1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2]):
     # Automatically create grid of axes
     nrows = int(np.floor(len(frequencies) ** 0.5))
     ncols = int(np.ceil(1. * len(frequencies) / nrows))
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(f'Selected frequencies for {run.name} channel {channel} PSDs')
-    df = summary.loc[channel]
+    fig.suptitle(f'Selected frequencies for {run.mode} {run.name} channel {channel} PSDs')
+    df = run.psd_summary.loc[channel]
     # Subplots
     for i, freq in enumerate(frequencies):
         ax = fig.add_subplot(nrows, ncols, i+1)
@@ -251,7 +250,6 @@ def save_freq_slices(run, channel, summary, plot_file, show=False,
     handles, labels = ax.get_legend_handles_labels()
     fig.legend(handles, labels)
     fig.tight_layout(w_pad=-1.0, rect=[0, 0, 1, 0.92])
-    print(f'Saving frequency plot for {run.name} channel {channel}...')
     plt.savefig(plot_file)
     if show: plt.show()
     else: plt.close()
@@ -266,7 +264,7 @@ def save_time_slices(run, channel, times, plot_file=None, show=False,
     nrows = int(np.floor(float(len(times)) ** 0.5))
     ncols = int(np.ceil(1. * len(times) / nrows))
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(f'Selected times for {run.name} channel {channel} PSDs')
+    fig.suptitle(f'Selected times for {run.mode} {run.name} channel {channel} PSDs')
     df = run.psd_summary.loc[channel]
     # Subplots
     for i, time in enumerate(times):
@@ -284,9 +282,7 @@ def save_time_slices(run, channel, times, plot_file=None, show=False,
     handles, labels = ax.get_legend_handles_labels()
     fig.legend(handles, labels)
     fig.tight_layout(rect=[0, 0, 1, 0.92])
-    if plot_file: 
-        print(f'Saving frequency plot for {run.name} channel {channel}...')
-        plt.savefig(plot_file)
+    if plot_file: plt.savefig(plot_file)
     if show: plt.show()
     else: plt.close()
 
@@ -307,7 +303,7 @@ def linechain_scatter(run, channel, param, plot_file=None, show=False):
     plt.xlabel(f'Days elapsed since {run.start_date} UTC')
     plt.ylabel(param)
     plt.yscale('log')
-    plt.title(f'{run.name} channel {channel} spectral line {param} over time')
+    plt.title(f'{run.mode} {run.name} channel {channel} spectral line {param} over time')
     if plot_file:
         plt.savefig(plot_file)
     if show: plt.show()
@@ -323,7 +319,7 @@ def linecounts_cmap(run, channel, plot_file=None, show=False):
     # Plot
     fig, ax = plt.subplots(1, 1)
     ax.title.set_text(
-        f'Line model frequency over time for {run.name} channel {channel}'
+        f'Line model frequency over time for {run.mode} {run.name} channel {channel}'
     )
     im = ax.pcolormesh(
         list(counts.index) + [counts.index[-1] + run.dt / (60*60*24)],

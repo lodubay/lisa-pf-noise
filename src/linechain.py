@@ -4,6 +4,7 @@ import os
 import sys
 import itertools
 import argparse
+from glob import glob
 
 import pandas as pd
 import numpy as np
@@ -134,7 +135,7 @@ def summarize_linechain(run, time_dir, channel, time_counts, log):
                     this time and channel
       log : utils.Log object
     '''
-    time = int(time_dir[-11:-1])
+    time = run.get_time(time_dir)
     ch_idx = run.get_channel_index(channel)
     log.log(f'\n-- {time} CHANNEL {channel} --')
     # Import linechain
@@ -260,15 +261,17 @@ def main():
     )
     args = parser.parse_args()
     # Add all runs in data directory if none are specified
-    if len(args.runs) == 0: args.runs = os.listdir('data')
+    if len(args.runs) == 0: 
+        args.runs = glob(f'data{os.sep}*{os.sep}*{os.sep}')
     runs = [utils.Run(run) for run in args.runs]
     
     for run in runs:
-        print(f'\n-- {run.name} --')
+        print(f'\n-- {run.mode} {run.name} --')
         # Directories
-        output_dir = os.path.join('out', run.name, 'summaries')
+        # Directories
+        output_dir = os.path.join('out', run.mode, run.name, 'summaries')
         if not os.path.exists(output_dir): os.makedirs(output_dir)
-        plot_dir = os.path.join('out', run.name, 'linechain_plots')
+        plot_dir = os.path.join('out', run.mode, run.name, 'linechain_plots')
         if not os.path.exists(plot_dir): os.makedirs(plot_dir)
         # Output files
         summary_file = os.path.join(output_dir, 'linechain.pkl')
