@@ -268,7 +268,6 @@ def main():
     for run in runs:
         print(f'\n-- {run.mode} {run.name} --')
         # Directories
-        # Directories
         output_dir = os.path.join('out', run.mode, run.name, 'summaries')
         if not os.path.exists(output_dir): os.makedirs(output_dir)
         plot_dir = os.path.join('out', run.mode, run.name, 'linechain_plots')

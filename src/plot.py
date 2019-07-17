@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.colors
+import matplotlib.ticker as tkr
 
 import psd
 import utils
@@ -135,6 +136,11 @@ def freq_slice(fig, ax, run, freq, summary, ylim=None):
     freq = psd.get_exact_freq(summary, freq)
     # Slice along that frequency
     fslice = summary.xs(freq, level='FREQ')
+    # Scale PSD
+    med = fslice['MEDIAN'].median()
+    exp = int(np.log10(med))
+    ylabel = r'$\times 10^{%s}$' % exp
+    summary = summary / (10 ** exp)
     # Date stuff
     days_elapsed = run.gps2day(fslice.index)
     # Plot 90% credible interval
@@ -142,27 +148,39 @@ def freq_slice(fig, ax, run, freq, summary, ylim=None):
         fslice['CI_90_LO'],
         fslice['CI_90_HI'],
         color='#b3cde3',
-        #alpha=0.2,
         label='90% credible interval')
     # Plot 50% credible interval
     ax.fill_between(days_elapsed,
         fslice['CI_50_LO'],
         fslice['CI_50_HI'], 
         color='#8c96c6',
-        #alpha=0.5,
         label='50% credible interval')
     # Plot median
     ax.plot(days_elapsed, fslice['MEDIAN'], label='Median PSD', color='#88419d')
     # Vertical scale
-    if ylim: 
-        ax.set_ylim(ylim)
-    else:
-        med = fslice['MEDIAN'].median()
+    if not ylim:
+        # Smart-ish limits
         std = fslice['MEDIAN'].std()
-        hi = fslice['CI_90_HI'].quantile(0.95) - med
-        lo = med - fslice['CI_90_LO'].quantile(0.05)
-        ax.set_ylim((max(med - 2 * lo, 0), med + 2 * hi))
-    ax.title.set_text(str(np.around(freq*1000, 3)) + ' mHz')
+        hi = min(
+            2 * (fslice['CI_90_HI'].quantile(0.95) - med), 
+            max(fslice['CI_90_HI']) - med
+        )
+        lo = min(
+            2 * abs(med - fslice['CI_90_LO'].quantile(0.05)), 
+            abs(med - min(fslice['CI_90_LO']))
+        )
+        ylim = (max(med - lo, 0), med + hi)
+    # Vertical axis limits
+    ax.set_ylim(ylim)
+    ax.spines['left'].set_bounds(ylim[0], ylim[1])
+    # Vertical axis label
+    ax.set_ylabel(ylabel)
+    # Horizontal axis limits
+    ax.set_xlim((min(days_elapsed), max(days_elapsed)))
+    ax.spines['bottom'].set_bounds(min(days_elapsed), max(days_elapsed))
+    # Subplot title
+    freq_label = str(np.around(freq*1000, 3)) + ' mHz'
+    ax.set_title(freq_label, loc='left', fontsize='small', )
 
 def time_slice(fig, ax, time, summary, ylim=None, logpsd=False):
     '''
@@ -226,7 +244,7 @@ def save_colormaps(run, channel, plot_file, show=False):
     if show: plt.show()
     else: plt.close()
 
-def save_freq_slices(run, channel, plot_file, show=False,
+def save_freq_grid(run, channel, plot_file, show=False,
         frequencies=[1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2]):
     # Automatically create grid of axes
     nrows = int(np.floor(len(frequencies) ** 0.5))
@@ -249,6 +267,44 @@ def save_freq_slices(run, channel, plot_file, show=False,
     fig.legend(handles, labels)
     fig.tight_layout(w_pad=-1.0, rect=[0, 0, 1, 0.92])
     plt.savefig(plot_file)
+    if show: plt.show()
+    else: plt.close()
+
+def save_freq_slices(run, channel, plot_file, show=False,
+        frequencies=[1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2]):
+    frequencies.sort(reverse=True)
+    fig, axes = plt.subplots(len(frequencies), sharex=True, figsize=(8, 8))
+    fig.suptitle(f'Selected frequencies for {run.mode} {run.name} channel {channel}')
+    df = run.psd_summary.loc[channel]
+    # Subplots
+    spine_pad = 10
+    for i, ax in enumerate(axes):
+        # Plot
+        freq_slice(fig, ax, run, frequencies[i], df)
+        # Remove spines and ticks
+        ax.spines['right'].set_visible(False)
+        ax.spines['top'].set_visible(False)
+        ax.spines['bottom'].set_visible(False)
+        ax.tick_params(bottom=False)
+        ax.yaxis.offsetText.set_visible(False)
+        ax.spines['left'].set_position(('outward', spine_pad))
+        # Vertical axis label on first plot in each row
+        #ax.set_ylabel('PSD')
+        #ax.yaxis.set_label_text('PSD ' + formatter.get_offset())
+    # Legend
+    formatter = tkr.ScalarFormatter(useMathText=True)
+    axes[0].yaxis.offsetText.set_visible(True)
+    axes[0].yaxis.set_major_formatter(formatter)
+    ax.set_xlabel(f'Days elapsed since {run.start_date} UTC')
+    ax.spines['bottom'].set_visible(True)
+    ax.spines['bottom'].set_position(('outward', spine_pad))
+    ax.tick_params(bottom=True)
+    fig.subplots_adjust(hspace=0.4)
+    #ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
+    handles, labels = ax.get_legend_handles_labels()
+    fig.legend(handles, labels)
+    #fig.tight_layout(w_pad=-1.0, rect=[0, 0, 1, 0.92])
+    plt.savefig(plot_file, bbox_inches='tight')
     if show: plt.show()
     else: plt.close()
 
