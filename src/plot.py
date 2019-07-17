@@ -118,7 +118,7 @@ def all_psds(fig, ax, time_dir, channel, xlim=None, ylim=None):
     ax.set_xscale('log')
     ax.set_yscale('log')
     
-def freq_slice(fig, ax, run, freq, summary, color='b', ylim=None):
+def freq_slice(fig, ax, run, freq, summary, ylim=None):
     '''
     Plots time vs PSD at a specific frequency.
 
@@ -137,22 +137,22 @@ def freq_slice(fig, ax, run, freq, summary, color='b', ylim=None):
     fslice = summary.xs(freq, level='FREQ')
     # Date stuff
     days_elapsed = run.gps2day(fslice.index)
-    # Plot 50% credible interval
-    ax.fill_between(days_elapsed,
-        fslice['CI_50_LO'],
-        fslice['CI_50_HI'], 
-        color=color,
-        alpha=0.5,
-        label='50% credible interval')
     # Plot 90% credible interval
     ax.fill_between(days_elapsed,
         fslice['CI_90_LO'],
         fslice['CI_90_HI'],
-        color=color,
-        alpha=0.2,
+        color='#b3cde3',
+        #alpha=0.2,
         label='90% credible interval')
+    # Plot 50% credible interval
+    ax.fill_between(days_elapsed,
+        fslice['CI_50_LO'],
+        fslice['CI_50_HI'], 
+        color='#8c96c6',
+        #alpha=0.5,
+        label='50% credible interval')
     # Plot median
-    ax.plot(days_elapsed, fslice['MEDIAN'], label='Median PSD', color=color)
+    ax.plot(days_elapsed, fslice['MEDIAN'], label='Median PSD', color='#88419d')
     # Vertical scale
     if ylim: 
         ax.set_ylim(ylim)
@@ -164,7 +164,7 @@ def freq_slice(fig, ax, run, freq, summary, color='b', ylim=None):
         ax.set_ylim((max(med - 2 * lo, 0), med + 2 * hi))
     ax.title.set_text(str(np.around(freq*1000, 3)) + ' mHz')
 
-def time_slice(fig, ax, time, summary, color='b', ylim=None, logpsd=False):
+def time_slice(fig, ax, time, summary, ylim=None, logpsd=False):
     '''
     Plots frequency vs PSD at a specific time.
 
@@ -179,24 +179,22 @@ def time_slice(fig, ax, time, summary, color='b', ylim=None, logpsd=False):
     '''
     # Get time slice
     tslice = summary.xs(time)
-    # Plot 50% credible interval
-    ax.fill_between(tslice.index, 
-        tslice['CI_50_LO'], 
-        tslice['CI_50_HI'],
-        color=color, 
-        alpha=0.5,
-        label='50% credible interval')
     # Plot 90% credible interval
     ax.fill_between(tslice.index, 
         tslice['CI_90_LO'], 
         tslice['CI_90_HI'],
-        color=color, 
-        alpha=0.1,
+        color='#a1dab4', 
+        #alpha=0.1,
         label='90% credible interval')
+    # Plot 50% credible interval
+    ax.fill_between(tslice.index, 
+        tslice['CI_50_LO'], 
+        tslice['CI_50_HI'],
+        color='#41b6c4', 
+        #alpha=0.5,
+        label='50% credible interval')
     # Plot median
-    ax.plot(tslice.index, tslice['MEDIAN'], 
-        label='Median PSD', 
-        color=color)
+    ax.plot(tslice.index, tslice['MEDIAN'], label='Median PSD', color='#225ea8')
     ax.set_xscale('log')
     if ylim: ax.set_ylim(ylim)
     if logpsd: ax.set_yscale('log')
@@ -234,7 +232,7 @@ def save_freq_slices(run, channel, plot_file, show=False,
     nrows = int(np.floor(len(frequencies) ** 0.5))
     ncols = int(np.ceil(1. * len(frequencies) / nrows))
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(f'Selected frequencies for {run.mode} {run.name} channel {channel} PSDs')
+    fig.suptitle(f'Selected frequencies for {run.mode} {run.name} channel {channel}')
     df = run.psd_summary.loc[channel]
     # Subplots
     for i, freq in enumerate(frequencies):
@@ -264,7 +262,7 @@ def save_time_slices(run, channel, times, plot_file=None, show=False,
     nrows = int(np.floor(float(len(times)) ** 0.5))
     ncols = int(np.ceil(1. * len(times) / nrows))
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(f'Selected times for {run.mode} {run.name} channel {channel} PSDs')
+    fig.suptitle(f'Selected times for {run.mode} {run.name} channel {channel}')
     df = run.psd_summary.loc[channel]
     # Subplots
     for i, time in enumerate(times):

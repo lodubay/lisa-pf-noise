@@ -41,7 +41,7 @@ psd.dat.99
 
 ## PSD analysis
 
-Execute `$ src/psd.py 'run_a' 'run_b' ...`
+Execute `$ src/psd.py 'data/<mode>/run_a' 'data/<mode>/run_b' ...`
 
 The script will first generate and save summary DataFrames, and then create
 colormap, time slice, and frequency slice plots for each channel. Summaries
@@ -59,7 +59,7 @@ If no arguments are specified, the script will run on all runs within the
 
 ## Spectral line analysis
 
-Execute `$ src/linechain.py 'run_a' 'run_b' ...`
+Execute `$ src/linechain.py 'data/<mode>/run_a' 'data/<mode>/run_b' ...`
 
 This script looks at the time variation of spectral line parameters. It draws
 from the `linechain_channel<X>.dat` files and finds the median value and
