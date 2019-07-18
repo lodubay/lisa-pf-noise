@@ -173,7 +173,7 @@ def freq_slice(fig, ax, run, freq, summary, ylim=None, exp=None):
             2 * abs(med - fslice['CI_90_LO'].quantile(0.05)), 
             abs(med - min(fslice['CI_90_LO']))
         )
-        ylim = (max(med - lo, 0), med + hi)
+        ylim = (med - lo, med + hi)
     # Vertical axis limits
     ax.set_ylim(ylim)
     ax.spines['left'].set_bounds(ylim[0], ylim[1])
@@ -286,13 +286,13 @@ def save_freq_slices(run, channel, frequencies, plot_file=None, show=False):
       run : utils.Run object
       channel : string, channel name
       frequencies : 1D Numpy array, approximate frequencies to slice along
-      plot_file : string, path to plot output file if any
-      show : whether to display figure
+      plot_file : string, path to plot output file, if any
+      show : whether to display figure, defaults to no
     '''
     # Plot highest frequency on top
     frequencies = np.flip(np.sort(frequencies))
     # Set up figure, axes
-    fig, axes = plt.subplots(len(frequencies), sharex=True, figsize=(8, 8))
+    fig, axes = plt.subplots(len(frequencies), figsize=(8, 8))
     fig.suptitle(f'Selected frequencies for {run.mode} {run.name} {channel}')
     fig.subplots_adjust(hspace=0.4)
     # Isolate given channel
@@ -307,21 +307,30 @@ def save_freq_slices(run, channel, frequencies, plot_file=None, show=False):
         # Remove spines and ticks
         ax.spines['right'].set_visible(False)
         ax.spines['top'].set_visible(False)
-        ax.spines['bottom'].set_visible(False)
         ax.spines['left'].set_position(('outward', spine_pad))
-        ax.tick_params(bottom=False)
         # Only add a y-axis label if the exponent differs
         if exp_new != exp:
             ylabel = r'PSD [$\times 10^{%s}$]' % exp_new
             ax.set_ylabel(ylabel, rotation=0, fontsize='small')
             ax.yaxis.set_label_coords(0, 1)
         exp = exp_new
+        # Parameters for most plots
+        if i+1 < len(axes):
+            ax.spines['bottom'].set_visible(False)
+            ax.tick_params(bottom=False)
+            # Horizontal axis ticks
+            ax.xaxis.set_major_locator(tkr.NullLocator())
+            ax.xaxis.set_minor_locator(tkr.NullLocator())
+        # Bottom plot parameters
+        else:
+            # Horizontal axis for bottom plot
+            ax.set_xlabel(f'Days elapsed since {run.start_date} UTC')
+            ax.spines['bottom'].set_visible(True)
+            ax.spines['bottom'].set_position(('outward', spine_pad))
+            ax.tick_params(bottom=True)
+            # Minor ticks
+            ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
     
-    # Horizontal axis for bottom plot
-    ax.set_xlabel(f'Days elapsed since {run.start_date} UTC')
-    ax.spines['bottom'].set_visible(True)
-    ax.spines['bottom'].set_position(('outward', spine_pad))
-    ax.tick_params(bottom=True)
     # Make legend
     handles, labels = ax.get_legend_handles_labels()
     fig.legend(handles, labels)

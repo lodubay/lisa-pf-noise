@@ -202,16 +202,14 @@ def main():
         plot_frequencies = np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2])
         p = utils.Progress(run.channels, 'Plotting...')
         for i, channel in enumerate(run.channels):
-            fslice_file = os.path.join(plot_dir, f'fslice{i}.png')
-            plot.save_freq_slices(run, channel, plot_frequencies, plot_file=fslice_file)
-            '''
             # Colormap
             cmap_file = os.path.join(plot_dir, f'colormap{i}.png')
             plot.save_colormaps(run, channel, cmap_file)
 
             # Frequency slices
             fslice_file = os.path.join(plot_dir, f'fslice{i}.png')
-            plot.save_freq_grid(run, channel, fslice_file)
+            #plot.save_freq_grid(run, channel, fslice_file)
+            plot.save_freq_slices(run, channel, plot_frequencies, plot_file=fslice_file)
             
             # Time slices
             tslice_file = os.path.join(plot_dir, f'tslice{i}.png')
@@ -220,7 +218,7 @@ def main():
             # Update progress
             p.update(i)
             
-            
+            '''
             # Generate / import DataFrame of all times with spectral lines
             if os.path.exists(model_file):
                 print('Line evidence file found. Reading...')
