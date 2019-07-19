@@ -137,8 +137,8 @@ def freq_slice(fig, ax, run, freq, summary, ylim=None, exp=None):
     # Slice along that frequency
     fslice = summary.xs(freq, level='FREQ')
     # Scale PSD
-    med = fslice['MEDIAN'].median()
-    exp = int(np.floor(np.log10(med)))
+    #med = fslice['MEDIAN'].median()
+    exp = int(np.floor(np.log10(fslice['MEDIAN'].median())))
     fslice = fslice / (10 ** exp)
     # Date stuff
     days_elapsed = run.gps2day(fslice.index)
@@ -279,7 +279,7 @@ def save_freq_grid(run, channel, plot_file, show=False,
     if show: plt.show()
     else: plt.close()
 
-def save_freq_slices(run, channel, frequencies, plot_file=None, show=False):
+def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show=False):
     '''
     Input
     -----
@@ -289,21 +289,36 @@ def save_freq_slices(run, channel, frequencies, plot_file=None, show=False):
       plot_file : string, path to plot output file, if any
       show : whether to display figure, defaults to no
     '''
-    # Plot highest frequency on top
-    frequencies = np.flip(np.sort(frequencies))
-    # Set up figure, axes
-    fig, axes = plt.subplots(len(frequencies), figsize=(8, 8))
-    fig.suptitle(f'Selected frequencies for {run.mode} {run.name} {channel}')
-    fig.subplots_adjust(hspace=0.4)
     # Isolate given channel
     df = run.psd_summary.loc[channel]
+    
+    # Find micrometeoroid impacts, if any
+    if len(impacts) > 0:
+        # Find impact times
+        gps_times = df.index.unique(level='TIME')
+        days = run.gps2day(gps_times)
+        impacts = impacts[
+                (impacts['GPS'] >= gps_times[0]) \
+              & (impacts['GPS'] <= gps_times[-1])]
+        impact_days = run.gps2day(impacts['GPS'])
+    
+    # Plot highest frequency on top
+    frequencies = np.flip(np.sort(frequencies))
+    # Set up figure, grid
+    fig = plt.figure(figsize=(8, 8))
+    plot_height = 4
+    grid_height = plot_height * len(frequencies) + int(len(impact_days) > 0)
+    hspace = 2
+    grid = plt.GridSpec(grid_height, 1, hspace=hspace)
+    fig.suptitle(f'Selected frequencies for {run.mode} {run.name} {channel}')
     
     # Subplots
     spine_pad = 10
     exp = 0
-    for i, ax in enumerate(axes):
+    for i, freq in enumerate(frequencies):
+        ax = fig.add_subplot(grid[plot_height*i:plot_height*i+plot_height, 0])
         # Plot
-        exp_new = freq_slice(fig, ax, run, frequencies[i], df)
+        exp_new = freq_slice(fig, ax, run, freq, df)
         # Remove spines and ticks
         ax.spines['right'].set_visible(False)
         ax.spines['top'].set_visible(False)
@@ -315,7 +330,7 @@ def save_freq_slices(run, channel, frequencies, plot_file=None, show=False):
             ax.yaxis.set_label_coords(0, 1)
         exp = exp_new
         # Parameters for most plots
-        if i+1 < len(axes):
+        if i+1 < len(frequencies) or len(impact_days) > 0:
             ax.spines['bottom'].set_visible(False)
             ax.tick_params(bottom=False)
             # Horizontal axis ticks
@@ -334,6 +349,37 @@ def save_freq_slices(run, channel, frequencies, plot_file=None, show=False):
     # Make legend
     handles, labels = ax.get_legend_handles_labels()
     fig.legend(handles, labels)
+    
+    # Plot micrometeoroid impacts, if any
+    if len(impact_days) > 0:
+        # Add subplot in very bottom row
+        ax = fig.add_subplot(grid[-1:, 0])
+        # Scatter impact days
+        ax.scatter(impact_days, [0] * len(impact_days), c='red', marker='x')
+        # Remove left, right, top axes
+        ax.get_yaxis().set_ticks([])
+        ax.spines['left'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.spines['top'].set_visible(False)
+        # y axis label
+        ax.set_ylabel('Impacts', rotation=0, position=(0, -0.5), color='red',
+                verticalalignment='bottom', horizontalalignment='right')
+        # x axis parameters
+        ax.set_xlim(days[0], days[-1])
+        ax.set_xlabel(f'Days elapsed since {run.start_date} UTC')
+        ax.spines['bottom'].set_position(('outward', spine_pad))
+        ax.tick_params(bottom=True)
+        # Minor ticks
+        ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
+        '''
+        for time in impacts['GPS']:
+            day = run.gps2day(time)
+            lineheight = len(axes) + (len(axes) - 1) * hspace
+            ax.axvline(day, -hspace / 2., lineheight, color='r', clip_on=False)
+            #labely = ylim[0] - (ylim[1] - ylim[0]) * 0.15
+            #ax.text(day,  labely, run.gps2iso(time), fontsize='small')
+            '''
+    
     # Save / display figure
     if plot_file: plt.savefig(plot_file, bbox_inches='tight')
     if show: plt.show()

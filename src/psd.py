@@ -142,6 +142,12 @@ def get_exact_freq(summary, approx_freq):
     freq_index = int(round(approx_freq / (max(freqs) - min(freqs)) * len(freqs)))
     return freqs[freq_index]
 
+def get_impacts(impacts_file):
+    cols = ['DATE', 'GPS', 'P_MED', 'P_CI_LO', 'P_CI_HI', 'FACE', 'LOCAL', 
+            'LAT_SC', 'LON_SC', 'LAT_SSE', 'LON_SSE', 'LPF_X', 'LPF_Y', 'LPF_Z']
+    impacts = pd.read_csv(impacts_file, sep=' ', names=cols, na_values='-')
+    return impacts
+
 def main():
     # Argument parser
     parser = argparse.ArgumentParser(
@@ -163,6 +169,12 @@ def main():
     if len(args.runs) == 0: 
         args.runs = glob(f'data{os.sep}*{os.sep}*{os.sep}')
     runs = [utils.Run(run) for run in args.runs]
+    
+    # Import impacts file, if any
+    impacts_file = 'impacts.dat'
+    impacts = None
+    if os.path.exists(impacts_file):
+        impacts = get_impacts(impacts_file)
     
     for run in runs:
         print(f'\n-- {run.mode} {run.name} --')
@@ -209,7 +221,7 @@ def main():
             # Frequency slices
             fslice_file = os.path.join(plot_dir, f'fslice{i}.png')
             #plot.save_freq_grid(run, channel, fslice_file)
-            plot.save_freq_slices(run, channel, plot_frequencies, plot_file=fslice_file)
+            plot.save_freq_slices(run, channel, plot_frequencies, impacts=impacts, plot_file=fslice_file)
             
             # Time slices
             tslice_file = os.path.join(plot_dir, f'tslice{i}.png')
