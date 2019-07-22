@@ -204,11 +204,15 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
     hspace = 2 # Relative spaceing between subplots
     impactplot_height = 1 # Relative height of the impacts subplot
     spine_pad = 10 # Spine offset from subplots
+    axlabelpad = 10 # Padding between axis label and spine
     # Font sizes
     ticklabelsize = 'large'
     axlabelsize = 'large'
     titlesize = 'x-large'
     legendsize = 'large'
+    # Labels and titles
+    plot_title = f'Selected frequencies for {run.mode} {run.name} {channel}'
+    xlabel = f'Days elapsed since {run.start_date} UTC'
     
     # Isolate given channel
     df = run.psd_summary.loc[channel]
@@ -229,20 +233,22 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
     
     # Set up figure, grid
     fig = plt.figure(figsize=figsize)
-    grid_height = plot_height * len(frequencies) + impactplot_height * int(len(impact_days) > 0)
+    grid_height = plot_height * len(frequencies) + \
+            impactplot_height * int(len(impact_days) > 0)
     grid = plt.GridSpec(grid_height, 1, hspace=hspace)
-    fig.suptitle(f'Selected frequencies for {run.mode} {run.name} {channel}')
+    fig.suptitle(plot_title, fontsize=titlesize)
     
     # Subplots
     exp_old = 0 # Meaningless default exponent
     for i, freq in enumerate(frequencies):
         # Add new subplot
         ax = fig.add_subplot(grid[plot_height*i:plot_height*i+plot_height, 0])
+        ylabel = f'PSD at\n{np.around(freq*1000, 3)} mHz'
         
         # Set up DataFrames
         fslice = df.xs(freq, level='FREQ') # Frequency slice
         exp = int(np.floor(np.log10(fslice['MEDIAN'].median()))) # Get exponent
-        fslice = fslice / (10 ** exp) # Scale
+        #fslice = fslice / (10 ** exp) # Scale
         days_elapsed = run.gps2day(fslice.index) # Convert to days elapsed
         
         # Plot 90% credible interval
@@ -273,15 +279,17 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
         ax.spines['bottom'].set_bounds(min(days_elapsed), max(days_elapsed))
         
         # Format left vertical axis
-        ax.yaxis.set_major_formatter(tkr.FormatStrFormatter('%.1f'))
+        #ax.yaxis.set_major_formatter(tkr.FormatStrFormatter('%.1f'))
+        ax.set_ylabel(ylabel, fontsize=axlabelsize, rotation=0, 
+                ha='right', va='center', labelpad=axlabelpad)
         ax.yaxis.set_minor_locator(tkr.AutoMinorLocator())
         ax.spines['left'].set_position(('outward', spine_pad))
         ax.tick_params(axis='y', which='major', labelsize=ticklabelsize)
-        # Only add a y-axis label if the exponent differs
-        if exp != exp_old:
-            ylabel = r'PSD [$\times 10^{%s}$]' % exp
-            ax.set_ylabel(ylabel, rotation=0, fontsize='large')
-            ax.yaxis.set_label_coords(0, 1)
+        # Only add an exponent label if it's different than above
+        ax.ticklabel_format(axis='y', useMathText=True)
+        ax.yaxis.get_offset_text().set_x(-0.005 * spine_pad)
+        if exp == exp_old:
+            ax.yaxis.get_offset_text().set_visible(False)
         exp_old = exp
         
         # Format bottom horizontal axis
@@ -294,11 +302,11 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
             ax.xaxis.set_minor_locator(tkr.NullLocator())
         else:
             # Horizontal axis for bottom plot
-            ax.set_xlabel(f'Days elapsed since {run.start_date} UTC', 
-                    fontsize=axlabelsize)
+            ax.set_xlabel(xlabel, fontsize=axlabelsize)
             ax.spines['bottom'].set_visible(True)
             ax.spines['bottom'].set_position(('outward', spine_pad))
             ax.tick_params(bottom=True)
+            ax.tick_params(axis='x', which='major', labelsize=ticklabelsize)
             # Minor ticks
             ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
         
@@ -307,12 +315,12 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
         ax.spines['top'].set_visible(False)
         
         # Subplot title
-        freq_label = str(np.around(freq*1000, 3)) + ' mHz'
-        ax.set_title(freq_label, loc='center', fontsize='large', pad=1)
+        #freq_label = str(np.around(freq*1000, 3)) + ' mHz'
+        #ax.set_title(freq_label, loc='center', fontsize='large', pad=1)
     
     # Make legend
     handles, labels = ax.get_legend_handles_labels()
-    fig.legend(handles, labels)
+    fig.legend(handles, labels, fontsize=legendsize)
     
     # Plot micrometeoroid impacts, if any
     if len(impact_days) > 0:
@@ -335,14 +343,6 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
         ax.tick_params(bottom=True)
         # Minor ticks
         ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
-        '''
-        for time in impacts['GPS']:
-            day = run.gps2day(time)
-            lineheight = len(axes) + (len(axes) - 1) * hspace
-            ax.axvline(day, -hspace / 2., lineheight, color='r', clip_on=False)
-            #labely = ylim[0] - (ylim[1] - ylim[0]) * 0.15
-            #ax.text(day,  labely, run.gps2iso(time), fontsize='small')
-            '''
     
     # Save / display figure
     if plot_file: plt.savefig(plot_file, bbox_inches='tight')
