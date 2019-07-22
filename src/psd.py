@@ -26,29 +26,41 @@ def import_time(run, time_dir):
       time_dir : relative path to the time directory
     '''
     time = run.get_time(time_dir)
-    # Column names
-    cols = ['FREQ'] + list(run.channels)
     # Sort so that (for example) psd.dat.2 is sorted before psd.dat.19
     psd_files = sorted(glob(os.path.join(time_dir, 'psd.dat.[0-9]'))) + \
         sorted(glob(os.path.join(time_dir, 'psd.dat.[0-9][0-9]')))
     # Import PSD files into DataFrame
     time_data = []
     for pf in psd_files:
+        # Import data file
         psd = pd.read_csv(
-            pf, sep=' ', usecols=range(len(cols)), names=cols, index_col=0
+            pf, sep=' ', usecols=range(run.channels.shape[0]+1), 
+            header=None, index_col=0
         )
+        # Add index column name
+        psd.index.name = 'FREQ'
+        # Round frequency index to 6 decimals to deal with floating point issues
+        psd.index = np.around(psd.index, 6)
+        # Add channel names
+        psd.columns = pd.Series(run.channels, name='CHANNEL')
+        # Add time level to index
+        psd['TIME'] = time
+        psd.set_index('TIME', append=True, inplace=True)
         # Concatenate columns vertically
-        psd = pd.concat([psd[channel] for channel in run.channels])
+        psd = psd.stack()
         time_data.append(psd)
     # Concatenate psd series horizontally
     time_data = pd.concat(time_data, axis=1, ignore_index=True)
+    # Reorder and sort multiindex levels
+    time_data = time_data.reorder_levels(['CHANNEL', 'TIME', 'FREQ']).sort_index()
+    '''
     # Define MultiIndex
-    # Round frequency index to 6 decimals to deal with floating point issues
     time_data.index = pd.MultiIndex.from_product(
         [run.channels, [time],
             np.around(time_data.index.unique(level='FREQ'), 6)], 
         names=['CHANNEL', 'TIME', 'FREQ']
     )
+    '''
     # Strip rows of 2s
     return time_data[time_data.iloc[:,0] < 2]
 
