@@ -288,6 +288,8 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
         # Only add an exponent label if it's different than above
         ax.ticklabel_format(axis='y', useMathText=True)
         ax.yaxis.get_offset_text().set_x(-0.005 * spine_pad)
+        exp_txt = ax.yaxis.get_offset_text()
+        exp_txt.set_size(ticklabelsize)
         if exp == exp_old:
             ax.yaxis.get_offset_text().set_visible(False)
         exp_old = exp
@@ -320,7 +322,9 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
     
     # Make legend
     handles, labels = ax.get_legend_handles_labels()
-    fig.legend(handles, labels, fontsize=legendsize)
+    order = [0, 2, 1] # Reorder legend
+    fig.legend([handles[i] for i in order], [labels[i] for i in order], 
+            fontsize=legendsize)
     
     # Plot micrometeoroid impacts, if any
     if len(impact_days) > 0:
