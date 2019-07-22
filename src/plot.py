@@ -96,10 +96,13 @@ def colormap(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, center=None):
     ax.set_yscale('log')
     ax.set_ylim(bottom=1e-3, top=1.)
     # Axis labels
-    ax.set_xlabel(f'Days elapsed since {run.start_date} UTC')
-    ax.set_ylabel('Frequency (Hz)')
+    ax.set_xlabel(f'Days elapsed since {run.start_date} UTC', fontsize='large')
+    ax.set_ylabel('Frequency (Hz)', fontsize='large')
+    # Tick label size
+    ax.tick_params(axis='both', which='major', labelsize='large')
     # Add and label colorbar
     cbar = fig.colorbar(im, ax=ax)
+    cbar.ax.tick_params(labelsize='large')
     if cbar_label:
         cbar.set_label(cbar_label, labelpad=15, rotation=270)
 
@@ -118,78 +121,6 @@ def all_psds(fig, ax, time_dir, channel, xlim=None, ylim=None):
     else: ax.set_ylim(auto=True)
     ax.set_xscale('log')
     ax.set_yscale('log')
-    
-def freq_slice(fig, ax, run, freq, summary, ylim=None, exp=None):
-    '''
-    Plots time vs PSD at a specific frequency.
-
-    Input
-    -----
-      fig, ax : the figure and axes of the plot
-      freq : the approximate frequency along which to slice
-      run : Run object
-      summary : the summary DataFrame
-      color : the color of the plot, optional
-      ylim : tuple of y axis bounds, optional
-    '''
-    # Get the index of the nearest frequency to the one requested
-    freq = psd.get_exact_freq(summary, freq)
-    # Slice along that frequency
-    fslice = summary.xs(freq, level='FREQ')
-    # Scale PSD
-    #med = fslice['MEDIAN'].median()
-    exp = int(np.floor(np.log10(fslice['MEDIAN'].median())))
-    fslice = fslice / (10 ** exp)
-    # Date stuff
-    days_elapsed = run.gps2day(fslice.index)
-    
-    # Plot 90% credible interval
-    ax.fill_between(days_elapsed,
-        fslice['CI_90_LO'],
-        fslice['CI_90_HI'],
-        color='#b3cde3',
-        label='90% credible interval')
-    # Plot 50% credible interval
-    ax.fill_between(days_elapsed,
-        fslice['CI_50_LO'],
-        fslice['CI_50_HI'], 
-        color='#8c96c6',
-        label='50% credible interval')
-    # Plot median
-    ax.plot(days_elapsed, fslice['MEDIAN'], label='Median PSD', color='#88419d')
-    # Plot median horizontal dashed line
-    #ax.axhline(med / (10 ** exp), -0.1, 1.1, ls='--', color='grey', lw=1) 
-    
-    # Vertical scale
-    if not ylim:
-        # Smart-ish limits
-        med = fslice['MEDIAN'].median()
-        std = fslice['MEDIAN'].std()
-        hi = min(
-            2 * (fslice['CI_90_HI'].quantile(0.95) - med), 
-            max(fslice['CI_90_HI']) - med
-        )
-        lo = min(
-            2 * abs(med - fslice['CI_90_LO'].quantile(0.05)), 
-            abs(med - min(fslice['CI_90_LO']))
-        )
-        ylim = (med - lo, med + hi)
-    # Vertical axis limits
-    ax.set_ylim(ylim)
-    ax.spines['left'].set_bounds(ylim[0], ylim[1])
-    
-    # Vertical axis tick labels
-    ax.yaxis.set_major_formatter(tkr.FormatStrFormatter('%.1f'))
-    ax.yaxis.set_minor_locator(tkr.AutoMinorLocator())
-    # Horizontal axis limits
-    ax.set_xlim((min(days_elapsed), max(days_elapsed)))
-    ax.spines['bottom'].set_bounds(min(days_elapsed), max(days_elapsed))
-    # Subplot title
-    freq_label = str(np.around(freq*1000, 3)) + ' mHz'
-    ax.set_title(freq_label, loc='center', fontsize='medium', pad=1)
-    
-    # Return exponent for subplotting purposes
-    return exp
 
 def time_slice(fig, ax, time, summary, ylim=None, logpsd=False):
     '''
@@ -235,7 +166,11 @@ def save_colormaps(run, channel, plot_file, show=False):
     median = unstacked.median(axis=1)
     # Set up figure
     fig, axs = plt.subplots(1, 2, figsize=(14, 6))
-    fig.suptitle(f'Colormap of {run.mode} {run.name} channel {channel} PSD over time')
+    fig.suptitle(
+        f'Colormap of {run.mode} {run.name} channel {channel} PSD over time\n' + 
+        f'Start date {run.start_date} UTC',
+        fontsize='x-large'
+    )
     # Subplots
     axs[0].title.set_text('Absolute difference from median PSD')
     colormap(fig, axs[0], run,
@@ -253,32 +188,6 @@ def save_colormaps(run, channel, plot_file, show=False):
     if show: plt.show()
     else: plt.close()
 
-def save_freq_grid(run, channel, plot_file, show=False,
-        frequencies=[1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2]):
-    # Automatically create grid of axes
-    nrows = int(np.floor(len(frequencies) ** 0.5))
-    ncols = int(np.ceil(1. * len(frequencies) / nrows))
-    fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(f'Selected frequencies for {run.mode} {run.name} channel {channel}')
-    df = run.psd_summary.loc[channel]
-    # Subplots
-    for i, freq in enumerate(frequencies):
-        ax = fig.add_subplot(nrows, ncols, i+1)
-        freq_slice(fig, ax, run, frequencies[i], df)
-        # Vertical axis label on first plot in each row
-        if i % ncols == 0:
-            ax.set_ylabel('PSD')
-        # Horizontal axis label on bottom plot in each column
-        if i >= len(frequencies) - ncols:
-            ax.set_xlabel('Days elapsed since ' + str(run.start_date) + ' UTC')
-    # Legend
-    handles, labels = ax.get_legend_handles_labels()
-    fig.legend(handles, labels)
-    fig.tight_layout(w_pad=-1.0, rect=[0, 0, 1, 0.92])
-    plt.savefig(plot_file)
-    if show: plt.show()
-    else: plt.close()
-
 def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show=False):
     '''
     Input
@@ -289,8 +198,24 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
       plot_file : string, path to plot output file, if any
       show : whether to display figure, defaults to no
     '''
+    # Tweakables
+    figsize = (8, 8) # Relative figure size
+    plot_height = 4 # Relative height of each subplot
+    hspace = 2 # Relative spaceing between subplots
+    impactplot_height = 1 # Relative height of the impacts subplot
+    spine_pad = 10 # Spine offset from subplots
+    # Font sizes
+    ticklabelsize = 'large'
+    axlabelsize = 'large'
+    titlesize = 'x-large'
+    legendsize = 'large'
+    
     # Isolate given channel
     df = run.psd_summary.loc[channel]
+    # Get nearest actual frequencies to those requested
+    frequencies = psd.get_exact_freq(df, frequencies)
+    # Plot highest frequency on top
+    frequencies = np.flip(np.sort(frequencies))
     
     # Find micrometeoroid impacts, if any
     if len(impacts) > 0:
@@ -302,49 +227,88 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
               & (impacts['GPS'] <= gps_times[-1])]
         impact_days = run.gps2day(impacts['GPS'])
     
-    # Plot highest frequency on top
-    frequencies = np.flip(np.sort(frequencies))
     # Set up figure, grid
-    fig = plt.figure(figsize=(8, 8))
-    plot_height = 4
-    grid_height = plot_height * len(frequencies) + int(len(impact_days) > 0)
-    hspace = 2
+    fig = plt.figure(figsize=figsize)
+    grid_height = plot_height * len(frequencies) + impactplot_height * int(len(impact_days) > 0)
     grid = plt.GridSpec(grid_height, 1, hspace=hspace)
     fig.suptitle(f'Selected frequencies for {run.mode} {run.name} {channel}')
     
     # Subplots
-    spine_pad = 10
-    exp = 0
+    exp_old = 0 # Meaningless default exponent
     for i, freq in enumerate(frequencies):
+        # Add new subplot
         ax = fig.add_subplot(grid[plot_height*i:plot_height*i+plot_height, 0])
-        # Plot
-        exp_new = freq_slice(fig, ax, run, freq, df)
-        # Remove spines and ticks
-        ax.spines['right'].set_visible(False)
-        ax.spines['top'].set_visible(False)
+        
+        # Set up DataFrames
+        fslice = df.xs(freq, level='FREQ') # Frequency slice
+        exp = int(np.floor(np.log10(fslice['MEDIAN'].median()))) # Get exponent
+        fslice = fslice / (10 ** exp) # Scale
+        days_elapsed = run.gps2day(fslice.index) # Convert to days elapsed
+        
+        # Plot 90% credible interval
+        ax.fill_between(days_elapsed, fslice['CI_90_LO'], fslice['CI_90_HI'],
+                color='#b3cde3', label='90% credible interval')
+        # Plot 50% credible interval
+        ax.fill_between(days_elapsed, fslice['CI_50_LO'], fslice['CI_50_HI'], 
+                color='#8c96c6', label='50% credible interval')
+        # Plot median
+        ax.plot(days_elapsed, fslice['MEDIAN'], 
+                label='Median PSD', color='#88419d')
+        # Plot median horizontal dashed line
+        #ax.axhline(med / (10 ** exp), -0.1, 1.1, ls='--', color='grey', lw=1) 
+        
+        # Smart-ish axis limits
+        med = fslice['MEDIAN'].median()
+        std = fslice['MEDIAN'].std()
+        hi = min(2 * (fslice['CI_90_HI'].quantile(0.95) - med), 
+                 max(fslice['CI_90_HI']) - med)
+        lo = min(2 * abs(med - fslice['CI_90_LO'].quantile(0.05)), 
+                 abs(med - min(fslice['CI_90_LO'])))
+        ylim = (med - lo, med + hi)
+        # Set vertical axis limits
+        ax.set_ylim(ylim)
+        ax.spines['left'].set_bounds(ylim[0], ylim[1])
+        # Horizontal axis limits
+        ax.set_xlim((min(days_elapsed), max(days_elapsed)))
+        ax.spines['bottom'].set_bounds(min(days_elapsed), max(days_elapsed))
+        
+        # Format left vertical axis
+        ax.yaxis.set_major_formatter(tkr.FormatStrFormatter('%.1f'))
+        ax.yaxis.set_minor_locator(tkr.AutoMinorLocator())
         ax.spines['left'].set_position(('outward', spine_pad))
+        ax.tick_params(axis='y', which='major', labelsize=ticklabelsize)
         # Only add a y-axis label if the exponent differs
-        if exp_new != exp:
-            ylabel = r'PSD [$\times 10^{%s}$]' % exp_new
-            ax.set_ylabel(ylabel, rotation=0, fontsize='small')
+        if exp != exp_old:
+            ylabel = r'PSD [$\times 10^{%s}$]' % exp
+            ax.set_ylabel(ylabel, rotation=0, fontsize='large')
             ax.yaxis.set_label_coords(0, 1)
-        exp = exp_new
-        # Parameters for most plots
+        exp_old = exp
+        
+        # Format bottom horizontal axis
         if i+1 < len(frequencies) or len(impact_days) > 0:
+            # Remove bottom axis if not the bottom plot
             ax.spines['bottom'].set_visible(False)
             ax.tick_params(bottom=False)
             # Horizontal axis ticks
             ax.xaxis.set_major_locator(tkr.NullLocator())
             ax.xaxis.set_minor_locator(tkr.NullLocator())
-        # Bottom plot parameters
         else:
             # Horizontal axis for bottom plot
-            ax.set_xlabel(f'Days elapsed since {run.start_date} UTC')
+            ax.set_xlabel(f'Days elapsed since {run.start_date} UTC', 
+                    fontsize=axlabelsize)
             ax.spines['bottom'].set_visible(True)
             ax.spines['bottom'].set_position(('outward', spine_pad))
             ax.tick_params(bottom=True)
             # Minor ticks
             ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
+        
+        # Remove spines and ticks for other axes
+        ax.spines['right'].set_visible(False)
+        ax.spines['top'].set_visible(False)
+        
+        # Subplot title
+        freq_label = str(np.around(freq*1000, 3)) + ' mHz'
+        ax.set_title(freq_label, loc='center', fontsize='large', pad=1)
     
     # Make legend
     handles, labels = ax.get_legend_handles_labels()

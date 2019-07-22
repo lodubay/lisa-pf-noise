@@ -144,15 +144,17 @@ def save_summary(run, summary_file):
     summaries.to_pickle(summary_file)
     return summaries
 
-def get_exact_freq(summary, approx_freq):
+def get_exact_freq(summary, approx_freqs):
     '''
     Takes an approximate input frequency and returns the closest measured
     frequency in the data.
     '''
     gps_times = list(summary.index.unique(level='TIME'))
-    freqs = list(summary.xs(gps_times[0]).index)
-    freq_index = int(round(approx_freq / (max(freqs) - min(freqs)) * len(freqs)))
-    return freqs[freq_index]
+    freqs = np.array(summary.xs(gps_times[0]).index)
+    freq_indices = list(np.round(
+            approx_freqs / (np.max(freqs) - np.min(freqs)) * len(freqs)
+    ).astype(int))
+    return freqs[freq_indices]
 
 def get_impacts(impacts_file):
     cols = ['DATE', 'GPS', 'P_MED', 'P_CI_LO', 'P_CI_HI', 'FACE', 'LOCAL', 
