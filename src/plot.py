@@ -199,14 +199,16 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
       show : whether to display figure, defaults to no
     '''
     # Tweakables
-    figsize = (8, 8) # Relative figure size
+    figsize = (10, 7.5) # Relative figure size
     plot_height = 4 # Relative height of each subplot
     hspace = 2 # Relative spaceing between subplots
     impactplot_height = 1 # Relative height of the impacts subplot
     spine_pad = 10 # Spine offset from subplots
+    scaled_offset = 0.002 * spine_pad # Scaled spine_pad
     axlabelpad = 10 # Padding between axis label and spine
     # Font sizes
     ticklabelsize = 'large'
+    offsetsize = 'medium'
     axlabelsize = 'large'
     titlesize = 'x-large'
     legendsize = 'large'
@@ -237,19 +239,24 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
             impactplot_height * int(len(impact_days) > 0)
     grid = plt.GridSpec(grid_height, 1, hspace=hspace)
     fig.suptitle(plot_title, fontsize=titlesize)
+    fig.tight_layout()
     
     # Subplots
     exp_old = 0 # Meaningless default exponent
     for i, freq in enumerate(frequencies):
         # Add new subplot
         ax = fig.add_subplot(grid[plot_height*i:plot_height*i+plot_height, 0])
-        ylabel = f'PSD at\n{np.around(freq*1000, 3)} mHz'
+        ylabel = f'PSD'
         
         # Set up DataFrames
         fslice = df.xs(freq, level='FREQ') # Frequency slice
         exp = int(np.floor(np.log10(fslice['MEDIAN'].median()))) # Get exponent
         #fslice = fslice / (10 ** exp) # Scale
         days_elapsed = run.gps2day(fslice.index) # Convert to days elapsed
+        
+        # Frequency label
+        ax.text(1.01 * days_elapsed[-1], fslice.loc[fslice.index[-1], 'MEDIAN'],
+                f'{np.around(freq*1000, 3)} mHz', fontsize=legendsize, va='center')
         
         # Plot 90% credible interval
         ax.fill_between(days_elapsed, fslice['CI_90_LO'], fslice['CI_90_HI'],
@@ -260,8 +267,6 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
         # Plot median
         ax.plot(days_elapsed, fslice['MEDIAN'], 
                 label='Median PSD', color='#88419d')
-        # Plot median horizontal dashed line
-        #ax.axhline(med / (10 ** exp), -0.1, 1.1, ls='--', color='grey', lw=1) 
         
         # Smart-ish axis limits
         med = fslice['MEDIAN'].median()
@@ -280,16 +285,17 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
         
         # Format left vertical axis
         #ax.yaxis.set_major_formatter(tkr.FormatStrFormatter('%.1f'))
-        ax.set_ylabel(ylabel, fontsize=axlabelsize, rotation=0, 
-                ha='right', va='center', labelpad=axlabelpad)
+        ax.yaxis.set_major_formatter(tkr.ScalarFormatter())
+        #ax.set_ylabel(ylabel, fontsize=axlabelsize, rotation=0, 
+        #        ha='right', va='center', labelpad=axlabelpad)
         ax.yaxis.set_minor_locator(tkr.AutoMinorLocator())
         ax.spines['left'].set_position(('outward', spine_pad))
         ax.tick_params(axis='y', which='major', labelsize=ticklabelsize)
         # Only add an exponent label if it's different than above
         ax.ticklabel_format(axis='y', useMathText=True)
-        ax.yaxis.get_offset_text().set_x(-0.005 * spine_pad)
         exp_txt = ax.yaxis.get_offset_text()
-        exp_txt.set_size(ticklabelsize)
+        exp_txt.set_x(-0.005 * spine_pad)
+        exp_txt.set_size(offsetsize)
         if exp == exp_old:
             ax.yaxis.get_offset_text().set_visible(False)
         exp_old = exp
@@ -316,9 +322,12 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
         ax.spines['right'].set_visible(False)
         ax.spines['top'].set_visible(False)
         
-        # Subplot title
-        #freq_label = str(np.around(freq*1000, 3)) + ' mHz'
-        #ax.set_title(freq_label, loc='center', fontsize='large', pad=1)
+    # Add big subplot for common y axis label
+    fig.add_subplot(111, frameon=False)
+    plt.tick_params(labelcolor='none', top=False, bottom=False, left=False, 
+            right=False, which='both')
+    plt.grid(False)
+    plt.ylabel(ylabel, fontsize=axlabelsize, ha='center', va='center', labelpad=25)
     
     # Make legend
     handles, labels = ax.get_legend_handles_labels()
