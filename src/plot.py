@@ -188,7 +188,8 @@ def save_colormaps(run, channel, plot_file, show=False):
     if show: plt.show()
     else: plt.close()
 
-def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show=False):
+def save_freq_slices(run, channel, frequencies, impacts=[], 
+        plot_file=None, show=False):
     '''
     Input
     -----
@@ -204,16 +205,17 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
     hspace = 2 # Relative spaceing between subplots
     impactplot_height = 1 # Relative height of the impacts subplot
     spine_pad = 10 # Spine offset from subplots
-    scaled_offset = 0.002 * spine_pad # Scaled spine_pad
+    scaled_offset = 0.0025 * spine_pad # Scaled spine_pad
     axlabelpad = 10 # Padding between axis label and spine
     # Font sizes
     ticklabelsize = 'large'
     offsetsize = 'medium'
     axlabelsize = 'large'
-    titlesize = 'x-large'
+    titlesize = 'xx-large'
     legendsize = 'large'
     # Labels and titles
-    plot_title = f'Selected frequencies for {run.mode} {run.name} {channel}'
+    plot_title = f'{run.mode} mode {run.name}, channel {channel}' \
+                +f'\nPSD at selected frequencies over time'
     xlabel = f'Days elapsed since {run.start_date} UTC'
     
     # Isolate given channel
@@ -231,12 +233,11 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
         impacts = impacts[
                 (impacts['GPS'] >= gps_times[0]) \
               & (impacts['GPS'] <= gps_times[-1])]
-        impact_days = run.gps2day(impacts['GPS'])
+        impact_days = run.gps2day(impacts['GPS']).to_numpy()
     
     # Set up figure, grid
     fig = plt.figure(figsize=figsize)
-    grid_height = plot_height * len(frequencies) + \
-            impactplot_height * int(len(impact_days) > 0)
+    grid_height = plot_height * len(frequencies)
     grid = plt.GridSpec(grid_height, 1, hspace=hspace)
     fig.suptitle(plot_title, fontsize=titlesize)
     fig.tight_layout()
@@ -256,7 +257,8 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
         
         # Frequency label
         ax.text(1.01 * days_elapsed[-1], fslice.loc[fslice.index[-1], 'MEDIAN'],
-                f'{np.around(freq*1000, 3)} mHz', fontsize=legendsize, va='center')
+                f'%s mHz' % float('%.3g' % (freq * 1000.)), fontsize=legendsize, 
+                va='center')
         
         # Plot 90% credible interval
         ax.fill_between(days_elapsed, fslice['CI_90_LO'], fslice['CI_90_HI'],
@@ -301,7 +303,7 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
         exp_old = exp
         
         # Format bottom horizontal axis
-        if i+1 < len(frequencies) or len(impact_days) > 0:
+        if i+1 < len(frequencies):# or len(impact_days) > 0:
             # Remove bottom axis if not the bottom plot
             ax.spines['bottom'].set_visible(False)
             ax.tick_params(bottom=False)
@@ -322,40 +324,29 @@ def save_freq_slices(run, channel, frequencies, impacts=[], plot_file=None, show
         ax.spines['right'].set_visible(False)
         ax.spines['top'].set_visible(False)
         
-    # Add big subplot for common y axis label
+    # Add big subplot for common y axis label and impact events
     fig.add_subplot(111, frameon=False)
     plt.tick_params(labelcolor='none', top=False, bottom=False, left=False, 
             right=False, which='both')
     plt.grid(False)
-    plt.ylabel(ylabel, fontsize=axlabelsize, ha='center', va='center', labelpad=25)
-    
-    # Make legend
-    handles, labels = ax.get_legend_handles_labels()
-    order = [0, 2, 1] # Reorder legend
-    fig.legend([handles[i] for i in order], [labels[i] for i in order], 
-            fontsize=legendsize)
+    plt.ylabel(ylabel, fontsize=axlabelsize, ha='center', va='center', 
+            labelpad=25)
     
     # Plot micrometeoroid impacts, if any
     if len(impact_days) > 0:
-        # Add subplot in very bottom row
-        ax = fig.add_subplot(grid[-1:, 0])
-        # Scatter impact days
-        ax.scatter(impact_days, [0] * len(impact_days), c='red', marker='x')
-        # Remove left, right, top axes
-        ax.get_yaxis().set_ticks([])
-        ax.spines['left'].set_visible(False)
-        ax.spines['right'].set_visible(False)
-        ax.spines['top'].set_visible(False)
-        # y axis label
-        ax.set_ylabel('Impacts', rotation=0, position=(0, -0.5), color='red',
-                verticalalignment='bottom', horizontalalignment='right')
-        # x axis parameters
-        ax.set_xlim(days[0], days[-1])
-        ax.set_xlabel(f'Days elapsed since {run.start_date} UTC')
-        ax.spines['bottom'].set_position(('outward', spine_pad))
-        ax.tick_params(bottom=True)
-        # Minor ticks
-        ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
+        plt.ylim(0, 1)
+        plt.xlim(days_elapsed[0], days_elapsed[-1])
+        impacts = plt.scatter(impact_days, [0-scaled_offset] * len(impact_days), 
+                c='red', marker='x', label='Impact event', clip_on=False)
+    
+    # Make legend
+    handles, labels = ax.get_legend_handles_labels()
+    handles += [impacts]
+    order = [0, 2, 1, 3] # Reorder legend
+    fig.legend(handles=[handles[i] for i in order], fontsize=legendsize, 
+            loc='upper right', bbox_to_anchor=(1,1), 
+            bbox_transform=plt.gcf().transFigure)
+    plt.subplots_adjust(top=0.85)
     
     # Save / display figure
     if plot_file: plt.savefig(plot_file, bbox_inches='tight')
