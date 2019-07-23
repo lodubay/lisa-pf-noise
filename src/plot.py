@@ -333,11 +333,10 @@ def save_freq_slices(run, channel, frequencies, impacts=[],
             labelpad=25)
     
     # Plot micrometeoroid impacts, if any
-    if len(impact_days) > 0:
-        plt.ylim(0, 1)
-        plt.xlim(days_elapsed[0], days_elapsed[-1])
-        impacts = plt.scatter(impact_days, [0-scaled_offset] * len(impact_days), 
-                c='red', marker='x', label='Impact event', clip_on=False)
+    plt.ylim(0, 1)
+    plt.xlim(days_elapsed[0], days_elapsed[-1])
+    impacts = plt.scatter(impact_days, [0-scaled_offset] * len(impact_days), 
+            c='red', marker='x', label='Impact event', clip_on=False)
     
     # Make legend
     handles, labels = ax.get_legend_handles_labels()
