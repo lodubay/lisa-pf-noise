@@ -167,7 +167,7 @@ def save_colormaps(run, channel, plot_file, show=False):
     # Set up figure
     fig, axs = plt.subplots(1, 2, figsize=(14, 6))
     fig.suptitle(
-        f'Colormap of {run.mode} {run.name} channel {channel} PSD over time\n' + 
+        f'Colormap of {run.mode.upper()} {run.name} channel {channel} PSD over time\n' + 
         f'Start date {run.start_date} UTC',
         fontsize='x-large'
     )
@@ -214,7 +214,7 @@ def save_freq_slices(run, channel, frequencies, impacts=[],
     titlesize = 'xx-large'
     legendsize = 'large'
     # Labels and titles
-    plot_title = f'{run.mode} mode {run.name}, channel {channel}' \
+    plot_title = f'{run.mode.upper()} mode {run.name}, channel {channel}' \
                 +f'\nPSD at selected frequencies over time'
     xlabel = f'Days elapsed since {run.start_date} UTC'
     
@@ -362,7 +362,7 @@ def save_time_slices(run, channel, times, plot_file=None, show=False,
     nrows = int(np.floor(float(len(times)) ** 0.5))
     ncols = int(np.ceil(1. * len(times) / nrows))
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(f'Selected times for {run.mode} {run.name} channel {channel}')
+    fig.suptitle(f'Selected times for {run.mode.upper()} {run.name} channel {channel}')
     df = run.psd_summary.loc[channel]
     # Subplots
     for i, time in enumerate(times):
@@ -401,7 +401,7 @@ def linechain_scatter(run, channel, param, plot_file=None, show=False):
     plt.xlabel(f'Days elapsed since {run.start_date} UTC')
     plt.ylabel(param)
     plt.yscale('log')
-    plt.title(f'{run.mode} {run.name} channel {channel} spectral line {param} over time')
+    plt.title(f'{run.mode.upper()} {run.name} channel {channel} spectral line {param} over time')
     if plot_file:
         plt.savefig(plot_file)
     if show: plt.show()
@@ -417,7 +417,7 @@ def linecounts_cmap(run, channel, plot_file=None, show=False):
     # Plot
     fig, ax = plt.subplots(1, 1)
     ax.title.set_text(
-        f'Line model frequency over time for {run.mode} {run.name} channel {channel}'
+        f'Line model frequency over time for {run.mode.upper()} {run.name} channel {channel}'
     )
     im = ax.pcolormesh(
         list(counts.index) + [counts.index[-1] + run.dt / (60*60*24)],
