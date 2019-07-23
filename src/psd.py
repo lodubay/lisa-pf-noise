@@ -53,14 +53,6 @@ def import_time(run, time_dir):
     time_data = pd.concat(time_data, axis=1, ignore_index=True)
     # Reorder and sort multiindex levels
     time_data = time_data.reorder_levels(['CHANNEL', 'TIME', 'FREQ']).sort_index()
-    '''
-    # Define MultiIndex
-    time_data.index = pd.MultiIndex.from_product(
-        [run.channels, [time],
-            np.around(time_data.index.unique(level='FREQ'), 6)], 
-        names=['CHANNEL', 'TIME', 'FREQ']
-    )
-    '''
     # Strip rows of 2s
     return time_data[time_data.iloc[:,0] < 2]
 

@@ -210,13 +210,13 @@ def save_freq_slices(run, channel, frequencies, impacts=[],
     # Font sizes
     ticklabelsize = 'large'
     offsetsize = 'medium'
-    axlabelsize = 'large'
+    axlabelsize = 'x-large'
     titlesize = 'xx-large'
     legendsize = 'large'
     # Labels and titles
-    plot_title = f'{run.mode.upper()} mode {run.name}, channel {channel}' \
-                +f'\nPSD at selected frequencies over time'
+    plot_title = f'{run.mode.upper()} channel {channel} ({run.name})' 
     xlabel = f'Days elapsed since {run.start_date} UTC'
+    ylabel = 'Power at given frequency'
     
     # Isolate given channel
     df = run.psd_summary.loc[channel]
@@ -247,7 +247,6 @@ def save_freq_slices(run, channel, frequencies, impacts=[],
     for i, freq in enumerate(frequencies):
         # Add new subplot
         ax = fig.add_subplot(grid[plot_height*i:plot_height*i+plot_height, 0])
-        ylabel = f'PSD'
         
         # Set up DataFrames
         fslice = df.xs(freq, level='FREQ') # Frequency slice
