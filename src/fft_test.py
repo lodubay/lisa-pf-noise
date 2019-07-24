@@ -12,7 +12,7 @@ df = pd.read_pickle(summary_file)
 
 # Pick specific frequency and channel
 freq = 0.01038
-channel = run.channels[5]
+channel = run.channels[0]
 values = df.loc[channel].xs(freq, level='FREQ')['MEDIAN']
 # Remove NaN values
 values = values[values.notna()]
@@ -68,5 +68,8 @@ plt.plot(rfftfreq, abs(rfft))
 plt.title(f'FFT for {run.mode} {run.name} channel {channel}')
 plt.xlabel('f')
 plt.ylabel('abs(rfft)')
+plt.xscale('log')
+plt.yscale('log')
+plt.xlim((2e-6, 3e-4))
 plt.show()
 
