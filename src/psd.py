@@ -85,7 +85,7 @@ def summarize_psd(run, time_dir):
         'CI_90_HI'  : pd.Series(hpd_90[:,1], index=midx),
     }, index=midx)
 
-def save_summary(run, summary_file):
+def save_summary(run):
     '''
     Returns a multi-index DataFrame of PSD summaries across multiple times 
     from one run folder. The first index represents channel, the second GPS time
@@ -132,8 +132,8 @@ def save_summary(run, summary_file):
     print(f'Filled {N} missing times.')
     
     # Output to file
-    print(f'Writing to {summary_file}...')
-    summaries.to_pickle(summary_file)
+    print(f'Writing to {run.psd_file}...')
+    summaries.to_pickle(run.psd_file)
     return summaries
 
 def get_exact_freq(summary, approx_freqs):
@@ -174,7 +174,15 @@ def main():
     # Add all runs in data directory if none are specified
     if len(args.runs) == 0: 
         args.runs = glob(f'data{os.sep}*{os.sep}*{os.sep}')
-    runs = [utils.Run(run) for run in args.runs]
+    
+    # Initialize run objects; skip missing directories
+    runs = []
+    for path in args.runs:
+        try:
+            run = utils.Run(path)
+            runs.append(run)
+        except FileNotFoundError:
+            print(f'{path} not found, skipping...')
     
     # Import impacts file, if any
     impacts_file = 'impacts.dat'
@@ -184,74 +192,45 @@ def main():
     
     for run in runs:
         print(f'\n-- {run.mode} {run.name} --')
-        # Directories
-        output_dir = os.path.join('out', run.mode, run.name, 'summaries')
-        if not os.path.exists(output_dir): os.makedirs(output_dir)
-        plot_dir = os.path.join('out', run.mode, run.name, 'psd_plots')
-        if not os.path.exists(plot_dir): os.makedirs(plot_dir)
-        # Output files
-        summary_file = os.path.join(output_dir, 'psd.pkl')
-        model_file = os.path.join(output_dir, 'linecounts.dat')
-        
         # Confirm to overwrite if summary already exists
         if args.keep: overwrite = False
         elif args.overwrite: overwrite = True
-        elif os.path.exists(summary_file):
-            over = input('Found summary.pkl for this run. Overwrite? (y/N) ')
+        elif os.path.exists(run.psd_file):
+            over = input('Found psd.pkl for this run. Overwrite? (y/N) ')
             overwrite = True if over == 'y' else False
         else: overwrite = True
 
         # Import / generate summary PSD DataFrame
         if overwrite:
-            run.psd_summary = save_summary(run, summary_file)
+            run.psd_summary = save_summary(run)
         else:
-            run.psd_summary = pd.read_pickle(summary_file)
+            run.psd_summary = pd.read_pickle(run.psd_file)
         
-        # Get even slice of n times (for plotting purposes)
+        # Make plots
+        df = run.psd_summary
+        # Frequency slices: roughly logarithmic, low-frequency
+        plot_frequencies = np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2])
+        p = utils.Progress(run.channels, 'Plotting...')
+        # Time slices: get even spread of times
         n = 6
         indices = [int(i / (n-1) * len(run.gps_times)) for i in range(1,n-1)]
         slice_times = sorted([run.gps_times[0], run.gps_times[-1]] +
             [run.gps_times[i] for i in indices]
         )
         
-        # Make plots
-        df = run.psd_summary
-        # Frequency slices
-        plot_frequencies = np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2])
-        p = utils.Progress(run.channels, 'Plotting...')
         for i, channel in enumerate(run.channels):
             # Colormap
-            cmap_file = os.path.join(plot_dir, f'colormap{i}.png')
+            cmap_file = os.path.join(run.plot_dir, f'colormap{i}.png')
             plot.save_colormaps(run, channel, cmap_file)
-
             # Frequency slices
-            fslice_file = os.path.join(plot_dir, f'fslice{i}.png')
-            #plot.save_freq_grid(run, channel, fslice_file)
-            plot.save_freq_slices(run, channel, plot_frequencies, impacts=impacts, plot_file=fslice_file)
-            
+            fslice_file = os.path.join(run.plot_dir, f'fslice{i}.png')
+            plot.save_freq_slices(run, channel, plot_frequencies, 
+                    impacts=impacts, plot_file=fslice_file)
             # Time slices
-            tslice_file = os.path.join(plot_dir, f'tslice{i}.png')
+            tslice_file = os.path.join(run.plot_dir, f'tslice{i}.png')
             plot.save_time_slices(run, channel, slice_times, tslice_file)
-            
             # Update progress
             p.update(i)
-            
-            '''
-            # Generate / import DataFrame of all times with spectral lines
-            if os.path.exists(model_file):
-                print('Line evidence file found. Reading...')
-                line_df = pd.read_csv(model_file, sep=' ', index_col=0)
-            else:
-                print('No line evidence file found. Generating...')
-                line_df = lc.gen_model_df(run, model_file)
-            # Return list of times
-            line_times = line_df[line_df.loc[:,channel] > 0].index
-            
-            # Time slices - all spectral lines
-            if len(line_times) > 0:
-                tslice_file = os.path.join(plot_dir, f'tslice_lines{i}.png')
-                plot.save_time_slices(run, channel, line_times, tslice_file)
-            '''
     
     print('Done!')
 

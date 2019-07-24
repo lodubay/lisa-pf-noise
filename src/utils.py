@@ -48,12 +48,27 @@ class Run:
     channels = np.array(['x', 'y', 'z', 'θ', 'η', 'ϕ'])
     
     def __init__(self, path, name=None):
-        self.path = path
-        split_path = path.split(os.sep)
-        self.parent_dir = split_path[0]
-        self.mode = split_path[1]
-        self.name = split_path[2]
         if os.path.exists(path):
+            # Path names
+            self.path = path
+            split_path = path.split(os.sep)
+            self.parent_dir = split_path[0]
+            self.mode = split_path[1]
+            self.name = split_path[2]
+            # Output directories
+            self.output_dir = os.path.join('out', self.mode, self.name)
+            self.summary_dir = os.path.join(self.output_dir, 'summaries')
+            if not os.path.exists(self.summary_dir): 
+                os.makedirs(self.summary_dir)
+            self.plot_dir = os.path.join(self.output_dir, 'plots')
+            if not os.path.exists(self.plot_dir): 
+                os.makedirs(self.plot_dir)
+            # Summary file paths
+            self.psd_file = os.path.join(self.summary_dir, 'psd.pkl')
+            self.psd_log = os.path.join(self.summary_dir, 'psd.log')
+            self.linecounts_file = os.path.join(self.summary_dir, 'linecounts.pkl')
+            self.linechain_file = os.path.join(self.summary_dir, 'linechain.pkl')
+            self.line_log = os.path.join(self.summary_dir, 'linechain.log')
             # Get time directories which contain the data
             self.time_dirs = sorted(glob(os.path.join(path, '*'+os.sep)))
             # Various time formats
@@ -69,7 +84,7 @@ class Run:
             # Run start ISO date
             self.start_date = self.iso_dates[0]
         else:
-            print(f'Could not find {self.name} in {self.parent_dir}!')
+            raise FileNotFoundError(f'{path} does not exist')
     
     def get_time(self, time_dir):
         return int(time_dir[-11:-1])
