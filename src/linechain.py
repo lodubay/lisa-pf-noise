@@ -176,14 +176,13 @@ def summarize_linechain(run, time_dir, channel, time_counts, log):
                 
     return summary
 
-def save_summary(run, counts_file, summary_file, log_file=None):
+def save_summary(run, log_file=None):
     '''
     Returns a summary DataFrame for all linechain files in the given run.
     
     Input
     -----
       run : Run object
-      summary_file : string, path to summary pickle file
       log_file : string, path to log file (if any)
     '''
     # Set up log file
@@ -225,8 +224,8 @@ def save_summary(run, counts_file, summary_file, log_file=None):
     log.log('All line counts:')
     log.log(counts.to_string(max_cols=80))
     # Output to file
-    counts.to_pickle(counts_file)
-    print('Model counts written to ' + counts_file)
+    counts.to_pickle(run.linecounts_file)
+    print('Model counts written to ' + run.linecounts_file)
     
     # Combine summaries into one DataFrame
     summaries = pd.concat(summaries, axis=0)
@@ -238,8 +237,8 @@ def save_summary(run, counts_file, summary_file, log_file=None):
     log.log('All summaries:')
     log.log(summaries.to_string(max_cols=80))
     # Output to file
-    summaries.to_pickle(summary_file)
-    print('Summary written to ' + summary_file)
+    summaries.to_pickle(run.linechain_file)
+    print('Summary written to ' + run.linechain_file)
     return counts, summaries
             
 def main():
@@ -263,46 +262,38 @@ def main():
     # Add all runs in data directory if none are specified
     if len(args.runs) == 0: 
         args.runs = glob(f'data{os.sep}*{os.sep}*{os.sep}')
-    runs = [utils.Run(run) for run in args.runs]
+    
+    # Initialize run objects; skip missing directories
+    runs = utils.init_runs(args.runs)
     
     for run in runs:
         print(f'\n-- {run.mode} {run.name} --')
-        # Directories
-        output_dir = os.path.join('out', run.mode, run.name, 'summaries')
-        if not os.path.exists(output_dir): os.makedirs(output_dir)
-        plot_dir = os.path.join('out', run.mode, run.name, 'linechain_plots')
-        if not os.path.exists(plot_dir): os.makedirs(plot_dir)
-        # Output files
-        summary_file = os.path.join(output_dir, 'linechain.pkl')
-        counts_file = os.path.join(output_dir, 'linecounts.pkl')
-        log_file = os.path.join(output_dir, 'linechain.log')
-        
+        # Log output file
+        log_file = os.path.join(run.summary_dir, 'linechain.log')
         # Confirm to overwrite if summary already exists
         if args.keep: overwrite = False
         elif args.overwrite: overwrite = True
-        elif os.path.exists(summary_file):
+        elif os.path.exists(run.linechain_file):
             over = input('Found linechain.pkl for this run. Overwrite? (y/N) ')
             overwrite = True if over == 'y' else False
         else: overwrite = True
         
         if overwrite:
-            run.linecounts, run.lc_summary = save_summary(
-                run, counts_file, summary_file, log_file
-            )
+            run.linecounts, run.lc_summary = save_summary(run, log_file)
         else:
-            run.lc_summary = pd.read_pickle(summary_file)
-            run.linecounts = pd.read_pickle(counts_file)
+            run.lc_summary = pd.read_pickle(run.linechain_file)
+            run.linecounts = pd.read_pickle(run.linecounts_file)
         
         # Plot line parameters\
         print('Plotting...')
         # Plot linecount colormaps
         for i, channel in enumerate(run.channels):
-            plot_file = os.path.join(plot_dir, f'linecounts{i}.png')
+            plot_file = os.path.join(run.plot_dir, f'linecounts{i}.png')
             plot.linecounts_cmap(run, channel, plot_file)
             if channel in run.lc_summary.index.unique(level='CHANNEL'):
                 for param in run.lc_summary.index.unique(level='PARAMETER'):
                     plot_file = os.path.join(
-                        plot_dir, f'linechain_{param.lower()}{i}.png'
+                        run.plot_dir, f'linechain_{param.lofilewer()}{i}.png'
                     )
                     plot.linechain_scatter(
                         run, channel, param, plot_file=plot_file, show=False

@@ -176,13 +176,7 @@ def main():
         args.runs = glob(f'data{os.sep}*{os.sep}*{os.sep}')
     
     # Initialize run objects; skip missing directories
-    runs = []
-    for path in args.runs:
-        try:
-            run = utils.Run(path)
-            runs.append(run)
-        except FileNotFoundError:
-            print(f'{path} not found, skipping...')
+    runs = utils.init_runs(args.runs)
     
     # Import impacts file, if any
     impacts_file = 'impacts.dat'
