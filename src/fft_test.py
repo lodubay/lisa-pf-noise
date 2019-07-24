@@ -6,12 +6,13 @@ import utils
 
 #pd.set_option('display.max_rows', 1000)
 
-summary_file = 'out/drs/run_k/summaries/psd.pkl'
+run = utils.Run('data/drs/run_b')
+summary_file = run.psd_file
 df = pd.read_pickle(summary_file)
 
 # Pick specific frequency and channel
-freq = 0.010376
-channel = 'x'
+freq = 0.01038
+channel = run.channels[5]
 values = df.loc[channel].xs(freq, level='FREQ')['MEDIAN']
 # Remove NaN values
 values = values[values.notna()]
@@ -24,6 +25,7 @@ dt = np.mean(diffs[diffs < 1640])
 print(f'dt = {dt}')
 n = values.shape[0]
 # Interpolate data at same dt
+n = int((times[-1] - times[0]) / dt)
 new_times = np.array([times[0] + i * dt for i in range(n)])
 new_values = np.interp(new_times, times, values)
 # Plot interpolated and original data

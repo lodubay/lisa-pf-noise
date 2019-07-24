@@ -190,7 +190,7 @@ def main():
     
     # Import impacts file, if any
     impacts_file = 'impacts.dat'
-    impacts = None
+    impacts = np.array([])
     if os.path.exists(impacts_file):
         impacts = get_impacts(impacts_file)
     
@@ -214,7 +214,6 @@ def main():
         df = run.psd_summary
         # Frequency slices: roughly logarithmic, low-frequency
         plot_frequencies = np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2])
-        p = utils.Progress(run.channels, 'Plotting...')
         # Time slices: get even spread of times
         n = 6
         indices = [int(i / (n-1) * len(run.gps_times)) for i in range(1,n-1)]
@@ -222,19 +221,28 @@ def main():
             [run.gps_times[i] for i in indices]
         )
         
+        '''
+        p = utils.Progress(run.channels, 'Plotting...')
         for i, channel in enumerate(run.channels):
             # Colormap
             cmap_file = os.path.join(run.plot_dir, f'colormap{i}.png')
             plot.save_colormaps(run, channel, cmap_file)
             # Frequency slices
             fslice_file = os.path.join(run.plot_dir, f'fslice{i}.png')
-            plot.save_freq_slices(run, channel, plot_frequencies, 
+            plot.save_freq_slices([run], channel, plot_frequencies, 
                     impacts=impacts, plot_file=fslice_file)
             # Time slices
             tslice_file = os.path.join(run.plot_dir, f'tslice{i}.png')
             plot.save_time_slices(run, channel, slice_times, tslice_file)
             # Update progress
             p.update(i)
+        '''
+        
+    p = utils.Progress(runs[0].channels, '\nPlotting run comparisons...')
+    for i, channel in enumerate(runs[0].channels):
+        plot.save_freq_slices(runs, channel, plot_frequencies, impacts=impacts,
+                plot_file=f'out/multi_fslice{i}.png')
+        p.update(i)
     
     print('Done!')
 

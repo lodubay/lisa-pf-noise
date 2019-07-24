@@ -189,25 +189,30 @@ def save_colormaps(run, channel, plot_file, show=False):
     if show: plt.show()
     else: plt.close()
 
-def save_freq_slices(run, channel, frequencies, impacts=[], 
+def save_freq_slices(runs, channel, frequencies, impacts=[], 
         plot_file=None, show=False):
     '''
+    Plots frequency slices, with frequency increasing vertically. Also compares
+    multiple runs side by side if more than one is provided.
+    
     Input
     -----
-      run : utils.Run object
+      runs : list of utils.Run objects
       channel : string, channel name
       frequencies : 1D Numpy array, approximate frequencies to slice along
+      impacts : DataFrame of micrometeoroid impacts, if any
       plot_file : string, path to plot output file, if any
       show : whether to display figure, defaults to no
     '''
     # Tweakables
-    figsize = (10, 7.5) # Relative figure size
+    figsize = (10 * len(runs), 7.5) # Relative figure size
     plot_height = 4 # Relative height of each subplot
-    hspace = 2 # Relative spaceing between subplots
+    hspace = 2 # Relative vertical spaceing between subplots
+    wspace = 0.1
     impactplot_height = 1 # Relative height of the impacts subplot
     spine_pad = 10 # Spine offset from subplots
     scaled_offset = 0.0025 * spine_pad # Scaled spine_pad
-    axlabelpad = 10 # Padding between axis label and spine
+    axlabelpad = 25 # Padding between axis label and spine
     # Font sizes
     ticklabelsize = 'large'
     offsetsize = 'medium'
@@ -215,135 +220,142 @@ def save_freq_slices(run, channel, frequencies, impacts=[],
     titlesize = 'xx-large'
     legendsize = 'large'
     # Labels and titles
-    plot_title = f'{run.mode.upper()} channel {channel} ({run.name})' 
-    xlabel = f'Days elapsed since {run.start_date} UTC'
+    plot_title = f'Channel {channel}' 
     ylabel = 'Power at given frequency'
-    
-    # Isolate given channel
-    df = run.psd_summary.loc[channel]
-    # Get nearest actual frequencies to those requested
-    frequencies = psd.get_exact_freq(df, frequencies)
-    # Plot highest frequency on top
-    frequencies = np.flip(np.sort(frequencies))
-    
-    # Find micrometeoroid impacts, if any
-    if len(impacts) > 0:
-        # Find impact times
-        gps_times = df.index.unique(level='TIME')
-        days = run.gps2day(gps_times)
-        impacts = impacts[
-                (impacts['GPS'] >= gps_times[0]) \
-              & (impacts['GPS'] <= gps_times[-1])]
-        impact_days = run.gps2day(impacts['GPS']).to_numpy()
     
     # Set up figure, grid
     fig = plt.figure(figsize=figsize)
     grid_height = plot_height * len(frequencies)
-    grid = plt.GridSpec(grid_height, 1, hspace=hspace)
+    grid = plt.GridSpec(grid_height, len(runs), hspace=hspace, wspace=wspace)
     fig.suptitle(plot_title, fontsize=titlesize)
     fig.tight_layout()
     
-    # Subplots
-    exp_old = 0 # Meaningless default exponent
-    for i, freq in enumerate(frequencies):
-        # Add new subplot
-        ax = fig.add_subplot(grid[plot_height*i:plot_height*i+plot_height, 0])
+    for j, run in enumerate(runs):
+        # Isolate given channel
+        df = run.psd_summary.loc[channel]
+        # Get nearest actual frequencies to those requested
+        frequencies = psd.get_exact_freq(df, frequencies)
+        # Plot highest frequency on top
+        frequencies = np.flip(np.sort(frequencies))
         
-        # Set up DataFrames
-        fslice = df.xs(freq, level='FREQ') # Frequency slice
-        exp = int(np.floor(np.log10(fslice['MEDIAN'].median()))) # Get exponent
-        #fslice = fslice / (10 ** exp) # Scale
-        days_elapsed = run.gps2day(fslice.index) # Convert to days elapsed
-        
-        # Frequency label
-        ax.text(1.01 * days_elapsed[-1], fslice.loc[fslice.index[-1], 'MEDIAN'],
-                f'%s mHz' % float('%.3g' % (freq * 1000.)), fontsize=legendsize, 
-                va='center')
-        
-        # Plot 90% credible interval
-        ax.fill_between(days_elapsed, fslice['CI_90_LO'], fslice['CI_90_HI'],
-                color='#b3cde3', label='90% credible interval')
-        # Plot 50% credible interval
-        ax.fill_between(days_elapsed, fslice['CI_50_LO'], fslice['CI_50_HI'], 
-                color='#8c96c6', label='50% credible interval')
-        # Plot median
-        ax.plot(days_elapsed, fslice['MEDIAN'], 
-                label='Median PSD', color='#88419d')
-        
-        # Smart-ish axis limits
-        med = fslice['MEDIAN'].median()
-        std = fslice['MEDIAN'].std()
-        hi = min(2 * (fslice['CI_90_HI'].quantile(0.95) - med), 
-                 max(fslice['CI_90_HI']) - med)
-        lo = min(2 * abs(med - fslice['CI_90_LO'].quantile(0.05)), 
-                 abs(med - min(fslice['CI_90_LO'])))
-        ylim = (med - lo, med + hi)
-        # Set vertical axis limits
-        ax.set_ylim(ylim)
-        ax.spines['left'].set_bounds(ylim[0], ylim[1])
-        # Horizontal axis limits
-        ax.set_xlim((min(days_elapsed), max(days_elapsed)))
-        ax.spines['bottom'].set_bounds(min(days_elapsed), max(days_elapsed))
-        
-        # Format left vertical axis
-        #ax.yaxis.set_major_formatter(tkr.FormatStrFormatter('%.1f'))
-        ax.yaxis.set_major_formatter(tkr.ScalarFormatter())
-        #ax.set_ylabel(ylabel, fontsize=axlabelsize, rotation=0, 
-        #        ha='right', va='center', labelpad=axlabelpad)
-        ax.yaxis.set_minor_locator(tkr.AutoMinorLocator())
-        ax.spines['left'].set_position(('outward', spine_pad))
-        ax.tick_params(axis='y', which='major', labelsize=ticklabelsize)
-        # Only add an exponent label if it's different than above
-        ax.ticklabel_format(axis='y', useMathText=True)
-        exp_txt = ax.yaxis.get_offset_text()
-        exp_txt.set_x(-0.005 * spine_pad)
-        exp_txt.set_size(offsetsize)
-        if exp == exp_old:
-            ax.yaxis.get_offset_text().set_visible(False)
-        exp_old = exp
-        
-        # Format bottom horizontal axis
-        if i+1 < len(frequencies):# or len(impact_days) > 0:
-            # Remove bottom axis if not the bottom plot
-            ax.spines['bottom'].set_visible(False)
-            ax.tick_params(bottom=False)
-            # Horizontal axis ticks
-            ax.xaxis.set_major_locator(tkr.NullLocator())
-            ax.xaxis.set_minor_locator(tkr.NullLocator())
-        else:
-            # Horizontal axis for bottom plot
-            ax.set_xlabel(xlabel, fontsize=axlabelsize)
-            ax.spines['bottom'].set_visible(True)
-            ax.spines['bottom'].set_position(('outward', spine_pad))
-            ax.tick_params(bottom=True)
-            ax.tick_params(axis='x', which='major', labelsize=ticklabelsize)
-            # Minor ticks
-            ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
-        
-        # Remove spines and ticks for other axes
-        ax.spines['right'].set_visible(False)
-        ax.spines['top'].set_visible(False)
-        
-    # Add big subplot for common y axis label and impact events
-    fig.add_subplot(111, frameon=False)
-    plt.tick_params(labelcolor='none', top=False, bottom=False, left=False, 
-            right=False, which='both')
-    plt.grid(False)
-    plt.ylabel(ylabel, fontsize=axlabelsize, ha='center', va='center', 
-            labelpad=25)
+        # Subplots
+        exp_old = 0 # Meaningless default exponent
+        for i, freq in enumerate(frequencies):
+            # Add new subplot
+            ax = fig.add_subplot(grid[plot_height*i:plot_height*i+plot_height, j])
+            # Subplot title if top plot
+            if i == 0:
+                ax.set_title(f'{run.mode.upper()} ({run.name})')
+                # Also grab top axis legend info
+                ax1 = ax
+            
+            # Set up DataFrames
+            fslice = df.xs(freq, level='FREQ') # Frequency slice
+            exp = int(np.floor(np.log10(fslice['MEDIAN'].median()))) # Get exponent
+            #fslice = fslice / (10 ** exp) # Scale
+            days_elapsed = run.gps2day(fslice.index) # Convert to days elapsed
+            
+            # Plot 90% credible interval
+            ax.fill_between(days_elapsed, fslice['CI_90_LO'], fslice['CI_90_HI'],
+                    color='#b3cde3', label='90% credible interval')
+            # Plot 50% credible interval
+            ax.fill_between(days_elapsed, fslice['CI_50_LO'], fslice['CI_50_HI'], 
+                    color='#8c96c6', label='50% credible interval')
+            # Plot median
+            ax.plot(days_elapsed, fslice['MEDIAN'], 
+                    label='Median PSD', color='#88419d')
+            
+            # Smart-ish axis limits
+            med = fslice['MEDIAN'].median()
+            std = fslice['MEDIAN'].std()
+            hi = min(2 * (fslice['CI_90_HI'].quantile(0.95) - med), 
+                     max(fslice['CI_90_HI']) - med)
+            lo = min(2 * abs(med - fslice['CI_90_LO'].quantile(0.05)), 
+                     abs(med - min(fslice['CI_90_LO'])))
+            ylim = (med - lo, med + hi)
+            # Set vertical axis limits
+            ax.set_ylim(ylim)
+            ax.spines['left'].set_bounds(ylim[0], ylim[1])
+            # Horizontal axis limits
+            ax.set_xlim((min(days_elapsed), max(days_elapsed)))
+            ax.spines['bottom'].set_bounds(min(days_elapsed), max(days_elapsed))
+            
+            # Frequency labels on right-most plots
+            if j == len(runs) - 1:
+                ax.text(1.01 * days_elapsed[-1], med,
+                        f'%s mHz' % float('%.3g' % (freq * 1000.)), 
+                        fontsize=legendsize, va='center')
+            
+            # Format left vertical axis
+            #ax.yaxis.set_major_formatter(tkr.FormatStrFormatter('%.1f'))
+            ax.yaxis.set_major_formatter(tkr.ScalarFormatter())
+            ax.yaxis.set_minor_locator(tkr.AutoMinorLocator())
+            ax.spines['left'].set_position(('outward', spine_pad))
+            ax.tick_params(axis='y', which='major', labelsize=ticklabelsize)
+            # Only add an exponent label if it's different than above
+            ax.ticklabel_format(axis='y', useMathText=True)
+            exp_txt = ax.yaxis.get_offset_text()
+            exp_txt.set_x(-0.005 * spine_pad)
+            exp_txt.set_size(offsetsize)
+            if exp == exp_old:
+                ax.yaxis.get_offset_text().set_visible(False)
+            exp_old = exp
+            
+            # Format bottom horizontal axis
+            if i+1 < len(frequencies):# or len(impact_days) > 0:
+                # Remove bottom axis if not the bottom plot
+                ax.spines['bottom'].set_visible(False)
+                ax.tick_params(bottom=False)
+                # Horizontal axis ticks
+                ax.xaxis.set_major_locator(tkr.NullLocator())
+                ax.xaxis.set_minor_locator(tkr.NullLocator())
+            else:
+                # Horizontal axis for bottom plot
+                ax.set_xlabel(f'Days elapsed since {run.start_date} UTC', 
+                        fontsize=axlabelsize)
+                ax.spines['bottom'].set_visible(True)
+                ax.spines['bottom'].set_position(('outward', spine_pad))
+                ax.tick_params(bottom=True)
+                ax.tick_params(axis='x', which='major', labelsize=ticklabelsize)
+                # Minor ticks
+                ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
     
-    # Plot micrometeoroid impacts, if any
-    plt.ylim(0, 1)
-    plt.xlim(days_elapsed[0], days_elapsed[-1])
-    impacts = plt.scatter(impact_days, [0-scaled_offset] * len(impact_days), 
-            c='red', marker='x', label='Impact event', clip_on=False)
+                # Find micrometeoroid impacts, if any
+                if len(impacts) > 0:
+                    # Find impact times
+                    gps_times = df.index.unique(level='TIME')
+                    days = run.gps2day(gps_times)
+                    impact_times = impacts[
+                            (impacts['GPS'] >= gps_times[0]) \
+                          & (impacts['GPS'] <= gps_times[-1])]
+                    impact_days = run.gps2day(impact_times['GPS']).to_numpy()
+                
+                # Plot micrometeoroid impacts, if any
+                #ax.set_ylim(0, 1)
+                #ax.set_xlim(days_elapsed[0], days_elapsed[-1])
+                impact_plt = ax.scatter(impact_days, 
+                        [ylim[0] - (ylim[1]-ylim[0]) * 0.018 * spine_pad] * len(impact_days), 
+                        c='red', marker='x', label='Impact event', clip_on=False)
+            
+            # Remove spines and ticks for other axes
+            ax.spines['right'].set_visible(False)
+            ax.spines['top'].set_visible(False)
+    
+    # Add big subplot for common y axis label
+    ax = fig.add_subplot(1, 1, 1, frameon=False)
+    ax.tick_params(labelcolor='none', top=False, bottom=False, left=False, 
+            right=False, which='both')
+    ax.grid(False)
+    # y axis label
+    ax.set_ylabel(ylabel, fontsize=axlabelsize, ha='center', va='center', 
+            labelpad=axlabelpad)
     
     # Make legend
-    handles, labels = ax.get_legend_handles_labels()
-    handles += [impacts]
+    handles, labels = ax1.get_legend_handles_labels()
+    handles += [impact_plt]
     order = [0, 2, 1, 3] # Reorder legend
     fig.legend(handles=[handles[i] for i in order], fontsize=legendsize, 
-            loc='upper right', bbox_to_anchor=(1,1), 
+            loc='upper right', bbox_to_anchor=(0.95,1), 
             bbox_transform=plt.gcf().transFigure)
     plt.subplots_adjust(top=0.85)
     
