@@ -238,10 +238,12 @@ def main():
             p.update(i)
         '''
         
+    # Plot run comparisons
     p = utils.Progress(runs[0].channels, '\nPlotting run comparisons...')
     for i, channel in enumerate(runs[0].channels):
         plot.save_freq_slices(runs, channel, plot_frequencies, impacts=impacts,
                 plot_file=f'out/multi_fslice{i}.png')
+        plot.compare_colormaps(runs, channel, plot_file=f'out/multi_colormap{i}.png')
         p.update(i)
     
     print('Done!')

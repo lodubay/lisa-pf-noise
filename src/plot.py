@@ -53,7 +53,8 @@ def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     plt.register_cmap(cmap=newcmap)
     return newcmap
 
-def colormap(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, center=None):
+def colormap(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, center=None,
+        bar=True):
     '''
     Function to plot the colormap of a PSD with frequency on the y-axis and
     time on the x-axis.
@@ -97,14 +98,16 @@ def colormap(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, center=None):
     ax.set_ylim(bottom=1e-3, top=1.)
     # Axis labels
     ax.set_xlabel(f'Days elapsed since {run.start_date} UTC', fontsize='large')
-    ax.set_ylabel('Frequency (Hz)', fontsize='large')
     # Tick label size
     ax.tick_params(axis='both', which='major', labelsize='large')
     # Add and label colorbar
-    cbar = fig.colorbar(im, ax=ax)
-    cbar.ax.tick_params(labelsize='large')
-    if cbar_label:
-        cbar.set_label(cbar_label, labelpad=15, rotation=270)
+    if bar:
+        cbar = fig.colorbar(im, ax=ax)
+        cbar.ax.tick_params(labelsize='large')
+        if cbar_label:
+            cbar.set_label(cbar_label, labelpad=15, rotation=270)
+    
+    return im
 
 def all_psds(fig, ax, time_dir, channel, xlim=None, ylim=None):
     '''
@@ -168,12 +171,12 @@ def save_colormaps(run, channel, plot_file, show=False):
     # Set up figure
     fig, axs = plt.subplots(1, 2, figsize=(14, 6))
     fig.suptitle(
-        f'Colormap of {run.mode.upper()} {run.name} channel {channel} PSD over time\n' + 
-        f'Start date {run.start_date} UTC',
+        f'Colormap of {run.mode.upper()} {run.name} channel {channel} PSD over time',
         fontsize='x-large'
     )
     # Subplots
     axs[0].title.set_text('Absolute difference from median PSD')
+    axs[0].set_ylabel('Frequency (Hz)', fontsize='large')
     colormap(fig, axs[0], run,
         unstacked.sub(median, axis=0), 
         cmap=cm.get_cmap('coolwarm'),
@@ -186,6 +189,48 @@ def save_colormaps(run, channel, plot_file, show=False):
         vlims=(0,1)
     )
     plt.savefig(plot_file, bbox_inches='tight')
+    if show: plt.show()
+    else: plt.close()
+
+def compare_colormaps(runs, channel, plot_file=None, show=False):
+    # Setup figure
+    fig = plt.figure(figsize=(14, 6))
+    fig.suptitle(f'PSD at observed times compared to median - channel {channel}',
+            y=0.99, fontsize='xx-large')
+    
+    for i, run in enumerate(runs):
+        # Setup subplot
+        ax = fig.add_subplot(1, len(runs), i+1)
+        
+        # Unstack psd, removing all columns except the median
+        df = run.psd_summary.loc[channel,'MEDIAN']
+        unstacked = df.unstack(level='TIME')
+        # Find median across all times
+        median = unstacked.median(axis=1)
+        
+        # Subplots
+        ax.title.set_text(f'{run.mode.upper()} ({run.name})')
+        im = colormap(fig, ax, run,
+            unstacked.sub(median, axis=0).div(median, axis=0), 
+            cmap=cm.get_cmap('coolwarm'), vlims=(-1,1),
+            center=0.0, bar=False
+        )
+        # Only label y axis on left most plot
+        if i==0:
+            ax.set_ylabel('Frequency (Hz)', fontsize='large')
+    
+    # Set tight layout
+    fig.tight_layout()
+    
+    # Make colorbar
+    fig.subplots_adjust(right=0.9)
+    cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.7])
+    cbar = fig.colorbar(im, cax=cbar_ax)
+    cbar.ax.tick_params(labelsize='large')
+    cbar.set_label('Difference from median PSD', labelpad=15, rotation=270, 
+            fontsize='large')
+    
+    if plot_file: plt.savefig(plot_file, bbox_inches='tight')
     if show: plt.show()
     else: plt.close()
 
