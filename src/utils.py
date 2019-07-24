@@ -116,14 +116,14 @@ class Run:
     def get_missing_times(self, gps_times=None, dt=None):
         missing_times = []
         if not gps_times: gps_times = self.gps_times
-        if not dt: dt = self.dt
+        if not dt: dt = int(self.dt)
         for i in range(len(gps_times) - 1):
             diff = gps_times[i+1] - gps_times[i]
-            if diff >= 2 * dt:
+            if diff > dt + 1:
                 # Number of new times to insert
-                n = int(np.floor(diff / dt))
+                n = int(np.ceil(diff / dt)-1)
                 # List of missing times, with same time interval
-                missing_times += [gps_times[i]+dt * k for k in range(1, n+1)]
+                missing_times += [gps_times[i] + dt * k for k in range(1, n+1)]
         return missing_times
     
     def get_channel_index(self, channel):

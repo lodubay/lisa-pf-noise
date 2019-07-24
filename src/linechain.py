@@ -293,7 +293,7 @@ def main():
             if channel in run.lc_summary.index.unique(level='CHANNEL'):
                 for param in run.lc_summary.index.unique(level='PARAMETER'):
                     plot_file = os.path.join(
-                        run.plot_dir, f'linechain_{param.lofilewer()}{i}.png'
+                        run.plot_dir, f'linechain_{param.lower()}{i}.png'
                     )
                     plot.linechain_scatter(
                         run, channel, param, plot_file=plot_file, show=False

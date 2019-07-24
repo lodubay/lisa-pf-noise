@@ -159,9 +159,10 @@ def time_slice(fig, ax, time, summary, ylim=None, logpsd=False):
     ax.title.set_text(str(time))
 
 def save_colormaps(run, channel, plot_file, show=False):
-    df = run.psd_summary.loc[channel]
+    df = run.psd_summary.loc[channel,'MEDIAN']
     # Unstack psd, removing all columns except the median
-    unstacked = df['MEDIAN'].unstack(level=0)
+    unstacked = df.unstack(level='TIME')
+    
     # Find median across all times
     median = unstacked.median(axis=1)
     # Set up figure

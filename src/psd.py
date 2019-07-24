@@ -39,8 +39,8 @@ def import_time(run, time_dir):
         )
         # Add index column name
         psd.index.name = 'FREQ'
-        # Round frequency index to 6 decimals to deal with floating point issues
-        psd.index = np.around(psd.index, 6)
+        # Round frequency index to 5 decimals to deal with floating point issues
+        psd.index = np.around(psd.index, 5)
         # Add channel names
         psd.columns = pd.Series(run.channels, name='CHANNEL')
         # Add time level to index
@@ -107,9 +107,18 @@ def save_summary(run):
     summaries = pd.concat(summaries)
 
     # Check for time gaps and fill with NaN DataFrames
-    times = run.gps_times[:-1]
-    p = utils.Progress(times, 'Checking for time gaps...')
-    N = 0
+    #times = run.gps_times[:-1]
+    #p = utils.Progress(times, 'Checking for time gaps...')
+    #N = 0
+    print('Checking for time gaps...')
+    frequencies = summaries.index.unique(level='FREQ')
+    midx = pd.MultiIndex.from_product(
+        [run.channels, run.missing_times, frequencies],
+        names=['CHANNEL', 'TIME', 'FREQ']
+    )
+    filler = pd.DataFrame(columns=summaries.columns, index=midx)
+    summaries = summaries.append(filler).sort_index(level=[0, 1, 2])
+    '''
     for i, gps_time in enumerate(times):
         diff = run.gps_times[i+1] - run.gps_times[i]
         if diff > run.dt + 1:
@@ -129,7 +138,8 @@ def save_summary(run):
             summaries = summaries.append(filler).sort_index(level=[0, 1, 2])
         # Update progress indicator
         p.update(i)
-    print(f'Filled {N} missing times.')
+    '''
+    print(f'Filled {len(run.missing_times)} missing times with NaN.')
     
     # Output to file
     print(f'Writing to {run.psd_file}...')
