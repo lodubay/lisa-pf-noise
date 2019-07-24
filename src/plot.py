@@ -205,9 +205,9 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
       show : whether to display figure, defaults to no
     '''
     # Tweakables
-    figsize = (10 * len(runs), 7.5) # Relative figure size
+    figsize = (20, 7.5) # Relative figure size
     plot_height = 4 # Relative height of each subplot
-    hspace = 2 # Relative vertical spaceing between subplots
+    hspace = 3 # Relative vertical spaceing between subplots
     wspace = 0.1
     impactplot_height = 1 # Relative height of the impacts subplot
     spine_pad = 10 # Spine offset from subplots
@@ -239,7 +239,6 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
         frequencies = np.flip(np.sort(frequencies))
         
         # Subplots
-        exp_old = 0 # Meaningless default exponent
         for i, freq in enumerate(frequencies):
             # Add new subplot
             ax = fig.add_subplot(grid[plot_height*i:plot_height*i+plot_height, j])
@@ -251,7 +250,7 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
             
             # Set up DataFrames
             fslice = df.xs(freq, level='FREQ') # Frequency slice
-            exp = int(np.floor(np.log10(fslice['MEDIAN'].median()))) # Get exponent
+            #exp = int(np.floor(np.log10(fslice['CI_90_LO'].median()))) # Get exponent
             #fslice = fslice / (10 ** exp) # Scale
             days_elapsed = run.gps2day(fslice.index) # Convert to days elapsed
             
@@ -288,18 +287,17 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
             
             # Format left vertical axis
             #ax.yaxis.set_major_formatter(tkr.FormatStrFormatter('%.1f'))
-            ax.yaxis.set_major_formatter(tkr.ScalarFormatter())
+            #ax.yaxis.set_major_formatter(tkr.ScalarFormatter())
+            y_formatter = tkr.ScalarFormatter(useOffset=False)
+            ax.yaxis.set_major_formatter(y_formatter)
             ax.yaxis.set_minor_locator(tkr.AutoMinorLocator())
             ax.spines['left'].set_position(('outward', spine_pad))
             ax.tick_params(axis='y', which='major', labelsize=ticklabelsize)
-            # Only add an exponent label if it's different than above
+            # More mathy exponent label
             ax.ticklabel_format(axis='y', useMathText=True)
             exp_txt = ax.yaxis.get_offset_text()
             exp_txt.set_x(-0.005 * spine_pad)
             exp_txt.set_size(offsetsize)
-            if exp == exp_old:
-                ax.yaxis.get_offset_text().set_visible(False)
-            exp_old = exp
             
             # Format bottom horizontal axis
             if i+1 < len(frequencies):# or len(impact_days) > 0:
@@ -331,8 +329,6 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
                     impact_days = run.gps2day(impact_times['GPS']).to_numpy()
                 
                 # Plot micrometeoroid impacts, if any
-                #ax.set_ylim(0, 1)
-                #ax.set_xlim(days_elapsed[0], days_elapsed[-1])
                 impact_plt = ax.scatter(impact_days, 
                         [ylim[0] - (ylim[1]-ylim[0]) * 0.018 * spine_pad] * len(impact_days), 
                         c='red', marker='x', label='Impact event', clip_on=False)
@@ -355,7 +351,7 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
     handles += [impact_plt]
     order = [0, 2, 1, 3] # Reorder legend
     fig.legend(handles=[handles[i] for i in order], fontsize=legendsize, 
-            loc='upper right', bbox_to_anchor=(0.95,1), 
+            loc='upper right', bbox_to_anchor=(0.95, 1), 
             bbox_transform=plt.gcf().transFigure)
     plt.subplots_adjust(top=0.85)
     
