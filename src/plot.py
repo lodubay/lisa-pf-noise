@@ -449,7 +449,7 @@ def fft(rfftfreq, rfft, run, channel, frequencies,
     # Subplots
     for i, freq in enumerate(frequencies):
         ax = fig.add_subplot(nrows, ncols, i+1)
-        ax.plot(rfftfreq[i], abs(rfft[i]))
+        ax.plot(rfftfreq[i], abs(rfft[i]), color='#0077c8')
         # Axis title
         ax.title.set_text(f'FFT of power at %s mHz' % float('%.3g' % (freq * 1000.)))
         # Vertical axis label on first plot in each row
@@ -458,7 +458,11 @@ def fft(rfftfreq, rfft, run, channel, frequencies,
         # Horizontal axis label on bottom plot in each column
         if i >= len(frequencies) - ncols:
             ax.set_xlabel('Frequency (Hz)')
-        if logfreq: ax.set_xscale('log')
+        if logfreq: 
+            ax.set_xscale('log')
+        else:
+            # Minor ticks
+            ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
         ax.set_yscale('log')
     
     if plot_file: plt.savefig(plot_file, bbox_inches='tight')
