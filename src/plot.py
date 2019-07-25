@@ -376,7 +376,7 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
                 
                 # Plot micrometeoroid impacts, if any
                 impact_plt = ax.scatter(impact_days, 
-                        [ylim[0] - (ylim[1]-ylim[0]) * 0.018 * spine_pad] * len(impact_days), 
+                        [ylim[0] - (ylim[1]-ylim[0]) * 0.015 * spine_pad] * len(impact_days), 
                         c='red', marker='x', label='Impact event', clip_on=False)
             
             # Remove spines and ticks for other axes
