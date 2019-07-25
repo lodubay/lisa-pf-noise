@@ -303,9 +303,13 @@ def main():
                         )
     
     if args.compare:
+        p = utils.Progress(runs[0].channels, '\nPlotting run comparisons...')
+        multirun_dir = os.path.join('out', 'multirun')
+        if not os.path.exists(multirun_dir): os.makedirs(multirun_dir)
         for i, channel in enumerate(runs[0].channels):
             plot.compare_linecounts(runs, channel, 
-                    plot_file=f'out/multi_linecounts{i}.png')
+                    plot_file=os.path.join(multirun_dir, f'linecounts{i}.png'))
+            p.update(i)
     
     print('Done!')
 

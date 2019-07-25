@@ -218,11 +218,14 @@ def main():
     # Plot run comparisons
     if args.compare:
         p = utils.Progress(runs[0].channels, '\nPlotting run comparisons...')
+        multirun_dir = os.path.join('out', 'multirun')
+        if not os.path.exists(multirun_dir): os.makedirs(multirun_dir)
         for i, channel in enumerate(runs[0].channels):
             plot.compare_colormaps(runs, channel, 
-                    plot_file=f'out/multi_colormap{i}.png')
+                    plot_file=os.path.join(multirun_dir, f'colormap{i}.png'))
             plot.save_freq_slices(runs, channel, plot_frequencies, 
-                    impacts=impacts, plot_file=f'out/multi_fslice{i}.png')
+                    impacts=impacts, 
+                    plot_file=os.path.join(multirun_dir, f'fslice{i}.png'))
             p.update(i)
     
     print('Done!')
