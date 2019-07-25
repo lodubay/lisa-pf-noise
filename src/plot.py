@@ -216,6 +216,7 @@ def compare_colormaps(runs, channel, plot_file=None, show=False):
             cmap=cm.get_cmap('coolwarm'), vlims=(-1,1),
             center=0.0, bar=False
         )
+        ax.tick_params(labelsize='x-large')
         # Only label y axis on left most plot
         if i==0:
             ax.set_ylabel('Frequency (Hz)', fontsize='x-large')
@@ -511,6 +512,8 @@ def compare_linecounts(runs, channel, plot_file=None, show=False):
         counts.index = pd.Series(run.gps2day(counts.index), name='TIME')
         # Convert counts to fraction of total
         counts = counts / sum(counts.iloc[0].dropna())
+        # Cut off DataFrame after n=5
+        counts = counts.iloc[:,:6]
         
         # Subplots
         ax.set_title(f'{run.mode.upper()}', size='x-large')
@@ -524,6 +527,7 @@ def compare_linecounts(runs, channel, plot_file=None, show=False):
         
         # Axis labels
         ax.set_xlabel(f'Days elapsed since {run.start_date} UTC', fontsize='x-large')
+        ax.tick_params(labelsize='x-large')
         # Only label y axis on left most plot
         if i==0:
             ax.set_ylabel('Modeled no. spectral lines', fontsize='x-large')
