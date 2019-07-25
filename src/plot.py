@@ -246,7 +246,7 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
     -----
       runs : list of utils.Run objects
       channel : string, channel name
-      frequencies : 1D Numpy array, approximate frequencies to slice along
+      frequencies : 1D Numpy array, exact frequencies to slice along
       impacts : DataFrame of micrometeoroid impacts, if any
       plot_file : string, path to plot output file, if any
       show : whether to display figure, defaults to no
@@ -280,8 +280,6 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
     for j, run in enumerate(runs):
         # Isolate given channel
         df = run.psd_summary.loc[channel]
-        # Get nearest actual frequencies to those requested
-        frequencies = psd.get_exact_freq(df, frequencies)
         # Plot highest frequency on top
         frequencies = np.flip(np.sort(frequencies))
         
@@ -436,6 +434,34 @@ def save_time_slices(run, channel, times, plot_file=None, show=False,
     fig.legend(handles, labels)
     fig.tight_layout(rect=[0, 0, 1, 0.92])
     if plot_file: plt.savefig(plot_file)
+    if show: plt.show()
+    else: plt.close()
+
+def fft(rfftfreq, rfft, run, channel, frequencies, 
+        plot_file=None, show=False, logfreq=True):
+    # Automatically create grid of axes
+    nrows = int(np.floor(float(len(frequencies)) ** 0.5))
+    ncols = int(np.ceil(1. * len(frequencies) / nrows))
+    # Set up figure
+    fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
+    fig.suptitle(f'{run.mode.upper()} channel {channel}')
+    
+    # Subplots
+    for i, freq in enumerate(frequencies):
+        ax = fig.add_subplot(nrows, ncols, i+1)
+        ax.plot(rfftfreq[i], abs(rfft[i]))
+        # Axis title
+        ax.title.set_text(f'FFT of power at %s mHz' % float('%.3g' % (freq * 1000.)))
+        # Vertical axis label on first plot in each row
+        if i % ncols == 0:
+            ax.set_ylabel('Power')
+        # Horizontal axis label on bottom plot in each column
+        if i >= len(frequencies) - ncols:
+            ax.set_xlabel('Frequency (Hz)')
+        if logfreq: ax.set_xscale('log')
+        ax.set_yscale('log')
+    
+    if plot_file: plt.savefig(plot_file, bbox_inches='tight')
     if show: plt.show()
     else: plt.close()
 

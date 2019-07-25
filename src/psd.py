@@ -127,11 +127,10 @@ def get_exact_freq(summary, approx_freqs):
     Takes an approximate input frequency and returns the closest measured
     frequency in the data.
     '''
-    gps_times = list(summary.index.unique(level='TIME'))
-    freqs = np.array(summary.xs(gps_times[0]).index)
-    freq_indices = list(np.round(
+    freqs = np.array(sorted(summary.index.unique(level='FREQ')))
+    freq_indices = np.round(
             approx_freqs / (np.max(freqs) - np.min(freqs)) * len(freqs)
-    ).astype(int))
+    ).astype(int)
     return freqs[freq_indices]
 
 def get_impacts(impacts_file):
@@ -139,6 +138,38 @@ def get_impacts(impacts_file):
             'LAT_SC', 'LON_SC', 'LAT_SSE', 'LON_SSE', 'LPF_X', 'LPF_Y', 'LPF_Z']
     impacts = pd.read_csv(impacts_file, sep=' ', names=cols, na_values='-')
     return impacts
+
+def fft(run, channel, frequencies, log):
+    '''
+    Returns the discrete Fourier transform of power at specific frequencies
+    over time. First interpolates the data to get consistent dt.
+    '''
+    log.log('FFT analysis')
+    # Select median column for specific run, channel
+    df = run.psd_summary.loc[channel,'MEDIAN']
+    # Remove NaN values
+    df = df[df.notna()]
+    times = df.index.unique(level='TIME')
+    # Find time differences between each observation
+    diffs = np.array([times[i] - times[i-1] for i in range(1, len(times))])
+    # Find the mean time difference, excluding outliers
+    dt = np.mean(diffs[diffs < 1640])
+    log.log(f'dt = {dt}')
+    log.log(f'1/(2*dt) = {1. / (2 * dt)}')
+    
+    # List of times at same time cadence
+    n = int((times[-1] - times[0]) / dt)
+    new_times = np.array([times[0] + i * dt for i in range(n)])
+    
+    rfftfreq = []
+    rfft = []
+    for f in frequencies:
+        median = df.xs(f, level='FREQ')
+        new_values = np.interp(new_times, times, median)
+        rfftfreq.append(np.fft.rfftfreq(n, dt))
+        rfft.append(np.fft.rfft(new_values))
+    
+    return rfftfreq, rfft
 
 def main():
     # Argument parser
@@ -174,6 +205,9 @@ def main():
     
     for run in runs:
         print(f'\n-- {run.mode} {run.name} --')
+        # Log output file
+        log_file = os.path.join(run.summary_dir, 'psd.log')
+        log = utils.Log(log_file, f'psd.py log file for {run.name}')
         # Confirm to overwrite if summary already exists
         if args.keep: overwrite = False
         elif args.overwrite: overwrite = True
@@ -192,6 +226,7 @@ def main():
         df = run.psd_summary
         # Frequency slices: roughly logarithmic, low-frequency
         plot_frequencies = np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2])
+        plot_frequencies = get_exact_freq(run.psd_summary, plot_frequencies)
         # Time slices: get even spread of times
         n = 6
         indices = [int(i / (n-1) * len(run.gps_times)) for i in range(1,n-1)]
@@ -202,6 +237,11 @@ def main():
         if not args.compare:
             p = utils.Progress(run.channels, 'Plotting...')
             for i, channel in enumerate(run.channels):
+                # FFT analysis
+                fft_file = os.path.join(run.plot_dir, f'fft{i}.png')
+                rfftfreq, rfft = fft(run, channel, plot_frequencies, log)
+                plot.fft(rfftfreq, rfft, run, channel, plot_frequencies, 
+                        logfreq=False, plot_file=fft_file)
                 # Colormap
                 cmap_file = os.path.join(run.plot_dir, f'colormap{i}.png')
                 plot.save_colormaps(run, channel, cmap_file)
