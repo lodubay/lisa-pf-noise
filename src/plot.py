@@ -195,7 +195,8 @@ def save_colormaps(run, channel, plot_file, show=False):
 def compare_colormaps(runs, channel, plot_file=None, show=False):
     # Setup figure
     fig = plt.figure(figsize=(14, 6))
-    fig.suptitle(f'PSD at observed times compared to median - channel {channel}',
+    fig.suptitle(f'Channel {channel}\n' + \
+            'Power compared to median at observed times, frequencies',
             y=0.99, fontsize='xx-large')
     
     for i, run in enumerate(runs):
@@ -209,7 +210,7 @@ def compare_colormaps(runs, channel, plot_file=None, show=False):
         median = unstacked.median(axis=1)
         
         # Subplots
-        ax.title.set_text(f'{run.mode.upper()} ({run.name})')
+        ax.set_title(f'{run.mode.upper()} ({run.name})', size='x-large')
         im = colormap(fig, ax, run,
             unstacked.sub(median, axis=0).div(median, axis=0), 
             cmap=cm.get_cmap('coolwarm'), vlims=(-1,1),
@@ -220,15 +221,15 @@ def compare_colormaps(runs, channel, plot_file=None, show=False):
             ax.set_ylabel('Frequency (Hz)', fontsize='large')
     
     # Set tight layout
-    fig.tight_layout()
+    fig.tight_layout(rect=[0, 0, 1, 0.9])
     
     # Make colorbar
     fig.subplots_adjust(right=0.9)
     cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.7])
     cbar = fig.colorbar(im, cax=cbar_ax)
     cbar.ax.tick_params(labelsize='large')
-    cbar.set_label('Difference from median PSD', labelpad=15, rotation=270, 
-            fontsize='large')
+    cbar.set_label('Relative difference from median PSD', labelpad=15, 
+            rotation=270, fontsize='large')
     
     if plot_file: plt.savefig(plot_file, bbox_inches='tight')
     if show: plt.show()
@@ -265,8 +266,8 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
     titlesize = 'xx-large'
     legendsize = 'large'
     # Labels and titles
-    plot_title = f'Channel {channel}' 
-    ylabel = 'Power at given frequency'
+    plot_title = f'Channel {channel}\nPower at selected frequencies over time' 
+    ylabel = 'Power at selected frequency'
     
     # Set up figure, grid
     fig = plt.figure(figsize=figsize)

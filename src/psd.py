@@ -107,9 +107,6 @@ def save_summary(run):
     summaries = pd.concat(summaries)
 
     # Check for time gaps and fill with NaN DataFrames
-    #times = run.gps_times[:-1]
-    #p = utils.Progress(times, 'Checking for time gaps...')
-    #N = 0
     print('Checking for time gaps...')
     frequencies = summaries.index.unique(level='FREQ')
     midx = pd.MultiIndex.from_product(
@@ -118,27 +115,6 @@ def save_summary(run):
     )
     filler = pd.DataFrame(columns=summaries.columns, index=midx)
     summaries = summaries.append(filler).sort_index(level=[0, 1, 2])
-    '''
-    for i, gps_time in enumerate(times):
-        diff = run.gps_times[i+1] - run.gps_times[i]
-        if diff > run.dt + 1:
-            # Number of new times to insert
-            n = int(np.floor(diff / run.dt))
-            N += n
-            # List of missing times, with same time interval
-            missing_times = [times[i] + run.dt * k for k in range(1, n + 1)]
-            # Create new MultiIndex for empty DataFrame
-            frequencies = summaries.index.unique(level='FREQ')
-            midx = pd.MultiIndex.from_product(
-                [run.channels, missing_times, frequencies],
-                names=['CHANNEL', 'TIME', 'FREQ']
-            )
-            # Create empty DataFrame, append to summaries, and sort
-            filler = pd.DataFrame(columns=summaries.columns, index=midx)
-            summaries = summaries.append(filler).sort_index(level=[0, 1, 2])
-        # Update progress indicator
-        p.update(i)
-    '''
     print(f'Filled {len(run.missing_times)} missing times with NaN.')
     
     # Output to file
@@ -172,6 +148,8 @@ def main():
     parser.add_argument('runs', type=str, nargs='*', 
         help='run directory name (default: all folders in "data/" directory)'
     )
+    parser.add_argument('-c', '--compare', dest='compare', action='store_true',
+            help='compare summary plots for different runs side by side')
     parser.add_argument('--overwrite-all', dest='overwrite', action='store_true',
         help='re-generate summary files even if they already exist (default: \
               ask for each run)'
@@ -221,30 +199,31 @@ def main():
             [run.gps_times[i] for i in indices]
         )
         
-        '''
-        p = utils.Progress(run.channels, 'Plotting...')
-        for i, channel in enumerate(run.channels):
-            # Colormap
-            cmap_file = os.path.join(run.plot_dir, f'colormap{i}.png')
-            plot.save_colormaps(run, channel, cmap_file)
-            # Frequency slices
-            fslice_file = os.path.join(run.plot_dir, f'fslice{i}.png')
-            plot.save_freq_slices([run], channel, plot_frequencies, 
-                    impacts=impacts, plot_file=fslice_file)
-            # Time slices
-            tslice_file = os.path.join(run.plot_dir, f'tslice{i}.png')
-            plot.save_time_slices(run, channel, slice_times, tslice_file)
-            # Update progress
-            p.update(i)
-        '''
+        if not args.compare:
+            p = utils.Progress(run.channels, 'Plotting...')
+            for i, channel in enumerate(run.channels):
+                # Colormap
+                cmap_file = os.path.join(run.plot_dir, f'colormap{i}.png')
+                plot.save_colormaps(run, channel, cmap_file)
+                # Frequency slices
+                fslice_file = os.path.join(run.plot_dir, f'fslice{i}.png')
+                plot.save_freq_slices([run], channel, plot_frequencies, 
+                        impacts=impacts, plot_file=fslice_file)
+                # Time slices
+                tslice_file = os.path.join(run.plot_dir, f'tslice{i}.png')
+                plot.save_time_slices(run, channel, slice_times, tslice_file)
+                # Update progress
+                p.update(i)
         
     # Plot run comparisons
-    p = utils.Progress(runs[0].channels, '\nPlotting run comparisons...')
-    for i, channel in enumerate(runs[0].channels):
-        plot.save_freq_slices(runs, channel, plot_frequencies, impacts=impacts,
-                plot_file=f'out/multi_fslice{i}.png')
-        plot.compare_colormaps(runs, channel, plot_file=f'out/multi_colormap{i}.png')
-        p.update(i)
+    if args.compare:
+        p = utils.Progress(runs[0].channels, '\nPlotting run comparisons...')
+        for i, channel in enumerate(runs[0].channels):
+            plot.compare_colormaps(runs, channel, 
+                    plot_file=f'out/multi_colormap{i}.png')
+            plot.save_freq_slices(runs, channel, plot_frequencies, 
+                    impacts=impacts, plot_file=f'out/multi_fslice{i}.png')
+            p.update(i)
     
     print('Done!')
 
