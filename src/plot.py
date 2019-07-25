@@ -97,7 +97,7 @@ def colormap(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, center=None,
     ax.set_yscale('log')
     ax.set_ylim(bottom=1e-3, top=1.)
     # Axis labels
-    ax.set_xlabel(f'Days elapsed since {run.start_date} UTC', fontsize='large')
+    ax.set_xlabel(f'Days elapsed since {run.start_date} UTC', fontsize='x-large')
     # Tick label size
     ax.tick_params(axis='both', which='major', labelsize='large')
     # Add and label colorbar
@@ -194,7 +194,7 @@ def save_colormaps(run, channel, plot_file, show=False):
 
 def compare_colormaps(runs, channel, plot_file=None, show=False):
     # Setup figure
-    fig = plt.figure(figsize=(14, 6))
+    fig = plt.figure(figsize=(8 + len(runs) * 4, 9))
     fig.suptitle(f'Channel {channel}\n' + \
             'Power compared to median at observed times, frequencies',
             y=0.99, fontsize='xx-large')
@@ -210,7 +210,7 @@ def compare_colormaps(runs, channel, plot_file=None, show=False):
         median = unstacked.median(axis=1)
         
         # Subplots
-        ax.set_title(f'{run.mode.upper()} ({run.name})', size='x-large')
+        ax.set_title(f'{run.mode.upper()}', size='x-large')
         im = colormap(fig, ax, run,
             unstacked.sub(median, axis=0).div(median, axis=0), 
             cmap=cm.get_cmap('coolwarm'), vlims=(-1,1),
@@ -218,18 +218,18 @@ def compare_colormaps(runs, channel, plot_file=None, show=False):
         )
         # Only label y axis on left most plot
         if i==0:
-            ax.set_ylabel('Frequency (Hz)', fontsize='large')
+            ax.set_ylabel('Frequency (Hz)', fontsize='x-large')
     
     # Set tight layout
-    fig.tight_layout(rect=[0, 0, 1, 0.9])
+    fig.tight_layout(rect=[0, 0, 1, 0.92])
     
     # Make colorbar
     fig.subplots_adjust(right=0.9)
-    cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.65])
+    cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.66])
     cbar = fig.colorbar(im, cax=cbar_ax)
     cbar.ax.tick_params(labelsize='large')
     cbar.set_label('Relative difference from median PSD', labelpad=15, 
-            rotation=270, fontsize='large')
+            rotation=270, fontsize='x-large')
     
     if plot_file: plt.savefig(plot_file, bbox_inches='tight')
     if show: plt.show()
@@ -251,10 +251,10 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
       show : whether to display figure, defaults to no
     '''
     # Tweakables
-    figsize = (20, 7.5) # Relative figure size
+    figsize = (8 + len(runs) * 4, 9) # Relative figure size
     plot_height = 4 # Relative height of each subplot
     hspace = 3 # Relative vertical spaceing between subplots
-    wspace = 0.1
+    wspace = 0.12
     impactplot_height = 1 # Relative height of the impacts subplot
     spine_pad = 10 # Spine offset from subplots
     scaled_offset = 0.0025 * spine_pad # Scaled spine_pad
@@ -290,7 +290,7 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
             ax = fig.add_subplot(grid[plot_height*i:plot_height*i+plot_height, j])
             # Subplot title if top plot
             if i == 0:
-                ax.set_title(f'{run.mode.upper()} ({run.name})')
+                ax.set_title(f'{run.mode.upper()}')
                 # Also grab top axis legend info
                 ax1 = ax
             
@@ -397,9 +397,9 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
     handles += [impact_plt]
     order = [0, 2, 1, 3] # Reorder legend
     fig.legend(handles=[handles[i] for i in order], fontsize=legendsize, 
-            loc='upper right', bbox_to_anchor=(0.95, 1), 
+            loc='upper right', bbox_to_anchor=(0.96, 1), 
             bbox_transform=plt.gcf().transFigure)
-    plt.subplots_adjust(top=0.85)
+    plt.subplots_adjust(top=0.88)
     
     # Save / display figure
     if plot_file: plt.savefig(plot_file, bbox_inches='tight')
