@@ -225,7 +225,7 @@ def compare_colormaps(runs, channel, plot_file=None, show=False):
     
     # Make colorbar
     fig.subplots_adjust(right=0.9)
-    cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.7])
+    cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.65])
     cbar = fig.colorbar(im, cax=cbar_ax)
     cbar.ax.tick_params(labelsize='large')
     cbar.set_label('Relative difference from median PSD', labelpad=15, 
