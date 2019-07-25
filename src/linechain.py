@@ -249,6 +249,8 @@ def main():
     parser.add_argument('runs', type=str, nargs='*', 
         help='run directory name (default: all folders in "data/" directory)'
     )
+    parser.add_argument('-c', '--compare', dest='compare', action='store_true',
+            help='compare summary plots for different runs side by side')
     parser.add_argument('--overwrite-all', dest='overwrite', 
         action='store_true',
         help='re-generate summary files even if they already exist (default: \
@@ -284,24 +286,26 @@ def main():
             run.lc_summary = pd.read_pickle(run.linechain_file)
             run.linecounts = pd.read_pickle(run.linecounts_file)
         
-        # Plot line parameters\
-        print('Plotting...')
-        # Plot linecount colormaps
-        for i, channel in enumerate(run.channels):
-            plot_file = os.path.join(run.plot_dir, f'linecounts{i}.png')
-            plot.linecounts_cmap(run, channel, plot_file)
-            if channel in run.lc_summary.index.unique(level='CHANNEL'):
-                for param in run.lc_summary.index.unique(level='PARAMETER'):
-                    plot_file = os.path.join(
-                        run.plot_dir, f'linechain_{param.lower()}{i}.png'
-                    )
-                    plot.linechain_scatter(
-                        run, channel, param, plot_file=plot_file, show=False
-                    )
-    '''
-    for channel in runs[0].channels:
-        plot.linecounts_combined(runs, channel, show=True)
-    '''
+        if not args.compare:
+            # Plot line parameters
+            print('Plotting...')
+            # Plot linecount colormaps
+            for i, channel in enumerate(run.channels):
+                plot_file = os.path.join(run.plot_dir, f'linecounts{i}.png')
+                plot.linecounts_cmap(run, channel, plot_file)
+                if channel in run.lc_summary.index.unique(level='CHANNEL'):
+                    for param in run.lc_summary.index.unique(level='PARAMETER'):
+                        plot_file = os.path.join(
+                            run.plot_dir, f'linechain_{param.lower()}{i}.png'
+                        )
+                        plot.linechain_scatter(
+                            run, channel, param, plot_file=plot_file, show=False
+                        )
+    
+    if args.compare:
+        for i, channel in enumerate(runs[0].channels):
+            plot.compare_linecounts(runs, channel, 
+                    plot_file=f'out/multi_linecounts{i}.png')
     
     print('Done!')
 

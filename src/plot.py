@@ -494,6 +494,58 @@ def linecounts_cmap(run, channel, plot_file=None, show=False):
     if show: plt.show()
     else: plt.close()
 
+def compare_linecounts(runs, channel, plot_file=None, show=False):
+    # Setup figure
+    fig = plt.figure(figsize=(8 + len(runs) * 4, 9))
+    fig.suptitle(f'Channel {channel}\n' + \
+            'No. spectral lines over time',
+            y=0.99, fontsize='xx-large')
+    
+    for i, run in enumerate(runs):
+        # Setup subplot
+        ax = fig.add_subplot(1, len(runs), i+1)
+        
+        # Get line counts
+        counts = run.linecounts.loc[channel]
+        # Change GPS times to days elapsed
+        counts.index = pd.Series(run.gps2day(counts.index), name='TIME')
+        # Convert counts to fraction of total
+        counts = counts / sum(counts.iloc[0].dropna())
+        
+        # Subplots
+        ax.set_title(f'{run.mode.upper()}', size='x-large')
+        im = ax.pcolormesh(
+            list(counts.index) + [counts.index[-1] + run.dt / (60*60*24)],
+            list(counts.columns) + [int(counts.columns[-1]) + 1],
+            counts.to_numpy().T,
+            cmap='PuRd',
+            vmax=0.5
+        )
+        
+        # Axis labels
+        ax.set_xlabel(f'Days elapsed since {run.start_date} UTC', fontsize='x-large')
+        # Only label y axis on left most plot
+        if i==0:
+            ax.set_ylabel('Modeled no. spectral lines', fontsize='x-large')
+        # Put the major ticks at the middle of each cell
+        ax.set_yticks(counts.columns + 0.5, minor=False)
+        ax.set_yticklabels(counts.columns)
+    
+    # Set tight layout
+    fig.tight_layout(rect=[0, 0, 1, 0.92])
+    
+    # Make colorbar
+    fig.subplots_adjust(right=0.9)
+    cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.66])
+    cbar = fig.colorbar(im, cax=cbar_ax)
+    cbar.ax.tick_params(labelsize='large')
+    cbar.set_label('Relative frequency of line model', labelpad=15, 
+            rotation=270, fontsize='x-large')
+    
+    if plot_file: plt.savefig(plot_file, bbox_inches='tight')
+    if show: plt.show()
+    else: plt.close()
+
 '''
 DANGER - UNDER CONSTRUCTION
 '''
