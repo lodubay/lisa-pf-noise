@@ -255,7 +255,7 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
     figsize = (8 + len(runs) * 4, 9) # Relative figure size
     plot_height = 4 # Relative height of each subplot
     hspace = 3 # Relative vertical spaceing between subplots
-    wspace = 0.12
+    wspace = 0.16
     impactplot_height = 1 # Relative height of the impacts subplot
     spine_pad = 10 # Spine offset from subplots
     scaled_offset = 0.0025 * spine_pad # Scaled spine_pad
@@ -285,6 +285,8 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
         
         # Subplots
         for i, freq in enumerate(frequencies):
+            # Text version of frequency
+            freq_text = f'%s mHz' % float('%.3g' % (freq * 1000.))
             # Add new subplot
             ax = fig.add_subplot(grid[plot_height*i:plot_height*i+plot_height, j])
             # Subplot title if top plot
@@ -325,14 +327,14 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
             ax.spines['bottom'].set_bounds(min(days_elapsed), max(days_elapsed))
             
             # Frequency labels on right-most plots
+            '''
             if j == len(runs) - 1:
-                ax.text(1.01 * days_elapsed[-1], med,
-                        f'%s mHz' % float('%.3g' % (freq * 1000.)), 
+                ax.text(1.01 * days_elapsed[-1], med, freq_text,
                         fontsize=legendsize, va='center')
+                        '''
             
             # Format left vertical axis
-            #ax.yaxis.set_major_formatter(tkr.FormatStrFormatter('%.1f'))
-            #ax.yaxis.set_major_formatter(tkr.ScalarFormatter())
+            ax.set_ylabel(freq_text, fontsize=axlabelsize)
             y_formatter = tkr.ScalarFormatter(useOffset=False)
             ax.yaxis.set_major_formatter(y_formatter)
             ax.yaxis.set_minor_locator(tkr.AutoMinorLocator())
@@ -389,14 +391,14 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
     ax.grid(False)
     # y axis label
     ax.set_ylabel(ylabel, fontsize=axlabelsize, ha='center', va='center', 
-            labelpad=axlabelpad)
+            labelpad=axlabelpad * 2)
     
     # Make legend
     handles, labels = ax1.get_legend_handles_labels()
     handles += [impact_plt]
     order = [0, 2, 1, 3] # Reorder legend
     fig.legend(handles=[handles[i] for i in order], fontsize=legendsize, 
-            loc='upper right', bbox_to_anchor=(0.96, 1), 
+            loc='upper right', bbox_to_anchor=(0.92, 1), 
             bbox_transform=plt.gcf().transFigure)
     plt.subplots_adjust(top=0.88)
     
@@ -444,7 +446,7 @@ def fft(rfftfreq, rfft, run, channel, frequencies,
     ncols = int(np.ceil(1. * len(frequencies) / nrows))
     # Set up figure
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(f'{run.mode.upper()} channel {channel}')
+    fig.suptitle(f'{run.mode.upper()} channel {channel}', fontsize='xx-large')
     
     # Subplots
     for i, freq in enumerate(frequencies):
@@ -454,10 +456,10 @@ def fft(rfftfreq, rfft, run, channel, frequencies,
         ax.title.set_text(f'FFT of power at %s mHz' % float('%.3g' % (freq * 1000.)))
         # Vertical axis label on first plot in each row
         if i % ncols == 0:
-            ax.set_ylabel('Power')
+            ax.set_ylabel('Power', fontsize='x-large')
         # Horizontal axis label on bottom plot in each column
         if i >= len(frequencies) - ncols:
-            ax.set_xlabel('Frequency (Hz)')
+            ax.set_xlabel('Frequency (Hz)', fontsize='x-large')
         if logfreq: 
             ax.set_xscale('log')
         else:
