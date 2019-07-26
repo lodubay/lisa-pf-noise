@@ -457,7 +457,7 @@ def fft(rfftfreq, rfft, run, channel, frequencies,
         ax.title.set_text(f'FFT of power at %s mHz' % float('%.3g' % (freq * 1000.)))
         # Vertical axis label on first plot in each row
         if i % ncols == 0:
-            ax.set_ylabel('Power', fontsize='x-large')
+            ax.set_ylabel('PSD', fontsize='x-large')
         # Horizontal axis label on bottom plot in each column
         if i >= len(frequencies) - ncols:
             ax.set_xlabel('Frequency (Hz)', fontsize='x-large')

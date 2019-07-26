@@ -68,6 +68,7 @@ class Run:
             # Summary file paths
             self.psd_file = os.path.join(self.summary_dir, 'psd.pkl')
             self.psd_log = os.path.join(self.summary_dir, 'psd.log')
+            self.fft_log = os.path.join(self.summary_dir, 'fft.log')
             self.linecounts_file = os.path.join(self.summary_dir, 'linecounts.pkl')
             self.linechain_file = os.path.join(self.summary_dir, 'linechain.pkl')
             
