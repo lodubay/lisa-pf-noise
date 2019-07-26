@@ -139,7 +139,7 @@ def get_impacts(impacts_file):
     impacts = pd.read_csv(impacts_file, sep=' ', names=cols, na_values='-')
     return impacts
 
-def fft(run, channel, frequencies, log):
+def fft(run, channel, frequencies, log=None):
     '''
     Returns the discrete Fourier transform of power at specific frequencies
     over time. First interpolates the data to get consistent dt.
@@ -168,6 +168,10 @@ def fft(run, channel, frequencies, log):
         new_values = np.interp(new_times, times, median)
         rfftfreq.append(np.fft.rfftfreq(n, dt))
         rfft.append(np.fft.rfft(new_values))
+    
+    if len(frequencies) == 1:
+        rfftfreq = rfftfreq[0]
+        rfft = rfft[0]
     
     return rfftfreq, rfft
 

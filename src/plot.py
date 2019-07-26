@@ -451,7 +451,8 @@ def fft(rfftfreq, rfft, run, channel, frequencies,
     # Subplots
     for i, freq in enumerate(frequencies):
         ax = fig.add_subplot(nrows, ncols, i+1)
-        ax.plot(rfftfreq[i], abs(rfft[i]), color='#0077c8')
+        psd = np.absolute(rfft[i])**2
+        ax.plot(rfftfreq[i], psd, color='#0077c8')
         # Axis title
         ax.title.set_text(f'FFT of power at %s mHz' % float('%.3g' % (freq * 1000.)))
         # Vertical axis label on first plot in each row
