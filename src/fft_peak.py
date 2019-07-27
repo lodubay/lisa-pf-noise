@@ -8,7 +8,7 @@ import psd
 import utils
 
 # Plot parameters
-run_dir = 'data/ltp/run_b'
+run_dir = 'data/drs/run_k'
 run = utils.Run(run_dir)
 channel = run.channels[1]
 freq = [1e-2]
