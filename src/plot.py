@@ -15,6 +15,13 @@ legend_label_size = 20
 ax_label_size = 20
 tick_label_size = 18
 offset_size = 16
+
+# Tick parameters
+major_tick_length = 10
+minor_tick_length = 5
+
+# Other parameters
+subplot_title_pad = 15
     
 def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     '''
@@ -107,8 +114,11 @@ def colormap(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, center=None,
     # Axis labels
     ax.set_xlabel(f'Days elapsed since\n{run.start_date} UTC', 
             fontsize=ax_label_size)
+    ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
     # Tick label size
-    ax.tick_params(axis='both', which='major', labelsize=tick_label_size)
+    ax.tick_params(axis='both', which='major', labelsize=tick_label_size,
+            length=major_tick_length)
+    ax.tick_params(axis='both', which='minor', length=minor_tick_length)
     # Add and label colorbar
     if bar:
         cbar = fig.colorbar(im, ax=ax)
@@ -187,7 +197,7 @@ def save_colormaps(run, channel, plot_file, show=False):
     )
     # Subplots
     axs[0].set_title('Absolute difference from median PSD', 
-            fontsize=subplot_title_size)
+            fontsize=subplot_title_size, pad=subplot_title_pad)
     axs[0].set_ylabel('Frequency (Hz)', fontsize=ax_label_size)
     colormap(fig, axs[0], run,
         unstacked.sub(median, axis=0), 
@@ -195,12 +205,13 @@ def save_colormaps(run, channel, plot_file, show=False):
         center=0.0
     )
     axs[1].set_title('Fractional difference from median PSD',
-            fontsize=subplot_title_size)
+            fontsize=subplot_title_size, pad=subplot_title_pad)
     colormap(fig, axs[1], run,
         abs(unstacked.sub(median, axis=0)).div(median, axis=0),
         cmap='PuRd',
         vlims=(0,1)
     )
+    fig.tight_layout(rect=[0, 0, 1, 0.92])
     plt.savefig(plot_file, bbox_inches='tight')
     if show: plt.show()
     else: plt.close()
@@ -265,9 +276,9 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
       show : whether to display figure, defaults to no
     '''
     # Tweakables
-    figsize = (8 + len(runs) * 4, 9) # Relative figure size
-    plot_height = 4 # Relative height of each subplot
-    hspace = 4 # Relative vertical spaceing between subplots
+    figsize = (8 + len(runs) * 4, 12) # Relative figure size
+    plot_height = 2 # Relative height of each subplot
+    hspace = 2 # Relative vertical spaceing between subplots
     wspace = 0.16
     impactplot_height = 1 # Relative height of the impacts subplot
     spine_pad = 10 # Spine offset from subplots
@@ -299,7 +310,7 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
             # Subplot title if top plot
             if i == 0:
                 ax.set_title(f'{run.mode.upper()}', fontsize=subplot_title_size,
-                        pad=15)
+                        pad=subplot_title_pad)
                 # Also grab top axis legend info
                 ax1 = ax
             
@@ -342,12 +353,14 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
                         '''
             
             # Format left vertical axis
-            ax.set_ylabel(freq_text, fontsize=ax_label_size)
+            ax.set_ylabel(freq_text, fontsize=tick_label_size)
             y_formatter = tkr.ScalarFormatter(useOffset=False)
             ax.yaxis.set_major_formatter(y_formatter)
             ax.yaxis.set_minor_locator(tkr.AutoMinorLocator())
             ax.spines['left'].set_position(('outward', spine_pad))
             ax.tick_params(axis='y', which='major', labelsize=tick_label_size)
+            ax.tick_params(axis='both', which='major', length=major_tick_length)
+            ax.tick_params(axis='both', which='minor', length=minor_tick_length)
             # More mathy exponent label
             ax.ticklabel_format(axis='y', useMathText=True)
             exp_txt = ax.yaxis.get_offset_text()
@@ -399,7 +412,7 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
             right=False, which='both')
     ax.grid(False)
     # y axis label
-    ax.set_ylabel(ylabel, fontsize=ax_label_size, ha='center', va='center', 
+    ax.set_ylabel(ylabel, fontsize=subplot_title_size, ha='center', va='center', 
             labelpad=axlabelpad * 2 + 8)
     
     # Make legend
@@ -407,9 +420,9 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
     handles += [impact_plt]
     order = [0, 2, 1, 3] # Reorder legend
     fig.legend(handles=[handles[i] for i in order], fontsize=legend_label_size, 
-            loc='upper left', bbox_to_anchor=(-0.08, 1.1), 
+            loc='upper right', bbox_to_anchor=(1.2, 1), 
             bbox_transform=plt.gcf().transFigure)
-    plt.subplots_adjust(top=1 - (4 * 0.003 * legend_label_size))
+    plt.subplots_adjust(top=1 - (4 * 0.0020 * legend_label_size))
     
     # Save / display figure
     if plot_file: plt.savefig(plot_file, bbox_inches='tight')
