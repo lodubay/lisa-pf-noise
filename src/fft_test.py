@@ -1,4 +1,5 @@
 import numpy as np
+from scipy import interpolate
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -27,6 +28,8 @@ n = values.shape[0]
 # Interpolate data at same dt
 n = int((times[-1] - times[0]) / dt)
 new_times = np.array([times[0] + i * dt for i in range(n)])
+linear = np.interp(new_times, times, values)
+
 new_values = np.interp(new_times, times, values)
 # Plot interpolated and original data
 fig, ax = plt.subplots(1, 1)
@@ -63,12 +66,11 @@ rfft = np.fft.rfft(new_values)
 print(f'Max frequency: {max(rfftfreq)}')
 print(f'1/(2*dt) = {1. / (2 * dt)}')
 
-plt.plot(rfftfreq, abs(rfft))
+plt.plot(rfftfreq, np.absolute(rfft))
 #plt.plot(rfftfreq, abs(np.fft.rfft(values)), color='r')
 plt.title(f'FFT for {run.mode} {run.name} channel {channel}')
 plt.xlabel('f')
 plt.ylabel('abs(rfft)')
-plt.xscale('log')
 plt.yscale('log')
 plt.xlim((2e-6, 3e-4))
 plt.show()
