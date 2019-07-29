@@ -589,7 +589,9 @@ def compare_linecounts(runs, channel, plot_file=None, show=False):
         # Axis labels
         ax.set_xlabel(f'Days elapsed since {run.start_date} UTC', 
                 fontsize=ax_label_size)
-        ax.tick_params(labelsize=tick_label_size)
+        ax.tick_params(labelsize=tick_label_size, length=major_tick_length)
+        ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
+        ax.tick_params(axis='x', which='minor', length=minor_tick_length)
         # Only label y axis on left most plot
         if i==0:
             ax.set_ylabel('Modeled no. spectral lines', fontsize=ax_label_size)
@@ -605,7 +607,7 @@ def compare_linecounts(runs, channel, plot_file=None, show=False):
     cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.66])
     cbar = fig.colorbar(im, cax=cbar_ax)
     cbar.ax.tick_params(labelsize=tick_label_size)
-    cbar.set_label('Relative frequency of line model', labelpad=15, 
+    cbar.set_label('Relative frequency of line model', labelpad=25, 
             rotation=270, fontsize=ax_label_size)
     
     if plot_file: plt.savefig(plot_file, bbox_inches='tight')
