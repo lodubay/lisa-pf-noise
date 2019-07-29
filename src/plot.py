@@ -7,6 +7,14 @@ import matplotlib.ticker as tkr
 
 import psd
 import utils
+
+# Font parameters
+fig_title_size = 28
+subplot_title_size = 24
+legend_label_size = 20
+ax_label_size = 20
+tick_label_size = 18
+offset_size = 16
     
 def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
     '''
@@ -97,15 +105,18 @@ def colormap(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, center=None,
     ax.set_yscale('log')
     ax.set_ylim(bottom=1e-3, top=1.)
     # Axis labels
-    ax.set_xlabel(f'Days elapsed since {run.start_date} UTC', fontsize='x-large')
+    ax.set_xlabel(f'Days elapsed since\n{run.start_date} UTC', 
+            fontsize=ax_label_size)
     # Tick label size
-    ax.tick_params(axis='both', which='major', labelsize='large')
+    ax.tick_params(axis='both', which='major', labelsize=tick_label_size)
     # Add and label colorbar
     if bar:
         cbar = fig.colorbar(im, ax=ax)
-        cbar.ax.tick_params(labelsize='large')
+        cbar.ax.tick_params(labelsize=tick_label_size)
         if cbar_label:
             cbar.set_label(cbar_label, labelpad=15, rotation=270)
+        offset = ax.yaxis.get_offset_text()
+        offset.set_size(offset_size)
     
     return im
 
@@ -171,18 +182,20 @@ def save_colormaps(run, channel, plot_file, show=False):
     # Set up figure
     fig, axs = plt.subplots(1, 2, figsize=(14, 6))
     fig.suptitle(
-        f'Colormap of {run.mode.upper()} {run.name} channel {channel} PSD over time',
-        fontsize='x-large'
+        f'PSD of {run.mode.upper()} channel {channel} over time',
+        fontsize=fig_title_size
     )
     # Subplots
-    axs[0].title.set_text('Absolute difference from median PSD')
-    axs[0].set_ylabel('Frequency (Hz)', fontsize='large')
+    axs[0].set_title('Absolute difference from median PSD', 
+            fontsize=subplot_title_size)
+    axs[0].set_ylabel('Frequency (Hz)', fontsize=ax_label_size)
     colormap(fig, axs[0], run,
         unstacked.sub(median, axis=0), 
         cmap=cm.get_cmap('coolwarm'),
         center=0.0
     )
-    axs[1].title.set_text('Fractional difference from median PSD')
+    axs[1].set_title('Fractional difference from median PSD',
+            fontsize=subplot_title_size)
     colormap(fig, axs[1], run,
         abs(unstacked.sub(median, axis=0)).div(median, axis=0),
         cmap='PuRd',
@@ -197,7 +210,7 @@ def compare_colormaps(runs, channel, plot_file=None, show=False):
     fig = plt.figure(figsize=(8 + len(runs) * 4, 9))
     fig.suptitle(f'Channel {channel}\n' + \
             'Power compared to median at observed times, frequencies',
-            y=0.99, fontsize='xx-large')
+            y=0.99, fontsize=fig_title_size)
     
     for i, run in enumerate(runs):
         # Setup subplot
@@ -210,16 +223,16 @@ def compare_colormaps(runs, channel, plot_file=None, show=False):
         median = unstacked.median(axis=1)
         
         # Subplots
-        ax.set_title(f'{run.mode.upper()}', size='x-large')
+        ax.set_title(f'{run.mode.upper()}', size=subplot_title_size)
         im = colormap(fig, ax, run,
             unstacked.sub(median, axis=0).div(median, axis=0), 
             cmap=cm.get_cmap('coolwarm'), vlims=(-1,1),
             center=0.0, bar=False
         )
-        ax.tick_params(labelsize='x-large')
+        ax.tick_params(labelsize=tick_label_size)
         # Only label y axis on left most plot
         if i==0:
-            ax.set_ylabel('Frequency (Hz)', fontsize='x-large')
+            ax.set_ylabel('Frequency (Hz)', fontsize=ax_label_size)
     
     # Set tight layout
     fig.tight_layout(rect=[0, 0, 1, 0.92])
@@ -228,9 +241,9 @@ def compare_colormaps(runs, channel, plot_file=None, show=False):
     fig.subplots_adjust(right=0.9)
     cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.66])
     cbar = fig.colorbar(im, cax=cbar_ax)
-    cbar.ax.tick_params(labelsize='large')
+    cbar.ax.tick_params(labelsize=tick_label_size)
     cbar.set_label('Relative difference from median PSD', labelpad=15, 
-            rotation=270, fontsize='x-large')
+            rotation=270, fontsize=ax_label_size)
     
     if plot_file: plt.savefig(plot_file, bbox_inches='tight')
     if show: plt.show()
@@ -254,18 +267,12 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
     # Tweakables
     figsize = (8 + len(runs) * 4, 9) # Relative figure size
     plot_height = 4 # Relative height of each subplot
-    hspace = 3 # Relative vertical spaceing between subplots
+    hspace = 4 # Relative vertical spaceing between subplots
     wspace = 0.16
     impactplot_height = 1 # Relative height of the impacts subplot
     spine_pad = 10 # Spine offset from subplots
     scaled_offset = 0.0025 * spine_pad # Scaled spine_pad
-    axlabelpad = 25 # Padding between axis label and spine
-    # Font sizes
-    ticklabelsize = 'large'
-    offsetsize = 'medium'
-    axlabelsize = 'x-large'
-    titlesize = 'xx-large'
-    legendsize = 'large'
+    axlabelpad = 8 + ax_label_size # Padding between axis label and spine
     # Labels and titles
     plot_title = f'Channel {channel}\nPower at selected frequencies over time' 
     ylabel = 'Power at selected frequency'
@@ -274,7 +281,7 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
     fig = plt.figure(figsize=figsize)
     grid_height = plot_height * len(frequencies)
     grid = plt.GridSpec(grid_height, len(runs), hspace=hspace, wspace=wspace)
-    fig.suptitle(plot_title, fontsize=titlesize)
+    fig.suptitle(plot_title, fontsize=fig_title_size)
     fig.tight_layout()
     
     for j, run in enumerate(runs):
@@ -291,7 +298,8 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
             ax = fig.add_subplot(grid[plot_height*i:plot_height*i+plot_height, j])
             # Subplot title if top plot
             if i == 0:
-                ax.set_title(f'{run.mode.upper()}')
+                ax.set_title(f'{run.mode.upper()}', fontsize=subplot_title_size,
+                        pad=15)
                 # Also grab top axis legend info
                 ax1 = ax
             
@@ -334,17 +342,17 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
                         '''
             
             # Format left vertical axis
-            ax.set_ylabel(freq_text, fontsize=axlabelsize)
+            ax.set_ylabel(freq_text, fontsize=ax_label_size)
             y_formatter = tkr.ScalarFormatter(useOffset=False)
             ax.yaxis.set_major_formatter(y_formatter)
             ax.yaxis.set_minor_locator(tkr.AutoMinorLocator())
             ax.spines['left'].set_position(('outward', spine_pad))
-            ax.tick_params(axis='y', which='major', labelsize=ticklabelsize)
+            ax.tick_params(axis='y', which='major', labelsize=tick_label_size)
             # More mathy exponent label
             ax.ticklabel_format(axis='y', useMathText=True)
             exp_txt = ax.yaxis.get_offset_text()
             exp_txt.set_x(-0.005 * spine_pad)
-            exp_txt.set_size(offsetsize)
+            exp_txt.set_size(offset_size)
             
             # Format bottom horizontal axis
             if i+1 < len(frequencies):# or len(impact_days) > 0:
@@ -357,11 +365,11 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
             else:
                 # Horizontal axis for bottom plot
                 ax.set_xlabel(f'Days elapsed since {run.start_date} UTC', 
-                        fontsize=axlabelsize)
+                        fontsize=ax_label_size)
                 ax.spines['bottom'].set_visible(True)
                 ax.spines['bottom'].set_position(('outward', spine_pad))
                 ax.tick_params(bottom=True)
-                ax.tick_params(axis='x', which='major', labelsize=ticklabelsize)
+                ax.tick_params(axis='x', which='major', labelsize=tick_label_size)
                 # Minor ticks
                 ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
     
@@ -377,8 +385,9 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
                 
                 # Plot micrometeoroid impacts, if any
                 impact_plt = ax.scatter(impact_days, 
-                        [ylim[0] - (ylim[1]-ylim[0]) * 0.015 * spine_pad] * len(impact_days), 
-                        c='red', marker='x', label='Impact event', clip_on=False)
+                        [ylim[0] - (ylim[1]-ylim[0]) * 0.017 * spine_pad] * len(impact_days), 
+                        c='red', marker='x', label='Impact event', clip_on=False,
+                        s=100)
             
             # Remove spines and ticks for other axes
             ax.spines['right'].set_visible(False)
@@ -390,17 +399,17 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
             right=False, which='both')
     ax.grid(False)
     # y axis label
-    ax.set_ylabel(ylabel, fontsize=axlabelsize, ha='center', va='center', 
-            labelpad=axlabelpad * 2)
+    ax.set_ylabel(ylabel, fontsize=ax_label_size, ha='center', va='center', 
+            labelpad=axlabelpad * 2 + 8)
     
     # Make legend
     handles, labels = ax1.get_legend_handles_labels()
     handles += [impact_plt]
     order = [0, 2, 1, 3] # Reorder legend
-    fig.legend(handles=[handles[i] for i in order], fontsize=legendsize, 
-            loc='upper right', bbox_to_anchor=(0.92, 1), 
+    fig.legend(handles=[handles[i] for i in order], fontsize=legend_label_size, 
+            loc='upper left', bbox_to_anchor=(-0.08, 1.1), 
             bbox_transform=plt.gcf().transFigure)
-    plt.subplots_adjust(top=0.88)
+    plt.subplots_adjust(top=1 - (4 * 0.003 * legend_label_size))
     
     # Save / display figure
     if plot_file: plt.savefig(plot_file, bbox_inches='tight')
@@ -446,7 +455,7 @@ def fft(rfftfreq, rfft, run, channel, frequencies,
     ncols = int(np.ceil(1. * len(frequencies) / nrows))
     # Set up figure
     fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(f'{run.mode.upper()} channel {channel}', fontsize='xx-large')
+    fig.suptitle(f'{run.mode.upper()} channel {channel}', fontsize=fig_title_size)
     
     # Subplots
     for i, freq in enumerate(frequencies):
@@ -457,10 +466,10 @@ def fft(rfftfreq, rfft, run, channel, frequencies,
         ax.title.set_text(f'FFT of power at %s mHz' % float('%.3g' % (freq * 1000.)))
         # Vertical axis label on first plot in each row
         if i % ncols == 0:
-            ax.set_ylabel('PSD', fontsize='x-large')
+            ax.set_ylabel('PSD', fontsize=ax_label_size)
         # Horizontal axis label on bottom plot in each column
         if i >= len(frequencies) - ncols:
-            ax.set_xlabel('Frequency (Hz)', fontsize='x-large')
+            ax.set_xlabel('Frequency (Hz)', fontsize=ax_label_size)
         if logfreq: 
             ax.set_xscale('log')
         else:
@@ -533,7 +542,7 @@ def compare_linecounts(runs, channel, plot_file=None, show=False):
     fig = plt.figure(figsize=(8 + len(runs) * 4, 9))
     fig.suptitle(f'Channel {channel}\n' + \
             'No. spectral lines over time',
-            y=0.99, fontsize='xx-large')
+            y=0.99, fontsize=fig_title_size)
     
     for i, run in enumerate(runs):
         # Setup subplot
@@ -549,7 +558,7 @@ def compare_linecounts(runs, channel, plot_file=None, show=False):
         counts = counts.iloc[:,:6]
         
         # Subplots
-        ax.set_title(f'{run.mode.upper()}', size='x-large')
+        ax.set_title(f'{run.mode.upper()}', size=subplot_title_size)
         im = ax.pcolormesh(
             list(counts.index) + [counts.index[-1] + run.dt / (60*60*24)],
             list(counts.columns) + [int(counts.columns[-1]) + 1],
@@ -559,11 +568,12 @@ def compare_linecounts(runs, channel, plot_file=None, show=False):
         )
         
         # Axis labels
-        ax.set_xlabel(f'Days elapsed since {run.start_date} UTC', fontsize='x-large')
-        ax.tick_params(labelsize='x-large')
+        ax.set_xlabel(f'Days elapsed since {run.start_date} UTC', 
+                fontsize=ax_label_size)
+        ax.tick_params(labelsize=tick_label_size)
         # Only label y axis on left most plot
         if i==0:
-            ax.set_ylabel('Modeled no. spectral lines', fontsize='x-large')
+            ax.set_ylabel('Modeled no. spectral lines', fontsize=ax_label_size)
         # Put the major ticks at the middle of each cell
         ax.set_yticks(counts.columns + 0.5, minor=False)
         ax.set_yticklabels(counts.columns)
@@ -575,9 +585,9 @@ def compare_linecounts(runs, channel, plot_file=None, show=False):
     fig.subplots_adjust(right=0.9)
     cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.66])
     cbar = fig.colorbar(im, cax=cbar_ax)
-    cbar.ax.tick_params(labelsize='large')
+    cbar.ax.tick_params(labelsize=tick_label_size)
     cbar.set_label('Relative frequency of line model', labelpad=15, 
-            rotation=270, fontsize='x-large')
+            rotation=270, fontsize=ax_label_size)
     
     if plot_file: plt.savefig(plot_file, bbox_inches='tight')
     if show: plt.show()
