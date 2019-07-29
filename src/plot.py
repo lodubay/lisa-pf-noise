@@ -246,14 +246,14 @@ def compare_colormaps(runs, channel, plot_file=None, show=False):
             ax.set_ylabel('Frequency (Hz)', fontsize=ax_label_size)
     
     # Set tight layout
-    fig.tight_layout(rect=[0, 0, 1, 0.92])
+    fig.tight_layout(rect=[0, 0, 1, 0.9])
     
     # Make colorbar
     fig.subplots_adjust(right=0.9)
     cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.66])
     cbar = fig.colorbar(im, cax=cbar_ax)
     cbar.ax.tick_params(labelsize=tick_label_size)
-    cbar.set_label('Relative difference from median PSD', labelpad=15, 
+    cbar.set_label('Relative difference from median PSD', labelpad=25, 
             rotation=270, fontsize=ax_label_size)
     
     if plot_file: plt.savefig(plot_file, bbox_inches='tight')
