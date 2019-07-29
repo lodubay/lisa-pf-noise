@@ -279,11 +279,11 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
     figsize = (8 + len(runs) * 4, 12) # Relative figure size
     plot_height = 2 # Relative height of each subplot
     hspace = 2 # Relative vertical spaceing between subplots
-    wspace = 0.16
+    wspace = 0.25
     impactplot_height = 1 # Relative height of the impacts subplot
     spine_pad = 10 # Spine offset from subplots
     scaled_offset = 0.0025 * spine_pad # Scaled spine_pad
-    axlabelpad = 8 + ax_label_size # Padding between axis label and spine
+    axlabelpad = 10 + ax_label_size # Padding between axis label and spine
     # Labels and titles
     plot_title = f'Channel {channel}\nPower at selected frequencies over time' 
     ylabel = 'Power at selected frequency'
@@ -377,7 +377,7 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
                 ax.xaxis.set_minor_locator(tkr.NullLocator())
             else:
                 # Horizontal axis for bottom plot
-                ax.set_xlabel(f'Days elapsed since {run.start_date} UTC', 
+                ax.set_xlabel(f'Days elapsed since\n{run.start_date} UTC', 
                         fontsize=ax_label_size)
                 ax.spines['bottom'].set_visible(True)
                 ax.spines['bottom'].set_position(('outward', spine_pad))
@@ -420,7 +420,7 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
     handles += [impact_plt]
     order = [0, 2, 1, 3] # Reorder legend
     fig.legend(handles=[handles[i] for i in order], fontsize=legend_label_size, 
-            loc='upper right', bbox_to_anchor=(1.2, 1), 
+            loc='upper right', bbox_to_anchor=(1.05, 1), 
             bbox_transform=plt.gcf().transFigure)
     plt.subplots_adjust(top=1 - (4 * 0.0020 * legend_label_size))
     
