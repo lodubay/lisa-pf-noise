@@ -24,7 +24,7 @@ frequencies = psd.get_exact_freq(ltp.psd_summary, frequencies)
 
 nrows = len(frequencies)
 ncols = 2
-fig, axes = plt.subplots(nrows, ncols, sharex='all', sharey='row')
+fig, axes = plt.subplots(nrows, ncols, sharex='all')
 fig.suptitle(f'Channel {channel}\nFFT of power at selected frequencies',
         fontsize=18)
 
@@ -35,6 +35,7 @@ for r, run in enumerate(runs):
         rfftfreq, rfft = psd.fft(run, channel, [freq])
         ax.plot(rfftfreq, np.absolute(rfft)**2, color='#0077c8')
         ax.set_yscale('log')
+        ax.yaxis.set_minor_locator(tkr.NullLocator())
         if r == 0:
             ax.set_ylabel('PSD', fontsize=14)
         if i+1 == len(frequencies):
