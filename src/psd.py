@@ -144,7 +144,7 @@ def fft(run, channel, frequencies, log=None):
     Returns the discrete Fourier transform of power at specific frequencies
     over time. First interpolates the data to get consistent dt.
     '''
-    log.log('FFT analysis')
+    if log: log.log('FFT analysis')
     # Select median column for specific run, channel
     df = run.psd_summary.loc[channel,'MEDIAN']
     # Remove NaN values
@@ -154,8 +154,9 @@ def fft(run, channel, frequencies, log=None):
     diffs = np.array([times[i] - times[i-1] for i in range(1, len(times))])
     # Find the mean time difference, excluding outliers
     dt = np.mean(diffs[diffs < 1640])
-    log.log(f'dt = {dt}')
-    log.log(f'1/(2*dt) = {1. / (2 * dt)}')
+    if log:
+        log.log(f'dt = {dt}')
+        log.log(f'1/(2*dt) = {1. / (2 * dt)}')
     
     # List of times at same time cadence
     n = int((times[-1] - times[0]) / dt)
@@ -289,7 +290,7 @@ def main():
             for i, channel in enumerate(run.channels):
                 # FFT analysis
                 fft_file = os.path.join(run.plot_dir, f'fft{i}.png')
-                rfftfreq, rfft = fft(run, channel, plot_frequencies, log)
+                rfftfreq, rfft = fft(run, channel, fft_frequencies, log)
                 plot.fft(rfftfreq, rfft, run, channel, plot_frequencies, 
                         logfreq=False, plot_file=fft_file)
                 # Colormap
@@ -316,6 +317,10 @@ def main():
             plot.save_freq_slices(runs, channel, plot_frequencies, 
                     impacts=impacts, 
                     plot_file=os.path.join(multirun_dir, f'fslice{i}.png'))
+            fft_freqs = np.array([1e-3, 5e-3, 3e-2])
+            fft_freqs = get_exact_freq(runs[0].psd_summary, fft_freqs)
+            plot.compare_fft(runs, channel, fft_freqs, 
+                    plot_file=os.path.join(multirun_dir, f'fft{i}.png'))
             p.update(i)
     
     print('Done!')

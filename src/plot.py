@@ -504,6 +504,96 @@ def fft(rfftfreq, rfft, run, channel, frequencies,
     if show: plt.show()
     else: plt.close()
 
+def compare_fft(runs, channel, frequencies, 
+        plot_file=None, show=False):
+    # Tweakables
+    figsize = (8 + len(runs) * 4, 12) # Relative figure size
+    plot_height = 4 # Relative height of each subplot
+    hspace = 1 # Relative vertical spaceing between subplots
+    wspace = 0.25
+    impactplot_height = 1 # Relative height of the impacts subplot
+    spine_pad = 10 # Spine offset from subplots
+    scaled_offset = 0.0025 * spine_pad # Scaled spine_pad
+    axlabelpad = 10 + ax_label_size # Padding between axis label and spine
+    # Labels and titles
+    plot_title = f'Channel {channel}\nFFT of power at selected frequencies' 
+    ylabel = 'PSD'
+    
+    # Set up figure, grid
+    fig = plt.figure(figsize=figsize)
+    grid_height = plot_height * len(frequencies)
+    grid = plt.GridSpec(grid_height, len(runs), hspace=hspace, wspace=wspace)
+    fig.suptitle(plot_title, fontsize=fig_title_size)
+    fig.tight_layout()
+    
+    for j, run in enumerate(runs):
+        rfftfreq, rfft = psd.fft(run, channel, frequencies)
+        # Plot highest frequency on top
+        frequencies = np.flip(np.sort(frequencies))
+        
+        # Subplots
+        for i, freq in enumerate(frequencies):
+            # Text version of frequency
+            freq_text = f'%s mHz' % float('%.3g' % (freq * 1000.))
+            # Add new subplot
+            ax = fig.add_subplot(grid[plot_height*i:plot_height*i+plot_height, j])
+            # Subplot title if top plot
+            if i == 0:
+                ax.set_title(f'{run.mode.upper()}', fontsize=subplot_title_size,
+                        pad=0)
+                # Also grab top axis legend info
+                ax1 = ax
+            
+            # Plot FFT
+            psd_vals = np.absolute(rfft[i])**2
+            ax.plot(rfftfreq[i], psd_vals, color='#0077c8')
+            
+            # Format left vertical axis
+            ax.set_yscale('log')
+            ax.set_ylabel(freq_text, fontsize=small_ax_label_size)
+            #y_formatter = tkr.ScalarFormatter(useOffset=False)
+            #ax.yaxis.set_major_formatter(y_formatter)
+            #ax.yaxis.set_minor_locator(tkr.AutoMinorLocator())
+           # ax.spines['left'].set_position(('outward', spine_pad))
+            ax.tick_params(axis='y', which='major', labelsize=tick_label_size)
+            ax.tick_params(axis='both', which='major', length=major_tick_length)
+            ax.tick_params(axis='both', which='minor', length=minor_tick_length)
+            # More mathy exponent label
+            #ax.ticklabel_format(axis='y', useMathText=True)
+            #exp_txt = ax.yaxis.get_offset_text()
+            #exp_txt.set_x(-0.005 * spine_pad)
+            #exp_txt.set_size(offset_size)
+            
+            # Format bottom horizontal axis
+            if i+1 == len(frequencies):
+                # Horizontal axis for bottom plot
+                ax.set_xlabel(f'Frequency (Hz)', fontsize=ax_label_size)
+               # ax.spines['bottom'].set_visible(True)
+               # ax.spines['bottom'].set_position(('outward', spine_pad))
+                ax.tick_params(bottom=True)
+                ax.tick_params(axis='x', which='major', labelsize=tick_label_size)
+                # Minor ticks
+                ax.ticklabel_format(axis='x', style='sci')
+                ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
+            
+            # Remove spines and ticks for other axes
+            ax.spines['right'].set_visible(False)
+            ax.spines['top'].set_visible(False)
+    
+    # Add big subplot for common y axis label
+    ax = fig.add_subplot(1, 1, 1, frameon=False)
+    ax.tick_params(labelcolor='none', top=False, bottom=False, left=False, 
+            right=False, which='both')
+    ax.grid(False)
+    # y axis label
+    ax.set_ylabel(ylabel, fontsize=subplot_title_size, ha='center', va='center', 
+            labelpad=axlabelpad * 2 + 8)
+    
+    # Save / display figure
+    if plot_file: plt.savefig(plot_file, bbox_inches='tight')
+    if show: plt.show()
+    else: plt.close()
+
 def linechain_scatter(run, channel, param, plot_file=None, show=False):
     df = run.lc_summary.loc[channel, :, :, param]
     # 90% error bars
