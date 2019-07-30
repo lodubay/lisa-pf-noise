@@ -10,117 +10,9 @@ import pandas as pd
 from pymc3.stats import hpd
 
 import linechain as lc
+import import_psd
 import plot
 import utils
-
-def import_time(run, time_dir):
-    '''
-    Import and combine all psd.dat files in a single time directory 
-    for many channels. Assumes file name format 'psd.dat.#' and 'psd.dat.##'.
-    Returns a DataFrame with frequency increasing down the rows and 
-    chain index increasing across the columns. The DataFrame is MultiIndexed,
-    with indices (highest level to lowest) channel, time, frequency.
-
-    Input
-    -----
-      time_dir : relative path to the time directory
-    '''
-    time = run.get_time(time_dir)
-    # Sort so that (for example) psd.dat.2 is sorted before psd.dat.19
-    psd_files = sorted(glob(os.path.join(time_dir, 'psd.dat.[0-9]'))) + \
-        sorted(glob(os.path.join(time_dir, 'psd.dat.[0-9][0-9]')))
-    # Import PSD files into DataFrame
-    time_data = []
-    for pf in psd_files:
-        # Import data file
-        psd = pd.read_csv(
-            pf, sep=' ', usecols=range(run.channels.shape[0]+1), 
-            header=None, index_col=0
-        )
-        # Add index column name
-        psd.index.name = 'FREQ'
-        # Round frequency index to 5 decimals to deal with floating point issues
-        psd.index = np.around(psd.index, 5)
-        # Add channel names
-        psd.columns = pd.Series(run.channels, name='CHANNEL')
-        # Add time level to index
-        psd['TIME'] = time
-        psd.set_index('TIME', append=True, inplace=True)
-        # Concatenate columns vertically
-        psd = psd.stack()
-        time_data.append(psd)
-    # Concatenate psd series horizontally
-    time_data = pd.concat(time_data, axis=1, ignore_index=True)
-    # Reorder and sort multiindex levels
-    time_data = time_data.reorder_levels(['CHANNEL', 'TIME', 'FREQ']).sort_index()
-    # Strip rows of 2s
-    return time_data[time_data.iloc[:,0] < 2]
-
-def summarize_psd(run, time_dir):
-    '''
-    Returns a DataFrame with the median and credible intervals for one time.
-    Credible intervals are calculated using
-    pymc3's highest posterior density (HPD) function, where alpha is the 
-    desired probability of type I error (so, 1 - C.I.).
-    Uses the same MultiIndex as import_time().
-    
-    Input
-    -----
-      time_dir : relative path to the time directory
-    '''
-    # Import time data
-    time_data = import_time(run, time_dir)
-    # Grab MultiIndex
-    midx = time_data.index
-    # Calculate HPDs
-    time_data_np = time_data.to_numpy().T
-    hpd_50 = hpd(time_data_np, alpha=0.5)
-    hpd_90 = hpd(time_data_np, alpha=0.1)
-    # Return summary DataFrame
-    return pd.DataFrame({
-        'MEDIAN'    : time_data.median(axis=1),
-        'CI_50_LO'  : pd.Series(hpd_50[:,0], index=midx),
-        'CI_50_HI'  : pd.Series(hpd_50[:,1], index=midx),
-        'CI_90_LO'  : pd.Series(hpd_90[:,0], index=midx),
-        'CI_90_HI'  : pd.Series(hpd_90[:,1], index=midx),
-    }, index=midx)
-
-def save_summary(run):
-    '''
-    Returns a multi-index DataFrame of PSD summaries across multiple times 
-    from one run folder. The first index represents channel, the second GPS time
-    and the third frequency. Inserts blank rows in place of time gaps.
-    
-    Input
-    -----
-      run : Run object
-    '''
-    # Set up progress indicator
-    p = utils.Progress(run.time_dirs, f'Importing {run.name} psd files...')
-    # Concatenate DataFrames of all times; takes a while
-    summaries = []
-    for i, d in enumerate(run.time_dirs):
-        summaries.append(summarize_psd(run, d))
-        # Update progress indicator
-        p.update(i)
-
-    summaries = pd.concat(summaries)
-
-    # Check for time gaps and fill with NaN DataFrames
-    print('Checking for time gaps...')
-    frequencies = summaries.index.unique(level='FREQ')
-    midx = pd.MultiIndex.from_product(
-        [run.channels, run.missing_times, frequencies],
-        names=['CHANNEL', 'TIME', 'FREQ']
-    )
-    filler = pd.DataFrame(columns=summaries.columns, index=midx)
-    summaries = summaries.append(filler).sort_index(level=[0, 1, 2])
-    print(f'Filled {len(run.missing_times)} missing times with NaN.')
-    
-    # Output to file
-    print(f'Writing to {run.psd_file}...')
-    summaries.to_pickle(run.psd_file)
-    return summaries
 
 def get_exact_freq(summary, approx_freqs):
     '''
@@ -268,7 +160,7 @@ def main():
 
         # Import / generate summary PSD DataFrame
         if overwrite:
-            run.psd_summary = save_summary(run)
+            run.psd_summary = import_psd.summarize(run)
         else:
             run.psd_summary = pd.read_pickle(run.psd_file)
         
