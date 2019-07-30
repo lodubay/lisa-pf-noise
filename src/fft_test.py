@@ -7,7 +7,7 @@ import utils
 
 #pd.set_option('display.max_rows', 1000)
 
-run = utils.Run('data/ltp/run_b')
+run = utils.Run('data/drs/run_b')
 summary_file = run.psd_file
 df = pd.read_pickle(summary_file)
 
@@ -17,7 +17,7 @@ channel = run.channels[0]
 values = df.loc[channel].xs(freq, level='FREQ')['MEDIAN']
 # Remove NaN values
 values = values[values.notna()]
-values = values.loc[1143962325:]
+#values = values.loc[1143962325:] # for LTP only
 times = values.index.to_numpy()
 values = values.to_numpy()
 
@@ -33,11 +33,11 @@ new_times = np.array([times[0] + i * dt for i in range(n)])
 
 # Plot original
 fig, (ax1, ax2) = plt.subplots(2, 1)
-fig.suptitle(f'Time series and FFT for {run.mode} {run.name} channel {channel}\n{freq} Hz; manual adjustment')
+fig.suptitle(f'Time series and FFT for {run.mode} {run.name} channel {channel}\n{freq} Hz')
 ax1.plot(times, values, marker='.', label='Original')
 ax1.set_xlabel('GPS time')
 ax1.set_ylabel('Power')
-ax1.set_ylim((1e-16, 6e-16))
+#ax1.set_ylim((1e-16, 6e-16))
 
 interp_types = ['linear', 'nearest', 'zero', 'slinear', 'quadratic', 'cubic']
 for kind in interp_types:
