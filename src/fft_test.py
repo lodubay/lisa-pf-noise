@@ -7,7 +7,7 @@ import utils
 
 #pd.set_option('display.max_rows', 1000)
 
-run = utils.Run('data/drs/run_b')
+run = utils.Run('data/ltp/run_b')
 summary_file = run.psd_file
 df = pd.read_pickle(summary_file)
 
@@ -17,7 +17,7 @@ channel = run.channels[0]
 values = df.loc[channel].xs(freq, level='FREQ')['MEDIAN']
 # Remove NaN values
 values = values[values.notna()]
-#values = values.loc[1143962325:]
+values = values.loc[1143962325:]
 times = values.index.to_numpy()
 values = values.to_numpy()
 
@@ -32,21 +32,32 @@ n = int((times[-1] - times[0]) / dt)
 new_times = np.array([times[0] + i * dt for i in range(n)])
 
 # Plot original
-fig, ax = plt.subplots(1, 1)
-ax.plot(times, values, marker='.', label='Original')
-ax.set_xlabel('GPS time')
-ax.set_ylabel('Power')
+fig, (ax1, ax2) = plt.subplots(2, 1)
+fig.suptitle(f'Time series and FFT for {run.mode} {run.name} channel {channel}\n{freq} Hz; manual adjustment')
+ax1.plot(times, values, marker='.', label='Original')
+ax1.set_xlabel('GPS time')
+ax1.set_ylabel('Power')
+ax1.set_ylim((1e-16, 6e-16))
 
 interp_types = ['linear', 'nearest', 'zero', 'slinear', 'quadratic', 'cubic']
 for kind in interp_types:
     f = interpolate.interp1d(times, values, kind=kind)
     new_values = f(new_times)
-    ax.plot(new_times, new_values, marker='.', label=kind, alpha=0.8)
+    # Plot time series
+    ax1.plot(new_times, new_values, marker='.', label=kind, alpha=0.8)
+    
+    # FFT
+    rfftfreq = np.fft.rfftfreq(n, dt)
+    rfft = np.fft.rfft(new_values)
+    ax2.plot(rfftfreq, np.absolute(rfft))
+    ax2.set_yscale('log')
+    ax2.set_xlabel('Frequency')
+    ax2.set_ylabel('FFT')
 
 new_values = np.interp(new_times, times, values)
 # Plot interpolated and original data
-handles, labels = ax.get_legend_handles_labels()
-plt.legend(handles, labels)
+handles, labels = ax1.get_legend_handles_labels()
+plt.legend(handles, labels, loc='upper right', bbox_to_anchor=(1, 1), bbox_transform=plt.gcf().transFigure)
 plt.show()
 
 '''
@@ -67,19 +78,4 @@ plt.xlabel('t', position=(1, 0))
 plt.ylabel('y')
 plt.subplot(2, 1, 2)
 '''
-
-rfftfreq = np.fft.rfftfreq(n, dt)
-rfft = np.fft.rfft(new_values)
-
-print(f'Max frequency: {max(rfftfreq)}')
-print(f'1/(2*dt) = {1. / (2 * dt)}')
-
-plt.plot(rfftfreq, np.absolute(rfft))
-#plt.plot(rfftfreq, abs(np.fft.rfft(values)), color='r')
-plt.title(f'FFT for {run.mode} {run.name} channel {channel}')
-plt.xlabel('f')
-plt.ylabel('abs(rfft)')
-plt.yscale('log')
-plt.xlim((2e-6, 3e-4))
-plt.show()
 

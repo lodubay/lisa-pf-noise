@@ -2,7 +2,6 @@
 
 import os
 from glob import glob
-import sys
 import argparse
 
 import numpy as np
@@ -10,6 +9,25 @@ import pandas as pd
 from pymc3.stats import hpd
 
 import utils
+
+def main():
+    # Argument parser
+    parser = argparse.ArgumentParser(description='Generate PSD summaries.')
+    parser.add_argument('runs', type=str, nargs='*', 
+        help='run directory name (default: all folders in "data/" directory)'
+    )
+    args = parser.parse_args()
+    # Add all runs in data directory if none are specified
+    if len(args.runs) == 0: 
+        args.runs = glob(f'data{os.sep}*{os.sep}*{os.sep}')
+    
+    # Initialize run objects; skip missing directories
+    runs = utils.init_runs(args.runs)
+    
+    # Summarize all runs
+    for run in runs:
+        print(f'\n-- {run.mode} {run.name} --')
+        summarize(run)
 
 def summarize(run):
     '''
@@ -80,7 +98,7 @@ def summarize(run):
     
     # Concatenate all summaries
     summaries = pd.concat(summaries)
-
+    
     # Check for time gaps and fill with NaN DataFrames
     print('Checking for time gaps...')
     frequencies = summaries.index.unique(level='FREQ')
@@ -96,24 +114,6 @@ def summarize(run):
     print(f'Writing to {run.psd_file}...')
     summaries.to_pickle(run.psd_file)
     return summaries
-
-def main():
-    # Argument parser
-    parser = argparse.ArgumentParser(description='Generate PSD summaries.')
-    parser.add_argument('runs', type=str, nargs='*', 
-        help='run directory name (default: all folders in "data/" directory)'
-    )
-    args = parser.parse_args()
-    # Add all runs in data directory if none are specified
-    if len(args.runs) == 0: 
-        args.runs = glob(f'data{os.sep}*{os.sep}*{os.sep}')
-    
-    # Initialize run objects; skip missing directories
-    runs = utils.init_runs(args.runs)
-    
-    for run in runs:
-        print(f'\n-- {run.mode} {run.name} --')
-        summarize(run)
 
 if __name__ == '__main__':
     main()
