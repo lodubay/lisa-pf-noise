@@ -26,18 +26,18 @@ nrows = len(frequencies)
 ncols = 2
 fig, axes = plt.subplots(nrows, ncols, sharex='all')
 fig.suptitle(f'Channel {channel}\nFFT of power at selected frequencies',
-        fontsize=18)
+        fontsize=22)
 
 for r, run in enumerate(runs):
     for i, freq in enumerate(frequencies):
         ax = axes[i, r]
         if i == 0:
-            ax.set_title(f'{run.mode.upper()}', fontsize=16)
+            ax.set_title(f'{run.mode.upper()}', fontsize=18)
         rfftfreq, rfft = psd.fft(run, channel, [freq])
         ax.plot(rfftfreq, np.absolute(rfft)**2, color='#0077c8')
         ax.set_yscale('log')
         ax.yaxis.set_minor_locator(tkr.NullLocator())
-        ax.set_ylabel(f'PSD at %s mHz' % float('%.3g' % (freq * 1000.)), fontsize=14)
+        ax.set_ylabel(f'PSD at %s mHz' % float('%.3g' % (freq * 1000.)), fontsize=16)
         if i+1 == len(frequencies):
             ax.set_xlabel('Frequency (Hz)', fontsize=14)
 
