@@ -13,6 +13,7 @@ fig_title_size = 28
 subplot_title_size = 24
 legend_label_size = 20
 ax_label_size = 20
+small_ax_label_size = 18
 tick_label_size = 18
 offset_size = 16
 
@@ -353,7 +354,7 @@ def save_freq_slices(runs, channel, frequencies, impacts=[],
                         '''
             
             # Format left vertical axis
-            ax.set_ylabel(freq_text, fontsize=tick_label_size)
+            ax.set_ylabel(freq_text, fontsize=small_ax_label_size)
             y_formatter = tkr.ScalarFormatter(useOffset=False)
             ax.yaxis.set_major_formatter(y_formatter)
             ax.yaxis.set_minor_locator(tkr.AutoMinorLocator())
@@ -438,25 +439,31 @@ def save_time_slices(run, channel, times, plot_file=None, show=False,
     # Automatically create grid of axes
     nrows = int(np.floor(float(len(times)) ** 0.5))
     ncols = int(np.ceil(1. * len(times) / nrows))
-    fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(f'Selected times for {run.mode.upper()} {run.name} channel {channel}')
+    fig = plt.figure(figsize=(6 * ncols, 6 * nrows))
+    fig.suptitle(f'{run.mode.upper()} channel {channel}\nPSDs at selected GPS times',
+            fontsize=fig_title_size)
     df = run.psd_summary.loc[channel]
     # Subplots
     for i, time in enumerate(times):
         ax = fig.add_subplot(nrows, ncols, i+1)
         time_slice(fig, ax, times[i], df, logpsd=logpsd)
         # Axis title
-        ax.title.set_text(f'PSD at GPS time {time}')
+        ax.set_title(f't={time}', fontsize=subplot_title_size)
         # Vertical axis label on first plot in each row
         if i % ncols == 0:
-            ax.set_ylabel('PSD')
+            ax.set_ylabel('PSD', fontsize=24)
         # Horizontal axis label on bottom plot in each column
         if i >= len(times) - ncols:
-            ax.set_xlabel('Frequency (Hz)')
+            ax.set_xlabel('Frequency (Hz)', fontsize=24)
+        # Tick parameters
+        ax.tick_params(axis='both', which='major', labelsize=tick_label_size,
+                length=major_tick_length)
+        ax.tick_params(axis='both', which='minor', length=minor_tick_length)
     # Legend
     handles, labels = ax.get_legend_handles_labels()
-    fig.legend(handles, labels)
-    fig.tight_layout(rect=[0, 0, 1, 0.92])
+    order = [0, 2, 1]
+    fig.legend([handles[i] for i in order], labels, fontsize=legend_label_size)
+    fig.tight_layout(rect=[0, 0, 1, 0.88])
     if plot_file: plt.savefig(plot_file)
     if show: plt.show()
     else: plt.close()
@@ -475,11 +482,6 @@ def fft(rfftfreq, rfft, run, channel, frequencies,
         ax = fig.add_subplot(nrows, ncols, i+1)
         psd_vals = np.absolute(rfft[i])**2
         ax.plot(rfftfreq[i], psd_vals, color='#0077c8')
-        # Plot peaks, if any
-        peak_df = psd.fft_peaks(rfftfreq[i], rfft[i])
-        peaks = peak_df['FREQ']
-        for peak in peaks:
-            ax.axvline(peak, ls='--', label='Sig. > 3σ', c='r')
         # Axis title
         ax.title.set_text(f'FFT of power at %s mHz' % float('%.3g' % (freq * 1000.)))
         # Vertical axis label on first plot in each row
