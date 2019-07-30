@@ -167,13 +167,59 @@ def fft(run, channel, frequencies, log=None):
         median = df.xs(f, level='FREQ')
         new_values = np.interp(new_times, times, median)
         rfftfreq.append(np.fft.rfftfreq(n, dt))
-        rfft.append(np.fft.rfft(new_values))
+        rfft.append(np.absolute(np.fft.rfft(new_values)))
     
     if len(frequencies) == 1:
         rfftfreq = rfftfreq[0]
         rfft = rfft[0]
     
     return rfftfreq, rfft
+    
+def fft_peaks(rfftfreq, rfft):
+    # Analysis parameters
+    bin_width = 10 # number of points on either side of peak to bin
+    f_step = 5e-6 # amount to step between each check
+    min_sig = 3 # minimum significance for peak identification
+    
+    # Number of peak bins to check
+    n_bins = int((rfftfreq[-bin_width] - rfftfreq[bin_width]) / f_step)
+    # Cycle through frequency space looking for peaks
+    f_peaks = []
+    peaks = []
+    sigs = []
+    background = []
+    for i in range(n_bins):
+        # Define minimum and maximum peak frequencies
+        f_min = rfftfreq[bin_width] + i * f_step
+        f_max = f_min + f_step
+        
+        # Find background mean and variance
+        b1 = rfft[rfftfreq < f_min]
+        bin_width = min(bin_width, b1.shape[0]) # make sure start doesn't go below 0
+        b1 = b1[-bin_width:]
+        b2 = rfft[rfftfreq > f_max][:bin_width]
+        b_mean = np.mean(np.concatenate([b1, b2]))
+        b_var = np.mean([np.var(b1), np.var(b2)])
+        b_std = np.sqrt(b_var)
+        
+        # Find peak value
+        peak_psd = rfft[(rfftfreq > f_min) & (rfftfreq < f_max)]
+        peak_range = rfftfreq[(rfftfreq > f_min) & (rfftfreq < f_max)]
+        peak_val = np.max(peak_psd)
+        f_peak = peak_range[np.argmax(peak_psd)]
+        significance = (peak_val - b_mean) / b_std
+        if significance >= min_sig:
+            f_peaks.append(f_peak)
+            peaks.append(peak_val)
+            sigs.append(significance)
+            background.append(b_mean)
+
+    # Significance table
+    f_peaks = np.array(f_peaks)
+    peak_df = pd.DataFrame({'FREQ': f_peaks, 'PERIOD': 1/f_peaks, 
+            'AMPLIUDE': peaks, 'SIG': sigs, 'BACKGROUND': background})
+    
+    return peak_df
 
 def main():
     # Argument parser

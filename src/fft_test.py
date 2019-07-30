@@ -18,7 +18,9 @@ values = df.loc[channel].xs(freq, level='FREQ')['MEDIAN']
 # Remove NaN values
 values = values[values.notna()]
 #values = values.loc[1143962325:]
-times = values.index
+times = values.index.to_numpy()
+values = values.to_numpy()
+
 # Find time differences between each observation
 diffs = np.array([times[i] - times[i-1] for i in range(1, len(times))])
 # Find the mean time difference, excluding outliers
@@ -28,15 +30,21 @@ n = values.shape[0]
 # Interpolate data at same dt
 n = int((times[-1] - times[0]) / dt)
 new_times = np.array([times[0] + i * dt for i in range(n)])
-linear = np.interp(new_times, times, values)
+
+# Plot original
+fig, ax = plt.subplots(1, 1)
+ax.plot(times, values, marker='.', label='Original')
+ax.set_xlabel('GPS time')
+ax.set_ylabel('Power')
+
+interp_types = ['linear', 'nearest', 'zero', 'slinear', 'quadratic', 'cubic']
+for kind in interp_types:
+    f = interpolate.interp1d(times, values, kind=kind)
+    new_values = f(new_times)
+    ax.plot(new_times, new_values, marker='.', label=kind, alpha=0.8)
 
 new_values = np.interp(new_times, times, values)
 # Plot interpolated and original data
-fig, ax = plt.subplots(1, 1)
-ax.plot(times, values, 'b-*', label='Original')
-ax.plot(new_times, new_values, 'r-*', label='Interpolated')
-ax.set_xlabel('GPS time')
-ax.set_ylabel('Power')
 handles, labels = ax.get_legend_handles_labels()
 plt.legend(handles, labels)
 plt.show()
