@@ -40,6 +40,7 @@ def main():
         frequencies = utils.get_exact_freq(df, frequencies)
         
         # FFT plot for each channel
+        print('Plotting...')
         for c, channel in enumerate(run.channels):
             log.log(f'\nChannel {channel}')
             # Automatically create grid of axes
@@ -68,7 +69,7 @@ def main():
                 if i >= len(frequencies) - ncols:
                     ax.set_xlabel('Frequency (Hz)', fontsize=20)
             
-            plot_file = os.path.join(run.plot_dir, 'fft{c}.png')
+            plot_file = os.path.join(run.plot_dir, f'fft{c}.png')
             plt.savefig(plot_file, bbox_inches='tight')
             plt.close()
 
