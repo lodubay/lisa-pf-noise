@@ -461,47 +461,6 @@ def save_time_slices(run, channel, times, plot_file=None, show=False,
     if show: plt.show()
     else: plt.close()
 
-def fft(rfftfreq, rfft, run, channel, frequencies, 
-        plot_file=None, show=False, logfreq=True):
-    # Automatically create grid of axes
-    nrows = int(np.floor(float(len(frequencies)) ** 0.5))
-    ncols = int(np.ceil(1. * len(frequencies) / nrows))
-    # Set up figure
-    fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(f'{run.mode.upper()} channel {channel}', fontsize=fig_title_size)
-    
-    # Subplots
-    for i, freq in enumerate(frequencies):
-        ax = fig.add_subplot(nrows, ncols, i+1)
-        psd_vals = np.absolute(rfft[i])**2
-        ax.plot(rfftfreq[i], psd_vals, color='#0077c8')
-        # Plot peaks, if any
-        peak_df = psd.fft_peaks(rfftfreq[i], rfft[i])
-        peaks = peak_df['FREQ']
-        for peak in peaks:
-            ax.axvline(peak, ls='--', label='Sig. > 3σ', c='r')
-        # Axis title
-        ax.title.set_text(f'FFT of power at %s mHz' % float('%.3g' % (freq * 1000.)))
-        # Vertical axis label on first plot in each row
-        if i % ncols == 0:
-            ax.set_ylabel('PSD', fontsize=ax_label_size)
-        # Horizontal axis label on bottom plot in each column
-        if i >= len(frequencies) - ncols:
-            ax.set_xlabel('Frequency (Hz)', fontsize=ax_label_size)
-        if logfreq: 
-            ax.set_xscale('log')
-        else:
-            # Minor ticks
-            ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
-        ax.set_yscale('log')
-    
-    # Legend
-    handles, labels = ax.get_legend_handles_labels()
-    fig.legend(handles, labels)
-    if plot_file: plt.savefig(plot_file, bbox_inches='tight')
-    if show: plt.show()
-    else: plt.close()
-
 def linechain_scatter(run, channel, param, plot_file=None, show=False):
     df = run.lc_summary.loc[channel, :, :, param]
     # 90% error bars

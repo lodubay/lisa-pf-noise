@@ -34,6 +34,9 @@ def main():
         
         # Import PSD summaries
         df = pd.read_pickle(run.psd_file)
+        # Remove large gap in LTP run
+        if run.name == 'run_b' and run.mode == 'ltp':
+            df = df[df.index.get_level_values('TIME') >= 1143962325]
         
         # Frequencies to examine
         frequencies = np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2])
@@ -57,8 +60,8 @@ def main():
                 ax = fig.add_subplot(nrows, ncols, i+1)
                 
                 rfftfreq, rfft = fft(df, channel, freq, log)
-                psd = np.absolute(rfft[i])**2
-                ax.plot(rfftfreq[i], psd, color='#0077c8')
+                psd = np.absolute(rfft)**2
+                ax.plot(rfftfreq, psd, color='#0077c8')
                 
                 # Axis configuration
                 ax.set_title(f'FFT of power at {freq_str}', fontsize=22)
@@ -77,6 +80,13 @@ def fft(psd_summary, channel, frequency, log):
     '''
     Returns the discrete Fourier transform of power at a specific frequency
     over time. First interpolates the data to get consistent dt.
+    
+    Input
+    -----
+      psd_summary : DataFrame, output from import_psd.py
+      channel : string, channel of interest
+      frequency : float, exact frequency along which to slice psd_summary
+      log : log object
     '''
     # Select median column for specific run, channel
     median = psd_summary.loc[channel,'MEDIAN']
@@ -85,7 +95,7 @@ def fft(psd_summary, channel, frequency, log):
     
     # Find the mean time difference, excluding outliers
     diffs = np.diff(times)
-    dt = np.mean(diffs[diffs < 1640])
+    dt = np.mean(diffs[diffs < 1.5 * np.median(diffs)])
     
     # List of times at same time cadence
     n = int((times[-1] - times[0]) / dt)
@@ -95,7 +105,7 @@ def fft(psd_summary, channel, frequency, log):
     median = median.xs(frequency, level='FREQ')
     new_values = np.interp(new_times, times, median)
     rfftfreq = np.fft.rfftfreq(n, dt)
-    rfft = np.absolute(np.fft.rfft(new_values))
+    rfft = np.absolute(np.fft.rfft(new_values, n))
     
     # Sanity checks
     log.log(f'dt = {dt}')
