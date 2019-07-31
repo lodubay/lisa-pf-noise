@@ -14,16 +14,6 @@ import import_psd
 import plot
 import utils
 
-def get_exact_freq(summary, approx_freqs):
-    '''
-    Takes an approximate input frequency and returns the closest measured
-    frequency in the data.
-    '''
-    freqs = np.array(sorted(summary.index.unique(level='FREQ')))
-    freq_indices = np.round(
-            approx_freqs / (np.max(freqs) - np.min(freqs)) * len(freqs)
-    ).astype(int)
-    return freqs[freq_indices]
 
 def get_impacts(impacts_file):
     cols = ['DATE', 'GPS', 'P_MED', 'P_CI_LO', 'P_CI_HI', 'FACE', 'LOCAL', 

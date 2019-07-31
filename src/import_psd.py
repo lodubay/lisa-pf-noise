@@ -85,11 +85,11 @@ def summarize(run):
         hpd_90 = hpd(time_data_np, alpha=0.1)
         # Return summary DataFrame
         time_summary = pd.DataFrame({
-            'MEDIAN'   : time_data.median(axis=1),
-            'CI_50_LO' : pd.Series(hpd_50[:,0], index=midx),
-            'CI_50_HI' : pd.Series(hpd_50[:,1], index=midx),
-            'CI_90_LO' : pd.Series(hpd_90[:,0], index=midx),
-            'CI_90_HI' : pd.Series(hpd_90[:,1], index=midx),
+                'MEDIAN'   : time_data.median(axis=1),
+                'CI_50_LO' : pd.Series(hpd_50[:,0], index=midx),
+                'CI_50_HI' : pd.Series(hpd_50[:,1], index=midx),
+                'CI_90_LO' : pd.Series(hpd_90[:,0], index=midx),
+                'CI_90_HI' : pd.Series(hpd_90[:,1], index=midx),
         }, index=midx)
         summaries.append(time_summary)
         
@@ -103,8 +103,8 @@ def summarize(run):
     print('Checking for time gaps...')
     frequencies = summaries.index.unique(level='FREQ')
     midx = pd.MultiIndex.from_product(
-        [run.channels, run.missing_times, frequencies],
-        names=['CHANNEL', 'TIME', 'FREQ']
+            [run.channels, run.missing_times, frequencies],
+            names=['CHANNEL', 'TIME', 'FREQ']
     )
     filler = pd.DataFrame(columns=summaries.columns, index=midx)
     summaries = summaries.append(filler).sort_index(level=[0, 1, 2])

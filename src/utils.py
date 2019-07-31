@@ -29,19 +29,17 @@ class Progress:
 
 class Log:
     ''' A class for outputting to a log file '''
-    def __init__(self, log_file=None, header='Log'):
+    def __init__(self, log_file, header='Log'):
         self.log_file = log_file
-        if log_file:
-            print(f'Logging output to {log_file}')
-            with open(log_file, 'w+') as f:
-                f.write(header)
-                f.write('\n\n')
+        print(f'Logging output to {log_file}')
+        with open(log_file, 'w+') as f:
+            f.write(header)
+            f.write('\n')
     
     def log(self, message=''):
-        if self.log_file:
-            with open(self.log_file, 'a+') as f:
-                f.write(message)
-                f.write('\n')
+        with open(self.log_file, 'a+') as f:
+            f.write(message)
+            f.write('\n')
 
 class Run:
     ''' A class to store information about a given run '''
@@ -64,6 +62,9 @@ class Run:
             self.plot_dir = os.path.join(self.output_dir, 'plots')
             if not os.path.exists(self.plot_dir): 
                 os.makedirs(self.plot_dir)
+            self.log_dir = os.path.join(self.output_dir, 'logs')
+            if not os.path.exists(self.log_dir):
+                os.makedirs(self.log_dir)
             
             # Summary file paths
             self.psd_file = os.path.join(self.summary_dir, 'psd.pkl')
@@ -144,4 +145,16 @@ def init_runs(paths):
         except FileNotFoundError:
             print(f'{path} not found, skipping...')
     return runs
+
+
+def get_exact_freq(summary, approx_freqs):
+    '''
+    Takes an approximate input frequency and returns the closest measured
+    frequency in the data.
+    '''
+    freqs = np.array(sorted(summary.index.unique(level='FREQ')))
+    freq_indices = np.round(
+            approx_freqs / (np.max(freqs) - np.min(freqs)) * freqs.shape[0]
+    ).astype(int)
+    return freqs[freq_indices]
 
