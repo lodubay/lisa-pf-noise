@@ -23,112 +23,7 @@ minor_tick_length = 5
 # Other parameters
 subplot_title_pad = 15
     
-def shifted_cmap(cmap, start=0, midpoint=0.5, stop=1.0, name='shiftedcmap'):
-    '''
-    Function to offset the "center" of a colormap. Useful for
-    data with a negative min and positive max and you want the
-    middle of the colormap's dynamic range to be at zero.
 
-    Input
-    -----
-      cmap : The matplotlib colormap to be altered
-      start : Offset from lowest point in the colormap's range.
-          Defaults to 0.0 (no lower offset). Should be between
-          0.0 and `midpoint`.
-      midpoint : The new center of the colormap. Defaults to 
-          0.5 (no shift). Should be between 0.0 and 1.0. In
-          general, this should be  1 - vmax / (vmax + abs(vmin))
-          For example if your data range from -15.0 to +5.0 and
-          you want the center of the colormap at 0.0, `midpoint`
-          should be set to  1 - 5/(5 + 15)) or 0.75
-      stop : Offset from highest point in the colormap's range.
-          Defaults to 1.0 (no upper offset). Should be between
-          `midpoint` and 1.0.
-    '''
-    cdict = {
-        'red': [],
-        'green': [],
-        'blue': [],
-        'alpha': []
-    }
-    # regular index to compute the colors
-    reg_index = np.linspace(start, stop, 257)
-    # shifted index to match the data
-    shift_index = np.hstack([
-        np.linspace(0.0, midpoint, 128, endpoint=False), 
-        np.linspace(midpoint, 1.0, 129, endpoint=True)
-    ])
-    for ri, si in zip(reg_index, shift_index):
-        r, g, b, a = cmap(ri)
-        cdict['red'].append((si, r, r))
-        cdict['green'].append((si, g, g))
-        cdict['blue'].append((si, b, b))
-        cdict['alpha'].append((si, a, a))
-    newcmap = matplotlib.colors.LinearSegmentedColormap(name, cdict)
-    plt.register_cmap(cmap=newcmap)
-    return newcmap
-
-def colormap(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, center=None,
-        bar=True):
-    '''
-    Function to plot the colormap of a PSD with frequency on the y-axis and
-    time on the x-axis.
-    
-    Input
-    -----
-      fig, ax : The figure and axes of the plot
-      psd : The PSD, an unstacked DataFrame
-      run : Run object
-      cmap : The unaltered color map to use
-      vlims : A tuple of the color scale limits
-      cbar_label : Color bar label
-      center : The center value of a diverging colormap
-    '''
-    # Change columns from GPS time to days elapsed from start of run
-    psd.columns = pd.Series(run.gps2day(psd.columns), name='TIME')
-    # Median frequency step
-    df = np.median(np.diff(psd.index))
-    # Auto colormap scale
-    if not vlims:
-        med = psd.median(axis=1).median()
-        std = psd.std(axis=1).median()
-        vlims = (med - 2 * std, med + 2 * std)
-    # Shift colormap to place 0 in the center if needed
-    if center:
-        cmap = shifted_cmap(
-            cmap, 
-            midpoint=(center-vlims[0])/(vlims[1]-vlims[0]), 
-            name='shifted colormap'
-        )
-    im = ax.pcolormesh(
-        list(psd.columns) + [psd.columns[-1] + run.dt / (60*60*24)],
-        list(psd.index) + [psd.index[-1] + df],
-        psd,
-        cmap=cmap,
-        vmin=vlims[0],
-        vmax=vlims[1]
-    )
-    # Vertical scale
-    ax.set_yscale('log')
-    ax.set_ylim(bottom=1e-3, top=1.)
-    # Axis labels
-    ax.set_xlabel(f'Days elapsed since\n{run.start_date} UTC', 
-            fontsize=ax_label_size)
-    ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
-    # Tick label size
-    ax.tick_params(axis='both', which='major', labelsize=tick_label_size,
-            length=major_tick_length)
-    ax.tick_params(axis='both', which='minor', length=minor_tick_length)
-    # Add and label colorbar
-    if bar:
-        cbar = fig.colorbar(im, ax=ax)
-        cbar.ax.tick_params(labelsize=tick_label_size)
-        if cbar_label:
-            cbar.set_label(cbar_label, labelpad=15, rotation=270)
-        offset = ax.yaxis.get_offset_text()
-        offset.set_size(offset_size)
-    
-    return im
 
 def all_psds(fig, ax, time_dir, channel, xlim=None, ylim=None):
     '''
@@ -182,39 +77,7 @@ def time_slice(fig, ax, time, summary, ylim=None, logpsd=False):
     if logpsd: ax.set_yscale('log')
     ax.title.set_text(str(time))
 
-def save_colormaps(run, channel, plot_file, show=False):
-    df = run.psd_summary.loc[channel,'MEDIAN']
-    # Unstack psd, removing all columns except the median
-    unstacked = df.unstack(level='TIME')
-    
-    # Find median across all times
-    median = unstacked.median(axis=1)
-    # Set up figure
-    fig, axs = plt.subplots(1, 2, figsize=(14, 6))
-    fig.suptitle(
-        f'PSD of {run.mode.upper()} channel {channel} over time',
-        fontsize=fig_title_size
-    )
-    # Subplots
-    axs[0].set_title('Absolute difference from median PSD', 
-            fontsize=subplot_title_size, pad=subplot_title_pad)
-    axs[0].set_ylabel('Frequency (Hz)', fontsize=ax_label_size)
-    colormap(fig, axs[0], run,
-        unstacked.sub(median, axis=0), 
-        cmap=cm.get_cmap('coolwarm'),
-        center=0.0
-    )
-    axs[1].set_title('Fractional difference from median PSD',
-            fontsize=subplot_title_size, pad=subplot_title_pad)
-    colormap(fig, axs[1], run,
-        abs(unstacked.sub(median, axis=0)).div(median, axis=0),
-        cmap='PuRd',
-        vlims=(0,1)
-    )
-    fig.tight_layout(rect=[0, 0, 1, 0.92])
-    plt.savefig(plot_file, bbox_inches='tight')
-    if show: plt.show()
-    else: plt.close()
+
 
 def compare_colormaps(runs, channel, plot_file=None, show=False):
     # Setup figure
