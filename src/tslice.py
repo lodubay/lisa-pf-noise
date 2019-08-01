@@ -15,7 +15,7 @@ import utils
 fig_title_size = 28
 subplot_title_size = 24
 legend_label_size = 20
-ax_label_size = 20
+ax_label_size = 24
 tick_label_size = 18
 offset_size = 16
 
@@ -55,15 +55,15 @@ def main():
         )
         
         # Create plot for each channel
-        p = utils.Progress(run.channels, 'Plotting frequency slices...')
+        p = utils.Progress(run.channels, 'Plotting time slices...')
         for c, channel in enumerate(run.channels):
             # Automatically create grid of axes
             nrows = int(np.floor(float(len(times)) ** 0.5))
             ncols = int(np.ceil(1. * len(times) / nrows))
             # Set up figure
-            fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-            fig.suptitle(f'PSD at selected times for {run.mode.upper()} ' + \
-                    f'{run.name} channel {channel}')
+            fig = plt.figure(figsize=(6 * ncols, 6 * nrows))
+            fig.suptitle(f'{run.mode.upper()} channel {channel}\n' \
+                    'PSDs at selected times', fontsize=fig_title_size)
             
             # Subplots
             for i, time in enumerate(times):
@@ -74,17 +74,22 @@ def main():
                 tslice(fig, ax, df, channel, time)
                 
                 # Subplot config
-                ax.set_title(f'PSD at GPS time {time}')
+                ax.set_title(f't={time}', fontsize=subplot_title_size)
                 if i % ncols == 0:
-                    ax.set_ylabel('PSD')
+                    ax.set_ylabel('PSD', fontsize=ax_label_size)
                 if i >= len(times) - ncols:
-                    ax.set_xlabel('Frequency (Hz)')
+                    ax.set_xlabel('Frequency (Hz)', fontsize=ax_label_size)
+                ax.tick_params(axis='both', which='major',
+                        labelsize=tick_label_size, length=major_tick_length)
+                ax.tick_params(axis='both', which='minor', 
+                        length=minor_tick_length)
             
             # Legend
             handles, labels = ax.get_legend_handles_labels()
             order = [0, 2, 1] # reorder legend
-            fig.legend([handles[i] for i in order], [labels[i] for i in order])
-            fig.tight_layout(rect=[0, 0, 1, 0.92])
+            fig.legend([handles[i] for i in order], [labels[i] for i in order],
+                    fontsize=legend_label_size)
+            fig.tight_layout(rect=[0, 0, 1, 0.88])
             
             # Save plot
             plot_file = os.path.join(run.plot_dir, f'tslice{c}.png')

@@ -21,46 +21,7 @@ major_tick_length = 10
 minor_tick_length = 5
 
 # Other parameters
-subplot_title_pad = 15
-    
-
-
-def all_psds(fig, ax, time_dir, channel, xlim=None, ylim=None):
-    '''
-    Plots all PSD samples in a single time directory for one channel
-    '''
-    df = psd.import_time(time_dir).loc[channel]
-    summary = psd.summarize_psd(time_dir).loc[channel]
-    freqs = df.index.get_level_values('FREQ')
-    for i in range(100):
-        ax.scatter(freqs, df[i], marker='.', color='b')
-    if xlim: ax.set_xlim(xlim)
-    else: ax.set_xlim(auto=True)
-    if ylim: ax.set_ylim(ylim)
-    else: ax.set_ylim(auto=True)
-    ax.set_xscale('log')
-    ax.set_yscale('log')
-
-
-
-
-
-
-
-    '''
-    Plots frequency slices, with frequency increasing vertically. Also compares
-    multiple runs side by side if more than one is provided.
-    
-    Input
-    -----
-      runs : list of utils.Run objects
-      channel : string, channel name
-      frequencies : 1D Numpy array, exact frequencies to slice along
-      impacts : DataFrame of micrometeoroid impacts, if any
-      plot_file : string, path to plot output file, if any
-      show : whether to display figure, defaults to no
-    '''
-    
+subplot_title_pad = 15    
 
 def save_time_slices(run, channel, times, plot_file=None, show=False,
         time_format='gps', exact=True, logpsd=True):
