@@ -79,49 +79,6 @@ def time_slice(fig, ax, time, summary, ylim=None, logpsd=False):
 
 
 
-def compare_colormaps(runs, channel, plot_file=None, show=False):
-    # Setup figure
-    fig = plt.figure(figsize=(8 + len(runs) * 4, 9))
-    fig.suptitle(f'Channel {channel}\n' + \
-            'Power compared to median at observed times, frequencies',
-            y=0.99, fontsize=fig_title_size)
-    
-    for i, run in enumerate(runs):
-        # Setup subplot
-        ax = fig.add_subplot(1, len(runs), i+1)
-        
-        # Unstack psd, removing all columns except the median
-        df = run.psd_summary.loc[channel,'MEDIAN']
-        unstacked = df.unstack(level='TIME')
-        # Find median across all times
-        median = unstacked.median(axis=1)
-        
-        # Subplots
-        ax.set_title(f'{run.mode.upper()}', size=subplot_title_size)
-        im = colormap(fig, ax, run,
-            unstacked.sub(median, axis=0).div(median, axis=0), 
-            cmap=cm.get_cmap('coolwarm'), vlims=(-1,1),
-            center=0.0, bar=False
-        )
-        ax.tick_params(labelsize=tick_label_size)
-        # Only label y axis on left most plot
-        if i==0:
-            ax.set_ylabel('Frequency (Hz)', fontsize=ax_label_size)
-    
-    # Set tight layout
-    fig.tight_layout(rect=[0, 0, 1, 0.9])
-    
-    # Make colorbar
-    fig.subplots_adjust(right=0.9)
-    cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.66])
-    cbar = fig.colorbar(im, cax=cbar_ax)
-    cbar.ax.tick_params(labelsize=tick_label_size)
-    cbar.set_label('Relative difference from median PSD', labelpad=25, 
-            rotation=270, fontsize=ax_label_size)
-    
-    if plot_file: plt.savefig(plot_file, bbox_inches='tight')
-    if show: plt.show()
-    else: plt.close()
 
 def save_freq_slices(runs, channel, frequencies, impacts=[], 
         plot_file=None, show=False):
