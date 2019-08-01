@@ -57,6 +57,7 @@ def main():
         # Create plot for each channel
         p = utils.Progress(run.channels, 'Plotting time slices...')
         for c, channel in enumerate(run.channels):
+            '''
             # Automatically create grid of axes
             nrows = int(np.floor(float(len(times)) ** 0.5))
             ncols = int(np.ceil(1. * len(times) / nrows))
@@ -90,6 +91,12 @@ def main():
             fig.legend([handles[i] for i in order], [labels[i] for i in order],
                     fontsize=legend_label_size)
             fig.tight_layout(rect=[0, 0, 1, 0.88])
+            '''
+            
+            fig = gridplot(tslice(fig, ax, df, channel, time), times,
+                    f'{run.mode.upper()} channel {channel}\n' + \
+                            'PSDs at selected times',
+                    'Frequency (Hz)', 'PSD')
             
             # Save plot
             plot_file = os.path.join(run.plot_dir, f'tslice{c}.png')
@@ -125,8 +132,46 @@ def tslice(fig, ax, df, channel, time):
     ax.plot(psd.index, psd['MEDIAN'], label='Median', color='#225ea8')
     
     # Plot config
+    ax.set_title(f't={time}')
     ax.set_xscale('log')
     ax.set_yscale('log')
+
+def gridplot(fn, iterable, suptitle, xlabel, ylabel):
+    # Automatically create grid of axes
+    nrows = int(np.floor(float(len(times)) ** 0.5))
+    ncols = int(np.ceil(1. * len(times) / nrows))
+    # Set up figure
+    fig = plt.figure(figsize=(6 * ncols, 6 * nrows))
+    fig.suptitle(suptitle, fontsize=fig_title_size)
+    
+    # Subplots
+    for i, item in enumerate(iterable):
+        # Set up subplot
+        ax = fig.add_subplot(nrows, ncols, i+1)
+        
+        # Plot function
+        fn(fig, ax, df
+        
+        # Subplot config
+        ax.set_title(ax.get_title(), fontsize=subplot_title_size)
+        if i >= len(times) - ncols: # x axis label on bottom plots only
+            ax.set_xlabel(xlabel, fontsize=ax_label_size)
+        if i % ncols == 0: # y axis label on left plots only
+            ax.set_ylabel(ylabel, fontsize=ax_label_size)
+        ax.tick_params(axis='both', which='major',
+                labelsize=tick_label_size, length=major_tick_length)
+        ax.tick_params(axis='both', which='minor', 
+                length=minor_tick_length)
+        
+    # Legend
+    handles, labels = ax.get_legend_handles_labels()
+    order = [0, 2, 1] # reorder legend
+    fig.legend([handles[i] for i in order], [labels[i] for i in order],
+            fontsize=legend_label_size)
+    fig.tight_layout(rect=[0, 0, 1, 0.88])
+    
+    return fig
+        
 
 if __name__ == '__main__':
     main()
