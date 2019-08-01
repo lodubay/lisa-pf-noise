@@ -30,7 +30,7 @@ subplot_title_pad = 15
 
 def main():
     # Argument parser
-    parser = argparse.ArgumentParser(description='FFT analysis.')
+    parser = argparse.ArgumentParser(description='Spectrogram analysis.')
     parser.add_argument('runs', type=str, nargs='*', 
             help='run directory name (default: all folders in "data/" directory)'
     )
