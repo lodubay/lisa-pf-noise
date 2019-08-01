@@ -36,7 +36,7 @@ def main():
             help='run directory name (default: all folders in "data/" directory)'
     )
     parser.add_argument('-c', '--compare', dest='compare', action='store_true',
-            help='compare summary plots for different runs side by side')
+            help='generate additional side-by-side run comparison plots')
     args = parser.parse_args()
     # Add all runs in data directory if none are specified
     if len(args.runs) == 0: 
@@ -49,12 +49,63 @@ def main():
     impacts_file = 'impacts.dat'
     impacts = np.array([])
     if os.path.exists(impacts_file):
+        print('Importing impacts file...')
         impacts = utils.get_impacts(impacts_file)
     
     # Frequencies to examine
     frequencies = np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2])
     
-    # Comparison spectrograms
+    # Individual plots
+    for run in runs:
+        print(f'\n-- {run.mode} {run.name} --')
+        # Import PSD summaries
+        df = pd.read_pickle(run.psd_file)
+        
+        p = utils.Progress(run.channels, 'Plotting frequency slices...')
+        for c, channel in enumerate(run.channels):
+            # Automatically create grid of axes
+            nrows = int(np.floor(float(len(frequencies)) ** 0.5))
+            ncols = int(np.ceil(1. * len(frequencies) / nrows))
+            # Set up figure
+            fig = plt.figure(figsize=(6 * ncols, 6 * nrows))
+            fig.suptitle(f'Selected frequencies for {run.mode.upper()}' + \
+                    '{run.name} channel {channel}')
+            
+            # Subplots
+            for i, freq in enumerate(frequencies):
+                # Get exact frequency along which to slice
+                freq = utils.get_exact_freq(df, freq)
+                freq_text = f'%s mHz' % float('%.3g' % (freq * 1000.))
+                
+                # Set up subplot
+                ax = fig.add_subplot(nrows, ncols, i+1)
+                
+                # Plot frequency slice
+                fslice(fig, ax, df, run, channel, freq)
+                
+                # Subplot config
+                ax.set_title(freq_text, fontsize=subplot_title_size)
+                if i % ncols == 0: # vertical axis label on left
+                    ax.set_ylabel('Power')
+                if i >= len(frequencies) - ncols: # horizontal axis label on bottom
+                    ax.set_xlabel(f'Days elapsed since\n{run.start_date} UTC', 
+                            fontsize=ax_label_size)
+            
+            # Legend
+            handles, labels = ax.get_legend_handles_labels()
+            order = [0, 2, 1]
+            fig.legend([handles[i] for i in order], labels)
+            fig.tight_layout(rect=[0, 0, 1, 0.92])
+            
+            # Save plot
+            plot_file = os.path.join(run.plot_dir, f'fslice{c}.png')
+            plt.savefig(plot_file, bbox_inches='tight')
+            plt.close()
+            
+            # Update progress
+            p.update(c)
+    
+    # Comparison plots
     if args.compare:
         # Output directory
         multirun_dir = os.path.join('out', 'multirun')
