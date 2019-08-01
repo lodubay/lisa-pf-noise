@@ -113,6 +113,7 @@ def main():
     # Individual spectrograms
     else:
         for run in runs:
+            print(f'\n-- {run.mode} {run.name} --')
             # Import PSD summaries
             df = pd.read_pickle(run.psd_file)
             
@@ -129,19 +130,19 @@ def main():
                 fig, axs = plt.subplots(1, 2, figsize=(14, 6))
                 fig.suptitle(
                     f'Spectrogram of {run.mode.upper()} channel {channel}',
-                    fontsize=28
+                    fontsize=fig_title_size
                 )
                 
                 # Subplots
                 axs[0].set_title('Absolute difference from median PSD', 
-                        fontsize=24, pad=15)
-                axs[0].set_ylabel('Frequency (Hz)', fontsize=20)
+                        fontsize=subplot_title_size, pad=subplot_title_pad)
+                axs[0].set_ylabel('Frequency (Hz)', fontsize=ax_label_size)
                 spectrogram(fig, axs[0], run,
                     unstacked.sub(median, axis=0), 
                     cmap=cm.get_cmap('coolwarm'),
                 )
                 axs[1].set_title('Fractional difference from median PSD',
-                        fontsize=24, pad=15)
+                        fontsize=subplot_title_size, pad=subplot_title_pad)
                 spectrogram(fig, axs[1], run,
                     abs(unstacked.sub(median, axis=0)).div(median, axis=0),
                     cmap='PuRd',
@@ -197,20 +198,20 @@ def spectrogram(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, bar=True):
     ax.set_ylim(bottom=1e-3, top=1.)
     # Axis labels
     ax.set_xlabel(f'Days elapsed since\n{run.start_date} UTC', 
-            fontsize=20)
+            fontsize=ax_label_size)
     ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
     # Tick label size
-    ax.tick_params(axis='both', which='major', labelsize=18,
-            length=10)
-    ax.tick_params(axis='both', which='minor', length=5)
+    ax.tick_params(axis='both', which='major', labelsize=tick_label_size,
+            length=major_tick_length)
+    ax.tick_params(axis='both', which='minor', length=minor_tick_length)
     # Add and label colorbar
     if bar:
         cbar = fig.colorbar(im, ax=ax)
-        cbar.ax.tick_params(labelsize=18)
+        cbar.ax.tick_params(labelsize=tick_label_size)
         if cbar_label:
             cbar.set_label(cbar_label, labelpad=15, rotation=270)
         offset = ax.yaxis.get_offset_text()
-        offset.set_size(16)
+        offset.set_size(offset_size)
     
     return im
 
