@@ -3,6 +3,7 @@ from glob import glob
 import os
 
 import numpy as np
+import pandas as pd
 from astropy.time import Time
 
 class Progress:
@@ -157,4 +158,10 @@ def get_exact_freq(summary, approx_freqs):
             approx_freqs / (np.max(freqs) - np.min(freqs)) * freqs.shape[0]
     ).astype(int)
     return freqs[freq_indices]
+
+def get_impacts(impacts_file):
+    cols = ['DATE', 'GPS', 'P_MED', 'P_CI_LO', 'P_CI_HI', 'FACE', 'LOCAL', 
+            'LAT_SC', 'LON_SC', 'LAT_SSE', 'LON_SSE', 'LPF_X', 'LPF_Y', 'LPF_Z']
+    impacts = pd.read_csv(impacts_file, sep=' ', names=cols, na_values='-')
+    return impacts
 

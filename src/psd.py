@@ -15,11 +15,7 @@ import plot
 import utils
 
 
-def get_impacts(impacts_file):
-    cols = ['DATE', 'GPS', 'P_MED', 'P_CI_LO', 'P_CI_HI', 'FACE', 'LOCAL', 
-            'LAT_SC', 'LON_SC', 'LAT_SSE', 'LON_SSE', 'LPF_X', 'LPF_Y', 'LPF_Z']
-    impacts = pd.read_csv(impacts_file, sep=' ', names=cols, na_values='-')
-    return impacts
+
 
 def fft(run, channel, frequencies, log=None):
     '''
