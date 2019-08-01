@@ -155,12 +155,6 @@ def main():
         # Frequency slices: roughly logarithmic, low-frequency
         plot_frequencies = np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2])
         plot_frequencies = get_exact_freq(run.psd_summary, plot_frequencies)
-        # Time slices: get even spread of times
-        n = 6
-        indices = [int(i / (n-1) * len(run.gps_times)) for i in range(1,n-1)]
-        slice_times = sorted([run.gps_times[0], run.gps_times[-1]] +
-            [run.gps_times[i] for i in indices]
-        )
         
         if not args.compare:
             p = utils.Progress(run.channels, 'Plotting...')

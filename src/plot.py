@@ -41,41 +41,7 @@ def all_psds(fig, ax, time_dir, channel, xlim=None, ylim=None):
     ax.set_xscale('log')
     ax.set_yscale('log')
 
-def time_slice(fig, ax, time, summary, ylim=None, logpsd=False):
-    '''
-    Plots frequency vs PSD at a specific time.
 
-    Input
-    -----
-      fig, ax : the figure and axes of the plot
-      time : the exact gps time along which to slice
-      summary : the summary DataFrame
-      color : the color of the plot, optional
-      ylim : tuple of y axis bounds, optional
-      lobpsd : if true, plots psd on a log scale
-    '''
-    # Get time slice
-    tslice = summary.xs(time)
-    # Plot 90% credible interval
-    ax.fill_between(tslice.index, 
-        tslice['CI_90_LO'], 
-        tslice['CI_90_HI'],
-        color='#a1dab4', 
-        #alpha=0.1,
-        label='90% credible interval')
-    # Plot 50% credible interval
-    ax.fill_between(tslice.index, 
-        tslice['CI_50_LO'], 
-        tslice['CI_50_HI'],
-        color='#41b6c4', 
-        #alpha=0.5,
-        label='50% credible interval')
-    # Plot median
-    ax.plot(tslice.index, tslice['MEDIAN'], label='Median PSD', color='#225ea8')
-    ax.set_xscale('log')
-    if ylim: ax.set_ylim(ylim)
-    if logpsd: ax.set_yscale('log')
-    ax.title.set_text(str(time))
 
 
 
@@ -98,35 +64,6 @@ def time_slice(fig, ax, time, summary, ylim=None, logpsd=False):
 
 def save_time_slices(run, channel, times, plot_file=None, show=False,
         time_format='gps', exact=True, logpsd=True):
-    # Convert given times to gps if necessary
-    if time_format == 'day': times = run.day2gps(times)
-    # Find exact times if necessary
-    if not exact: times = run.get_exact_gps(times)
-    # Automatically create grid of axes
-    nrows = int(np.floor(float(len(times)) ** 0.5))
-    ncols = int(np.ceil(1. * len(times) / nrows))
-    fig = plt.figure(figsize=(4 * ncols, 4 * nrows))
-    fig.suptitle(f'Selected times for {run.mode.upper()} {run.name} channel {channel}')
-    df = run.psd_summary.loc[channel]
-    # Subplots
-    for i, time in enumerate(times):
-        ax = fig.add_subplot(nrows, ncols, i+1)
-        time_slice(fig, ax, times[i], df, logpsd=logpsd)
-        # Axis title
-        ax.title.set_text(f'PSD at GPS time {time}')
-        # Vertical axis label on first plot in each row
-        if i % ncols == 0:
-            ax.set_ylabel('PSD')
-        # Horizontal axis label on bottom plot in each column
-        if i >= len(times) - ncols:
-            ax.set_xlabel('Frequency (Hz)')
-    # Legend
-    handles, labels = ax.get_legend_handles_labels()
-    fig.legend(handles, labels)
-    fig.tight_layout(rect=[0, 0, 1, 0.92])
-    if plot_file: plt.savefig(plot_file)
-    if show: plt.show()
-    else: plt.close()
 
 def linechain_scatter(run, channel, param, plot_file=None, show=False):
     df = run.lc_summary.loc[channel, :, :, param]

@@ -94,7 +94,7 @@ def main():
             # Legend
             handles, labels = ax.get_legend_handles_labels()
             order = [0, 2, 1]
-            fig.legend([handles[i] for i in order], labels)
+            fig.legend([handles[i] for i in order], [labels[i] for i in order])
             fig.tight_layout(rect=[0, 0, 1, 0.92])
             
             # Save plot
@@ -166,10 +166,12 @@ def main():
                     exp_txt.set_size(offset_size)
                 
                     # Format left vertical axis
+                    ylim = ax.get_ylim()
                     ax.set_ylabel(freq_text, fontsize=tick_label_size)
                     y_formatter = tkr.ScalarFormatter(useOffset=False)
                     ax.yaxis.set_major_formatter(y_formatter)
                     ax.yaxis.set_minor_locator(tkr.AutoMinorLocator())
+                    ax.spines['left'].set_bounds(ylim[0], ylim[1])
                     ax.spines['left'].set_position(('outward', spine_pad))
                     ax.tick_params(axis='y', which='major', 
                             labelsize=tick_label_size)
@@ -179,6 +181,8 @@ def main():
                             length=minor_tick_length)
                 
                     # Format bottom horizontal axis
+                    xlim = ax.get_xlim()
+                    ax.spines['bottom'].set_bounds(xlim[0], xlim[1])
                     if i+1 < len(frequencies):
                         # Remove bottom axis if not the bottom plot
                         ax.spines['bottom'].set_visible(False)
@@ -209,7 +213,6 @@ def main():
                             impact_days = run.gps2day(impact_times['GPS']).to_numpy()
                         
                         # Plot micrometeoroid impacts, if any
-                        ylim = ax.get_ylim()
                         impact_plt = ax.scatter(impact_days, 
                                 [ylim[0] - (ylim[1]-ylim[0]) * 0.013 * spine_pad] \
                                         * len(impact_days), 
@@ -236,7 +239,9 @@ def main():
             # Make legend
             handles += [impact_plt]
             order = [0, 2, 1, 3] # Reorder legend
-            fig.legend(handles=[handles[i] for i in order], fontsize=legend_label_size, 
+            fig.legend([handles[i] for i in order], 
+                    [labels[i] for i in order],
+                    fontsize=legend_label_size, 
                     loc='upper right', bbox_to_anchor=(1.05, 1), 
                     bbox_transform=plt.gcf().transFigure)
             plt.subplots_adjust(top=1 - (4 * 0.0020 * legend_label_size))
@@ -275,7 +280,7 @@ def fslice(fig, ax, df, run, channel, frequency):
             color='#8c96c6', label='50% credible interval')
     # Plot median
     ax.plot(days_elapsed, time_series['MEDIAN'], 
-            label='Median PSD', color='#88419d')
+            label='Median', color='#88419d')
             
     # Vertical axis limits
     med = time_series['MEDIAN'].median()
@@ -286,13 +291,10 @@ def fslice(fig, ax, df, run, channel, frequency):
              abs(med - min(time_series['CI_90_LO'])))
     ylim = (med - lo, med + hi)
     ax.set_ylim(ylim)
-    ax.spines['left'].set_bounds(ylim[0], ylim[1])
     
     # Horizontal axis limits
     ax.set_xlim((min(days_elapsed), max(days_elapsed)))
-    ax.spines['bottom'].set_bounds(min(days_elapsed), max(days_elapsed))
 
 if __name__ == '__main__':
     main()
-
 
