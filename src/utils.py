@@ -165,13 +165,14 @@ def get_impacts(impacts_file):
     impacts = pd.read_csv(impacts_file, sep=' ', names=cols, na_values='-')
     return impacts
 
-def add_parser(description):
+def add_parser(description, comparison=True):
     # Argument parser
     parser = argparse.ArgumentParser(description=description)
     parser.add_argument('runs', type=str, nargs='*', 
         help='run directory name (default: all folders in "data/" directory)')
-    parser.add_argument('-c', '--compare', dest='compare', action='store_true',
-            help='generate additional side-by-side run comparison plots')
+    if comparison:
+        parser.add_argument('-c', '--compare', dest='compare', action='store_true',
+                help='generate additional side-by-side run comparison plots')
     parser.add_argument('--overwrite-all', dest='overwrite', 
         action='store_true',
         help='re-generate summary files even if they already exist (default: \

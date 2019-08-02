@@ -14,14 +14,7 @@ import utils
 
 def main():
     # Argument parser
-    parser = argparse.ArgumentParser(description='FFT analysis.')
-    parser.add_argument('runs', type=str, nargs='*', 
-        help='run directory name (default: all folders in "data/" directory)'
-    )
-    args = parser.parse_args()
-    # Add all runs in data directory if none are specified
-    if len(args.runs) == 0: 
-        args.runs = glob(f'data{os.sep}*{os.sep}*{os.sep}')
+    args = utils.add_parser('FFT analysis.', comparison=False)
     
     # Initialize run objects; skip missing directories
     runs = utils.init_runs(args.runs)
