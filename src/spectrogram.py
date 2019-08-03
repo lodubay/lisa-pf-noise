@@ -3,7 +3,7 @@
 import os
 import argparse
 from glob import glob
-from configparser import ConfigParser
+import configparser
 
 import numpy as np
 import pandas as pd
@@ -14,28 +14,13 @@ import matplotlib.ticker as tkr
 
 import utils
 
-# Font parameters
-fig_title_size = 28
-subplot_title_size = 24
-legend_label_size = 20
-ax_label_size = 20
-tick_label_size = 18
-offset_size = 16
-
-# Tick parameters
-major_tick_length = 10
-minor_tick_length = 5
-
-# Other parameters
-subplot_title_pad = 15
-
 def main():
     # Argument parser
     args = utils.add_parser('Spectrogram analysis.', title=True)
 
     # Configuration parser
-    config = ConfigParser()
-    config.read('plotconfig.ini')
+    config = configparser.ConfigParser()
+    config.read('src/plotconfig.ini')
     
     # Initialize run objects; skip missing directories
     runs = utils.init_runs(args.runs)
@@ -59,21 +44,23 @@ def main():
             fig, axs = plt.subplots(1, 2, figsize=(12, 6))
             if args.title:
                 fig.suptitle(
-                    f'Spectrogram of {run.mode.upper()} channel {channel}\n' \
-                            + 'compared to median PSD',
-                    fontsize=fig_title_size
-                )
+                    f'Spectrogram of {run.mode.upper()} channel {channel}\n' + \
+                            'compared to median PSD',
+                    fontsize=config.getfloat('Font', 'fig_title_size'))
             
             # Subplots
             axs[0].set_title('Absolute difference', 
-                    fontsize=subplot_title_size, pad=subplot_title_pad)
-            axs[0].set_ylabel('Frequency (Hz)', fontsize=ax_label_size)
+                    fontsize=config.getfloat('Font', 'subplot_title_size'), 
+                    pad=config.getfloat('Placement', 'subplot_title_pad'))
+            axs[0].set_ylabel('Frequency (Hz)', 
+                    fontsize=config.getfloat('Font', 'ax_label_size'))
             spectrogram(fig, axs[0], run,
                 unstacked.sub(median, axis=0), 
                 cmap=cm.get_cmap('coolwarm'),
             )
             axs[1].set_title('Relative difference',
-                    fontsize=subplot_title_size, pad=subplot_title_pad)
+                    fontsize=config.getfloat('Font', 'subplot_title_size'), 
+                    pad=config.getfloat('Placement', 'subplot_title_pad'))
             spectrogram(fig, axs[1], run,
                 abs(unstacked.sub(median, axis=0)).div(median, axis=0),
                 cmap='PuRd',
@@ -81,8 +68,8 @@ def main():
             )
             
             # Figure layout
-            if not args.title: hlim = 1
-            else: hlim=0.85
+            if args.title: hlim = 0.85
+            else: hlim = 1
             fig.tight_layout(rect=[0, 0, 1, hlim], w_pad=2)
             
             # Save plot
@@ -107,10 +94,13 @@ def main():
         print(f'\n-- {", ".join(run_str)} --')
         
         # Plot spectrogram for each channel
-        p = utils.Progress(runs[0].channels, 'Plotting comparison spectrograms...')
+        p = utils.Progress(runs[0].channels, 
+                'Plotting comparison spectrograms...')
         for i, channel in enumerate(runs[0].channels):
             # Setup figure
-            fig = plt.figure(figsize=(8 + len(runs) * 4, 9))
+            fig = plt.figure(figsize=(
+                    len(runs) * config.getfloat('Placement', 'fig_x_scale'), 
+                    config.getfloat('Placement', 'fig_y_scale')))
             fig.suptitle(f'Channel {channel}\n' + \
                     'Power compared to median at observed times, frequencies',
                     y=0.99, fontsize=fig_title_size)
@@ -135,10 +125,13 @@ def main():
                 )
                 
                 # Subplot config
-                ax.set_title(f'{run.mode.upper()}', size=subplot_title_size)
-                ax.tick_params(labelsize=tick_label_size)
+                ax.set_title(f'{run.mode.upper()}', 
+                        size=config.getfloat('Font', 'subplot_title_size'))
+                ax.tick_params(
+                        labelsize=config.getfloat('Font', 'tick_label_size'))
                 if r==0: # only label y axis on left most plot
-                    ax.set_ylabel('Frequency (Hz)', fontsize=ax_label_size)
+                    ax.set_ylabel('Frequency (Hz)', 
+                            fontsize=config.getfloat('Font', 'ax_label_size'))
             
             # Set tight layout
             fig.tight_layout(rect=[0, 0, 1, 0.9])
@@ -159,7 +152,8 @@ def main():
             # Update progress
             p.update(i)
 
-def spectrogram(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, bar=True):
+def spectrogram(fig, ax, run, psd, cmap, config, 
+        vlims=None, cbar_label=None, bar=True):
     '''
     Function to plot the colormap of a PSD with frequency on the y-axis and
     time on the x-axis.
@@ -197,7 +191,7 @@ def spectrogram(fig, ax, run, psd, cmap, vlims=None, cbar_label=None, bar=True):
     ax.set_ylim(bottom=1e-3, top=1.)
     # Axis labels
     ax.set_xlabel(f'Days elapsed since\n{run.start_date} UTC', 
-            fontsize=ax_label_size)
+            fontsize=config.getfloat('Font', 'ax_label_size'))
     ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
     # Tick label size
     ax.tick_params(axis='both', which='major', labelsize=tick_label_size,
