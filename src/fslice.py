@@ -59,46 +59,12 @@ def main():
         
         p = utils.Progress(run.channels, 'Plotting frequency slices...')
         for c, channel in enumerate(run.channels):
+            # Plot grid of time series
             fig = utils.gridplot(fslice, df, channel, frequencies,
                     f'{run.mode.upper()} channel {channel}\n' + \
                             'Power at selected frequencies',
                     f'Days elapsed since\n{run.start_date} UTC', 'Power', 
                     config)
-            '''
-            # Automatically create grid of axes
-            nrows = int(np.floor(float(len(frequencies)) ** 0.5))
-            ncols = int(np.ceil(1. * len(frequencies) / nrows))
-            # Set up figure
-            fig = plt.figure(figsize=(6 * ncols, 6 * nrows))
-            fig.suptitle(f'Selected frequencies for {run.mode.upper()}' + \
-                    '{run.name} channel {channel}')
-            
-            # Subplots
-            for i, freq in enumerate(frequencies):
-                # Get exact frequency along which to slice
-                freq = utils.get_exact_freq(df, freq)
-                freq_text = f'%s mHz' % float('%.3g' % (freq * 1000.))
-                
-                # Set up subplot
-                ax = fig.add_subplot(nrows, ncols, i+1)
-                
-                # Plot frequency slice
-                fslice(fig, ax, df, run, channel, freq)
-                
-                # Subplot config
-                ax.set_title(freq_text, fontsize=subplot_title_size)
-                if i % ncols == 0: # vertical axis label on left
-                    ax.set_ylabel('Power')
-                if i >= len(frequencies) - ncols: # horizontal axis label on bottom
-                    ax.set_xlabel(f'Days elapsed since\n{run.start_date} UTC', 
-                            fontsize=ax_label_size)
-            
-            # Legend
-            handles, labels = ax.get_legend_handles_labels()
-            order = [0, 2, 1]
-            fig.legend([handles[i] for i in order], [labels[i] for i in order])
-            fig.tight_layout(rect=[0, 0, 1, 0.92])
-            '''
             
             # Save plot
             plot_file = os.path.join(run.plot_dir, f'fslice{c}.png')
