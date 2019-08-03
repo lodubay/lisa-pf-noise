@@ -3,6 +3,7 @@
 import os
 import argparse
 from glob import glob
+from configparser import SafeConfigParser
 
 import numpy as np
 import pandas as pd
@@ -31,6 +32,10 @@ subplot_title_pad = 15
 def main():
     # Argument parser
     args = utils.add_parser('Spectrogram analysis.')
+
+    # Configuration parser
+    config = SafeConfigParser()
+    config.read('plotconfig.ini')
     
     # Initialize run objects; skip missing directories
     runs = utils.init_runs(args.runs)
