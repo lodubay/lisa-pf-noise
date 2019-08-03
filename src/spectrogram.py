@@ -31,7 +31,7 @@ subplot_title_pad = 15
 
 def main():
     # Argument parser
-    args = utils.add_parser('Spectrogram analysis.')
+    args = utils.add_parser('Spectrogram analysis.', title=True)
 
     # Configuration parser
     config = ConfigParser()
@@ -57,11 +57,12 @@ def main():
             
             # Set up figure
             fig, axs = plt.subplots(1, 2, figsize=(12, 6))
-            fig.suptitle(
-                f'Spectrogram of {run.mode.upper()} channel {channel}\n' \
-                        + 'compared to median PSD',
-                fontsize=fig_title_size
-            )
+            if args.title:
+                fig.suptitle(
+                    f'Spectrogram of {run.mode.upper()} channel {channel}\n' \
+                            + 'compared to median PSD',
+                    fontsize=fig_title_size
+                )
             
             # Subplots
             axs[0].set_title('Absolute difference', 
@@ -71,7 +72,7 @@ def main():
                 unstacked.sub(median, axis=0), 
                 cmap=cm.get_cmap('coolwarm'),
             )
-            axs[1].set_title('Absolute difference',
+            axs[1].set_title('Relative difference',
                     fontsize=subplot_title_size, pad=subplot_title_pad)
             spectrogram(fig, axs[1], run,
                 abs(unstacked.sub(median, axis=0)).div(median, axis=0),
@@ -80,7 +81,9 @@ def main():
             )
             
             # Figure layout
-            fig.tight_layout(rect=[0, 0, 1, 0.85], w_pad=2)
+            if not args.title: hlim = 1
+            else: hlim=0.85
+            fig.tight_layout(rect=[0, 0, 1, hlim], w_pad=2)
             
             # Save plot
             plot_file = os.path.join(run.plot_dir, f'spectrogram{i}.png')

@@ -166,7 +166,7 @@ def get_impacts(impacts_file):
     impacts = pd.read_csv(impacts_file, sep=' ', names=cols, na_values='-')
     return impacts
 
-def add_parser(description, comparison=True):
+def add_parser(description, comparison=True, title=False):
     # Argument parser
     parser = argparse.ArgumentParser(description=description)
     parser.add_argument('runs', type=str, nargs='*', 
@@ -181,6 +181,9 @@ def add_parser(description, comparison=True):
     parser.add_argument('--keep-all', dest='keep', action='store_true',
         help='do not generate summary file if it already exists (default: ask \
               for each run)')
+    if title:
+        parser.add_argument('--no-title', dest='title', action='store_false',
+                help='do not include a plot title')
     args = parser.parse_args()
     
     # Add all runs in data directory if none are specified
