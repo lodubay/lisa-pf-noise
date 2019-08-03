@@ -3,6 +3,7 @@
 import os
 import argparse
 from glob import glob
+import configparser
 
 import numpy as np
 import pandas as pd
@@ -11,24 +12,13 @@ import matplotlib.ticker as tkr
 
 import utils
 
-# Font parameters
-fig_title_size = 28
-subplot_title_size = 24
-legend_label_size = 20
-ax_label_size = 24
-tick_label_size = 18
-offset_size = 16
-
-# Tick parameters
-major_tick_length = 10
-minor_tick_length = 5
-
-# Other parameters
-subplot_title_pad = 15
-
 def main():
     # Argument parser
     args = utils.add_parser('Frequency slice analysis.')
+
+    # Plot config parser
+    config = configparser.ConfigParser()
+    config.read('src/plotconfig.ini')
     
     # Initialize run objects; skip missing directories
     runs = utils.init_runs(args.runs)
@@ -84,10 +74,10 @@ def main():
             fig.tight_layout(rect=[0, 0, 1, 0.88])
             '''
             
-            fig = gridplot(tslice(fig, ax, df, channel, time), times,
+            fig = gridplot(tslice, df, channel, times,
                     f'{run.mode.upper()} channel {channel}\n' + \
                             'PSDs at selected times',
-                    'Frequency (Hz)', 'PSD')
+                    'Frequency (Hz)', 'PSD', config)
             
             # Save plot
             plot_file = os.path.join(run.plot_dir, f'tslice{c}.png')
@@ -115,10 +105,10 @@ def tslice(fig, ax, df, channel, time):
     
     # Plot 90% credible interval
     ax.fill_between(psd.index, psd['CI_90_LO'], psd['CI_90_HI'],
-        color='#a1dab4', label='90% credible interval')
+            color='#a1dab4', label='90% credible interval')
     # Plot 50% credible interval
     ax.fill_between(psd.index, psd['CI_50_LO'], psd['CI_50_HI'],
-        color='#41b6c4', label='50% credible interval')
+            color='#41b6c4', label='50% credible interval')
     # Plot median
     ax.plot(psd.index, psd['MEDIAN'], label='Median', color='#225ea8')
     
@@ -127,13 +117,15 @@ def tslice(fig, ax, df, channel, time):
     ax.set_xscale('log')
     ax.set_yscale('log')
 
-def gridplot(fn, iterable, suptitle, xlabel, ylabel):
+def gridplot(fn, df, channel, iterable, suptitle, xlabel, ylabel, config):
     # Automatically create grid of axes
-    nrows = int(np.floor(float(len(times)) ** 0.5))
-    ncols = int(np.ceil(1. * len(times) / nrows))
+    nrows = int(np.floor(float(len(iterable)) ** 0.5))
+    ncols = int(np.ceil(1. * len(iterable) / nrows))
     # Set up figure
-    fig = plt.figure(figsize=(6 * ncols, 6 * nrows))
-    fig.suptitle(suptitle, fontsize=fig_title_size)
+    fig = plt.figure(
+            figsize=(config.getfloat('Placement', 'fig_x_scale') * ncols, 
+            config.getfloat('Placement', 'fig_y_scale') * nrows))
+    fig.suptitle(suptitle, fontsize=config['Font']['fig_title_size'])
     
     # Subplots
     for i, item in enumerate(iterable):
@@ -141,28 +133,32 @@ def gridplot(fn, iterable, suptitle, xlabel, ylabel):
         ax = fig.add_subplot(nrows, ncols, i+1)
         
         # Plot function
-        fn(fig, ax, df
+        fn(fig, ax, df, channel, item)
         
         # Subplot config
-        ax.set_title(ax.get_title(), fontsize=subplot_title_size)
-        if i >= len(times) - ncols: # x axis label on bottom plots only
-            ax.set_xlabel(xlabel, fontsize=ax_label_size)
+        ax.set_title(ax.get_title(),
+                fontsize=config.getfloat('Font', 'subplot_title_size'))
+        if i >= len(iterable) - ncols: # x axis label on bottom plots only
+            ax.set_xlabel(xlabel, 
+                    fontsize=config.getfloat('Font', 'ax_label_size'))
         if i % ncols == 0: # y axis label on left plots only
-            ax.set_ylabel(ylabel, fontsize=ax_label_size)
+            ax.set_ylabel(ylabel, 
+                    fontsize=config.getfloat('Font', 'ax_label_size'))
         ax.tick_params(axis='both', which='major',
-                labelsize=tick_label_size, length=major_tick_length)
+                labelsize=config.getfloat('Font', 'tick_label_size'),
+                length=config.getfloat('Tick','major_tick_length'))
         ax.tick_params(axis='both', which='minor', 
-                length=minor_tick_length)
+                length=config.getfloat('Tick', 'minor_tick_length'))
         
     # Legend
     handles, labels = ax.get_legend_handles_labels()
     order = [0, 2, 1] # reorder legend
     fig.legend([handles[i] for i in order], [labels[i] for i in order],
-            fontsize=legend_label_size)
+            fontsize=config.getfloat('Font', 'legend_label_size'))
     fig.tight_layout(rect=[0, 0, 1, 0.88])
     
     return fig
-        
+
 
 if __name__ == '__main__':
     main()
