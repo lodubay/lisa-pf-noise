@@ -47,7 +47,7 @@ def summarize(run):
     '''
     
     # Set up progress indicator
-    p = utils.Progress(run.time_dirs, f'Importing {run.name} psd files...')
+    p = utils.Progress(run.time_dirs, f'Importing psd files...')
     
     # Concatenate DataFrames of all times; takes a while
     summaries = []

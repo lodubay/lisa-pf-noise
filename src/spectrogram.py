@@ -3,7 +3,7 @@
 import os
 import argparse
 from glob import glob
-from configparser import SafeConfigParser
+from configparser import ConfigParser
 
 import numpy as np
 import pandas as pd
@@ -34,7 +34,7 @@ def main():
     args = utils.add_parser('Spectrogram analysis.')
 
     # Configuration parser
-    config = SafeConfigParser()
+    config = ConfigParser()
     config.read('plotconfig.ini')
     
     # Initialize run objects; skip missing directories
@@ -56,21 +56,22 @@ def main():
             median = unstacked.median(axis=1)
             
             # Set up figure
-            fig, axs = plt.subplots(1, 2, figsize=(14, 6))
+            fig, axs = plt.subplots(1, 2, figsize=(12, 6))
             fig.suptitle(
-                f'Spectrogram of {run.mode.upper()} channel {channel}',
+                f'Spectrogram of {run.mode.upper()} channel {channel}\n' \
+                        + 'compared to median PSD',
                 fontsize=fig_title_size
             )
             
             # Subplots
-            axs[0].set_title('Absolute difference from median PSD', 
+            axs[0].set_title('Absolute difference', 
                     fontsize=subplot_title_size, pad=subplot_title_pad)
             axs[0].set_ylabel('Frequency (Hz)', fontsize=ax_label_size)
             spectrogram(fig, axs[0], run,
                 unstacked.sub(median, axis=0), 
                 cmap=cm.get_cmap('coolwarm'),
             )
-            axs[1].set_title('Fractional difference from median PSD',
+            axs[1].set_title('Absolute difference',
                     fontsize=subplot_title_size, pad=subplot_title_pad)
             spectrogram(fig, axs[1], run,
                 abs(unstacked.sub(median, axis=0)).div(median, axis=0),
@@ -79,7 +80,7 @@ def main():
             )
             
             # Figure layout
-            fig.tight_layout(rect=[0, 0, 1, 0.92], w_pad=-1)
+            fig.tight_layout(rect=[0, 0, 1, 0.85], w_pad=2)
             
             # Save plot
             plot_file = os.path.join(run.plot_dir, f'spectrogram{i}.png')
