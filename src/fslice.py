@@ -3,6 +3,7 @@
 import os
 import argparse
 from glob import glob
+import configparser
 
 import numpy as np
 import pandas as pd
@@ -32,6 +33,10 @@ scaled_offset = 0.0025 * spine_pad # Scaled spine_pad
 def main():
     # Argument parser
     args = utils.add_parser('Frequency slice analysis.')
+
+    # Plot config parser
+    config = configparser.ConfigParser()
+    config.read('src/plotconfig.ini')
     
     # Initialize run objects; skip missing directories
     runs = utils.init_runs(args.runs)
@@ -54,6 +59,12 @@ def main():
         
         p = utils.Progress(run.channels, 'Plotting frequency slices...')
         for c, channel in enumerate(run.channels):
+            fig = utils.gridplot(fslice, df, channel, frequencies,
+                    f'{run.mode.upper()} channel {channel}\n' + \
+                            'Power at selected frequencies',
+                    f'Days elapsed since\n{run.start_date} UTC', 'Power', 
+                    config)
+            '''
             # Automatically create grid of axes
             nrows = int(np.floor(float(len(frequencies)) ** 0.5))
             ncols = int(np.ceil(1. * len(frequencies) / nrows))
@@ -87,6 +98,7 @@ def main():
             order = [0, 2, 1]
             fig.legend([handles[i] for i in order], [labels[i] for i in order])
             fig.tight_layout(rect=[0, 0, 1, 0.92])
+            '''
             
             # Save plot
             plot_file = os.path.join(run.plot_dir, f'fslice{c}.png')
@@ -245,7 +257,7 @@ def main():
             # Update progress
             p.update(c)
 
-def fslice(fig, ax, df, run, channel, frequency):
+def fslice(fig, ax, df, channel, frequency):
     '''
     Plots power at a specific frequency over time.
 
@@ -255,11 +267,15 @@ def fslice(fig, ax, df, run, channel, frequency):
       df : DataFrame, the full summary output from import_psd.py
       run : Run object
       channel : str, the channel to investigate
-      frequency : float, the frequency along which to slice the PSD
+      frequency : float, the approximate frequency along which to slice the PSD
     '''
+    # Get exact frequency along which to slice
+    frequency = utils.get_exact_freq(df, frequency)
+    freq_text = f'%s mHz' % float('%.3g' % (frequency * 1000.))
+
     # Isolate given channel
     time_series = df.loc[channel].xs(frequency, level='FREQ')
-    days_elapsed = run.gps2day(time_series.index) # Convert to days elapsed
+    days_elapsed = utils.gps2day(time_series.index) # Convert to days elapsed
     
     # Plot 90% credible interval
     ax.fill_between(days_elapsed, time_series['CI_90_LO'], 
@@ -272,6 +288,9 @@ def fslice(fig, ax, df, run, channel, frequency):
     # Plot median
     ax.plot(days_elapsed, time_series['MEDIAN'], 
             label='Median', color='#88419d')
+
+    # Axis title
+    ax.set_title(freq_text)
             
     # Vertical axis limits
     med = time_series['MEDIAN'].median()

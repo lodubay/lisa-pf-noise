@@ -74,7 +74,7 @@ def main():
             fig.tight_layout(rect=[0, 0, 1, 0.88])
             '''
             
-            fig = gridplot(tslice, df, channel, times,
+            fig = utils.gridplot(tslice, df, channel, times,
                     f'{run.mode.upper()} channel {channel}\n' + \
                             'PSDs at selected times',
                     'Frequency (Hz)', 'PSD', config)
@@ -116,49 +116,6 @@ def tslice(fig, ax, df, channel, time):
     ax.set_title(f't={time}')
     ax.set_xscale('log')
     ax.set_yscale('log')
-
-def gridplot(fn, df, channel, iterable, suptitle, xlabel, ylabel, config):
-    # Automatically create grid of axes
-    nrows = int(np.floor(float(len(iterable)) ** 0.5))
-    ncols = int(np.ceil(1. * len(iterable) / nrows))
-    # Set up figure
-    fig = plt.figure(
-            figsize=(config.getfloat('Placement', 'fig_x_scale') * ncols, 
-            config.getfloat('Placement', 'fig_y_scale') * nrows))
-    fig.suptitle(suptitle, fontsize=config['Font']['fig_title_size'])
-    
-    # Subplots
-    for i, item in enumerate(iterable):
-        # Set up subplot
-        ax = fig.add_subplot(nrows, ncols, i+1)
-        
-        # Plot function
-        fn(fig, ax, df, channel, item)
-        
-        # Subplot config
-        ax.set_title(ax.get_title(),
-                fontsize=config.getfloat('Font', 'subplot_title_size'))
-        if i >= len(iterable) - ncols: # x axis label on bottom plots only
-            ax.set_xlabel(xlabel, 
-                    fontsize=config.getfloat('Font', 'ax_label_size'))
-        if i % ncols == 0: # y axis label on left plots only
-            ax.set_ylabel(ylabel, 
-                    fontsize=config.getfloat('Font', 'ax_label_size'))
-        ax.tick_params(axis='both', which='major',
-                labelsize=config.getfloat('Font', 'tick_label_size'),
-                length=config.getfloat('Tick','major_tick_length'))
-        ax.tick_params(axis='both', which='minor', 
-                length=config.getfloat('Tick', 'minor_tick_length'))
-        
-    # Legend
-    handles, labels = ax.get_legend_handles_labels()
-    order = [0, 2, 1] # reorder legend
-    fig.legend([handles[i] for i in order], [labels[i] for i in order],
-            fontsize=config.getfloat('Font', 'legend_label_size'))
-    fig.tight_layout(rect=[0, 0, 1, 0.88])
-    
-    return fig
-
 
 if __name__ == '__main__':
     main()
