@@ -77,7 +77,7 @@ def main():
     # Comparison plots
     if args.compare:
         # Output directory
-        multirun_dir = os.path.join('out', 'multirun')
+        multirun_dir = os.path.join('out', 'multirun2')
         if not os.path.exists(multirun_dir): 
             os.makedirs(multirun_dir)
         plot_dir = os.path.join(multirun_dir, 'plots')
@@ -120,7 +120,7 @@ def main():
                             grid[plot_height*i:plot_height*i+plot_height, j])
                     
                     # Plot frequency slice
-                    fslice(fig, ax, df, run, channel, freq)
+                    fslice(fig, ax, df, channel, freq)
                     
                     # Subplot title if top plot
                     if i == 0:
