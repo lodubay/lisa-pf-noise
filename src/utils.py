@@ -265,7 +265,7 @@ def compareplot(fn, runs, dfs, channel, iterable, suptitle, xlabels, ylabel,
     ncols = len(runs)
     fig, axes = plt.subplots(nrows, ncols, sharex='col',
             figsize=(config.getfloat('Placement', 'fig_x_scale') * ncols, 
-                     config.getfloat('Placement', 'fig_y_scale') * nrows))
+                     config.getfloat('Placement', 'fig_y_scale')/2 * nrows))
     fig.suptitle(suptitle, fontsize=config.getfloat('Font', 'fig_title_size'))
 
     # Subplots
@@ -277,21 +277,39 @@ def compareplot(fn, runs, dfs, channel, iterable, suptitle, xlabels, ylabel,
 
             # Plot function
             fn(fig, ax, df, channel, item)
+                    
+            # y axis label
+            new_ylabel = ylabel + f' at {ax.get_title()}'
+
+            # Subplot title if top plot
+            if i == 0:
+                ax.set_title(f'{run.mode.upper()}', 
+                        fontsize=config.getfloat('Font', 'subplot_title_size'),
+                        pad=config.getfloat('Placement', 'subplot_title_pad'))
+            else:
+                ax.set_title('')
+            
+            # More mathy exponent label
+            ax.ticklabel_format(axis='y', useMathText=True)
+            exp_txt = ax.yaxis.get_offset_text()
+            exp_txt.set_x(-0.005 * config.getfloat('Placement', 'spine_pad'))
+            exp_txt.set_size(config.getfloat('Font', 'offset_size'))
             
             # Subplot config
             ax.set_title(ax.get_title(),
                     fontsize=config.getfloat('Font', 'subplot_title_size'))
-            if i >= len(iterable) - ncols: # x axis label on bottom plots only
-                ax.set_xlabel(xlabel, 
-                        fontsize=config.getfloat('Font', 'ax_label_size'))
-            if i % ncols == 0: # y axis label on left plots only
-                ax.set_ylabel(ylabel, 
+            if r == 0: # y axis label on left plots only
+                ax.set_ylabel(new_ylabel, 
                         fontsize=config.getfloat('Font', 'ax_label_size'))
             ax.tick_params(axis='both', which='major',
                     labelsize=config.getfloat('Font', 'tick_label_size'),
                     length=config.getfloat('Tick','major_tick_length'))
             ax.tick_params(axis='both', which='minor', 
                     length=config.getfloat('Tick', 'minor_tick_length'))
+
+        # x axis label on bottom plots only
+        ax.set_xlabel(xlabel, 
+                fontsize=config.getfloat('Font', 'ax_label_size'))
         
     handles, labels = ax.get_legend_handles_labels()
     # Reorder legend

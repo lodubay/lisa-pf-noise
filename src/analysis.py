@@ -89,15 +89,15 @@ def main():
         #plot_tslices(run, df, config)
         #plot_fslices(run, df, frequencies, config)
         #plot_spectrograms(run, df, config)
-        plot_ffts(run, df, frequencies, config)
+        #plot_ffts(run, df, frequencies, config)
 
     if args.compare:
         run_str = [f'{run.mode} {run.name}' for run in runs]
         print(f'\n-- {", ".join(run_str)} --')
         frequencies = np.array([1e-3, 5e-3, 3e-2])
-        #compare_fslices(runs, dfs, frequencies, config)
+        compare_fslices(runs, dfs, frequencies, config)
         #compare_spectrograms(runs, dfs, config)
-        compare_ffts(runs, dfs, frequencies, config)
+        #compare_ffts(runs, dfs, frequencies, config)
 
 def fslice(fig, ax, df, channel, frequency):
     '''
