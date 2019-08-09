@@ -85,16 +85,19 @@ def main():
         dfs.append(df)
 
         # Generate plots
-        plot_tslices(run, df, config)
-        plot_fslices(run, df, np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2]),
-                config)
-        plot_spectrograms(run, df, config)
+        frequencies = np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2])
+        #plot_tslices(run, df, config)
+        #plot_fslices(run, df, frequencies, config)
+        #plot_spectrograms(run, df, config)
+        plot_ffts(run, df, frequencies, config)
 
     if args.compare:
         run_str = [f'{run.mode} {run.name}' for run in runs]
         print(f'\n-- {", ".join(run_str)} --')
-        compare_fslices(runs, dfs, np.array([1e-3, 5e-3, 3e-2]), config)
-        compare_spectrograms(runs, dfs, config)
+        frequencies = np.array([1e-3, 5e-3, 3e-2])
+        #compare_fslices(runs, dfs, frequencies, config)
+        #compare_spectrograms(runs, dfs, config)
+        compare_ffts(runs, dfs, frequencies, config)
 
 def fslice(fig, ax, df, channel, frequency):
     '''
@@ -384,7 +387,7 @@ def compare_spectrograms(runs, dfs, config):
                         fontsize=config.getfloat('Font', 'ax_label_size'))
         
         # Set tight layout
-        fig.tight_layout(rect=[0, 0, 1, 0.9])
+        fig.tight_layout(rect=[0, 0, 1, 0.88])
         
         # Make colorbar
         fig.subplots_adjust(right=0.9)
@@ -403,6 +406,98 @@ def compare_spectrograms(runs, dfs, config):
         
         # Update progress
         p.update(i)
+
+def fft(fig, ax, df, channel, frequency):
+    '''
+    Plots a single Fourier transform of power at a specific frequency
+    over time. First interpolates the data to get consistent dt.
+    
+    Input
+    -----
+      fig, ax : the figure and axes of the plot
+      df : DataFrame, output from import_psd.py
+      channel : string, channel of interest
+      frequency : float, exact frequency along which to slice the DataFrame
+    '''
+    # Get exact frequency
+    frequency = utils.get_exact_freq(df, frequency)
+    freq_text = f'%s mHz' % float('%.3g' % (frequency * 1000.))
+
+    # Select median column for specific run, channel
+    median = df.loc[channel,'MEDIAN']
+    median = median[median.notna()] # remove NaN values
+    times = median.index.unique(level='TIME')
+    
+    # Find the mean time difference, excluding outliers
+    diffs = np.diff(times)
+    dt = np.mean(diffs[diffs < 1.5 * np.median(diffs)])
+    
+    # List of times at same time cadence
+    n = int((times[-1] - times[0]) / dt)
+    new_times = times[0] + np.arange(0, n * dt, dt)
+    
+    # Interpolate to remove data gaps
+    median = median.xs(frequency, level='FREQ')
+    new_values = np.interp(new_times, times, median)
+
+    # Discrete Fourier transform, removing data point for f=0
+    rfftfreq = np.fft.rfftfreq(n, dt)[1:]
+    rfft = np.absolute(np.fft.rfft(new_values, n))[1:]
+
+    # Plot PSD
+    psd = np.absolute(rfft)**2
+    ax.plot(rfftfreq, psd, color='#0077c8')
+                
+    # Axis configuration
+    ax.set_title(freq_text)
+    ax.set_yscale('log')
+
+def plot_ffts(run, df, frequencies, config):
+    # Remove large gap in LTP run
+    if run.name == 'run_b' and run.mode == 'ltp':
+        df = df[df.index.get_level_values('TIME') >= 1143962325]
+
+    # Create plot for each channel
+    p = utils.Progress(run.channels, 'Plotting FFTs...')
+    for c, channel in enumerate(run.channels):
+        # Plot grid of time series
+        fig = utils.gridplot(fft, df, channel, frequencies,
+                f'{run.mode.upper()} channel {channel}\n' + \
+                        'FFT of power at selected frequencies',
+                f'Days elapsed since\n{run.start_date} UTC', 'PSD', 
+                config)
+        
+        # Save plot
+        plot_file = os.path.join(run.plot_dir, f'fft{c}.png')
+        plt.savefig(plot_file, bbox_inches='tight')
+        plt.close()
+        
+        # Update progress
+        p.update(c)
+
+def compare_ffts(runs, dfs, frequencies, config):
+    # Remove large gap in LTP run
+    for run in runs:
+        if run.name == 'run_b' and run.mode == 'ltp':
+            dfs[r] = dfs[r][df.index.get_level_values('TIME') >= 1143962325]
+
+    # Create plot for each channel
+    p = utils.Progress(runs[0].channels, 'Plotting comparison FFTs...')
+    for c, channel in enumerate(runs[0].channels):
+        # Plot grid of time series
+        fig = utils.compareplot(fft, runs, dfs, channel, frequencies,
+                f'Channel {channel}\nFFT of power at selected frequencies',
+                [f'Days elapsed since\n{run.start_date} UTC' for run in runs], 
+                'PSD', config)
+        
+        # Save plot
+        plot_file = os.path.join(config.get('Directories', 'multirun_dir'), 
+                'plots', f'fft{c}.png')
+        plt.savefig(plot_file, bbox_inches='tight')
+        plt.close()
+        
+        # Update progress
+        p.update(c)
 
 if __name__ == '__main__':
     main()

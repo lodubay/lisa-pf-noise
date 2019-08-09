@@ -71,18 +71,22 @@ def main():
             
             p.update(c)
 
-def fft(psd_summary, channel, frequency, log):
+def fft(fig, ax, df, channel, frequency):
     '''
     Returns the discrete Fourier transform of power at a specific frequency
     over time. First interpolates the data to get consistent dt.
     
     Input
     -----
-      psd_summary : DataFrame, output from import_psd.py
+      fig, ax : the figure and axes of the plot
+      df : DataFrame, output from import_psd.py
       channel : string, channel of interest
       frequency : float, exact frequency along which to slice psd_summary
-      log : log object
     '''
+    # Get exact frequency
+    frequency = utils.get_exact_freq(psd_summary, frequency)
+    freq_str = f'%s mHz' % float('%.3g' % (freq * 1000.))
+
     # Select median column for specific run, channel
     median = psd_summary.loc[channel,'MEDIAN']
     median = median[median.notna()] # remove NaN values
@@ -96,20 +100,21 @@ def fft(psd_summary, channel, frequency, log):
     n = int((times[-1] - times[0]) / dt)
     new_times = times[0] + np.arange(0, n * dt, dt)
     
-    # Discrete Fourier transform
+    # Interpolate to remove data gaps
     median = median.xs(frequency, level='FREQ')
     new_values = np.interp(new_times, times, median)
+
+    # Discrete Fourier transform
     rfftfreq = np.fft.rfftfreq(n, dt)
     rfft = np.absolute(np.fft.rfft(new_values, n))
-    
-    # Sanity checks
-    log.log(f'dt = {dt}')
-    log.log(f'1/df = {np.mean(np.diff(rfftfreq))}')
-    log.log(f'f_max = {np.max(rfftfreq)}')
-    log.log(f'1/(2*dt) = {1. / (2 * dt)}')
-    
-    return rfftfreq, rfft
 
+    # Plot PSD
+    psd = np.absolute(rfft)**2
+    ax.plot(rfftfreq, psd, color='#0077c8')
+                
+    # Axis configuration
+    ax.set_title(f'FFT of power at {freq_text}')
+    
 if __name__ == '__main__':
     main()
 

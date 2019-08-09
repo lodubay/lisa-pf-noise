@@ -247,11 +247,12 @@ def gridplot(fn, df, channel, iterable, suptitle, xlabel, ylabel, config):
         ax.tick_params(axis='both', which='minor', 
                 length=config.getfloat('Tick', 'minor_tick_length'))
         
-    # Legend
     handles, labels = ax.get_legend_handles_labels()
-    order = [0, 2, 1] # reorder legend
-    fig.legend([handles[i] for i in order], [labels[i] for i in order],
-            fontsize=config.getfloat('Font', 'legend_label_size'))
+    # Reorder legend
+    if len(handles) == 3:
+        order = [0, 2, 1]
+        fig.legend([handles[i] for i in order], [labels[i] for i in order],
+                fontsize=config.getfloat('Font', 'legend_label_size'))
     fig.tight_layout(rect=[0, 0, 1, 0.88])
     
     return fig
@@ -292,11 +293,12 @@ def compareplot(fn, runs, dfs, channel, iterable, suptitle, xlabels, ylabel,
             ax.tick_params(axis='both', which='minor', 
                     length=config.getfloat('Tick', 'minor_tick_length'))
         
-    # Legend
     handles, labels = ax.get_legend_handles_labels()
-    order = [0, 2, 1] # reorder legend
-    fig.legend([handles[i] for i in order], [labels[i] for i in order],
-            fontsize=config.getfloat('Font', 'legend_label_size'))
+    # Reorder legend
+    if len(handles) == 3:
+        order = [0, 2, 1]
+        fig.legend([handles[i] for i in order], [labels[i] for i in order],
+                fontsize=config.getfloat('Font', 'legend_label_size'))
     fig.tight_layout(rect=[0, 0, 1, 0.88])
     
     return fig
