@@ -1,0 +1,11 @@
+figure.titlesize : 28
+axes.titlesize : 24
+legend.fontsize : 20
+axes.labelsize : 20
+axes.titlepad : 15
+xtick.labelsize : 20
+ytick.labelsize : 20
+xtick.major.size : 10
+ytick.major.size : 10
+xtick.minor.size : 5
+ytick.minor.size : 5

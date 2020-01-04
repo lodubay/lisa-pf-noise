@@ -47,6 +47,10 @@ def main():
     if len(args.runs) == 0: 
         args.runs = glob(f'data{os.sep}*{os.sep}*{os.sep}')
     
+    # Matplotlib RC Config 
+    #plt.style.use('poster.mplstyle')
+    print('Using config file at ' + str(matplotlib.matplotlib_fname()))
+
     # Plot config parser
     config = configparser.ConfigParser(
             interpolation=configparser.BasicInterpolation())
@@ -88,7 +92,7 @@ def main():
         frequencies = np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2])
         #plot_tslices(run, df, config)
         #plot_fslices(run, df, frequencies, config)
-        #plot_spectrograms(run, df, config)
+        plot_spectrograms(run, df, config)
         #plot_ffts(run, df, frequencies, config)
 
     if args.compare:
@@ -278,20 +282,11 @@ def spectrogram(fig, ax, run, psd, cmap, config,
     ax.set_yscale('log')
     ax.set_ylim(bottom=1e-3, top=1.)
     # Axis labels
-    ax.set_xlabel(f'Days elapsed since\n{run.start_date} UTC', 
-            fontsize=config.getfloat('Font', 'ax_label_size'))
+    ax.set_xlabel(f'Days elapsed since\n{run.start_date} UTC')
     ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
-    # Tick label size
-    ax.tick_params(axis='both', which='major', 
-            labelsize=config.getfloat('Font', 'tick_label_size'),
-            length=config.getfloat('Tick', 'major_tick_length'))
-    ax.tick_params(axis='both', which='minor', 
-            length=config.getfloat('Tick', 'minor_tick_length'))
     # Add and label colorbar
     if bar:
         cbar = fig.colorbar(im, ax=ax)
-        cbar.ax.tick_params(labelsize=config.getfloat('Font',
-            'tick_label_size'))
         if cbar_label:
             cbar.set_label(cbar_label, labelpad=15, rotation=270)
         offset = ax.yaxis.get_offset_text()
@@ -313,22 +308,16 @@ def plot_spectrograms(run, df, config):
         fig, axs = plt.subplots(1, 2, figsize=(12, 6))
         fig.suptitle(
             f'Spectrogram of {run.mode.upper()} channel {channel}\n' + \
-                    'compared to median PSD',
-            fontsize=config.getfloat('Font', 'fig_title_size'))
+                    'compared to median PSD',)
         
         # Subplots
-        axs[0].set_title('Absolute difference', 
-                fontsize=config.getfloat('Font', 'subplot_title_size'), 
-                pad=config.getfloat('Placement', 'subplot_title_pad'))
-        axs[0].set_ylabel('Frequency (Hz)', 
-                fontsize=config.getfloat('Font', 'ax_label_size'))
+        axs[0].set_title('Absolute difference')
+        axs[0].set_ylabel('Frequency (Hz)')
         spectrogram(fig, axs[0], run,
             unstacked.sub(median, axis=0), 
             cm.get_cmap('coolwarm'), config
         )
-        axs[1].set_title('Relative difference',
-                fontsize=config.getfloat('Font', 'subplot_title_size'), 
-                pad=config.getfloat('Placement', 'subplot_title_pad'))
+        axs[1].set_title('Relative difference')
         spectrogram(fig, axs[1], run,
             abs(unstacked.sub(median, axis=0)).div(median, axis=0),
             'PuRd', config, vlims=(0,1)
