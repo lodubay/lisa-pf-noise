@@ -290,7 +290,7 @@ def main():
             for i, channel in enumerate(run.channels):
                 # FFT analysis
                 fft_file = os.path.join(run.plot_dir, f'fft{i}.png')
-                rfftfreq, rfft = fft(run, channel, fft_frequencies, log)
+                rfftfreq, rfft = fft(run, channel, plot_frequencies, log)
                 plot.fft(rfftfreq, rfft, run, channel, plot_frequencies, 
                         logfreq=False, plot_file=fft_file)
                 # Colormap
