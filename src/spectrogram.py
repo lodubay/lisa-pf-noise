@@ -45,22 +45,16 @@ def main():
             if args.title:
                 fig.suptitle(
                     f'Spectrogram of {run.mode.upper()} channel {channel}\n' + \
-                            'compared to median PSD',)
-                    #fontsize=config.getfloat('Font', 'fig_title_size'))
+                            'compared to median PSD')
             
             # Subplots
-            axs[0].set_title('Absolute difference',) 
-                    #fontsize=config.getfloat('Font', 'subplot_title_size'), 
-                    pad=config.getfloat('Placement', 'subplot_title_pad'))
-            axs[0].set_ylabel('Frequency (Hz)',) 
-                    #fontsize=config.getfloat('Font', 'ax_label_size'))
+            axs[0].set_title('Absolute difference')
+            axs[0].set_ylabel('Frequency (Hz)')
             spectrogram(fig, axs[0], run,
                 unstacked.sub(median, axis=0), 
-                cmap=cm.get_cmap('coolwarm'),
+                cmap=cm.get_cmap('coolwarm'), 
             )
-            axs[1].set_title('Relative difference',)
-                    #fontsize=config.getfloat('Font', 'subplot_title_size'), 
-                    pad=config.getfloat('Placement', 'subplot_title_pad'))
+            axs[1].set_title('Relative difference')
             spectrogram(fig, axs[1], run,
                 abs(unstacked.sub(median, axis=0)).div(median, axis=0),
                 cmap='PuRd',
@@ -103,7 +97,7 @@ def main():
                     config.getfloat('Placement', 'fig_y_scale')))
             fig.suptitle(f'Channel {channel}\n' + \
                     'Power compared to median at observed times, frequencies',
-                    y=0.99,)# fontsize=fig_title_size)
+                    y=0.99)
             
             for r, run in enumerate(runs):
                 # Import PSD summaries
@@ -125,13 +119,9 @@ def main():
                 )
                 
                 # Subplot config
-                ax.set_title(f'{run.mode.upper()}', )
-                        #size=config.getfloat('Font', 'subplot_title_size'))
-                #ax.tick_params(
-                        #labelsize=config.getfloat('Font', 'tick_label_size'))
+                ax.set_title(f'{run.mode.upper()}')
                 if r==0: # only label y axis on left most plot
-                    ax.set_ylabel('Frequency (Hz)',)
-                            #fontsize=config.getfloat('Font', 'ax_label_size'))
+                    ax.set_ylabel('Frequency (Hz)')
             
             # Set tight layout
             fig.tight_layout(rect=[0, 0, 1, 0.9])
@@ -140,9 +130,8 @@ def main():
             fig.subplots_adjust(right=0.9)
             cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.66])
             cbar = fig.colorbar(im, cax=cbar_ax)
-            #cbar.ax.tick_params(labelsize=tick_label_size)
             cbar.set_label('Relative difference from median PSD', labelpad=25, 
-                    rotation=270,)# fontsize=ax_label_size)
+                    rotation=270)
             
             # Save plot
             plot_file = os.path.join(plot_dir, f'spectrogram{i}.png')
@@ -152,7 +141,7 @@ def main():
             # Update progress
             p.update(i)
 
-def spectrogram(fig, ax, run, psd, cmap, config, 
+def spectrogram(fig, ax, run, psd, cmap, 
         vlims=None, cbar_label=None, bar=True):
     '''
     Function to plot the colormap of a PSD with frequency on the y-axis and
@@ -190,21 +179,18 @@ def spectrogram(fig, ax, run, psd, cmap, config,
     ax.set_yscale('log')
     ax.set_ylim(bottom=1e-3, top=1.)
     # Axis labels
-    ax.set_xlabel(f'Days elapsed since\n{run.start_date} UTC', )
-            #fontsize=config.getfloat('Font', 'ax_label_size'))
+    ax.set_xlabel(f'Days elapsed since\n{run.start_date} UTC')
     ax.xaxis.set_minor_locator(tkr.AutoMinorLocator())
     # Tick label size
-    ax.tick_params(axis='both', which='major',)# labelsize=tick_label_size,
-            #length=major_tick_length)
-    ax.tick_params(axis='both', which='minor',)# length=minor_tick_length)
+    ax.tick_params(axis='both', which='major')
+    ax.tick_params(axis='both', which='minor')
     # Add and label colorbar
     if bar:
         cbar = fig.colorbar(im, ax=ax)
-        #cbar.ax.tick_params(labelsize=tick_label_size)
         if cbar_label:
             cbar.set_label(cbar_label, labelpad=15, rotation=270)
         offset = ax.yaxis.get_offset_text()
-        offset.set_size(offset_size)
+        offset.set_size(16)
     
     return im
 
