@@ -60,6 +60,12 @@ def main():
     if os.path.exists(impacts_file):
         print('Importing impacts file...')
         impacts = utils.get_impacts(impacts_file)
+
+    # Import array of frequencies, with default if no file specified
+    frequencies = np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2])
+    frequencies_file = os.path.join('data', 'frequencies.csv')
+    if os.path.exists(frequencies_file):
+        frequencies = np.loadtxt(frequencies_file, delimiter=',')
     
     for run in runs:
         print(f'\n-- {run.mode} {run.name} --')
@@ -83,10 +89,9 @@ def main():
         dfs.append(df)
 
         # Generate plots
-        frequencies = np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2])
-        #plot_tslices(run, df)
-        #plot_fslices(run, df, frequencies)
-        #plot_spectrograms(run, df)
+        plot_tslices(run, df)
+        plot_fslices(run, df, frequencies)
+        plot_spectrograms(run, df)
         plot_ffts(run, df, frequencies)
 
     if args.compare:
