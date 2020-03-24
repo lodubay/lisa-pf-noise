@@ -99,10 +99,9 @@ def main():
     if args.compare:
         run_str = [f'{run.mode} {run.name}' for run in runs]
         print(f'\n-- {", ".join(run_str)} --')
-        frequencies = np.array([1e-3, 5e-3, 3e-2])
-        compare_fslices(runs, dfs, frequencies)
+        #compare_fslices(runs, dfs, frequencies)
         #compare_spectrograms(runs, dfs)
-        #compare_ffts(runs, dfs, frequencies)
+        compare_ffts(runs, dfs, frequencies)
 
 def fslice(fig, ax, df, channel, frequency):
     '''
@@ -341,13 +340,14 @@ def compare_spectrograms(runs, dfs):
     # Plot spectrogram for each channel
     p = utils.Progress(runs[0].channels, 'Plotting comparison spectrograms...')
     for i, channel in enumerate(runs[0].channels):
+
+        # Relative difference spectrograms
+
         # Setup figure
         fig_scale = 6
-        fig = plt.figure(figsize=(
-                len(runs) * fig_scale, fig_scale))
-                #config.getfloat('Placement', 'fig_y_scale')))
+        fig = plt.figure(figsize=(len(runs) * fig_scale, fig_scale))
         fig.suptitle(f'Channel {channel}\n' + \
-                'Power compared to median at observed times, frequencies',
+                'Power compared to median PSD at observed times, frequencies',
                 y=0.99)
         
         for r, run in enumerate(runs):
@@ -385,7 +385,8 @@ def compare_spectrograms(runs, dfs):
                 rotation=270)
         
         # Save plot
-        plot_file = os.path.join('out', 'multirun', 'plots', f'spectrogram{i}.png')
+        plot_file = os.path.join('out', 'multirun', 'plots', 
+                f'spectrogram_rel{i}.png')
         plt.savefig(plot_file, bbox_inches='tight')
         plt.close()
         
@@ -463,7 +464,7 @@ def compare_ffts(runs, dfs, frequencies):
     # Remove large gap in LTP run
     for run in runs:
         if run.name == 'run_b' and run.mode == 'ltp':
-            dfs[r] = dfs[r][df.index.get_level_values('TIME') >= 1143962325]
+            dfs[run] = dfs[run][df.index.get_level_values('TIME') >= 1143962325]
 
     # Create plot for each channel
     p = utils.Progress(runs[0].channels, 'Plotting comparison FFTs...')
