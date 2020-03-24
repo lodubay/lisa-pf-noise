@@ -48,13 +48,14 @@ def main():
         args.runs = glob(f'data{os.sep}*{os.sep}*{os.sep}')
     
     # Matplotlib RC Config 
-    #plt.style.use('poster.mplstyle')
     print('Using config file at ' + str(matplotlib.matplotlib_fname()))
 
+    '''
     # Plot config parser
     config = configparser.ConfigParser(
             interpolation=configparser.BasicInterpolation())
     config.read('config.ini')
+    '''
     
     # Initialize run objects; skip missing directories
     runs = utils.init_runs(args.runs)
@@ -90,18 +91,18 @@ def main():
 
         # Generate plots
         frequencies = np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2])
-        #plot_tslices(run, df, config)
-        #plot_fslices(run, df, frequencies, config)
-        plot_spectrograms(run, df, config)
-        #plot_ffts(run, df, frequencies, config)
+        #plot_tslices(run, df)
+        #plot_fslices(run, df, frequencies)
+        plot_spectrograms(run, df)
+        #plot_ffts(run, df, frequencies)
 
     if args.compare:
         run_str = [f'{run.mode} {run.name}' for run in runs]
         print(f'\n-- {", ".join(run_str)} --')
         frequencies = np.array([1e-3, 5e-3, 3e-2])
-        compare_fslices(runs, dfs, frequencies, config)
-        #compare_spectrograms(runs, dfs, config)
-        #compare_ffts(runs, dfs, frequencies, config)
+        compare_fslices(runs, dfs, frequencies)
+        #compare_spectrograms(runs, dfs)
+        #compare_ffts(runs, dfs, frequencies)
 
 def fslice(fig, ax, df, channel, frequency):
     '''
@@ -150,7 +151,7 @@ def fslice(fig, ax, df, channel, frequency):
     # Horizontal axis limits
     ax.set_xlim((min(days_elapsed), max(days_elapsed)))
 
-def plot_fslices(run, df, frequencies, config):
+def plot_fslices(run, df, frequencies):
     # Create plot for each channel
     p = utils.Progress(run.channels, 'Plotting frequency slices...')
     for c, channel in enumerate(run.channels):
@@ -158,8 +159,7 @@ def plot_fslices(run, df, frequencies, config):
         fig = utils.gridplot(fslice, df, channel, frequencies,
                 f'{run.mode.upper()} channel {channel}\n' + \
                         'Power at selected frequencies',
-                f'Days elapsed since\n{run.start_date} UTC', 'Power', 
-                config)
+                f'Days elapsed since\n{run.start_date} UTC', 'Power')
         
         # Save plot
         plot_file = os.path.join(run.plot_dir, f'fslice{c}.png')
@@ -169,7 +169,7 @@ def plot_fslices(run, df, frequencies, config):
         # Update progress
         p.update(c)
 
-def compare_fslices(runs, dfs, frequencies, config):
+def compare_fslices(runs, dfs, frequencies):
     # Create plot for each channel
     p = utils.Progress(runs[0].channels, 'Plotting comparison frequency slices...')
     for c, channel in enumerate(runs[0].channels):
@@ -177,11 +177,10 @@ def compare_fslices(runs, dfs, frequencies, config):
         fig = utils.compareplot(fslice, runs, dfs, channel, frequencies,
                 f'Channel {channel}\nPower at selected frequencies over time',
                 [f'Days elapsed since\n{run.start_date} UTC' for run in runs], 
-                'Power', config)
+                'Power')
         
         # Save plot
-        plot_file = os.path.join(config.get('Directories', 'multirun_dir'), 
-                'plots', f'fslice{c}.png')
+        plot_file = os.path.join('out', 'multirun', 'plots', f'fslice{c}.png')
         plt.savefig(plot_file, bbox_inches='tight')
         plt.close()
         
@@ -218,7 +217,7 @@ def tslice(fig, ax, df, channel, time):
     ax.set_xscale('log')
     ax.set_yscale('log')
 
-def plot_tslices(run, df, config, times=[]):
+def plot_tslices(run, df, times=[]):
     # If no times given, sample even selection of observed times
     if len(times) == 0:
         n = 6
@@ -234,7 +233,7 @@ def plot_tslices(run, df, config, times=[]):
         fig = utils.gridplot(tslice, df, channel, times,
                 f'{run.mode.upper()} channel {channel}\n' + \
                         'PSDs at selected times',
-                'Frequency (Hz)', 'PSD', config)
+                'Frequency (Hz)', 'PSD')
         
         # Save plot
         plot_file = os.path.join(run.plot_dir, f'tslice{c}.png')
@@ -244,7 +243,7 @@ def plot_tslices(run, df, config, times=[]):
         # Update progress
         p.update(c)
 
-def spectrogram(fig, ax, run, psd, cmap, config, 
+def spectrogram(fig, ax, run, psd, cmap, 
         vlims=None, cbar_label=None, bar=True):
     '''
     Plot the spectrogram of a PSD with frequency on the y-axis and
@@ -290,12 +289,15 @@ def spectrogram(fig, ax, run, psd, cmap, config,
         if cbar_label:
             cbar.set_label(cbar_label, labelpad=15, rotation=270)
         offset = ax.yaxis.get_offset_text()
-        offset.set_size(config.getfloat('Font', 'offset_size'))
+        #offset.set_size(config.getfloat('Font', 'offset_size'))
     
     return im
 
-def plot_spectrograms(run, df, config):
-    # Plot spectrograms for each channel
+def plot_spectrograms(run, df):
+    '''
+    Plot spectrograms for each channel. Produces separate plots for the absolute
+    and relative differences from the mean PSD.
+    '''
     p = utils.Progress(run.channels, 'Plotting spectrograms...')
     for i, channel in enumerate(run.channels):
         # Unstack psd, removing all columns except the median
@@ -304,48 +306,49 @@ def plot_spectrograms(run, df, config):
         # Find median across all times
         median = unstacked.median(axis=1)
         
-        # Set up figure
-        fig, axs = plt.subplots(1, 2, figsize=(12, 6))
-        fig.suptitle(
-            f'Spectrogram of {run.mode.upper()} channel {channel}\n' + \
-                    'compared to median PSD',)
-        
-        # Subplots
-        axs[0].set_title('Absolute difference')
-        axs[0].set_ylabel('Frequency (Hz)')
-        spectrogram(fig, axs[0], run,
+        # Absolute difference spectrograms
+        fig, ax = plt.subplots(1, 1)
+        ax.set_title(
+            f'Absolute difference of {run.mode.upper()} channel {channel}\n' + \
+                    'compared to median PSD')
+        ax.set_ylabel('Frequency (Hz)')
+        spectrogram(fig, ax, run,
             unstacked.sub(median, axis=0), 
-            cm.get_cmap('coolwarm'), config
+            cm.get_cmap('coolwarm')
         )
-        axs[1].set_title('Relative difference')
-        spectrogram(fig, axs[1], run,
+        plot_file = os.path.join(run.plot_dir, f'spectrogram_abs{i}.png')
+        plt.savefig(plot_file, bbox_inches='tight')
+        plt.close()
+
+        # Relative difference spectrograms
+        fig, ax = plt.subplots(1, 1)#, figsize=(12, 6))
+        ax.set_title(
+            f'Relative difference of {run.mode.upper()} channel {channel}\n' + \
+                    'compared to median PSD')
+        ax.set_ylabel('Frequency (Hz)')
+        spectrogram(fig, ax, run,
             abs(unstacked.sub(median, axis=0)).div(median, axis=0),
-            'PuRd', config, vlims=(0,1)
+            'PuRd', vlims=(0,1)
         )
-        
-        # Figure layout
-        hlim = 0.85
-        fig.tight_layout(rect=[0, 0, 1, hlim], w_pad=2)
-        
-        # Save plot
-        plot_file = os.path.join(run.plot_dir, f'spectrogram{i}.png')
+        plot_file = os.path.join(run.plot_dir, f'spectrogram_rel{i}.png')
         plt.savefig(plot_file, bbox_inches='tight')
         plt.close()
         
         # Update progress
         p.update(i)
 
-def compare_spectrograms(runs, dfs, config):
+def compare_spectrograms(runs, dfs):
     # Plot spectrogram for each channel
     p = utils.Progress(runs[0].channels, 'Plotting comparison spectrograms...')
     for i, channel in enumerate(runs[0].channels):
         # Setup figure
+        fig_scale = 6
         fig = plt.figure(figsize=(
-                len(runs) * config.getfloat('Placement', 'fig_x_scale'), 
-                config.getfloat('Placement', 'fig_y_scale')))
+                len(runs) * fig_scale, fig_scale))
+                #config.getfloat('Placement', 'fig_y_scale')))
         fig.suptitle(f'Channel {channel}\n' + \
                 'Power compared to median at observed times, frequencies',
-                y=0.99, fontsize=config.getfloat('Font', 'fig_title_size'))
+                y=0.99)
         
         for r, run in enumerate(runs):
             # Import PSD summaries
@@ -363,17 +366,13 @@ def compare_spectrograms(runs, dfs, config):
             # Spectrogram
             im = spectrogram(fig, ax, run,
                 unstacked.sub(median, axis=0).div(median, axis=0), 
-                cm.get_cmap('coolwarm'), config, vlims=(-1,1), bar=False
+                cm.get_cmap('coolwarm'), vlims=(-1,1), bar=False
             )
             
             # Subplot config
-            ax.set_title(f'{run.mode.upper()}', 
-                    size=config.getfloat('Font', 'subplot_title_size'))
-            ax.tick_params(
-                    labelsize=config.getfloat('Font', 'tick_label_size'))
+            ax.set_title(f'{run.mode.upper()}')
             if r==0: # only label y axis on left most plot
-                ax.set_ylabel('Frequency (Hz)', 
-                        fontsize=config.getfloat('Font', 'ax_label_size'))
+                ax.set_ylabel('Frequency (Hz)')
         
         # Set tight layout
         fig.tight_layout(rect=[0, 0, 1, 0.88])
@@ -382,14 +381,11 @@ def compare_spectrograms(runs, dfs, config):
         fig.subplots_adjust(right=0.9)
         cbar_ax = fig.add_axes([0.92, 0.15, 0.02, 0.66])
         cbar = fig.colorbar(im, cax=cbar_ax)
-        cbar.ax.tick_params(labelsize=config.getfloat('Font',
-            'tick_label_size'))
         cbar.set_label('Relative difference from median PSD', labelpad=25, 
-                rotation=270, fontsize=config.getfloat('Font', 'ax_label_size'))
+                rotation=270)
         
         # Save plot
-        plot_file = os.path.join(config.get('Directories', 'multirun_dir'),
-                'plots', f'spectrogram{i}.png')
+        plot_file = os.path.join('out', 'multirun', 'plots', f'spectrogram{i}.png')
         plt.savefig(plot_file, bbox_inches='tight')
         plt.close()
         
@@ -441,7 +437,7 @@ def fft(fig, ax, df, channel, frequency):
     ax.set_title(freq_text)
     ax.set_yscale('log')
 
-def plot_ffts(run, df, frequencies, config):
+def plot_ffts(run, df, frequencies):
     # Remove large gap in LTP run
     if run.name == 'run_b' and run.mode == 'ltp':
         df = df[df.index.get_level_values('TIME') >= 1143962325]
@@ -453,8 +449,7 @@ def plot_ffts(run, df, frequencies, config):
         fig = utils.gridplot(fft, df, channel, frequencies,
                 f'{run.mode.upper()} channel {channel}\n' + \
                         'FFT of power at selected frequencies',
-                f'Days elapsed since\n{run.start_date} UTC', 'PSD', 
-                config)
+                f'Days elapsed since\n{run.start_date} UTC', 'PSD')
         
         # Save plot
         plot_file = os.path.join(run.plot_dir, f'fft{c}.png')
@@ -464,7 +459,7 @@ def plot_ffts(run, df, frequencies, config):
         # Update progress
         p.update(c)
 
-def compare_ffts(runs, dfs, frequencies, config):
+def compare_ffts(runs, dfs, frequencies):
     # Remove large gap in LTP run
     for run in runs:
         if run.name == 'run_b' and run.mode == 'ltp':
@@ -477,10 +472,10 @@ def compare_ffts(runs, dfs, frequencies, config):
         fig = utils.compareplot(fft, runs, dfs, channel, frequencies,
                 f'Channel {channel}\nFFT of power at selected frequencies',
                 [f'Days elapsed since\n{run.start_date} UTC' for run in runs], 
-                'PSD', config)
+                'PSD')
         
         # Save plot
-        plot_file = os.path.join(config.get('Directories', 'multirun_dir'), 
+        plot_file = os.path.join('out', 'multirun', 
                 'plots', f'fft{c}.png')
         plt.savefig(plot_file, bbox_inches='tight')
         plt.close()
