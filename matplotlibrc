@@ -4,7 +4,6 @@ legend.fontsize : 16
 axes.labelsize : 16
 axes.titlepad : 15
 axes.labelpad : 10
-axes.formatter.useoffset : False
 xtick.labelsize : 12
 ytick.labelsize : 12
 xtick.major.size : 8
