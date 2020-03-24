@@ -59,6 +59,12 @@ generate new plots.
 If no arguments are specified, the script will run on all runs within the
 `data/` directory.
 
+## Import PSDs
+
+If you want to import the PSD data files and generate summary `.pkl` files, but not produce any plots, run:
+
+`$ src/import_psd.py 'data/<mode>/run_a' 'data/<mode>/run_b' ...`
+
 ## Spectral line analysis
 
 Execute `$ src/linechain.py 'data/<mode>/run_a' 'data/<mode>/run_b' ...`
