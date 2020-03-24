@@ -89,10 +89,12 @@ def main():
         dfs.append(df)
 
         # Generate plots
+        '''
         plot_tslices(run, df)
         plot_fslices(run, df, frequencies)
         plot_spectrograms(run, df)
         plot_ffts(run, df, frequencies)
+        '''
 
     if args.compare:
         run_str = [f'{run.mode} {run.name}' for run in runs]

@@ -284,7 +284,6 @@ def compareplot(fn, runs, dfs, channel, iterable, suptitle, xlabels, ylabel):
             exp_txt.set_size(offset_size)
             
             # Subplot config
-            #ax.set_title(ax.get_title())
             if r == 0: # y axis label on left plots only
                 ax.set_ylabel(new_ylabel)
 
@@ -295,8 +294,9 @@ def compareplot(fn, runs, dfs, channel, iterable, suptitle, xlabels, ylabel):
     # Reorder legend
     if len(handles) == 3:
         order = [0, 2, 1]
-        fig.legend([handles[i] for i in order], [labels[i] for i in order])
-    fig.tight_layout(rect=[0, 0, 1, 0.88])
+        fig.legend([handles[i] for i in order], [labels[i] for i in order],
+                loc='upper center', ncol=3, bbox_to_anchor=(0.5,0.9))
+    fig.tight_layout(rect=[0, 0, 1, 0.85])
     
     return fig
 
