@@ -49,13 +49,6 @@ def main():
     
     # Matplotlib RC Config 
     print('Using config file at ' + str(matplotlib.matplotlib_fname()))
-
-    '''
-    # Plot config parser
-    config = configparser.ConfigParser(
-            interpolation=configparser.BasicInterpolation())
-    config.read('config.ini')
-    '''
     
     # Initialize run objects; skip missing directories
     runs = utils.init_runs(args.runs)
@@ -91,9 +84,9 @@ def main():
 
         # Generate plots
         frequencies = np.array([1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2])
-        #plot_tslices(run, df)
+        plot_tslices(run, df)
         #plot_fslices(run, df, frequencies)
-        plot_spectrograms(run, df)
+        #plot_spectrograms(run, df)
         #plot_ffts(run, df, frequencies)
 
     if args.compare:
@@ -321,7 +314,7 @@ def plot_spectrograms(run, df):
         plt.close()
 
         # Relative difference spectrograms
-        fig, ax = plt.subplots(1, 1)#, figsize=(12, 6))
+        fig, ax = plt.subplots(1, 1)
         ax.set_title(
             f'Relative difference of {run.mode.upper()} channel {channel}\n' + \
                     'compared to median PSD')

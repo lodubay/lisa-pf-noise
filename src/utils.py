@@ -2,11 +2,11 @@ import sys
 from glob import glob
 import os
 import argparse
-import configparser
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 from astropy.time import Time
 
 class Progress:
@@ -200,7 +200,7 @@ def add_parser(description, comparison=True, title=False):
     return args
 
 
-def gridplot(fn, df, channel, iterable, suptitle, xlabel, ylabel, config):
+def gridplot(fn, df, channel, iterable, suptitle, xlabel, ylabel):
     '''
     Plots a given function for a list of values in a grid.
     
@@ -213,16 +213,14 @@ def gridplot(fn, df, channel, iterable, suptitle, xlabel, ylabel, config):
       suptitle : str, the plot title
       xlabel : str, the x axis label
       ylabel : str, the y axis label
-      config : ConfigParser
     '''
     # Automatically create grid of axes
     nrows = int(np.floor(float(len(iterable)) ** 0.5))
     ncols = int(np.ceil(1. * len(iterable) / nrows))
     # Set up figure
-    fig = plt.figure(
-            figsize=(config.getfloat('Placement', 'fig_x_scale') * ncols, 
-            config.getfloat('Placement', 'fig_y_scale') * nrows))
-    fig.suptitle(suptitle, fontsize=config.getfloat('Font', 'fig_title_size'))
+    fig_scale = 6
+    fig = plt.figure(figsize=(fig_scale * ncols, fig_scale * nrows))
+    fig.suptitle(suptitle)
     
     # Subplots
     for i, item in enumerate(iterable):
@@ -233,40 +231,30 @@ def gridplot(fn, df, channel, iterable, suptitle, xlabel, ylabel, config):
         fn(fig, ax, df, channel, item)
         
         # Subplot config
-        ax.set_title(ax.get_title(),
-                fontsize=config.getfloat('Font', 'subplot_title_size'))
+        #ax.set_title(ax.get_title())
         if i >= len(iterable) - ncols: # x axis label on bottom plots only
-            ax.set_xlabel(xlabel, 
-                    fontsize=config.getfloat('Font', 'ax_label_size'))
+            ax.set_xlabel(xlabel)
         if i % ncols == 0: # y axis label on left plots only
-            ax.set_ylabel(ylabel, 
-                    fontsize=config.getfloat('Font', 'ax_label_size'))
-        ax.tick_params(axis='both', which='major',
-                labelsize=config.getfloat('Font', 'tick_label_size'),
-                length=config.getfloat('Tick','major_tick_length'))
-        ax.tick_params(axis='both', which='minor', 
-                length=config.getfloat('Tick', 'minor_tick_length'))
+            ax.set_ylabel(ylabel)
         
     handles, labels = ax.get_legend_handles_labels()
     # Reorder legend
     if len(handles) == 3:
         order = [0, 2, 1]
-        fig.legend([handles[i] for i in order], [labels[i] for i in order],
-                fontsize=config.getfloat('Font', 'legend_label_size'))
+        fig.legend([handles[i] for i in order], [labels[i] for i in order])
     fig.tight_layout(rect=[0, 0, 1, 0.88])
     
     return fig
 
 
-def compareplot(fn, runs, dfs, channel, iterable, suptitle, xlabels, ylabel,
-        config):
+def compareplot(fn, runs, dfs, channel, iterable, suptitle, xlabels, ylabel):
     # Set up figure
+    fig_scale = 6
     nrows = len(iterable)
     ncols = len(runs)
     fig, axes = plt.subplots(nrows, ncols, sharex='col',
-            figsize=(config.getfloat('Placement', 'fig_x_scale') * ncols, 
-                     config.getfloat('Placement', 'fig_y_scale')/2 * nrows))
-    fig.suptitle(suptitle, fontsize=config.getfloat('Font', 'fig_title_size'))
+            figsize=(fig_scale * ncols, fig_scale/2 * nrows))
+    fig.suptitle(suptitle)
 
     # Subplots
     for r, run in enumerate(runs):
@@ -283,40 +271,31 @@ def compareplot(fn, runs, dfs, channel, iterable, suptitle, xlabels, ylabel,
 
             # Subplot title if top plot
             if i == 0:
-                ax.set_title(f'{run.mode.upper()}', 
-                        fontsize=config.getfloat('Font', 'subplot_title_size'),
-                        pad=config.getfloat('Placement', 'subplot_title_pad'))
+                ax.set_title(f'{run.mode.upper()}')
             else:
                 ax.set_title('')
             
             # More mathy exponent label
+            offset_size = mpl.rcParams['ytick.labelsize']
+            spine_pad = mpl.rcParams['axes.labelpad']
             ax.ticklabel_format(axis='y', useMathText=True)
             exp_txt = ax.yaxis.get_offset_text()
-            exp_txt.set_x(-0.005 * config.getfloat('Placement', 'spine_pad'))
-            exp_txt.set_size(config.getfloat('Font', 'offset_size'))
+            exp_txt.set_x(-0.005 * spine_pad)
+            exp_txt.set_size(offset_size)
             
             # Subplot config
-            ax.set_title(ax.get_title(),
-                    fontsize=config.getfloat('Font', 'subplot_title_size'))
+            #ax.set_title(ax.get_title())
             if r == 0: # y axis label on left plots only
-                ax.set_ylabel(new_ylabel, 
-                        fontsize=config.getfloat('Font', 'ax_label_size'))
-            ax.tick_params(axis='both', which='major',
-                    labelsize=config.getfloat('Font', 'tick_label_size'),
-                    length=config.getfloat('Tick','major_tick_length'))
-            ax.tick_params(axis='both', which='minor', 
-                    length=config.getfloat('Tick', 'minor_tick_length'))
+                ax.set_ylabel(new_ylabel)
 
         # x axis label on bottom plots only
-        ax.set_xlabel(xlabel, 
-                fontsize=config.getfloat('Font', 'ax_label_size'))
+        ax.set_xlabel(xlabel)
         
     handles, labels = ax.get_legend_handles_labels()
     # Reorder legend
     if len(handles) == 3:
         order = [0, 2, 1]
-        fig.legend([handles[i] for i in order], [labels[i] for i in order],
-                fontsize=config.getfloat('Font', 'legend_label_size'))
+        fig.legend([handles[i] for i in order], [labels[i] for i in order])
     fig.tight_layout(rect=[0, 0, 1, 0.88])
     
     return fig
