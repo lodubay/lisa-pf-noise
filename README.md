@@ -38,7 +38,8 @@ psd.dat.2
 ...
 psd.dat.99
 ```
-4. Optionally, include an impacts file at `data/impacts.dat`.
+4. Specify frequencies (affects plots for frequency slices and FFTs) in a CSV at `data/frequencies.csv`. If no file is specified, defaults to (1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2).
+5. Optionally, include an impacts file at `data/impacts.dat`.
 
 ## PSD analysis
 
