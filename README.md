@@ -38,10 +38,11 @@ psd.dat.2
 ...
 psd.dat.99
 ```
+4. Optionally, include an impacts file at `data/impacts.dat`.
 
 ## PSD analysis
 
-Execute `$ src/psd.py 'data/<mode>/run_a' 'data/<mode>/run_b' ...`
+Execute `$ src/analysis.py 'data/<mode>/run_a' 'data/<mode>/run_b' ...`
 
 The script will first generate and save summary DataFrames, and then create
 colormap, time slice, and frequency slice plots for each channel. Summaries
